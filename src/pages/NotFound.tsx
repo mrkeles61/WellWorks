@@ -1,5 +1,6 @@
 import { Link, useLocation } from "react-router-dom";
 import { useEffect } from "react";
+import { useTranslation } from "react-i18next";
 import { Home } from "lucide-react";
 import { useBrand } from "@/context/BrandContext";
 import { cn } from "@/lib/utils";
@@ -7,6 +8,7 @@ import { cn } from "@/lib/utils";
 const NotFound = () => {
   const location = useLocation();
   const { brand } = useBrand();
+  const { t } = useTranslation();
 
   useEffect(() => {
     console.error("404 Error: User attempted to access non-existent route:", location.pathname);
@@ -31,7 +33,7 @@ const NotFound = () => {
           404
         </h1>
         <p className="text-xl text-muted-foreground mb-8">
-          Aradığınız sayfa bulunamadı
+          {t('notFound.message')}
         </p>
         <Link
           to="/"
@@ -41,7 +43,7 @@ const NotFound = () => {
           )}
         >
           <Home className="w-5 h-5" />
-          Ana Sayfaya Dön
+          {t('notFound.backHome')}
         </Link>
       </div>
     </div>

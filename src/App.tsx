@@ -7,8 +7,12 @@ import { BrandProvider } from "./context/BrandContext";
 import Layout from "./components/layout/Layout";
 import GatewayPage from "./pages/GatewayPage";
 import HealthHome from "./pages/HealthHome";
+import HealthProducts from "./pages/HealthProducts";
+import HealthAbout from "./pages/HealthAbout";
 import MiceHome from "./pages/MiceHome";
 import TeamPage from "./pages/TeamPage";
+import ComparePage from "./pages/ComparePage";
+import LegalPage from "./pages/LegalPage";
 import NotFound from "./pages/NotFound";
 import "./lib/i18n";
 
@@ -25,13 +29,15 @@ const App = () => (
             <Routes>
               <Route path="/" element={<GatewayPage />} />
               <Route path="/health" element={<HealthHome />} />
-              <Route path="/health/urunler" element={<HealthHome />} />
-              <Route path="/health/hakkinda" element={<HealthHome />} />
+              <Route path="/health/urunler" element={<HealthProducts />} />
+              <Route path="/health/hakkinda" element={<HealthAbout />} />
               <Route path="/mice" element={<MiceHome />} />
               <Route path="/mice/etkinlikler" element={<MiceHome />} />
               <Route path="/mice/iletisim" element={<MiceHome />} />
               <Route path="/ekip" element={<TeamPage />} />
               <Route path="/familyamiz" element={<TeamPage />} />
+              <Route path="/karsilastir" element={<ComparePage />} />
+              <Route path="/legal/:type" element={<LegalPage />} />
               {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
               <Route path="*" element={<NotFound />} />
             </Routes>

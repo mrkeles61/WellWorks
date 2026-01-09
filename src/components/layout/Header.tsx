@@ -1,19 +1,20 @@
-import { Link, useLocation, useNavigate } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { Menu, Search, X } from 'lucide-react';
 import { useState, useEffect } from 'react';
 import { useBrand } from '@/context/BrandContext';
 import BrandToggle from '@/components/shared/BrandToggle';
 import LanguageToggle from '@/components/shared/LanguageToggle';
+import SearchModal from '@/components/shared/SearchModal';
 import { cn } from '@/lib/utils';
 
 const Header = () => {
   const { t } = useTranslation();
   const { brand } = useBrand();
   const location = useLocation();
-  const navigate = useNavigate();
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [isSearchOpen, setIsSearchOpen] = useState(false);
 
   // Check if we're on gateway page
   const isGateway = location.pathname === '/';
@@ -118,11 +119,12 @@ const Header = () => {
             <BrandToggle />
 
             <button
+              onClick={() => setIsSearchOpen(true)}
               className={cn(
                 'p-2 rounded-full transition-colors',
                 brand === 'health' ? 'hover:bg-secondary' : 'hover:bg-secondary'
               )}
-              aria-label="Ara"
+              aria-label={t('search.placeholder')}
             >
               <Search className="w-5 h-5" />
             </button>
@@ -133,13 +135,16 @@ const Header = () => {
             <button
               className="lg:hidden p-2"
               onClick={() => setIsMobileMenuOpen(true)}
-              aria-label="Menü"
+              aria-label={t('nav.menu')}
             >
               <Menu className="w-6 h-6" />
             </button>
           </div>
         </div>
       </header>
+
+      {/* Search Modal */}
+      <SearchModal isOpen={isSearchOpen} onClose={() => setIsSearchOpen(false)} />
 
       {/* Mobile Menu */}
       <div
@@ -163,7 +168,7 @@ const Header = () => {
             <button
               className="absolute top-4 right-4 p-2"
               onClick={() => setIsMobileMenuOpen(false)}
-              aria-label="Kapat"
+              aria-label={t('nav.close')}
             >
               <X className="w-6 h-6" />
             </button>

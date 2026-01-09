@@ -12,6 +12,8 @@ const resources = {
         events: 'İşler Güçler',
         team: 'Familyamız',
         contact: 'İletişim',
+        menu: 'Menü',
+        close: 'Kapat',
       },
       gateway: {
         health: {
@@ -34,11 +36,15 @@ const resources = {
         },
         products: {
           title: 'Ürünlerimiz',
+          subtitle: 'Dailyshot likit gıda takviyeleri, her ihtiyaca ve hedefe yönelik formülasyonları ile gün içerisinde vücudunuzun ihtiyaç duyduğu her alanda sizlere destek olur.',
           viewAll: 'Tümünü Gör',
           buyNow: 'Satın Al',
           compare: 'Karşılaştır',
           quickView: 'Hızlı Bakış',
           new: 'Yeni',
+        },
+        about: {
+          title: 'Dailyshot Nedir?',
         },
         trust: {
           freeShipping: 'Ücretsiz Kargo',
@@ -96,9 +102,35 @@ const resources = {
         placeholder: 'Ürün, etkinlik veya sayfa ara...',
         popular: 'Popüler Aramalar',
         noResults: 'Sonuç bulunamadı',
+        close: 'Kapat',
       },
       whatsapp: {
         tooltip: 'Bize yazın! 7/24 destek',
+      },
+      notFound: {
+        message: 'Aradığınız sayfa bulunamadı',
+        backHome: 'Ana Sayfaya Dön',
+      },
+      compare: {
+        title: 'Ürün Karşılaştır',
+        subtitle: 'Ürünleri yan yana karşılaştırın ve size en uygun olanı seçin.',
+        comingSoon: 'Bu özellik yakında aktif olacaktır.',
+      },
+      legal: {
+        title: 'Yasal Bilgiler',
+        content: 'İçerik hazırlanıyor...',
+        kvkk: {
+          title: 'KVKK Aydınlatma Metni',
+          content: 'Kişisel Verilerin Korunması Kanunu (KVKK) kapsamında kişisel verileriniz, Well Works Turkey tarafından veri sorumlusu sıfatıyla işlenmektedir.\n\nKişisel verileriniz; hizmetlerimizin sunulması, müşteri ilişkilerinin yönetilmesi ve yasal yükümlülüklerin yerine getirilmesi amaçlarıyla işlenmektedir.\n\nKişisel verileriniz, ilgili mevzuatta belirtilen süreler boyunca saklanmakta ve bu sürelerin sonunda silinmekte, yok edilmekte veya anonim hale getirilmektedir.\n\nKVKK kapsamındaki haklarınız hakkında detaylı bilgi almak için info@wellworksturkey.com adresine başvurabilirsiniz.',
+        },
+        cookies: {
+          title: 'Çerez Politikası',
+          content: 'Web sitemiz, size daha iyi bir deneyim sunmak için çerezler kullanmaktadır.\n\nÇerezler, web sitemizi ziyaret ettiğinizde tarayıcınız tarafından cihazınıza kaydedilen küçük metin dosyalarıdır.\n\nKullandığımız çerez türleri:\n• Zorunlu Çerezler: Web sitesinin düzgün çalışması için gereklidir.\n• Analitik Çerezler: Ziyaretçi davranışlarını anlamamıza yardımcı olur.\n• Pazarlama Çerezleri: Size özelleştirilmiş reklamlar göstermek için kullanılır.\n\nTarayıcı ayarlarınızdan çerezleri devre dışı bırakabilirsiniz, ancak bu durumda bazı özellikler düzgün çalışmayabilir.',
+        },
+        terms: {
+          title: 'Kullanım Koşulları',
+          content: 'Web sitemizi kullanarak aşağıdaki koşulları kabul etmiş sayılırsınız.\n\n1. Genel Koşullar\nBu web sitesi Well Works Turkey tarafından işletilmektedir. Siteyi kullanarak bu koşulları kabul etmiş olursunuz.\n\n2. Fikri Mülkiyet\nSitedeki tüm içerik, logolar ve görseller Well Works Turkey\'e aittir ve izinsiz kullanılamaz.\n\n3. Sorumluluk Reddi\nSite içeriği bilgilendirme amaçlıdır. Ürünlerimiz tıbbi tedavi yerine geçmez.\n\n4. Değişiklikler\nBu koşulları önceden haber vermeksizin değiştirme hakkımızı saklı tutarız.',
+        },
       },
     },
   },
@@ -112,6 +144,8 @@ const resources = {
         events: 'Our Work',
         team: 'Our Team',
         contact: 'Contact',
+        menu: 'Menu',
+        close: 'Close',
       },
       gateway: {
         health: {
@@ -134,11 +168,15 @@ const resources = {
         },
         products: {
           title: 'Our Products',
+          subtitle: 'Dailyshot liquid supplements support your body throughout the day with formulations designed for every need and goal.',
           viewAll: 'View All',
           buyNow: 'Buy Now',
           compare: 'Compare',
           quickView: 'Quick View',
           new: 'New',
+        },
+        about: {
+          title: 'What is Dailyshot?',
         },
         trust: {
           freeShipping: 'Free Shipping',
@@ -196,21 +234,59 @@ const resources = {
         placeholder: 'Search products, events or pages...',
         popular: 'Popular Searches',
         noResults: 'No results found',
+        close: 'Close',
       },
       whatsapp: {
         tooltip: 'Message us! 24/7 support',
+      },
+      notFound: {
+        message: 'The page you are looking for was not found',
+        backHome: 'Back to Home',
+      },
+      compare: {
+        title: 'Compare Products',
+        subtitle: 'Compare products side by side and choose the best one for you.',
+        comingSoon: 'This feature will be available soon.',
+      },
+      legal: {
+        title: 'Legal Information',
+        content: 'Content is being prepared...',
+        kvkk: {
+          title: 'Privacy Policy (KVKK)',
+          content: 'Your personal data is processed by Well Works Turkey as the data controller under the Personal Data Protection Law (KVKK).\n\nYour personal data is processed for the purposes of providing our services, managing customer relationships, and fulfilling legal obligations.\n\nYour personal data is stored for the periods specified in the relevant legislation and is deleted, destroyed, or anonymized at the end of these periods.\n\nFor detailed information about your rights under KVKK, you can contact info@wellworksturkey.com.',
+        },
+        cookies: {
+          title: 'Cookie Policy',
+          content: 'Our website uses cookies to provide you with a better experience.\n\nCookies are small text files saved to your device by your browser when you visit our website.\n\nTypes of cookies we use:\n• Essential Cookies: Required for the website to function properly.\n• Analytics Cookies: Help us understand visitor behavior.\n• Marketing Cookies: Used to show you personalized ads.\n\nYou can disable cookies from your browser settings, but some features may not work properly.',
+        },
+        terms: {
+          title: 'Terms of Service',
+          content: 'By using our website, you agree to the following terms.\n\n1. General Terms\nThis website is operated by Well Works Turkey. By using the site, you agree to these terms.\n\n2. Intellectual Property\nAll content, logos, and images on the site belong to Well Works Turkey and cannot be used without permission.\n\n3. Disclaimer\nSite content is for informational purposes. Our products do not replace medical treatment.\n\n4. Changes\nWe reserve the right to change these terms without prior notice.',
+        },
       },
     },
   },
 };
 
+// Get saved language from localStorage or default to Turkish
+const savedLang = typeof window !== 'undefined' 
+  ? localStorage.getItem('wellworks-lang') 
+  : null;
+
 i18n.use(initReactI18next).init({
   resources,
-  lng: 'tr',
+  lng: savedLang || 'tr',
   fallbackLng: 'tr',
   interpolation: {
     escapeValue: false,
   },
+});
+
+// Save language changes to localStorage
+i18n.on('languageChanged', (lng) => {
+  if (typeof window !== 'undefined') {
+    localStorage.setItem('wellworks-lang', lng);
+  }
 });
 
 export default i18n;

@@ -51,7 +51,7 @@ export const products: Product[] = [
     slug: 'relaxshot-7-li-kutu',
     shortDescription: 'Rahatla, dinlen, yenilen',
     tagline: 'Uyku ve Stres',
-    price: 425,
+    price: 515,
     image: '/products/relaxshot.jpg',
     color: '#457B9D',
     category: 'Uyku ve Stres',
