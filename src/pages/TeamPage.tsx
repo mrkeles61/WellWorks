@@ -3,7 +3,6 @@ import { Linkedin, Instagram } from 'lucide-react';
 import { team } from '@/data/team';
 import { useBrand } from '@/context/BrandContext';
 import { cn } from '@/lib/utils';
-import miceHeroImage from '@/assets/mice-hero-festival.jpg';
 
 const TeamPage = () => {
   const { t } = useTranslation();
@@ -22,7 +21,12 @@ const TeamPage = () => {
           >
             {t('team.title')}
           </h1>
-          <p className="text-muted-foreground text-lg">{t('team.subtitle')}</p>
+          <p className={cn(
+            'text-lg',
+            brand === 'mice' ? 'text-gray-400' : 'text-muted-foreground'
+          )}>
+            {t('team.subtitle')}
+          </p>
         </div>
 
         {/* Team Grid */}
@@ -38,7 +42,7 @@ const TeamPage = () => {
             >
               {/* Photo */}
               <img
-                src={miceHeroImage}
+                src={member.photo}
                 alt={member.name}
                 className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
                 loading="lazy"
