@@ -26,16 +26,18 @@ const ProductCard = ({ product }: ProductCardProps) => {
         )}
 
         {/* Product Image */}
-        <div className="relative h-48 mb-4 flex items-center justify-center">
+        <div className="relative h-64 mb-4 flex items-center justify-center overflow-hidden rounded-xl">
           <div
-            className="absolute inset-0 opacity-20 rounded-xl"
+            className="absolute inset-0 opacity-10 rounded-xl"
             style={{
               background: `radial-gradient(circle, ${product.color}40 0%, transparent 70%)`,
             }}
           />
-          <div
-            className="w-20 h-32 rounded-lg shadow-lg transition-transform duration-300 group-hover:scale-110 group-hover:rotate-3"
-            style={{ backgroundColor: product.color }}
+          <img
+            src={product.image}
+            alt={product.name}
+            className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
+            loading="lazy"
           />
         </div>
 

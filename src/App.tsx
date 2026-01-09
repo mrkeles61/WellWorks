@@ -31,6 +31,7 @@ const App = () => (
               <Route path="/mice/etkinlikler" element={<MiceHome />} />
               <Route path="/mice/iletisim" element={<MiceHome />} />
               <Route path="/ekip" element={<TeamPage />} />
+              <Route path="/familyamiz" element={<TeamPage />} />
               {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
               <Route path="*" element={<NotFound />} />
             </Routes>
