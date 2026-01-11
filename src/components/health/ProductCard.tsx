@@ -1,7 +1,8 @@
-import { ArrowRight, Sparkles } from 'lucide-react';
+import { ArrowRight } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import type { Product } from '@/data/products';
 import { memo } from 'react';
+import { useTranslation } from 'react-i18next';
 
 interface ProductCardProps {
   product: Product;
@@ -9,16 +10,16 @@ interface ProductCardProps {
 }
 
 /**
- * ProductCard - Clinical Luxury Design
- * Audit-compliant: 
- * - White background with subtle blue border
- * - Min 44px button height for touch
- * - No excessive icons (max: Sparkles x3)
- * - Uses transform/opacity only
- * - Memoized to prevent grid re-renders
+ * ProductCard - Large cards with product-colored text and bullet point features
+ * - Bigger card size with rounded corners
+ * - Product color themed text
+ * - Bullet point descriptions (max 3)
+ * - Min 44px button height for touch compliance
  */
 const ProductCard = memo(({ product, priority = false }: ProductCardProps) => {
+  const { i18n } = useTranslation();
   const productUrl = `https://www.dailyshot.com.tr/urun/${product.slug}`;
+  const features = i18n.language === 'tr' ? product.featuresTr : product.features;
 
   return (
     <article className="group relative h-full">
@@ -30,67 +31,83 @@ const ProductCard = memo(({ product, priority = false }: ProductCardProps) => {
       >
         <div
           className={cn(
-            'glass-card relative overflow-hidden h-full flex flex-col',
-            'transition-transform duration-300 ease-out',
-            'hover:-translate-y-1'
+            'relative overflow-hidden h-full flex flex-col',
+            'bg-gray-100 rounded-3xl p-6',
+            'transition-all duration-300 ease-out',
+            'hover:-translate-y-1 hover:shadow-xl'
           )}
         >
           {/* Badge */}
           {product.isNew && (
-            <span className="absolute top-4 left-4 z-10 px-3 py-1.5 bg-[#00A3E0] text-white text-xs font-semibold rounded-full">
+            <span
+              className="absolute top-4 left-4 z-10 px-3 py-1.5 text-white text-xs font-semibold rounded-full"
+              style={{ backgroundColor: product.color }}
+            >
               Yeni
             </span>
           )}
 
-          {/* Product Image - Fixed Aspect Ratio */}
+          {/* Product Image - Larger with product background tint */}
           <div
-            className="relative mb-6 flex items-center justify-center overflow-hidden rounded-xl bg-slate-50"
-            style={{ aspectRatio: '1 / 1' }}
+            className="relative mb-6 flex items-center justify-center overflow-hidden rounded-2xl"
+            style={{
+              aspectRatio: '4 / 3',
+              backgroundColor: `${product.color}10`
+            }}
           >
             <img
               src={product.image}
               alt={product.name}
-              width={300}
+              width={400}
               height={300}
               loading={priority ? 'eager' : 'lazy'}
               fetchPriority={priority ? 'high' : 'low'}
               decoding="async"
-              className="w-4/5 h-4/5 object-contain transition-transform duration-500 group-hover:scale-105"
+              className="w-full h-full object-contain transition-transform duration-500 group-hover:scale-105 p-4"
             />
           </div>
 
-          {/* Product Info */}
-          <div className="mb-2">
-            <h3 className="font-semibold text-lg text-gray-900 font-poppins">{product.name}</h3>
-            <p className="text-sm font-medium text-[#00A3E0]">
-              {product.tagline}
-            </p>
-          </div>
+          {/* Product Name - Color themed */}
+          <h3
+            className="font-bold text-xl md:text-2xl font-poppins mb-2"
+            style={{ color: product.color }}
+          >
+            {product.name.toUpperCase().replace(/'LI KUTU|'Lİ KUTU/gi, '').trim()}
+          </h3>
 
-          <p className="text-gray-500 text-sm mb-4 line-clamp-2">{product.shortDescription}</p>
+          {/* Short Description */}
+          <p className="text-gray-600 text-sm mb-4 leading-relaxed">
+            {product.shortDescription}
+          </p>
 
-          {/* Features - Max 3 icons */}
-          {product.featuresTr && (
-            <div className="space-y-2 mb-6 mt-auto">
-              {product.featuresTr.slice(0, 3).map((feature) => (
-                <div key={feature} className="flex items-center gap-2 text-sm text-gray-600">
-                  <Sparkles className="w-4 h-4 flex-shrink-0 text-[#00A3E0]" />
+          {/* Bullet Point Features - Max 3 */}
+          {features && features.length > 0 && (
+            <ul className="space-y-1.5 mb-6 mt-auto">
+              {features.slice(0, 3).map((feature) => (
+                <li key={feature} className="flex items-start gap-2 text-sm text-gray-700">
+                  <span
+                    className="w-1.5 h-1.5 rounded-full mt-1.5 flex-shrink-0"
+                    style={{ backgroundColor: product.color }}
+                  />
                   <span>{feature}</span>
-                </div>
+                </li>
               ))}
-            </div>
+            </ul>
           )}
 
-          {/* CTA Button - Min 44px height for touch compliance */}
+          {/* CTA Button - Product colored */}
           <div
             className={cn(
-              'w-full min-h-[44px] py-3 rounded-xl font-semibold flex items-center justify-center gap-2',
-              'bg-[#00A3E0] text-white',
-              'transition-all duration-300',
-              'group-hover:bg-[#0091C7] group-hover:shadow-lg'
+              'w-full min-h-[44px] py-3 rounded-full font-semibold flex items-center justify-center gap-2',
+              'border-2 transition-all duration-300'
             )}
+            style={{
+              backgroundColor: product.color,
+              borderColor: product.color,
+              color: 'white'
+            }}
           >
-            Satın Al
+            İNCELE
             <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-0.5" />
           </div>
         </div>

@@ -176,19 +176,19 @@ const BentoGrid = () => {
                     </p>
                 </div>
 
-                {/* Bento Grid Layout */}
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 auto-rows-[280px]">
+                {/* Bento Grid Layout - Wider, shorter cards */}
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 auto-rows-[180px] md:auto-rows-[200px]">
                     {/* Featured large card */}
                     <BentoCard
                         event={events[0]}
-                        className="md:col-span-2 md:row-span-2"
+                        className="md:col-span-2 lg:col-span-2 md:row-span-2"
                     />
 
-                    {/* Regular cards */}
-                    <BentoCard event={events[1]} />
-                    <BentoCard event={events[2]} />
-                    <BentoCard event={events[3]} />
-                    <BentoCard event={events[4]} />
+                    {/* Regular cards - wider */}
+                    <BentoCard event={events[1]} className="lg:col-span-1" />
+                    <BentoCard event={events[2]} className="lg:col-span-1" />
+                    <BentoCard event={events[3]} className="md:col-span-1" />
+                    <BentoCard event={events[4]} className="md:col-span-1" />
                 </div>
 
                 {/* View All CTA */}

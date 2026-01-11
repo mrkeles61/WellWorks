@@ -38,13 +38,12 @@ const Header = () => {
 
   const healthLinks: NavLinkItem[] = [
     { href: '/health', label: t('nav.home') },
-    { href: '/health/urunler', label: t('nav.products') },
     { href: '/health/hakkinda', label: t('nav.about') },
   ];
 
   const miceLinks: NavLinkItem[] = [
     { href: '/mice', label: t('nav.home') },
-    { href: '/mice/isler-gucler', label: 'İşler Güçler' },
+    { href: '/mice/isler-gucler', label: t('nav.events') },
     { href: '/mice/iletisim', label: t('nav.contact') },
   ];
 

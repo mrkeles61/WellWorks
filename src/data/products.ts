@@ -19,6 +19,7 @@ export interface Product {
   image: string;
   color: string;
   category: string;
+  brand: 'dailyshot' | 'electrovit';
   isNew?: boolean;
   features?: string[];
   featuresTr?: string[];
@@ -37,6 +38,7 @@ export const products: Product[] = [
     image: enerji1,
     color: '#FF6B35',
     category: 'Enerji',
+    brand: 'dailyshot',
     isNew: false,
     features: ['3+ Ginseng Complex', 'WWH-13 Formula', 'Fuel Your Day'],
     featuresTr: ['3+ Ginseng Kompleksi', 'WWH-13 Formülü', 'Gününe Güç Kat'],
@@ -53,6 +55,7 @@ export const products: Product[] = [
     image: hango1,
     color: '#E63946',
     category: 'Akşamdan Kalma',
+    brand: 'dailyshot',
     isNew: false,
     features: ['Save Your Next Day', '4X Shot', 'Forest Fruit Flavour'],
     featuresTr: ['Ertesi Gününü Kurtar', '4X Shot', 'Orman Meyveli Aroma'],
@@ -69,6 +72,7 @@ export const products: Product[] = [
     image: relax1,
     color: '#457B9D',
     category: 'Uyku ve Stres',
+    brand: 'dailyshot',
     isNew: false,
     features: ['Mood Up & Sleep Tight', 'Rich Herbal Extract', 'WWH-7 Formula'],
     featuresTr: ['Ruh Halin Yükselsin, Uyku Derinleşsin', 'Zengin Bitkisel Özler', 'WWH-7 Formülü'],
@@ -85,6 +89,7 @@ export const products: Product[] = [
     image: kis2,
     color: '#9B5DE5',
     category: 'Kış Semptomları',
+    brand: 'dailyshot',
     isNew: true,
     features: ['Rich Herbal Extract + Vit C', 'WWH-9 Formula', 'Whatever The Weather'],
     featuresTr: ['Zengin Bitkisel Özler + C Vitamini', 'WWH-9 Formülü', 'Her Mevsim Güçlü Kal'],
@@ -101,6 +106,7 @@ export const products: Product[] = [
     image: kis10,
     color: '#2ECC71',
     category: 'Detoks',
+    brand: 'dailyshot',
     isNew: true,
     features: ['21 Day Program', 'Natural Ingredients', 'Liver Support'],
     featuresTr: ['21 Günlük Program', 'Doğal İçerikler', 'Karaciğer Desteği'],
@@ -117,6 +123,7 @@ export const products: Product[] = [
     image: lax6,
     color: '#F4A261',
     category: 'Sindirim',
+    brand: 'dailyshot',
     isNew: true,
     features: ['For Gas & Bloating', 'Natural Fiber Source', 'Regular Digestion'],
     featuresTr: ['Gaz & Şişkinlik İçin', 'Doğal Lif Kaynağı', 'Düzenli Sindirim'],
@@ -133,6 +140,7 @@ export const products: Product[] = [
     image: lbd1,
     color: '#E91E63',
     category: 'Libido',
+    brand: 'dailyshot',
     isNew: true,
     features: ['14 Day Program', 'Natural Formula', 'Energy & Vitality'],
     featuresTr: ['14 Günlük Kür', 'Doğal Formül', 'Enerji & Canlılık'],
@@ -149,6 +157,7 @@ export const products: Product[] = [
     image: prtk5,
     color: '#FF9800',
     category: 'Elektrolit',
+    brand: 'electrovit',
     isNew: true,
     features: ['Orange Flavored', '8 Pack', 'Post Workout'],
     featuresTr: ['Portakal Aromalı', '8\'li Paket', 'Spor Sonrası'],
@@ -165,6 +174,7 @@ export const products: Product[] = [
     image: elct2,
     color: '#4CAF50',
     category: 'Elektrolit',
+    brand: 'electrovit',
     isNew: true,
     features: ['Watermelon Flavored', '8 Pack', 'Refreshing'],
     featuresTr: ['Karpuz Aromalı', '8\'li Paket', 'Ferahlatıcı'],
@@ -181,6 +191,7 @@ export const products: Product[] = [
     image: energy6,
     color: '#FF6B35',
     category: 'Enerji',
+    brand: 'dailyshot',
     isNew: false,
     features: ['2 Pack Trial', '3+ Ginseng Complex', 'Fuel Your Day'],
     featuresTr: ['2\'li Deneme Paketi', '3+ Ginseng Kompleksi', 'Gününe Güç Kat'],

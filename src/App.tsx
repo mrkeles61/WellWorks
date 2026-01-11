@@ -8,6 +8,7 @@ import Layout from "./components/layout/Layout";
 import GatewayPage from "./pages/GatewayPage";
 import HealthHome from "./pages/HealthHome";
 import HealthAbout from "./pages/HealthAbout";
+import HealthContactPage from "./pages/HealthContactPage";
 import MiceHome from "./pages/MiceHome";
 import WorksPage from "./pages/WorksPage";
 import TeamPage from "./pages/TeamPage";
@@ -30,11 +31,11 @@ const App = () => (
               <Route path="/" element={<GatewayPage />} />
               <Route path="/health" element={<HealthHome />} />
               <Route path="/health/hakkinda" element={<HealthAbout />} />
+              <Route path="/health/iletisim" element={<HealthContactPage />} />
               <Route path="/mice" element={<MiceHome />} />
               <Route path="/mice/isler-gucler" element={<WorksPage />} />
               <Route path="/mice/etkinlikler" element={<MiceHome />} />
               <Route path="/mice/iletisim" element={<ContactPage />} />
-              <Route path="/health/iletisim" element={<ContactPage />} />
               <Route path="/iletisim" element={<ContactPage />} />
               <Route path="/ekip" element={<TeamPage />} />
               <Route path="/familyamiz" element={<TeamPage />} />

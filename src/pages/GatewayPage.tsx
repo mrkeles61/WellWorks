@@ -1,16 +1,17 @@
 import { useNavigate } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
-import { ArrowRight, ExternalLink, CalendarCheck } from 'lucide-react';
+import { ArrowRight, ChevronDown, ExternalLink, CalendarCheck } from 'lucide-react';
 import { useBrand } from '@/context/BrandContext';
 import { cn } from '@/lib/utils';
 import { useState, useEffect, useRef } from 'react';
 import { animate, stagger } from 'animejs';
+import { Button } from '@/components/ui/button';
 
 /**
- * GatewayPage - Card-Based Layout
- * - Two floating white cards on gradient background
- * - Larger cards with more content
- * - Header and footer visible
+ * GatewayPage - 50/50 Split with Header & Footer
+ * - Color inversion hover effect
+ * - Global header and footer
+ * - anime.js entrance animations
  */
 const GatewayPage = () => {
   const { t } = useTranslation();
@@ -19,32 +20,20 @@ const GatewayPage = () => {
   const [isTransitioning, setIsTransitioning] = useState(false);
   const [transitionSide, setTransitionSide] = useState<'health' | 'mice' | null>(null);
 
-  const healthCardRef = useRef<HTMLDivElement>(null);
-  const miceCardRef = useRef<HTMLDivElement>(null);
+  const healthContentRef = useRef<HTMLDivElement>(null);
+  const miceContentRef = useRef<HTMLDivElement>(null);
 
   // Entrance animations
   useEffect(() => {
-    // Animate cards
-    const cards = [healthCardRef.current, miceCardRef.current].filter(Boolean);
-    animate(cards, {
-      opacity: [0, 1],
-      translateY: [60, 0],
-      scale: [0.9, 1],
-      duration: 800,
-      delay: stagger(150, { start: 200 }),
-      easing: 'easeOutExpo',
-    });
-
-    // Animate card contents
-    cards.forEach((card, index) => {
-      if (card) {
-        const items = card.querySelectorAll('.animate-item');
+    [healthContentRef.current, miceContentRef.current].forEach((container, index) => {
+      if (container) {
+        const items = container.querySelectorAll('.animate-item');
         animate(items, {
           opacity: [0, 1],
-          translateY: [30, 0],
-          duration: 600,
-          delay: stagger(80, { start: 400 + index * 150 }),
-          easing: 'easeOutQuad',
+          translateY: [40, 0],
+          duration: 800,
+          delay: stagger(100, { start: 300 + index * 200 }),
+          easing: 'easeOutExpo',
         });
       }
     });
@@ -54,33 +43,11 @@ const GatewayPage = () => {
     setIsTransitioning(true);
     setTransitionSide(side);
     setBrand(side);
-
-    const card = side === 'health' ? healthCardRef.current : miceCardRef.current;
-    if (card) {
-      animate(card, {
-        scale: [1, 1.02, 0.95],
-        opacity: [1, 1, 0],
-        duration: 400,
-        easing: 'easeInQuad',
-      });
-    }
-
-    setTimeout(() => navigate(side === 'health' ? '/health' : '/mice'), 450);
-  };
-
-  const handleCardHover = (card: HTMLDivElement | null, enter: boolean) => {
-    if (card) {
-      animate(card, {
-        scale: enter ? 1.02 : 1,
-        translateY: enter ? -8 : 0,
-        duration: 300,
-        easing: 'easeOutQuad',
-      });
-    }
+    setTimeout(() => navigate(side === 'health' ? '/health' : '/mice'), 500);
   };
 
   return (
-    <div className="relative min-h-screen overflow-hidden bg-gradient-to-br from-sky-100 via-white to-emerald-100">
+    <div className="relative min-h-screen overflow-hidden flex flex-col">
       {/* Wipe transition overlay */}
       <div
         className={cn(
@@ -91,125 +58,168 @@ const GatewayPage = () => {
         style={{ transformOrigin: transitionSide === 'health' ? 'left center' : 'right center' }}
       />
 
-      {/* Main Content */}
-      <main className="min-h-screen flex items-center justify-center py-20 px-4 lg:px-8">
-        <div className="w-full max-w-7xl mx-auto">
-          {/* Cards Container */}
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12">
+      {/* Global Header - Black */}
+      <header className="fixed top-0 left-0 right-0 z-40 bg-black">
+        <div className="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
+          <span className="font-oswald font-bold text-xl tracking-wider text-white">
+            WELLWORKS TURKEY
+          </span>
+          <a
+            href="https://dailyshot.com.tr"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-2 px-4 py-2 bg-white text-black text-sm font-semibold rounded-full hover:bg-gray-100 transition-colors"
+          >
+            dailyshot.com.tr <ExternalLink className="w-4 h-4" />
+          </a>
+        </div>
+      </header>
 
-            {/* ========== HEALTH CARD ========== */}
-            <div
-              ref={healthCardRef}
-              className="group bg-white rounded-3xl shadow-xl p-8 lg:p-12 cursor-pointer
-                       hover:shadow-2xl transition-shadow duration-300"
-              style={{ opacity: 0 }}
-              onClick={() => handleNavigate('health')}
-              onMouseEnter={() => handleCardHover(healthCardRef.current, true)}
-              onMouseLeave={() => handleCardHover(healthCardRef.current, false)}
-            >
-              {/* Typography */}
-              <div className="animate-item mb-6" style={{ opacity: 0 }}>
-                <h1 className="font-oswald font-black text-5xl lg:text-6xl xl:text-7xl tracking-tight leading-none">
-                  <span className="text-gray-900">WELL</span>
-                  <span className="text-[#00A3E0]"> WORKS</span>
-                </h1>
-                <h2 className="font-poppins italic text-2xl lg:text-3xl text-gray-800 mt-2">
-                  Health
-                </h2>
-              </div>
+      {/* Desktop Layout - 50/50 Split */}
+      <div className="hidden lg:flex flex-1 pt-16">
 
-              {/* Description */}
-              <p className="animate-item text-gray-600 text-lg mb-8 max-w-md leading-relaxed" style={{ opacity: 0 }}>
-                Sağlıklı yaşam için geliştirilmiş likit gıda takviyeleri ile kendinizi yeniden keşfedin.
-              </p>
-
-              {/* Primary CTA */}
-              <button
-                className="animate-item w-full lg:w-auto inline-flex items-center justify-center gap-2 px-8 py-4 
-                         bg-[#00A3E0] text-white font-bold rounded-full 
-                         hover:bg-[#0091C7] transition-colors duration-300"
-                style={{ opacity: 0 }}
-              >
-                Ürünleri Keşfet <ArrowRight className="w-5 h-5" />
-              </button>
-
-              {/* Secondary Link */}
-              <div className="animate-item mt-6" style={{ opacity: 0 }}>
-                <a
-                  href="https://www.dailyshot.com.tr"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  onClick={(e) => e.stopPropagation()}
-                  className="inline-flex items-center gap-2 text-[#00A3E0] hover:text-[#0091C7] font-medium transition-colors"
-                >
-                  Hemen Satın Al <ExternalLink className="w-4 h-4" />
-                </a>
-              </div>
+        {/* ========== HEALTH SIDE ========== */}
+        <div
+          className="group relative w-1/2 flex flex-col items-center justify-center overflow-hidden cursor-pointer
+                     bg-white hover:bg-[#00A3E0]
+                     transition-colors duration-500 ease-in-out"
+          onClick={() => handleNavigate('health')}
+        >
+          <div ref={healthContentRef} className="relative z-10 text-center px-8">
+            <div className="animate-item mb-4" style={{ opacity: 0 }}>
+              <h1 className="font-oswald font-black text-6xl md:text-7xl lg:text-8xl tracking-tight leading-none">
+                <span className="text-black transition-colors duration-500">WELL</span>
+                <span className="text-[#00A3E0] group-hover:text-white transition-colors duration-500"> WORKS</span>
+              </h1>
             </div>
 
-            {/* ========== MICE CARD ========== */}
-            <div
-              ref={miceCardRef}
-              className="group bg-white rounded-3xl shadow-xl p-8 lg:p-12 cursor-pointer
-                       hover:shadow-2xl transition-shadow duration-300"
+            <h2 className="animate-item font-poppins italic text-3xl md:text-4xl text-black transition-colors duration-500 mb-8" style={{ opacity: 0 }}>
+              Health
+            </h2>
+
+            <p className="animate-item text-gray-600 group-hover:text-white/80 mb-8 max-w-sm mx-auto transition-colors duration-500" style={{ opacity: 0 }}>
+              Sağlıklı yaşam için geliştirilmiş likit gıda takviyeleri
+            </p>
+
+            <Button
+              className="animate-item px-8 py-4 h-auto
+                       bg-[#00A3E0] text-white group-hover:bg-white group-hover:text-[#00A3E0]
+                       font-bold rounded-full transition-colors duration-500"
               style={{ opacity: 0 }}
-              onClick={() => handleNavigate('mice')}
-              onMouseEnter={() => handleCardHover(miceCardRef.current, true)}
-              onMouseLeave={() => handleCardHover(miceCardRef.current, false)}
             >
-              {/* Typography */}
-              <div className="animate-item mb-6" style={{ opacity: 0 }}>
-                <h1 className="font-oswald font-black text-5xl lg:text-6xl xl:text-7xl tracking-tight leading-none">
-                  <span className="text-gray-900">WELL</span>
-                  <span className="text-[#39B54A]"> WORKS</span>
-                </h1>
-                <h2 className="font-poppins italic text-2xl lg:text-3xl text-gray-800 mt-2">
-                  mice
-                </h2>
-              </div>
+              Ürünleri Keşfet <ArrowRight className="w-5 h-5 ml-2" />
+            </Button>
+          </div>
 
-              {/* Description */}
-              <p className="animate-item text-gray-600 text-lg mb-8 max-w-md leading-relaxed" style={{ opacity: 0 }}>
-                Unutulmaz etkinlikler ve profesyonel organizasyon hizmetleri ile markanızı geleceğe taşıyın.
-              </p>
+          {/* Bottom positioned secondary link */}
+          <div className="absolute bottom-12 left-0 right-0 text-center z-10">
+            <a
+              href="https://www.dailyshot.com.tr"
+              target="_blank"
+              rel="noopener noreferrer"
+              onClick={(e) => e.stopPropagation()}
+              className="inline-flex items-center gap-2 text-sm text-[#00A3E0] group-hover:text-white transition-colors duration-500 hover:underline"
+            >
+              Hemen Satın Al <ExternalLink className="w-4 h-4" />
+            </a>
+          </div>
 
-              {/* Primary CTA */}
-              <button
-                className="animate-item w-full lg:w-auto inline-flex items-center justify-center gap-2 px-8 py-4 
-                         bg-[#39B54A] text-white font-bold rounded-full 
-                         hover:bg-[#2E9A3D] transition-colors duration-300"
-                style={{ opacity: 0 }}
-              >
-                Projelerimizi İncele <ArrowRight className="w-5 h-5" />
-              </button>
+          {/* Divider */}
+          <div className="absolute right-0 top-1/4 bottom-1/4 w-px bg-gradient-to-b from-transparent via-gray-300 group-hover:via-white/30 to-transparent transition-colors duration-500" />
+        </div>
 
-              {/* Secondary Link */}
-              <div className="animate-item mt-6" style={{ opacity: 0 }}>
-                <button
-                  onClick={(e) => {
-                    e.stopPropagation();
-                    navigate('/mice/iletisim');
-                  }}
-                  className="inline-flex items-center gap-2 text-[#39B54A] hover:text-[#2E9A3D] font-medium transition-colors"
-                >
-                  <CalendarCheck className="w-4 h-4" /> Teklif Al
-                </button>
-              </div>
+        {/* ========== MICE SIDE ========== */}
+        <div
+          className="group relative w-1/2 flex flex-col items-center justify-center overflow-hidden cursor-pointer
+                     bg-white hover:bg-[#39B54A]
+                     transition-colors duration-500 ease-in-out"
+          onClick={() => handleNavigate('mice')}
+        >
+          <div ref={miceContentRef} className="relative z-10 text-center px-8">
+            <div className="animate-item mb-4" style={{ opacity: 0 }}>
+              <h1 className="font-oswald font-black text-6xl md:text-7xl lg:text-8xl tracking-tight leading-none">
+                <span className="text-black transition-colors duration-500">WELL</span>
+                <span className="text-[#39B54A] group-hover:text-white transition-colors duration-500"> WORKS</span>
+              </h1>
             </div>
-          </div>
-        </div>
-      </main>
 
-      {/* Footer */}
-      <footer className="fixed bottom-0 left-0 right-0 bg-white/80 backdrop-blur-sm border-t border-gray-200 py-4 px-6">
-        <div className="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4 text-sm text-gray-500">
-          <span>© 2024 WELL WORKS GROUP. ALL RIGHTS RESERVED.</span>
-          <div className="flex items-center gap-6">
-            <a href="#" className="hover:text-gray-900 transition-colors">PRIVACY POLICY</a>
-            <a href="#" className="hover:text-gray-900 transition-colors">TERMS OF USE</a>
+            <h2 className="animate-item font-poppins italic text-3xl md:text-4xl text-black transition-colors duration-500 mb-8" style={{ opacity: 0 }}>
+              M.I.C.E
+            </h2>
+
+            <p className="animate-item text-gray-600 group-hover:text-white/80 mb-8 max-w-sm mx-auto transition-colors duration-500" style={{ opacity: 0 }}>
+              Unutulmaz etkinlikler ve profesyonel organizasyon hizmetleri
+            </p>
+
+            <Button
+              className="animate-item px-8 py-4 h-auto
+                       bg-[#39B54A] text-white group-hover:bg-white group-hover:text-[#39B54A]
+                       font-bold rounded-full transition-colors duration-500"
+              style={{ opacity: 0 }}
+            >
+              Projelerimizi İncele <ArrowRight className="w-5 h-5 ml-2" />
+            </Button>
+          </div>
+
+          {/* Bottom positioned secondary link */}
+          <div className="absolute bottom-12 left-0 right-0 text-center z-10">
+            <button
+              onClick={(e) => {
+                e.stopPropagation();
+                navigate('/mice/iletisim');
+              }}
+              className="inline-flex items-center gap-2 text-sm text-[#39B54A] group-hover:text-white transition-colors duration-500 hover:underline"
+            >
+              <CalendarCheck className="w-4 h-4" /> Teklif Al
+            </button>
           </div>
         </div>
-      </footer>
+      </div>
+
+      {/* Mobile Layout */}
+      <div className="lg:hidden flex-1 pt-16 overflow-y-auto snap-mandatory snap-y">
+        <section
+          className="h-[calc(100vh-4rem)] snap-start flex flex-col items-center justify-center px-6 relative bg-white"
+          onClick={() => handleNavigate('health')}
+        >
+          <div className="text-center">
+            <h1 className="font-oswald font-black text-5xl tracking-tight leading-none mb-2">
+              <span className="text-black">WELL</span>
+              <span className="text-[#00A3E0]"> WORKS</span>
+            </h1>
+            <h2 className="font-poppins italic text-2xl text-black mb-4">Health</h2>
+            <p className="text-gray-600 text-center mb-6 max-w-xs">
+              Sağlıklı yaşam için geliştirilmiş likit gıda takviyeleri
+            </p>
+            <button className="inline-flex items-center gap-2 px-6 py-3 bg-[#00A3E0] text-white font-bold rounded-full">
+              Keşfet <ArrowRight className="w-5 h-5" />
+            </button>
+          </div>
+          <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center text-gray-400 animate-bounce">
+            <span className="text-sm mb-2">{t('gateway.scrollHint')}</span>
+            <ChevronDown className="w-5 h-5" />
+          </div>
+        </section>
+
+        <section
+          className="h-[calc(100vh-4rem)] snap-start flex flex-col items-center justify-center px-6 relative bg-white"
+          onClick={() => handleNavigate('mice')}
+        >
+          <div className="text-center">
+            <h1 className="font-oswald font-black text-5xl tracking-tight leading-none mb-2">
+              <span className="text-black">WELL</span>
+              <span className="text-[#39B54A]"> WORKS</span>
+            </h1>
+            <h2 className="font-poppins italic text-2xl text-black mb-4">M.I.C.E</h2>
+            <p className="text-gray-600 text-center mb-6 max-w-xs">
+              Unutulmaz etkinlikler ve profesyonel organizasyon hizmetleri
+            </p>
+            <button className="inline-flex items-center gap-2 px-6 py-3 bg-[#39B54A] text-white font-bold rounded-full">
+              Keşfet <ArrowRight className="w-5 h-5" />
+            </button>
+          </div>
+        </section>
+      </div>
     </div>
   );
 };
