@@ -40,13 +40,11 @@ const Header = () => {
     { href: '/health', label: t('nav.home') },
     { href: '/health/urunler', label: t('nav.products') },
     { href: '/health/hakkinda', label: t('nav.about') },
-    { href: 'https://dailyshot.com.tr', label: t('nav.shop'), external: true },
   ];
 
   const miceLinks: NavLinkItem[] = [
     { href: '/mice', label: t('nav.home') },
-    { href: '/mice/etkinlikler', label: t('nav.events') },
-    { href: '/ekip', label: t('nav.team') },
+    { href: '/mice/isler-gucler', label: 'İşler Güçler' },
     { href: '/mice/iletisim', label: t('nav.contact') },
   ];
 
@@ -59,11 +57,11 @@ const Header = () => {
           'fixed top-0 left-0 right-0 z-50 h-[72px] transition-all duration-500',
           isScrolled
             ? brand === 'health'
-              ? 'bg-white/95 backdrop-blur-md shadow-md'
+              ? 'bg-slate-900/95 backdrop-blur-md shadow-md'
               : 'bg-black/95 backdrop-blur-md shadow-md'
             : brand === 'health'
-            ? 'bg-white'
-            : 'bg-black'
+              ? 'bg-slate-900'
+              : 'bg-black'
         )}
       >
         <div className="container h-full flex items-center justify-between">
@@ -104,8 +102,8 @@ const Header = () => {
                     location.pathname === link.href
                       ? 'text-primary'
                       : brand === 'health'
-                      ? 'text-foreground'
-                      : 'text-white'
+                        ? 'text-foreground'
+                        : 'text-white'
                   )}
                 >
                   {link.label}
@@ -160,7 +158,7 @@ const Header = () => {
         <div
           className={cn(
             'absolute top-0 right-0 w-80 h-full transition-transform duration-300',
-            brand === 'health' ? 'bg-white' : 'bg-black',
+            brand === 'health' ? 'bg-slate-900' : 'bg-black',
             isMobileMenuOpen ? 'translate-x-0' : 'translate-x-full'
           )}
         >

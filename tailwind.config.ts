@@ -57,9 +57,9 @@ export default {
           border: "hsl(var(--sidebar-border))",
           ring: "hsl(var(--sidebar-ring))",
         },
-        // Brand colors
+        // Brand colors (Updated to match logo)
         health: {
-          primary: "hsl(var(--health-primary))",
+          primary: "hsl(var(--health-primary))", // Sky Blue #00A3E0
           "primary-hover": "hsl(var(--health-primary-hover))",
           secondary: "hsl(var(--health-secondary))",
           bg: "hsl(var(--health-bg))",
@@ -68,7 +68,7 @@ export default {
           "text-muted": "hsl(var(--health-text-muted))",
         },
         mice: {
-          primary: "hsl(var(--mice-primary))",
+          primary: "hsl(var(--mice-primary))", // Kelly Green #39B54A
           "primary-hover": "hsl(var(--mice-primary-hover))",
           secondary: "hsl(var(--mice-secondary))",
           bg: "hsl(var(--mice-bg))",
@@ -90,6 +90,14 @@ export default {
         sm: "calc(var(--radius) - 4px)",
       },
       keyframes: {
+        "float": {
+          "0%, 100%": { transform: "translateY(0)" },
+          "50%": { transform: "translateY(-10px)" },
+        },
+        "scale-pulse": {
+          "0%, 100%": { transform: "scale(1)", opacity: "0.3" },
+          "50%": { transform: "scale(0.9)", opacity: "0.2" },
+        },
         "accordion-down": {
           from: { height: "0" },
           to: { height: "var(--radix-accordion-content-height)" },
@@ -102,6 +110,8 @@ export default {
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
+        "float": "float 6s ease-in-out infinite",
+        "scale-pulse": "scale-pulse 4s ease-in-out infinite",
       },
       boxShadow: {
         "glow-health": "0 0 40px rgba(0, 85, 164, 0.3)",

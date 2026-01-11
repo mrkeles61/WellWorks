@@ -1,9 +1,25 @@
 import { Heart, Calendar } from 'lucide-react';
+import { useNavigate, useLocation } from 'react-router-dom';
 import { useBrand } from '@/context/BrandContext';
 import { cn } from '@/lib/utils';
 
 const BrandToggle = () => {
   const { brand, setBrand } = useBrand();
+  const navigate = useNavigate();
+  const location = useLocation();
+
+  const handleBrandSwitch = (newBrand: 'health' | 'mice') => {
+    if (newBrand === brand) return;
+
+    setBrand(newBrand);
+
+    // Navigate to the home page of the selected brand
+    if (newBrand === 'health') {
+      navigate('/health');
+    } else {
+      navigate('/mice');
+    }
+  };
 
   return (
     <div
@@ -27,7 +43,7 @@ const BrandToggle = () => {
 
       {/* Health Option */}
       <button
-        onClick={() => setBrand('health')}
+        onClick={() => handleBrandSwitch('health')}
         className={cn(
           'relative z-10 flex items-center justify-center gap-1.5 w-20 h-8 text-sm font-medium transition-colors',
           brand === 'health' ? 'text-white' : 'text-muted-foreground'
@@ -39,7 +55,7 @@ const BrandToggle = () => {
 
       {/* MICE Option */}
       <button
-        onClick={() => setBrand('mice')}
+        onClick={() => handleBrandSwitch('mice')}
         className={cn(
           'relative z-10 flex items-center justify-center gap-1.5 w-20 h-8 text-sm font-medium transition-colors',
           brand === 'mice' ? 'text-white' : 'text-muted-foreground'
@@ -53,3 +69,4 @@ const BrandToggle = () => {
 };
 
 export default BrandToggle;
+

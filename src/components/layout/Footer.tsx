@@ -89,11 +89,6 @@ const Footer = () => {
                   {t('footer.onlineShop')} ↗
                 </a>
               </li>
-              <li>
-                <Link to="/karsilastir" className="hover:text-white transition-colors">
-                  {t('footer.compareProducts')}
-                </Link>
-              </li>
             </ul>
           </div>
 
@@ -104,11 +99,6 @@ const Footer = () => {
               <li>
                 <Link to="/mice/etkinlikler" className="hover:text-white transition-colors">
                   {t('nav.events')}
-                </Link>
-              </li>
-              <li>
-                <Link to="/ekip" className="hover:text-white transition-colors">
-                  {t('nav.team')}
                 </Link>
               </li>
               <li>

@@ -1,3 +1,14 @@
+import enerji1 from '@/assets/products/enerji-1.jpg';
+import hango1 from '@/assets/products/hango-1.jpg';
+import relax1 from '@/assets/products/relax-1.png';
+import kis2 from '@/assets/products/kis-semptomlari-2.png';
+import kis10 from '@/assets/products/kis-semptomlari-10.png';
+import lax6 from '@/assets/products/lax-6.jpg';
+import lbd1 from '@/assets/products/lbd-1.jpg';
+import prtk5 from '@/assets/products/prtk5.jpg';
+import elct2 from '@/assets/products/elct2.jpg';
+import energy6 from '@/assets/products/energy-6.jpeg';
+
 export interface Product {
   id: string;
   name: string;
@@ -10,6 +21,7 @@ export interface Product {
   category: string;
   isNew?: boolean;
   features?: string[];
+  featuresTr?: string[];
   rating?: number;
   reviews?: number;
 }
@@ -22,11 +34,12 @@ export const products: Product[] = [
     shortDescription: 'Anında enerji, uzun süreli performans',
     tagline: 'Enerji',
     price: 489,
-    image: '/products/energyshot.jpg',
+    image: enerji1,
     color: '#FF6B35',
     category: 'Enerji',
     isNew: false,
     features: ['3+ Ginseng Complex', 'WWH-13 Formula', 'Fuel Your Day'],
+    featuresTr: ['3+ Ginseng Kompleksi', 'WWH-13 Formülü', 'Gününe Güç Kat'],
     rating: 5.0,
     reviews: 0,
   },
@@ -37,11 +50,12 @@ export const products: Product[] = [
     shortDescription: 'Yarına keyifle uyan',
     tagline: 'Akşamdan Kalma',
     price: 375,
-    image: '/products/hangovershot.jpg',
+    image: hango1,
     color: '#E63946',
     category: 'Akşamdan Kalma',
     isNew: false,
     features: ['Save Your Next Day', '4X Shot', 'Forest Fruit Flavour'],
+    featuresTr: ['Ertesi Gününü Kurtar', '4X Shot', 'Orman Meyveli Aroma'],
     rating: 5.0,
     reviews: 11,
   },
@@ -52,11 +66,12 @@ export const products: Product[] = [
     shortDescription: 'Rahatla, dinlen, yenilen',
     tagline: 'Uyku ve Stres',
     price: 515,
-    image: '/products/relaxshot.jpg',
+    image: relax1,
     color: '#457B9D',
     category: 'Uyku ve Stres',
     isNew: false,
     features: ['Mood Up & Sleep Tight', 'Rich Herbal Extract', 'WWH-7 Formula'],
+    featuresTr: ['Ruh Halin Yükselsin, Uyku Derinleşsin', 'Zengin Bitkisel Özler', 'WWH-7 Formülü'],
     rating: 5.0,
     reviews: 0,
   },
@@ -67,11 +82,12 @@ export const products: Product[] = [
     shortDescription: 'Bağışıklığını güçlendir',
     tagline: 'Kış Semptomları',
     price: 498,
-    image: '/products/defenseshot.jpg',
+    image: kis2,
     color: '#9B5DE5',
     category: 'Kış Semptomları',
     isNew: true,
     features: ['Rich Herbal Extract + Vit C', 'WWH-9 Formula', 'Whatever The Weather'],
+    featuresTr: ['Zengin Bitkisel Özler + C Vitamini', 'WWH-9 Formülü', 'Her Mevsim Güçlü Kal'],
     rating: 5.0,
     reviews: 10,
   },
@@ -82,11 +98,12 @@ export const products: Product[] = [
     shortDescription: 'Kilo kontrol desteği',
     tagline: 'Detoks',
     price: 1749,
-    image: '/products/energyshot.jpg',
+    image: kis10,
     color: '#2ECC71',
     category: 'Detoks',
     isNew: true,
-    features: ['21 Günlük Program', 'Doğal İçerikler', 'Karaciğer Desteği'],
+    features: ['21 Day Program', 'Natural Ingredients', 'Liver Support'],
+    featuresTr: ['21 Günlük Program', 'Doğal İçerikler', 'Karaciğer Desteği'],
     rating: 0,
     reviews: 0,
   },
@@ -97,11 +114,12 @@ export const products: Product[] = [
     shortDescription: 'Bağırsak ve sindirim sistemi düzenleyici',
     tagline: 'Sindirim',
     price: 529,
-    image: '/products/relaxshot.jpg',
+    image: lax6,
     color: '#F4A261',
     category: 'Sindirim',
     isNew: true,
-    features: ['Gaz & Şişkinlik İçin', 'Doğal Lif Kaynağı', 'Düzenli Sindirim'],
+    features: ['For Gas & Bloating', 'Natural Fiber Source', 'Regular Digestion'],
+    featuresTr: ['Gaz & Şişkinlik İçin', 'Doğal Lif Kaynağı', 'Düzenli Sindirim'],
     rating: 0,
     reviews: 0,
   },
@@ -112,11 +130,12 @@ export const products: Product[] = [
     shortDescription: 'Libido desteği',
     tagline: 'Libido',
     price: 1689,
-    image: '/products/hangovershot.jpg',
+    image: lbd1,
     color: '#E91E63',
     category: 'Libido',
     isNew: true,
-    features: ['14 Günlük Kür', 'Doğal Formül', 'Enerji & Canlılık'],
+    features: ['14 Day Program', 'Natural Formula', 'Energy & Vitality'],
+    featuresTr: ['14 Günlük Kür', 'Doğal Formül', 'Enerji & Canlılık'],
     rating: 5.0,
     reviews: 7,
   },
@@ -127,11 +146,12 @@ export const products: Product[] = [
     shortDescription: 'Elektrolit takviyesi',
     tagline: 'Elektrolit',
     price: 379,
-    image: '/products/energyshot.jpg',
+    image: prtk5,
     color: '#FF9800',
     category: 'Elektrolit',
     isNew: true,
-    features: ['Portakal Aromalı', '8\'li Paket', 'Spor Sonrası'],
+    features: ['Orange Flavored', '8 Pack', 'Post Workout'],
+    featuresTr: ['Portakal Aromalı', '8\'li Paket', 'Spor Sonrası'],
     rating: 0,
     reviews: 0,
   },
@@ -142,11 +162,12 @@ export const products: Product[] = [
     shortDescription: 'Elektrolit takviyesi',
     tagline: 'Elektrolit',
     price: 379,
-    image: '/products/relaxshot.jpg',
+    image: elct2,
     color: '#4CAF50',
     category: 'Elektrolit',
     isNew: true,
-    features: ['Karpuz Aromalı', '8\'li Paket', 'Ferahlatıcı'],
+    features: ['Watermelon Flavored', '8 Pack', 'Refreshing'],
+    featuresTr: ['Karpuz Aromalı', '8\'li Paket', 'Ferahlatıcı'],
     rating: 0,
     reviews: 0,
   },
@@ -157,11 +178,12 @@ export const products: Product[] = [
     shortDescription: 'Deneme paketi',
     tagline: 'Enerji',
     price: 199,
-    image: '/products/energyshot.jpg',
+    image: energy6,
     color: '#FF6B35',
     category: 'Enerji',
     isNew: false,
-    features: ['2\'li Deneme Paketi', '3+ Ginseng Complex', 'Fuel Your Day'],
+    features: ['2 Pack Trial', '3+ Ginseng Complex', 'Fuel Your Day'],
+    featuresTr: ['2\'li Deneme Paketi', '3+ Ginseng Kompleksi', 'Gününe Güç Kat'],
     rating: 0,
     reviews: 0,
   },

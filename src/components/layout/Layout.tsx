@@ -19,7 +19,7 @@ const Layout = ({ children }: LayoutProps) => {
       <main className={isGateway ? '' : 'pt-[72px] flex-1'}>{children}</main>
       <Footer />
       <CookieConsent />
-      <WhatsAppButton />
+      {!isGateway && <WhatsAppButton />}
     </div>
   );
 };
