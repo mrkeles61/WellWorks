@@ -74,7 +74,15 @@ const ProductCard = memo(({ product, priority = false }: ProductCardProps) => {
             className="font-bold text-2xl md:text-3xl font-poppins mb-3 leading-tight"
             style={{ color: product.color }}
           >
-            {product.name.toUpperCase().replace(/'LI KUTU|'Lİ KUTU/gi, '').trim()}
+            {(() => {
+              const upperName = product.name.toUpperCase();
+              if (upperName.includes('ELECTROVIT')) {
+                // Remove the count part (e.g. " 8'LI")
+                return upperName.replace(/\s\d+['']?[Ll][IiİuÜe].*/, '').trim();
+              }
+              // For all Dailyshot products (Energyshot, etc.) just take the first word
+              return upperName.split(' ')[0];
+            })()}
           </h3>
 
           {/* Short Description */}

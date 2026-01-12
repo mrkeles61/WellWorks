@@ -130,47 +130,59 @@ const HealthHome = () => {
         {/* Subtle side accent */}
         <div className="absolute top-0 right-0 w-1/3 h-full bg-gradient-to-l from-health-primary/5 to-transparent pointer-events-none" />
 
-        <div className="container mx-auto px-6 grid lg:grid-cols-2 gap-12 items-center relative z-10">
-          {/* Left Content - About Us */}
-          <div className="flex flex-col items-start space-y-6">
-            <span className="inline-block text-health-primary text-sm font-semibold uppercase tracking-widest">
-              {t('health.hero2.label')}
-            </span>
-            <h1 className="font-poppins font-bold text-4xl sm:text-5xl lg:text-6xl leading-tight tracking-tight text-gray-900">
-              <Trans i18nKey="health.hero2.title" components={[<span className="text-health-primary" />]} />
-            </h1>
-            <p className="text-lg text-gray-600 max-w-lg leading-relaxed">
-              {t('health.hero2.desc')}
-            </p>
-            <div className="pt-4 flex flex-wrap gap-4">
-              <Button
-                asChild
-                size="lg"
-                className="bg-health-primary hover:bg-health-primary/90 text-white font-bold rounded-full px-8 py-6 shadow-lg hover:shadow-health-primary/30 transition-all duration-300 hover:scale-105"
-              >
-                <a href="https://dailyshot.com.tr" target="_blank" rel="noopener noreferrer">
-                  {t('health.hero2.cta')}
-                  <ArrowRight className="w-5 h-5 ml-2" />
-                </a>
-              </Button>
-            </div>
+        <div className="container mx-auto px-6 relative z-10 flex flex-col items-center">
+          {/* Dailyshot Logo - Top of Hero, Full Width */}
+          <div className="w-full mb-8 flex justify-center">
+            <img
+              src="/images/dailyshot_logo_transparent.png"
+              alt="Dailyshot"
+              className="w-full object-contain drop-shadow-sm transform scale-105"
+              style={{ maxHeight: '250px' }}
+            />
           </div>
 
-          {/* Right Content - Transparent Image */}
-          <a
-            href="https://dailyshot.com.tr"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="relative flex justify-center lg:justify-end mt-10 lg:mt-0 group cursor-pointer"
-          >
-            <img
-              src={bottleOfHealth}
-              alt="Dailyshot - A Bottle of Health"
-              className="w-full max-w-lg mx-auto drop-shadow-2xl transition-transform duration-500 group-hover:scale-105"
-            />
-            {/* Background glow */}
-            <div className="absolute inset-0 -z-10 bg-health-primary/10 blur-3xl rounded-full transform scale-75" />
-          </a>
+          <div className="grid lg:grid-cols-2 gap-12 items-center w-full">
+            {/* Left Content - About Us */}
+            <div className="flex flex-col items-start space-y-6">
+              <span className="inline-block text-health-primary text-sm font-semibold uppercase tracking-widest">
+                {t('health.hero2.label')}
+              </span>
+              <h1 className="font-poppins font-bold text-4xl sm:text-5xl lg:text-6xl leading-tight tracking-tight text-gray-900">
+                <Trans i18nKey="health.hero2.title" components={[<span className="text-health-primary" />]} />
+              </h1>
+              <p className="text-lg text-gray-600 max-w-lg leading-relaxed">
+                {t('health.hero2.desc')}
+              </p>
+              <div className="pt-4 flex flex-wrap gap-4">
+                <Button
+                  asChild
+                  size="lg"
+                  className="bg-health-primary hover:bg-health-primary/90 text-white font-bold rounded-full px-8 py-6 shadow-lg hover:shadow-health-primary/30 transition-all duration-300 hover:scale-105"
+                >
+                  <a href="https://dailyshot.com.tr" target="_blank" rel="noopener noreferrer">
+                    {t('health.hero2.cta')}
+                    <ArrowRight className="w-5 h-5 ml-2" />
+                  </a>
+                </Button>
+              </div>
+            </div>
+
+            {/* Right Content - Transparent Image */}
+            <a
+              href="https://dailyshot.com.tr"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="relative flex justify-center lg:justify-end mt-10 lg:mt-0 group cursor-pointer"
+            >
+              <img
+                src={bottleOfHealth}
+                alt="Dailyshot - A Bottle of Health"
+                className="w-full max-w-lg mx-auto drop-shadow-2xl transition-transform duration-500 group-hover:scale-105"
+              />
+              {/* Background glow */}
+              <div className="absolute inset-0 -z-10 bg-health-primary/10 blur-3xl rounded-full transform scale-75" />
+            </a>
+          </div>
         </div>
       </section>
 

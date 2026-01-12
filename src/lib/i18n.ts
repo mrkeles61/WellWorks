@@ -307,6 +307,26 @@ const resources = {
               desc: 'Katılımcılarınızın beş duyusuna hitap eden, akıllardan silinmeyecek anlar ve duygusal bağlar yaratıyoruz.',
             },
           },
+          differentiators: {
+            label: 'Farkımız',
+            title: 'NASIL FARK YARATIYORUZ?',
+            meetings: {
+              title: 'Toplantılar',
+              desc: 'Profesyonel toplantı yönetimi ve özelleştirilmiş mekan seçenekleri ile etkin ve verimli toplantılar düzenliyoruz.',
+            },
+            incentives: {
+              title: 'Teşvik Programları',
+              desc: 'Motivasyonu artıran ve ekip ruhunu güçlendiren özel teşvik programları ile unutulmaz deneyimler sunuyoruz.',
+            },
+            conferences: {
+              title: 'Konferanslar',
+              desc: 'Uzman konuşmacılar, interaktif teknolojiler ve kusursuz konferans yönetimi ile etkileyici konferanslar düzenliyoruz.',
+            },
+            exhibitions: {
+              title: 'Fuarlar',
+              desc: 'Markanızı ön plana çıkaran sergi planlama, ziyaretçi deneyimi önerileri ve organizasyon hizmetleri ile etkileyici fuarlar gerçekleştiriyoruz.',
+            },
+          },
           services: {
             label: 'Portföy',
             title: 'Hizmetlerimiz',
@@ -353,8 +373,8 @@ const resources = {
         aboutUs: {
           pageTitle: 'Hakkımızda',
           origin: {
-            title: 'HAKKIMIZDA',
-            content: '2012 yılından bu yana İstanbul\'un en prestijli etkinliklerini tasarlıyor ve hayata geçiriyoruz. Festival organizasyonlarından kurumsal lansımlara kadar geniş bir yelpazede hizmet sunuyor, her projede yaratıcılığı ve operasyonel mükemmelliği bir araya getiriyoruz.',
+            title: 'BİZ KİMİZ?',
+            content: 'Dünya festivallerinden edindiğimiz tecrübe ve bilgi birikimini müşteri odaklı yaklaşımımızla harmanlayarak etkinliklerinizi mükemmelleştiriyoruz. Kurumsal toplantı, müşteri seyahatleri ve şirket etkinlikleri gibi ihtiyaçlarınıza yaratıcı çözümler sunuyor, güçlü iş ortağı ağımız ve profesyonel ekibimizle düşündüğünüzden çok daha fazlasını sunuyoruz.',
           },
           qualityPolicy: {
             title: 'HİZMET ANLAYIŞIMIZ',
@@ -869,6 +889,26 @@ Telefon: +90 536 032 08 38`,
             experience: {
               title: 'Experience',
               desc: 'We create moments and emotional bonds that will never be forgotten, appealing to the five senses of your attendees.',
+            },
+          },
+          differentiators: {
+            label: 'Our Edge',
+            title: 'HOW DO WE MAKE A DIFFERENCE?',
+            meetings: {
+              title: 'Meetings',
+              desc: 'We organize effective and productive meetings with professional meeting management and customized venue options.',
+            },
+            incentives: {
+              title: 'Incentive Programs',
+              desc: 'We offer unforgettable experiences with special incentive programs that boost motivation and strengthen team spirit.',
+            },
+            conferences: {
+              title: 'Conferences',
+              desc: 'We organize impressive conferences with expert speakers, interactive technologies, and flawless conference management.',
+            },
+            exhibitions: {
+              title: 'Exhibitions',
+              desc: 'We deliver impressive fairs with exhibition planning that highlights your brand, visitor experience suggestions, and organization services.',
             },
           },
           services: {

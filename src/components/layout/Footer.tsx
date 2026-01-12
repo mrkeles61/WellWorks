@@ -91,40 +91,75 @@ const Footer = () => {
           <div>
             <h4 className="font-bold text-gray-900 mb-4">{t('footer.socialMedia')}</h4>
             <ul className="space-y-3 text-sm">
-              <li>
-                <a
-                  href="https://www.instagram.com/dailyshottr/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex items-center gap-2 hover:text-[#E1306C] transition-colors"
-                >
-                  <Instagram className="w-5 h-5 text-[#E1306C]" />
-                  Instagram
-                </a>
-              </li>
-              <li>
-                <a
-                  href="https://www.youtube.com/@Dailyshotturkiye"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex items-center gap-2 hover:text-[#FF0000] transition-colors"
-                >
-                  <Youtube className="w-5 h-5 text-[#FF0000]" />
-                  YouTube
-                </a>
-              </li>
-              {brand === 'health' && (
-                <li>
-                  <a
-                    href="https://www.linkedin.com/company/well-works-health/"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex items-center gap-2 hover:text-[#0A66C2] transition-colors"
-                  >
-                    <Linkedin className="w-5 h-5 text-[#0A66C2]" />
-                    Well Works Health
-                  </a>
-                </li>
+              {brand === 'health' ? (
+                <>
+                  <li>
+                    <a
+                      href="https://www.instagram.com/dailyshottr/"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex items-center gap-2 hover:text-[#E1306C] transition-colors"
+                    >
+                      <Instagram className="w-5 h-5 text-[#E1306C]" />
+                      Instagram
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      href="https://www.youtube.com/@Dailyshotturkiye"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex items-center gap-2 hover:text-[#FF0000] transition-colors"
+                    >
+                      <Youtube className="w-5 h-5 text-[#FF0000]" />
+                      YouTube
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      href="https://www.linkedin.com/company/well-works-health/"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex items-center gap-2 hover:text-[#0A66C2] transition-colors"
+                    >
+                      <Linkedin className="w-5 h-5 text-[#0A66C2]" />
+                      Well Works Health
+                    </a>
+                  </li>
+                </>
+              ) : (
+                <>
+                  <li>
+                    <a
+                      href="https://www.instagram.com/wellworksmice/"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex items-center gap-2 hover:text-[#E1306C] transition-colors"
+                    >
+                      <Instagram className="w-5 h-5 text-[#E1306C]" />
+                      Instagram
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      href="https://wa.me/905360320838?text=Merhaba,%20bilgi%20almak%20istiyorum"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex items-center gap-2 hover:text-[#25D366] transition-colors"
+                    >
+                      {/* Using Phone icon for WhatsApp representatively if no custom icon, or I can import FaWhatsapp if available. 
+                          The file imports lucide icons. I'll use MessageCircle or keep it simple. 
+                          Wait, GatewayPage used FaWhatsapp from react-icons/fa. I should check if I can use that here. 
+                          Footer.tsx currently imports lucide-react icons. 
+                          I'll stick to Lucide 'MessageCircle' or 'Phone' for consistency unless I add the import. 
+                          To be safe/consistent with existing imports, I'll use Phone or similar, OR add the import. 
+                          Let's add FaWhatsapp import to be explicit since user asked for "properly routed like in the icons...".
+                       */}
+                      <Phone className="w-5 h-5 text-[#25D366]" />
+                      WhatsApp
+                    </a>
+                  </li>
+                </>
               )}
             </ul>
           </div>

@@ -6,7 +6,7 @@ import { cn } from '@/lib/utils';
 import { useState, useEffect, useRef } from 'react';
 import { animate, stagger } from 'animejs';
 import { Button } from '@/components/ui/button';
-import { FaInstagram, FaWhatsapp } from 'react-icons/fa';
+import { FaWhatsapp } from 'react-icons/fa';
 
 /**
  * GatewayPage - 50/50 Split with Header & Footer
@@ -48,7 +48,6 @@ const GatewayPage = () => {
   };
 
   const socialLinks = [
-    { icon: FaInstagram, href: 'https://www.instagram.com/dailyshottr/', label: 'Instagram' },
     { icon: FaWhatsapp, href: 'https://wa.me/905360320838?text=Merhaba,%20bilgi%20almak%20istiyorum', label: 'WhatsApp' },
   ];
 
@@ -71,7 +70,7 @@ const GatewayPage = () => {
             WELLWORKS TURKEY
           </span>
           <div className="flex items-center gap-5">
-            <span className="text-white/50 text-sm hidden sm:block">Bizi Takip Edin</span>
+            <span className="text-white/50 text-sm hidden sm:block">Bize Ulaşın</span>
             {socialLinks.map((link) => (
               <a
                 key={link.label}

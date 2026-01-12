@@ -33,22 +33,27 @@ const MiceHome = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  /* Process / Pillars Data - Moved inside component to use t() */
+  /* Process / Differentiators - "Nasıl Fark Yaratıyoruz?" content */
   const processSteps = [
     {
-      icon: <Sparkles className="w-8 h-8" />,
-      title: t('mice.home.process.curation.title'),
-      description: t('mice.home.process.curation.desc'),
+      icon: <Users className="w-8 h-8" />,
+      title: t('mice.home.differentiators.meetings.title'),
+      description: t('mice.home.differentiators.meetings.desc'),
+    },
+    {
+      icon: <Star className="w-8 h-8" />,
+      title: t('mice.home.differentiators.incentives.title'),
+      description: t('mice.home.differentiators.incentives.desc'),
     },
     {
       icon: <Layers className="w-8 h-8" />,
-      title: t('mice.home.process.planning.title'),
-      description: t('mice.home.process.planning.desc'),
+      title: t('mice.home.differentiators.conferences.title'),
+      description: t('mice.home.differentiators.conferences.desc'),
     },
     {
       icon: <Medal className="w-8 h-8" />,
-      title: t('mice.home.process.experience.title'),
-      description: t('mice.home.process.experience.desc'),
+      title: t('mice.home.differentiators.exhibitions.title'),
+      description: t('mice.home.differentiators.exhibitions.desc'),
     },
   ];
 
@@ -211,17 +216,20 @@ const MiceHome = () => {
         </div>
       </section>
 
-      {/* NEW: Process Pillars Section */}
+      {/* NASIL FARK YARATIYORUZ? Section */}
       <section className="py-20 px-4 bg-[#16181b]">
         <div className="container mx-auto max-w-7xl">
-          <StaggeredList className="grid grid-cols-1 md:grid-cols-3 gap-12" staggerDelay={150}>
+          <AnimatedSection animation="fadeInUp" className="text-center mb-16">
+            <span className="text-[#2DB34A] text-sm font-medium uppercase tracking-widest mb-3 block">{t('mice.home.differentiators.label')}</span>
+            <h2 className="font-oswald text-4xl md:text-5xl text-white font-bold">{t('mice.home.differentiators.title')}</h2>
+          </AnimatedSection>
+          <StaggeredList className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8" staggerDelay={150}>
             {processSteps.map((step, index) => (
-              <div key={index} className="flex flex-col items-center text-center group">
-                <div className="w-16 h-16 rounded-full bg-[#2DB34A]/10 flex items-center justify-center text-[#2DB34A] mb-6 group-hover:bg-[#2DB34A] group-hover:text-white transition-all duration-500">
+              <div key={index} className="flex flex-col items-center text-center group bg-[#2DB34A] rounded-2xl p-6 hover:bg-[#249A3D] transition-all duration-500">
+                <div className="w-14 h-14 rounded-full bg-white/20 flex items-center justify-center text-white mb-5">
                   {step.icon}
                 </div>
-                <h3 className="font-serif text-2xl text-white mb-4 italic">{step.title}</h3>
-                <p className="text-[#8B9199] leading-relaxed">
+                <p className="text-white leading-relaxed text-sm">
                   {step.description}
                 </p>
               </div>

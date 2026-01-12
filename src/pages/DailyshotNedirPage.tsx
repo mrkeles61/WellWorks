@@ -87,11 +87,10 @@ const DailyshotNedirPage = () => {
 
             {/* Hero Section */}
             <section className="relative pt-32 pb-20 overflow-hidden bg-gray-900 text-white">
-                {/* Background Image/Gradient */}
                 <div className="absolute inset-0 z-0">
                     <img
-                        src="/images/dailyshot_hero_liquid.png"
-                        alt="Liquid Background"
+                        src="/images/products_showcase.png"
+                        alt="Dailyshot Ürünleri"
                         className="w-full h-full object-cover opacity-60 mix-blend-overlay"
                     />
                     <div className="absolute inset-0 bg-gradient-to-br from-blue-900/90 to-purple-900/90 mix-blend-multiply" />
