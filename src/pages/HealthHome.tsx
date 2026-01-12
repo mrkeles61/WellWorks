@@ -16,7 +16,7 @@ import {
   CarouselNext,
   CarouselPrevious,
 } from '@/components/ui/carousel';
-import anime from 'animejs';
+import { animate, stagger } from 'animejs';
 
 const HealthHome = () => {
   const { setBrand } = useBrand();
@@ -39,12 +39,11 @@ const HealthHome = () => {
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
           const target = entry.target as HTMLElement;
-          anime({
-            targets: target.querySelectorAll('.animate-on-scroll'),
+          animate(target.querySelectorAll('.animate-on-scroll'), {
             opacity: [0, 1],
             translateY: [40, 0],
             duration: 800,
-            delay: anime.stagger(150),
+            delay: stagger(150),
             easing: 'easeOutCubic',
           });
         }
