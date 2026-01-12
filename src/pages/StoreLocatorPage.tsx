@@ -9,17 +9,17 @@ const StoreLocatorPage = () => {
         <div className="min-h-screen bg-gray-50 font-sans">
             <Header />
 
-            <main className="pt-32 pb-20">
-                <div className="container mx-auto px-6">
+            <main className="pt-28 pb-16">
+                <div className="max-w-7xl mx-auto px-4 lg:px-8">
                     <AnimatedSection animation="fadeInUp">
-                        <div className="text-center mb-12">
-                            <span className="text-blue-600 text-sm font-semibold uppercase tracking-widest mb-4 block">
+                        <div className="text-center mb-8">
+                            <span className="text-blue-600 text-sm font-semibold uppercase tracking-widest mb-2 block">
                                 En Yakın Satış Noktası
                             </span>
-                            <h1 className="font-poppins font-bold text-4xl md:text-5xl text-gray-900 mb-6">
+                            <h1 className="font-poppins font-bold text-3xl md:text-4xl text-gray-900 mb-4">
                                 Eczane ve Satış Noktaları
                             </h1>
-                            <p className="text-gray-600 max-w-2xl mx-auto text-lg">
+                            <p className="text-gray-600 max-w-xl mx-auto">
                                 Size en yakın Dailyshot ve Electrovit satış noktalarını harita üzerinden kolayca bulabilir,
                                 tek tıkla yol tarifi alabilirsiniz.
                             </p>
@@ -29,8 +29,6 @@ const StoreLocatorPage = () => {
                     <AnimatedSection animation="fadeInUp" delay={200}>
                         <StoreLocatorMap />
                     </AnimatedSection>
-
-                    {/* Additional Info / List View can be added here later */}
                 </div>
             </main>
 

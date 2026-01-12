@@ -7,5 +7,517 @@
     },
     "timestamp": 1768214989546,
     "originalAddress": "Güzelbahçe Sk.No:23 Nişantaşı, Şişli, İstanbul, Turkey"
+  },
+  "354bf5275496fcd0bc80b7530a320b22": {
+    "coords": {
+      "lat": 38.3071387,
+      "lng": 26.3625849,
+      "display_name": "5065. Sokak, Ilıca Mahallesi, Çeşme, İzmir, Ege Bölgesi, 35930, Türkiye"
+    },
+    "timestamp": 1768215500113,
+    "originalAddress": "5065 SOK. NO:54/A ILICA, Çeşme, İzmir, Turkey"
+  },
+  "0001f7322eba728e2a88c7af1d825bb8": {
+    "coords": {
+      "lat": 38.3974387,
+      "lng": 27.0860582,
+      "display_name": "Mithatpaşa Caddesi, Güzelyalı Mahallesi, İzmir, Konak, İzmir, Ege Bölgesi, 35290, Türkiye"
+    },
+    "timestamp": 1768215598800,
+    "originalAddress": "MİTHATPAŞA CD. 759/B , Göztepe, İzmir, Turkey"
+  },
+  "878b721a07e3a18c6aca6abb5020261d": {
+    "coords": {
+      "lat": 38.6086543,
+      "lng": 27.4194561,
+      "display_name": "Yunusemre, Manisa, Ege Bölgesi, Türkiye"
+    },
+    "timestamp": 1768215627505,
+    "originalAddress": ", Yunusemre, Manisa, Turkey"
+  },
+  "74da2ea369902f9df11120133263f563": {
+    "coords": null,
+    "timestamp": 1768219675873,
+    "originalAddress": "KIZILIRMAK MAH 1443.CAD NO:25 B BLOK B-04"
+  },
+  "5689461eb7c802111fdcd90b1e6ac816": {
+    "coords": null,
+    "timestamp": 1768219680600,
+    "originalAddress": "HİLAL MAH.CEZAYİR CAD.19/B"
+  },
+  "17b13e58aeb196e014d67b804857b48f": {
+    "coords": null,
+    "timestamp": 1768219684348,
+    "originalAddress": "Ümit Mah. 1479 Cad. No:2/39"
+  },
+  "02669cee43f36f3f11d01baa7aa2af68": {
+    "coords": null,
+    "timestamp": 1768219687728,
+    "originalAddress": "YAŞAMKENT MAH.BESA KARİNA PLAZA"
+  },
+  "267fb62bccd0cf570b81f4f31563bfb1": {
+    "coords": null,
+    "timestamp": 1768219693647,
+    "originalAddress": "Mutlukent Mah. Angora Bulv. 2015 Cad. 4/15 Beysukent"
+  },
+  "5637be3cddbc2789ec4ce46fd14b1ed6": {
+    "coords": null,
+    "timestamp": 1768219697347,
+    "originalAddress": "BÜYÜKESAT MAH. UĞUR MUMCU CAD. NO:52/A"
+  },
+  "bfd9a68aaae3086f3a2990b9bd5c673d": {
+    "coords": null,
+    "timestamp": 1768219700942,
+    "originalAddress": "CİNNAH CD.NO:52/B"
+  },
+  "ab4064cabd226e9a8c12da17822653ff": {
+    "coords": null,
+    "timestamp": 1768219704526,
+    "originalAddress": "ETİ MAH.CELAL BAYAR BLV.NO:78/120 ATG AVM"
+  },
+  "6a38cb3ae809e18a096f1d2673f5ebc9": {
+    "coords": null,
+    "timestamp": 1768219708003,
+    "originalAddress": "CUMHURİYET MAH. SAKARCA CAD. 6/E"
+  },
+  "24fbb2594da2d78a9942927476700c07": {
+    "coords": null,
+    "timestamp": 1768219711902,
+    "originalAddress": "Oran Mah. Ferit Recai Ertuğrul Cad. No:2/F"
+  },
+  "0590c7fb4b9953a1dc2aa8155784bca2": {
+    "coords": null,
+    "timestamp": 1768219715467,
+    "originalAddress": "MEŞRUTİYET MAH.YÜKSEL CAD.3/A"
+  },
+  "7bc96f01db98a0449c414b3d0c136224": {
+    "coords": null,
+    "timestamp": 1768219719223,
+    "originalAddress": "Birlik Mah. 428 Cad. No:41/B2-02 / 365 AVM"
+  },
+  "7145c755c6f8234f0f0e66804a87cade": {
+    "coords": null,
+    "timestamp": 1768219722861,
+    "originalAddress": "2432 CD(.ESKİ 8.CAD.)151-B ÇAYYOLU"
+  },
+  "22c2a3706dd88a3892148773668c8a90": {
+    "coords": null,
+    "timestamp": 1768219726113,
+    "originalAddress": "BEYTEPE MAH.5385SK.KOZ BEYTEPE A BLOK NO:42"
+  },
+  "04ebc0572eea13b72d84fc2b9810cdcf": {
+    "coords": null,
+    "timestamp": 1768219729964,
+    "originalAddress": "BİRLİK MAH., 401. CAD 14/B"
+  },
+  "55da5752e0f1f3085d03fb7c89f03ce2": {
+    "coords": null,
+    "timestamp": 1768219733389,
+    "originalAddress": "İLKBAHAR MAH.DOĞUKENT CAD.N:733B/C"
+  },
+  "82e2bd1774a5353d618a6458b28b8989": {
+    "coords": null,
+    "timestamp": 1768219737084,
+    "originalAddress": "Beytepe Mah. Kanuni Sultan Süleyman Blv. 5388 Sok. No:1/C"
+  },
+  "5cfde005a0a471f53c05d7f35e0d49b8": {
+    "coords": null,
+    "timestamp": 1768219740344,
+    "originalAddress": "MUTLUKENT MAH. 2432CAD.N:97/A26 GALLERİA AVM"
+  },
+  "980b108cf1d2ac9cec2a94a76da775a7": {
+    "coords": null,
+    "timestamp": 1768219744075,
+    "originalAddress": "BAHÇELİEVLER MAH.TAŞKENT CAD.NO:3/15"
+  },
+  "6ed812c3f33387581b1a01132d5abdaa": {
+    "coords": null,
+    "timestamp": 1768219747655,
+    "originalAddress": "ALACAATLI MAH. 3341 SOK. 1/8-B ÇAYYOLU"
+  },
+  "6ab078935e004d2b44f977c7ef887264": {
+    "coords": null,
+    "timestamp": 1768219751120,
+    "originalAddress": "MUTLUKENT MAH.ANGORA BULVARI 154/A"
+  },
+  "3a0c7952d77bc216e1f7159e01887b0f": {
+    "coords": null,
+    "timestamp": 1768219754621,
+    "originalAddress": "Tunalı Hilmi Cad. No.56/B Kavaklıdere"
+  },
+  "43b8e4d11dae8598c63b0b928fa71bdb": {
+    "coords": null,
+    "timestamp": 1768219758213,
+    "originalAddress": "2434. Cad. No:91 Ümitköy"
+  },
+  "f8b75a8a9dad12f063ce7ee8b977f9f8": {
+    "coords": null,
+    "timestamp": 1768219761861,
+    "originalAddress": "Tunalı Hilmi Cad. No:70/B Kavaklıdere"
+  },
+  "a19f936f0b3ded34f2696e4f80395aaf": {
+    "coords": null,
+    "timestamp": 1768219765579,
+    "originalAddress": "SANCAK MAH.TİFLİS CAD.45/B 06550 YILDIZ"
+  },
+  "1c71fdb52850d22e32aad9f0829bb66a": {
+    "coords": null,
+    "timestamp": 1768219769424,
+    "originalAddress": "TURAN GÜNEŞ BULVARI NO:175/A ORAN"
+  },
+  "82fa127933fd1a5b1d907ebd239a6354": {
+    "coords": null,
+    "timestamp": 1768219772981,
+    "originalAddress": "Birlik Mah. 435 Cad. 61/E"
+  },
+  "e998f09aa17f7ecb45bac01d5830ff4e": {
+    "coords": null,
+    "timestamp": 1768219777101,
+    "originalAddress": "Esatoğlu Mah. Esat Cad. 91/D"
+  },
+  "5e814e8cc19001c83f462076b19aa521": {
+    "coords": null,
+    "timestamp": 1768219780635,
+    "originalAddress": "TURAN GÜNEŞ BULVARI 182/9  ORAN"
+  },
+  "b4a89cba5e477d755efd3e6c48baef22": {
+    "coords": null,
+    "timestamp": 1768219784415,
+    "originalAddress": "Turan Güneş Bulvarı Kudüs Caddesi Park Oran Ofis No:E-64"
+  },
+  "618aab1ab5e169d1cb207b4a37a13028": {
+    "coords": null,
+    "timestamp": 1768219788003,
+    "originalAddress": "PROF DR AHMET TANER KIŞLALI MAH.ALACAATLI CAD. NO:12/10  ÇAYYOLU"
+  },
+  "2d63524e9cf962eabf2f1a477f83e438": {
+    "coords": null,
+    "timestamp": 1768219791538,
+    "originalAddress": "2673.CAD. NO8/A-B ÇAYYOLU"
+  },
+  "c34fcd72006bd5f34adcad6897a7823a": {
+    "coords": null,
+    "timestamp": 1768219795168,
+    "originalAddress": "Mutlukent Mah. 1920 Cad. No:71 Ümitköy"
+  },
+  "c599545603edfa20caa341af940c8c27": {
+    "coords": null,
+    "timestamp": 1768219798984,
+    "originalAddress": "Mevlana Blv. No:190/B-Z11"
+  },
+  "055a083343a61f2a945db65e453c0677": {
+    "coords": null,
+    "timestamp": 1768219802703,
+    "originalAddress": "ÜNİVERSİTELER MAH.1596.CAD.6.ARGE NO:6/A"
+  },
+  "314bed87d3a6c49a9efbedd05431afb6": {
+    "coords": null,
+    "timestamp": 1768219806271,
+    "originalAddress": "Şehit Eren Bülbül Cad. B Blok 39/5-E ALACAATLI"
+  },
+  "fe0920c28d12c842e60d223ebe2824eb": {
+    "coords": null,
+    "timestamp": 1768219809965,
+    "originalAddress": "Yaşamkent Mah. 3300 Cad. 6/AD2"
+  },
+  "d88c1b43f9d78f3d83bdaa47766614ec": {
+    "coords": null,
+    "timestamp": 1768219813621,
+    "originalAddress": "MUSTAFA KEMAL MAH.2150.CAD 5/D 13"
+  },
+  "a24b100cf8fc6b161fd1ebab8f7e8a02": {
+    "coords": null,
+    "timestamp": 1768219817107,
+    "originalAddress": "YAŞAMKENT MAH. 3158 SOK. NO:55"
+  },
+  "ab59ebd17dfd8ab9364522b1df05e074": {
+    "coords": null,
+    "timestamp": 1768219820826,
+    "originalAddress": "ETİ MAH. GMK BULVARI NO :172/C"
+  },
+  "dc959f51e889886cb687a7f4e3ae89f5": {
+    "coords": null,
+    "timestamp": 1768219824741,
+    "originalAddress": "BAĞLICA MAH. BAĞLICA BULVARI 24 A/G NO:3"
+  },
+  "0eab9bfa8ed48a69446fdc5bf52ff5a0": {
+    "coords": null,
+    "timestamp": 1768219828168,
+    "originalAddress": "3250 CD. 6/114A YAŞAMKENT"
+  },
+  "6c64d616768d99898e999cac64f361fb": {
+    "coords": null,
+    "timestamp": 1768219831912,
+    "originalAddress": "KARDELEN MAH.BAŞKENT BULV.NO :224 H"
+  },
+  "e9e7f117cb11f6c8e4968817fd1e7a1f": {
+    "coords": null,
+    "timestamp": 1768219835665,
+    "originalAddress": "AYDINLAR MAH. HÜRRİYET CAD. 165/12"
+  },
+  "8710f331f5e81d55fbaa9f88777301dd": {
+    "coords": null,
+    "timestamp": 1768219840823,
+    "originalAddress": "MUSTAFA KEMAL MAH. DUMLUPINAR BLV. NO:274 "
+  },
+  "a81e7ffbef811d44b9b27c900d1c212b": {
+    "coords": null,
+    "timestamp": 1768219844344,
+    "originalAddress": "ÇUKURAMBAR MAH. 1459. CAD. NO:24/A"
+  },
+  "2859f6966835ebe2016b3c1e09396205": {
+    "coords": null,
+    "timestamp": 1768219847569,
+    "originalAddress": "TUNALIHİLMİ CAD. BÜLTEN SK. NO:29/B"
+  },
+  "5f9416350d8afa0e601a284fc0f5b765": {
+    "coords": null,
+    "timestamp": 1768219851189,
+    "originalAddress": "BARBAROS MH. ESAT CAD. NO:96-98/D "
+  },
+  "121c6ae3d2c17b922775ef01e7b51d9d": {
+    "coords": null,
+    "timestamp": 1768219854445,
+    "originalAddress": "TINAZTEPE MAH. BÜLBÜLDERESEİ CAD. NO:20/A "
+  },
+  "e86d0945ac8b3b998c476a4d6e19c9fc": {
+    "coords": null,
+    "timestamp": 1768219858047,
+    "originalAddress": "Güvenevler Mah. Kuveyt Cad. No: 1/A"
+  },
+  "b8edd6a557a5a6051cf5c719e047cb9d": {
+    "coords": null,
+    "timestamp": 1768219861850,
+    "originalAddress": "HÜSEYİNGAZİ MAH.MAMAK CAD.NO:122/2"
+  },
+  "dc19d2b1af63de38d2bea6ec777b3774": {
+    "coords": null,
+    "timestamp": 1768219868432,
+    "originalAddress": "Beştepe Mah. Dumlupınar Bulvarı Armada Avm No:6B/215 Söğütözü/Yenimahalle-Ankara"
+  },
+  "9db0f6ac74e9564bd3ca548b75a65b3a": {
+    "coords": null,
+    "timestamp": 1768219872070,
+    "originalAddress": "Yeni Batı Mah. Necip Fazıl Cad. No:13/F"
+  },
+  "639df2fef53b3ca9938f5dffaa45895e": {
+    "coords": null,
+    "timestamp": 1768219875725,
+    "originalAddress": "KENTKOOP 1855. SK.N:2 06370"
+  },
+  "96bfcbb16fa22eb012e51bc4ccbd890a": {
+    "coords": null,
+    "timestamp": 1768219879322,
+    "originalAddress": "Beytepe Mah. Kanuni Sultan Süleyman Blv.No:14/C"
+  },
+  "eeef494bf44798e500da8a0b6163165e": {
+    "coords": null,
+    "timestamp": 1768219883087,
+    "originalAddress": "1865 CAD. KENTKOOP MAH. SİYASAL 93 SİTESİ 11/A"
+  },
+  "38070ce7f9f19133c1d3277059ca80e1": {
+    "coords": null,
+    "timestamp": 1768219886660,
+    "originalAddress": "İLKYERLEŞİM MH. 1901 CD. NO:3 "
+  },
+  "ce819efa0651e9d1fee0f8ebe8af1ae1": {
+    "coords": null,
+    "timestamp": 1768219890428,
+    "originalAddress": "TURGUT ÖZAL MH. 2164. CD. NO: 21A BATIKENT"
+  },
+  "f24732899b4649b3c72382dcdf6e2ec7": {
+    "coords": null,
+    "timestamp": 1768219894188,
+    "originalAddress": "TURGUT ÖZAL MH. 2164. CD. NO: 75"
+  },
+  "893884d2aaf87e1b740f4803215ef1d7": {
+    "coords": null,
+    "timestamp": 1768219898243,
+    "originalAddress": "KIZILCAŞAR MAH.ZAFER CAD. NO:79/A"
+  },
+  "862bba331d4e693b5a620cb25c1cb0cc": {
+    "coords": null,
+    "timestamp": 1768219901893,
+    "originalAddress": "KIZILCAŞAR MAH.ZAFER CAD.NO:1/D"
+  },
+  "d507b1ca9118099c3cdffb4cf419e669": {
+    "coords": null,
+    "timestamp": 1768219905130,
+    "originalAddress": "İNCEK MAH.4200 CAD NO:34 D İÇKAPI NO:4"
+  },
+  "9894fa2e2be8575ad14341c51900dcde": {
+    "coords": null,
+    "timestamp": 1768219909574,
+    "originalAddress": "EMRAH MAH. BASIN CAD.SEÇİL SİTESİ NO:63/A"
+  },
+  "730675a0aae2207c7edd994a6b150466": {
+    "coords": null,
+    "timestamp": 1768219913126,
+    "originalAddress": "ESENBOĞA HAVALİMANI TERMİNAL GİRİŞ KATI NO:2231"
+  },
+  "85cd08f99afe6b4835e20c654010d96a": {
+    "coords": null,
+    "timestamp": 1768219916901,
+    "originalAddress": "Oğuzlar Mah. 1602 Cad. Hukukçular Plaza 1/14"
+  },
+  "0b4d13021387d638f54d7dfb22fb38d2": {
+    "coords": null,
+    "timestamp": 1768219920780,
+    "originalAddress": "GÖKSU MAH.5352 SOKAK NO:1/F BLOK N:6"
+  },
+  "d02072ad08cce03e9527f3110fb15ae6": {
+    "coords": null,
+    "timestamp": 1768219924338,
+    "originalAddress": "AYAŞ YOLU OPTİMUM İŞ MERKEZİ NO:93/9"
+  },
+  "dab4ab7b779e32851f3da53130aa3209": {
+    "coords": null,
+    "timestamp": 1768219927775,
+    "originalAddress": "BAĞLICA MAH. MERMEROĞLU CAD. NO:60/F"
+  },
+  "0af3d60010cc8ceba1af27c8e74817bf": {
+    "coords": null,
+    "timestamp": 1768219931822,
+    "originalAddress": "FATİH MAH.BELEDİYE CAD.NO:21/1"
+  },
+  "90916270e7ae64e84038ea859ec7e8b1": {
+    "coords": null,
+    "timestamp": 1768219935380,
+    "originalAddress": "MUTLUKENT MAH. ANGORA BULV. 2015 CAD. 4/15 BEYSUKENT"
+  },
+  "3b10161e6782d5438f23794e9ac6c7f5": {
+    "coords": null,
+    "timestamp": 1768219938895,
+    "originalAddress": "Aydınlıkevler Mah. Uzayan Sk. No: 118/A"
+  },
+  "03d4d9da6c13a88fff70ac15ac87fdf1": {
+    "coords": null,
+    "timestamp": 1768219942521,
+    "originalAddress": "AKDENİZ PARK AVM MAHMUTLAR  MAH. 130 SOK. NO:3"
+  },
+  "b195fe387dff0f2af036abc8a48b01fe": {
+    "coords": null,
+    "timestamp": 1768219945769,
+    "originalAddress": "GÜLLERPINARI MAH. HASAN AKÇILIOĞLU CAD.NO:2/A"
+  },
+  "be78bd33d5ca5eec310e4530b6e02a92": {
+    "coords": null,
+    "timestamp": 1768219949439,
+    "originalAddress": "MAHMUTLAR MAH. BARBAROS CAD. 219/A"
+  },
+  "13c7ce199612b807413c299bc3cdb2d8": {
+    "coords": null,
+    "timestamp": 1768219953220,
+    "originalAddress": "Zeytinlik Mah. 7753 Sk. No:33/A"
+  },
+  "37a95483ce698d49ac2415e666c00b3a": {
+    "coords": null,
+    "timestamp": 1768219956965,
+    "originalAddress": "ALTINOVA ORTA MAH. YÜCE SOK. NO:17/C"
+  },
+  "355c4cab17d200c125c37f294794c058": {
+    "coords": null,
+    "timestamp": 1768219960581,
+    "originalAddress": "MERKEZ MAH. LİSE CAD. 11/C"
+  },
+  "ef10ae9f84190463d126d20ca8a9b7a3": {
+    "coords": null,
+    "timestamp": 1768219964108,
+    "originalAddress": "KİRİŞ MAH. SAHİL SOK. 40/C"
+  },
+  "b64a805e3f58cc448a6f572a81e15da7": {
+    "coords": null,
+    "timestamp": 1768219967635,
+    "originalAddress": "Deniz Cad. No:42 Asdem Park Otel Altı"
+  },
+  "bf724bda1c1b9486e303787e16b80818": {
+    "coords": null,
+    "timestamp": 1768219972210,
+    "originalAddress": "Çağlayan Mah. Bülent Ecevit Blv. Kardeşler Apt. No:134/A-2"
+  },
+  "20a066d498cf2b56d2e43eaa09b122be": {
+    "coords": null,
+    "timestamp": 1768219975592,
+    "originalAddress": "Şirinyalı Mah.Tekellioğlu Cad.Değimli Apt.No:18/A"
+  },
+  "399da003deea396ffcd60e2e7ec068bc": {
+    "coords": null,
+    "timestamp": 1768219979090,
+    "originalAddress": "Balbay Mah. 400 Sok. No:55"
+  },
+  "780b9bc669c58e2170a0cf5d81c0e9eb": {
+    "coords": null,
+    "timestamp": 1768219982903,
+    "originalAddress": "Sinan Mah.Hüsnü Karakaş Cad.Aras Bedesteni 3/B"
+  },
+  "de03b0055e3d924c2d5fd1950bf7aa43": {
+    "coords": null,
+    "timestamp": 1768219986470,
+    "originalAddress": "ÇAĞLAYAN MAH. BARINAKLAR BLV. NUR APT. 49/B"
+  },
+  "5a63790f1e33af8614893a2183daafcc": {
+    "coords": null,
+    "timestamp": 1768219990096,
+    "originalAddress": "Ali Çetinkaya Cad. 23/A"
+  },
+  "86d4cd8a46aaa9b6e1d42d28d3412a11": {
+    "coords": null,
+    "timestamp": 1768219994522,
+    "originalAddress": "Yıldız Mah. Kazım Karabekir Cad. No:64/C"
+  },
+  "b2e7be84cd6ceb7fff926cf67d1dd94a": {
+    "coords": null,
+    "timestamp": 1768219998161,
+    "originalAddress": "Fener Mah. Ecevit Bulv. Kadri Altay Apt. 86/A"
+  },
+  "efbdeff9676b2553ec8ac2d623b8cd15": {
+    "coords": null,
+    "timestamp": 1768220002037,
+    "originalAddress": "Ilıca Mah. Sahii Cad. No:230/0"
+  },
+  "ff28df905d3b7471c9ae8f316f04ba61": {
+    "coords": null,
+    "timestamp": 1768220005727,
+    "originalAddress": "BELEK MAH. TURİZM CAD. NO:45/A"
+  },
+  "d2507532d4190748c7ebfbf3602a02ba": {
+    "coords": null,
+    "timestamp": 1768220009301,
+    "originalAddress": "Kadriye Mah. Atatürk cad. The Legends Tema Park No:104"
+  },
+  "f6eaa08a490a9529c1e87c167334ff7f": {
+    "coords": null,
+    "timestamp": 1768220012841,
+    "originalAddress": "KEMERAĞZI MAH. YAŞAR SOBUTAY BLV. 53/1"
+  },
+  "92bdaab8a537637595ce3a78960a1922": {
+    "coords": null,
+    "timestamp": 1768220016798,
+    "originalAddress": "Altınkum Mah. Gazi Mustafa Kemal Blv. 18/A"
+  },
+  "3ecf764db81c31ca9f7f0a200c08d33e": {
+    "coords": null,
+    "timestamp": 1768220020418,
+    "originalAddress": "Liman Mah.Boğaçayı Cad.No:36/A"
+  },
+  "44be9c5dad43ba28751a664b737720e7": {
+    "coords": null,
+    "timestamp": 1768220024099,
+    "originalAddress": "HURMA MAH. BOĞAÇAYI CAD. NO :87/A-B"
+  },
+  "d5f1a6b33677f5cb8cbbbb771a5d5c7b": {
+    "coords": null,
+    "timestamp": 1768220027741,
+    "originalAddress": "Öğretmenevleri Mah. 999. sok. No:26/A"
+  },
+  "645794fd0c018ce71eb69773d25fccfd": {
+    "coords": null,
+    "timestamp": 1768220031460,
+    "originalAddress": "Gürsu Mah. 355 Sok. No:19 N Blok 78 Numara"
+  },
+  "be10816fcee93135ff9763a5ad9e7397": {
+    "coords": null,
+    "timestamp": 1768220035057,
+    "originalAddress": "Altınkum Mah. Gazi M.Kemal Blv.No:36/A1"
   }
 }

@@ -190,23 +190,6 @@ export const products: Product[] = [
     rating: 0,
     reviews: 0,
   },
-  {
-    id: '10',
-    name: 'Energyshot 2\'li Kutu',
-    slug: 'energyshot-2-li-kutu',
-    shortDescription: 'Deneme paketi',
-    tagline: 'Enerji',
-    price: 199,
-    image: energyshot_7, // Reuse energy image
-    color: '#FF6B35',
-    category: 'Enerji',
-    brand: 'dailyshot',
-    isNew: false,
-    features: ['2 Pack Trial', '3+ Ginseng Complex', 'Fuel Your Day'],
-    featuresTr: ['2\'li Deneme Paketi', '3+ Ginseng Kompleksi', 'Gününe Güç Kat'],
-    rating: 0,
-    reviews: 0,
-  },
 ];
 
 // Dailyshot description for "Dailyshot Nedir?" page

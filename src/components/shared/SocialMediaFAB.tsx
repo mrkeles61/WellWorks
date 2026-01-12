@@ -1,8 +1,15 @@
 import { useState } from 'react';
 import { cn } from '@/lib/utils';
+import { useBrand } from '@/context/BrandContext';
 
 const SocialMediaFAB = () => {
     const [isExpanded, setIsExpanded] = useState(false);
+    const { brand } = useBrand();
+
+    // Brand-specific LinkedIn URLs
+    const linkedinUrl = brand === 'health'
+        ? 'https://www.linkedin.com/company/well-works-health/'
+        : 'https://www.linkedin.com/company/well-works-turkey/';
 
     const socialLinks = [
         {
@@ -17,7 +24,7 @@ const SocialMediaFAB = () => {
         },
         {
             name: 'LinkedIn',
-            href: 'https://www.linkedin.com/company/well-works-turkey/',
+            href: linkedinUrl,
             color: '#0A66C2',
             icon: (
                 <svg className="w-5 h-5" viewBox="0 0 24 24" fill="currentColor">

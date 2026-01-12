@@ -1,9 +1,12 @@
-import { useEffect, useState, useMemo } from 'react';
-import { MapContainer, TileLayer, Marker, useMap } from 'react-leaflet';
+import { useEffect, useState, useMemo, useRef } from 'react';
+import { MapContainer, TileLayer, Marker, Popup, useMap } from 'react-leaflet';
+import MarkerClusterGroup from 'react-leaflet-cluster';
 import L from 'leaflet';
 import 'leaflet/dist/leaflet.css';
-import { Navigation, MapPin } from 'lucide-react';
+import { Navigation, MapPin, Search, Loader2, ExternalLink } from 'lucide-react';
 import { Button } from '@/components/ui/button';
+import { Input } from '@/components/ui/input';
+import { cn } from '@/lib/utils';
 
 // Fix Leaflet default icon issue
 import iconRetinaUrl from 'leaflet/dist/images/marker-icon-2x.png';
@@ -30,25 +33,60 @@ interface Pharmacy {
     lng: number | null;
 }
 
-const CENTER_TURKEY: [number, number] = [39.0, 35.5]; // Default center
+interface DataResponse {
+    meta: {
+        generatedAt: string;
+        totalCount: number;
+        geocodedCount: number;
+        missingCount: number;
+    };
+    pharmacies: Pharmacy[];
+}
+
+const CENTER_TURKEY: [number, number] = [39.0, 35.5];
 const ZOOM_DEFAULT = 6;
 
-// Component to handle "Fly To" behavior
-const MapController = ({ center }: { center: [number, number] | null }) => {
+// Map controller for fly-to
+const MapController = ({ center, zoom }: { center: [number, number] | null; zoom?: number }) => {
     const map = useMap();
     useEffect(() => {
         if (center) {
-            map.flyTo(center, 13);
+            map.flyTo(center, zoom || 13);
         }
-    }, [center, map]);
+    }, [center, zoom, map]);
     return null;
 };
 
+// Navigation URL generator
+const getNavigationUrl = (pharmacy: Pharmacy): string => {
+    const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent) && !(window as any).MSStream;
+
+    if (pharmacy.lat && pharmacy.lng) {
+        if (isIOS) {
+            return `maps://maps.apple.com/?daddr=${pharmacy.lat},${pharmacy.lng}&dirflg=d`;
+        }
+        return `https://www.google.com/maps/dir/?api=1&destination=${pharmacy.lat},${pharmacy.lng}`;
+    }
+    // Address-based fallback
+    const fullAddress = `${pharmacy.address}, ${pharmacy.county}, ${pharmacy.city}, Türkiye`;
+    return `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(fullAddress)}`;
+};
+
 const StoreLocatorMap = () => {
-    const [pharmacies, setPharmacies] = useState<Pharmacy[]>([]);
-    const [userLocation, setUserLocation] = useState<[number, number] | null>(null);
+    const [allPharmacies, setAllPharmacies] = useState<Pharmacy[]>([]);
+    const [meta, setMeta] = useState<DataResponse['meta'] | null>(null);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState<string | null>(null);
+
+    // Filters
+    const [selectedCity, setSelectedCity] = useState<string>('');
+    const [selectedCounty, setSelectedCounty] = useState<string>('');
+    const [searchQuery, setSearchQuery] = useState('');
+
+    // Map state
+    const [userLocation, setUserLocation] = useState<[number, number] | null>(null);
+    const [focusedPharmacy, setFocusedPharmacy] = useState<Pharmacy | null>(null);
+    const mapRef = useRef<L.Map | null>(null);
 
     // Fetch data
     useEffect(() => {
@@ -57,10 +95,9 @@ const StoreLocatorMap = () => {
                 if (!res.ok) throw new Error('Veri yüklenemedi');
                 return res.json();
             })
-            .then(data => {
-                // Filter out entries without coordinates
-                const validData = data.filter((p: Pharmacy) => p.lat && p.lng);
-                setPharmacies(validData);
+            .then((data: DataResponse) => {
+                setMeta(data.meta);
+                setAllPharmacies(data.pharmacies);
                 setLoading(false);
             })
             .catch(err => {
@@ -70,103 +107,233 @@ const StoreLocatorMap = () => {
             });
     }, []);
 
-    // Navigation logic
-    const handleMarkerClick = (pharmacy: Pharmacy) => {
-        if (!pharmacy.lat || !pharmacy.lng) return;
+    // Derived data
+    const cities = useMemo(() =>
+        [...new Set(allPharmacies.map(p => p.city))].sort(),
+        [allPharmacies]);
 
-        const { lat, lng } = pharmacy;
-        const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent) && !(window as any).MSStream;
-        const isAndroid = /Android/.test(navigator.userAgent);
+    const counties = useMemo(() => {
+        if (!selectedCity) return [];
+        return [...new Set(allPharmacies.filter(p => p.city === selectedCity).map(p => p.county))].sort();
+    }, [allPharmacies, selectedCity]);
 
-        let url = '';
+    const filteredPharmacies = useMemo(() => {
+        return allPharmacies.filter(p => {
+            if (selectedCity && p.city !== selectedCity) return false;
+            if (selectedCounty && p.county !== selectedCounty) return false;
+            if (searchQuery) {
+                const q = searchQuery.toLowerCase();
+                if (!p.name.toLowerCase().includes(q) && !p.address.toLowerCase().includes(q)) return false;
+            }
+            return true;
+        });
+    }, [allPharmacies, selectedCity, selectedCounty, searchQuery]);
 
-        if (isIOS) {
-            // Apple Maps
-            url = `maps://maps.apple.com/?daddr=${lat},${lng}&dirflg=d`;
-        } else if (isAndroid) {
-            // Google Maps Intent / Web Link
-            url = `https://www.google.com/maps/dir/?api=1&destination=${lat},${lng}`;
-        } else {
-            // Desktop fallback
-            url = `https://www.google.com/maps/dir/?api=1&destination=${lat},${lng}`;
-        }
+    const pharmaciesWithCoords = useMemo(() =>
+        filteredPharmacies.filter(p => p.lat && p.lng),
+        [filteredPharmacies]);
 
-        window.open(url, '_blank');
-    };
+    const pharmaciesWithoutCoords = useMemo(() =>
+        filteredPharmacies.filter(p => !p.lat || !p.lng),
+        [filteredPharmacies]);
 
+    // Handlers
     const handleNearMe = () => {
         if (!navigator.geolocation) {
             alert('Tarayıcınız konum servisini desteklemiyor.');
             return;
         }
-
         navigator.geolocation.getCurrentPosition(
-            (position) => {
-                setUserLocation([position.coords.latitude, position.coords.longitude]);
-            },
-            () => {
-                alert('Konumunuza erişilemedi. Lütfen izinlerinizi kontrol edin.');
-            }
+            (position) => setUserLocation([position.coords.latitude, position.coords.longitude]),
+            () => alert('Konumunuza erişilemedi. Lütfen izinlerinizi kontrol edin.')
         );
     };
 
-    if (loading) return <div className="h-[500px] w-full bg-gray-100 animate-pulse flex items-center justify-center">Eczaneler Yükleniyor...</div>;
-    if (error) return <div className="h-64 flex items-center justify-center text-red-500">{error}</div>;
+    const handleListItemClick = (pharmacy: Pharmacy) => {
+        if (pharmacy.lat && pharmacy.lng) {
+            setFocusedPharmacy(pharmacy);
+        } else {
+            window.open(getNavigationUrl(pharmacy), '_blank');
+        }
+    };
+
+    const handleNavigate = (pharmacy: Pharmacy) => {
+        window.open(getNavigationUrl(pharmacy), '_blank');
+    };
+
+    const isMobile = typeof window !== 'undefined' && window.innerWidth < 768;
+
+    if (loading) {
+        return (
+            <div className="h-[600px] w-full bg-gray-100 flex items-center justify-center">
+                <Loader2 className="w-8 h-8 animate-spin text-blue-600" />
+                <span className="ml-3 text-gray-600">Yükleniyor…</span>
+            </div>
+        );
+    }
+
+    if (error) {
+        return <div className="h-64 flex items-center justify-center text-red-500">{error}</div>;
+    }
 
     return (
-        <div className="relative w-full h-[600px] rounded-xl overflow-hidden shadow-xl border border-gray-200">
-            {/* Near Me Button (Overlay) */}
-            <div className="absolute top-4 right-4 z-[1000]">
-                <Button
-                    onClick={handleNearMe}
-                    className="bg-white text-gray-800 hover:bg-gray-50 shadow-md border border-gray-200"
-                >
-                    <Navigation className="w-4 h-4 mr-2 text-blue-600" />
-                    Yakınımdaki Eczaneler
-                </Button>
+        <div className="flex flex-col lg:flex-row gap-4 h-[700px]">
+            {/* List Panel */}
+            <div className="w-full lg:w-[35%] flex flex-col bg-white rounded-xl shadow-lg border border-gray-200 overflow-hidden">
+                {/* Filters */}
+                <div className="p-4 border-b border-gray-200 space-y-3">
+                    <div className="flex gap-2">
+                        <select
+                            value={selectedCity}
+                            onChange={(e) => { setSelectedCity(e.target.value); setSelectedCounty(''); }}
+                            className="flex-1 px-3 py-2 border border-gray-300 rounded-lg text-sm focus:ring-2 focus:ring-blue-500"
+                        >
+                            <option value="">Tüm Şehirler</option>
+                            {cities.map(city => <option key={city} value={city}>{city}</option>)}
+                        </select>
+                        <select
+                            value={selectedCounty}
+                            onChange={(e) => setSelectedCounty(e.target.value)}
+                            disabled={!selectedCity}
+                            className="flex-1 px-3 py-2 border border-gray-300 rounded-lg text-sm focus:ring-2 focus:ring-blue-500 disabled:opacity-50"
+                        >
+                            <option value="">Tüm İlçeler</option>
+                            {counties.map(county => <option key={county} value={county}>{county}</option>)}
+                        </select>
+                    </div>
+                    <div className="relative">
+                        <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-400" />
+                        <Input
+                            value={searchQuery}
+                            onChange={(e) => setSearchQuery(e.target.value)}
+                            placeholder="İsim veya adres ara"
+                            className="pl-10"
+                        />
+                    </div>
+                    <div className="text-sm text-gray-500">
+                        {filteredPharmacies.length} sonuç
+                        {selectedCounty && ` • ${selectedCounty}: ${filteredPharmacies.length}`}
+                    </div>
+                </div>
+
+                {/* List */}
+                <div className="flex-1 overflow-y-auto">
+                    {filteredPharmacies.length === 0 ? (
+                        <div className="p-8 text-center text-gray-500">
+                            Bu filtrede sonuç bulunamadı.
+                        </div>
+                    ) : (
+                        filteredPharmacies.map(pharmacy => (
+                            <div
+                                key={pharmacy.id}
+                                onClick={() => handleListItemClick(pharmacy)}
+                                className={cn(
+                                    "p-4 border-b border-gray-100 cursor-pointer hover:bg-gray-50 transition-colors",
+                                    focusedPharmacy?.id === pharmacy.id && "bg-blue-50"
+                                )}
+                            >
+                                <div className="flex justify-between items-start">
+                                    <div className="flex-1 min-w-0">
+                                        <h4 className="font-semibold text-gray-900 truncate">{pharmacy.name}</h4>
+                                        <p className="text-sm text-gray-500">{pharmacy.city}, {pharmacy.county}</p>
+                                        <p className="text-sm text-gray-400 line-clamp-2 mt-1">{pharmacy.address}</p>
+                                        {(!pharmacy.lat || !pharmacy.lng) && (
+                                            <span className="inline-block mt-2 px-2 py-0.5 bg-amber-100 text-amber-700 text-xs rounded">
+                                                Adres bazlı
+                                            </span>
+                                        )}
+                                    </div>
+                                    <Button
+                                        size="sm"
+                                        variant="outline"
+                                        onClick={(e) => { e.stopPropagation(); handleNavigate(pharmacy); }}
+                                        className="ml-3 shrink-0"
+                                    >
+                                        <ExternalLink className="w-4 h-4 mr-1" />
+                                        Yol Tarifi
+                                    </Button>
+                                </div>
+                            </div>
+                        ))
+                    )}
+                </div>
+
+                {/* Footer stats */}
+                {meta && (
+                    <div className="p-3 border-t border-gray-200 bg-gray-50 text-xs text-gray-500 text-center">
+                        Haritada: {pharmaciesWithCoords.length} / {filteredPharmacies.length} • Adres bazlı: {pharmaciesWithoutCoords.length}
+                    </div>
+                )}
             </div>
 
-            <MapContainer
-                center={CENTER_TURKEY}
-                zoom={ZOOM_DEFAULT}
-                style={{ height: '100%', width: '100%' }}
-                scrollWheelZoom={true}
-            >
-                <TileLayer
-                    url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-                    attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-                />
+            {/* Map Panel */}
+            <div className="w-full lg:w-[65%] h-full relative rounded-xl overflow-hidden shadow-lg border border-gray-200">
+                {/* Near Me Button */}
+                <div className="absolute top-4 right-4 z-[1000]">
+                    <Button onClick={handleNearMe} className="bg-white text-gray-800 hover:bg-gray-50 shadow-md border border-gray-200">
+                        <Navigation className="w-4 h-4 mr-2 text-blue-600" />
+                        Yakınımda
+                    </Button>
+                </div>
 
-                <MapController center={userLocation} />
-
-                {/* User Location Marker */}
-                {userLocation && (
-                    <Marker position={userLocation} icon={new L.Icon({
-                        iconUrl: 'https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-blue.png',
-                        shadowUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/images/marker-shadow.png',
-                        iconSize: [25, 41],
-                        iconAnchor: [12, 41],
-                        popupAnchor: [1, -34],
-                        shadowSize: [41, 41]
-                    })} />
-                )}
-
-                {/* Pharmacy Markers */}
-                {pharmacies.map((pharmacy) => (
-                    <Marker
-                        key={pharmacy.id}
-                        position={[pharmacy.lat!, pharmacy.lng!]}
-                        eventHandlers={{
-                            click: () => handleMarkerClick(pharmacy)
-                        }}
+                {pharmaciesWithCoords.length === 0 ? (
+                    <div className="w-full h-full bg-gray-100 flex items-center justify-center text-gray-500">
+                        <MapPin className="w-6 h-6 mr-2" />
+                        Bu filtrede haritada konum bulunamadı
+                    </div>
+                ) : (
+                    <MapContainer
+                        center={CENTER_TURKEY}
+                        zoom={ZOOM_DEFAULT}
+                        style={{ height: '100%', width: '100%' }}
+                        scrollWheelZoom={true}
+                        ref={mapRef}
                     >
-                        {/* We use default markers but they open nav on click, no popup needed globally. 
-                            If a user wants to see the name first, they usually hover or we can add a tooltip.
-                            Requirements said: "Clicking a marker should IMMEDIATELY open navigation".
-                        */}
-                    </Marker>
-                ))}
-            </MapContainer>
+                        <TileLayer
+                            url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+                            attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+                        />
+
+                        <MapController center={focusedPharmacy ? [focusedPharmacy.lat!, focusedPharmacy.lng!] : userLocation} />
+
+                        {userLocation && (
+                            <Marker position={userLocation} icon={new L.Icon({
+                                iconUrl: 'https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-blue.png',
+                                shadowUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/images/marker-shadow.png',
+                                iconSize: [25, 41], iconAnchor: [12, 41], popupAnchor: [1, -34], shadowSize: [41, 41]
+                            })} />
+                        )}
+
+                        <MarkerClusterGroup chunkedLoading>
+                            {pharmaciesWithCoords.map(pharmacy => (
+                                <Marker
+                                    key={pharmacy.id}
+                                    position={[pharmacy.lat!, pharmacy.lng!]}
+                                    eventHandlers={{
+                                        click: () => isMobile ? handleNavigate(pharmacy) : setFocusedPharmacy(pharmacy)
+                                    }}
+                                >
+                                    {!isMobile && (
+                                        <Popup>
+                                            <div className="text-sm">
+                                                <strong>{pharmacy.name}</strong>
+                                                <p className="text-gray-500">{pharmacy.address}</p>
+                                                <Button
+                                                    size="sm"
+                                                    className="mt-2 w-full"
+                                                    onClick={() => handleNavigate(pharmacy)}
+                                                >
+                                                    Yol Tarifi Al
+                                                </Button>
+                                            </div>
+                                        </Popup>
+                                    )}
+                                </Marker>
+                            ))}
+                        </MarkerClusterGroup>
+                    </MapContainer>
+                )}
+            </div>
         </div>
     );
 };

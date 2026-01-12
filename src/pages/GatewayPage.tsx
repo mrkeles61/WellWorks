@@ -1,11 +1,12 @@
 import { useNavigate } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
-import { ArrowRight, ChevronDown, ExternalLink, CalendarCheck } from 'lucide-react';
+import { ArrowRight, ChevronDown } from 'lucide-react';
 import { useBrand } from '@/context/BrandContext';
 import { cn } from '@/lib/utils';
 import { useState, useEffect, useRef } from 'react';
 import { animate, stagger } from 'animejs';
 import { Button } from '@/components/ui/button';
+import { FaInstagram, FaLinkedinIn, FaYoutube, FaWhatsapp } from 'react-icons/fa';
 
 /**
  * GatewayPage - 50/50 Split with Header & Footer
@@ -46,6 +47,12 @@ const GatewayPage = () => {
     setTimeout(() => navigate(side === 'health' ? '/health' : '/mice'), 500);
   };
 
+  const socialLinks = [
+    { icon: FaInstagram, href: 'https://www.instagram.com/dailyshot.turkiye/', label: 'Instagram' },
+    { icon: FaYoutube, href: 'https://www.youtube.com/@Dailyshotturkiye', label: 'YouTube' },
+    { icon: FaWhatsapp, href: 'https://wa.me/905301234567', label: 'WhatsApp' },
+  ];
+
   return (
     <div className="relative min-h-screen overflow-hidden flex flex-col">
       {/* Wipe transition overlay */}
@@ -64,14 +71,21 @@ const GatewayPage = () => {
           <span className="font-oswald font-bold text-xl tracking-wider text-white">
             WELLWORKS TURKEY
           </span>
-          <a
-            href="https://dailyshot.com.tr"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 px-4 py-2 bg-white text-black text-sm font-semibold rounded-full hover:bg-gray-100 transition-colors"
-          >
-            dailyshot.com.tr <ExternalLink className="w-4 h-4" />
-          </a>
+          <div className="flex items-center gap-5">
+            <span className="text-white/50 text-sm hidden sm:block">Bizi Takip Edin</span>
+            {socialLinks.map((link) => (
+              <a
+                key={link.label}
+                href={link.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-white/70 hover:text-white transition-colors"
+                aria-label={link.label}
+              >
+                <link.icon className="w-6 h-6" />
+              </a>
+            ))}
+          </div>
         </div>
       </header>
 
@@ -111,18 +125,7 @@ const GatewayPage = () => {
             </Button>
           </div>
 
-          {/* Bottom positioned secondary link */}
-          <div className="absolute bottom-12 left-0 right-0 text-center z-10">
-            <a
-              href="https://www.dailyshot.com.tr"
-              target="_blank"
-              rel="noopener noreferrer"
-              onClick={(e) => e.stopPropagation()}
-              className="inline-flex items-center gap-2 text-sm text-[#00A3E0] group-hover:text-white transition-colors duration-500 hover:underline"
-            >
-              Hemen Satın Al <ExternalLink className="w-4 h-4" />
-            </a>
-          </div>
+
 
           {/* Divider */}
           <div className="absolute right-0 top-1/4 bottom-1/4 w-px bg-gradient-to-b from-transparent via-gray-300 group-hover:via-white/30 to-transparent transition-colors duration-500" />
@@ -161,18 +164,7 @@ const GatewayPage = () => {
             </Button>
           </div>
 
-          {/* Bottom positioned secondary link */}
-          <div className="absolute bottom-12 left-0 right-0 text-center z-10">
-            <button
-              onClick={(e) => {
-                e.stopPropagation();
-                navigate('/mice/iletisim');
-              }}
-              className="inline-flex items-center gap-2 text-sm text-[#39B54A] group-hover:text-white transition-colors duration-500 hover:underline"
-            >
-              <CalendarCheck className="w-4 h-4" /> Teklif Al
-            </button>
-          </div>
+
         </div>
       </div>
 
