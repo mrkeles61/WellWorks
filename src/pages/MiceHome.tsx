@@ -402,7 +402,7 @@ const MiceHome = () => {
                 {t('mice.home.cta.button')}
               </Link>
               <a
-                href="tel:+902122164752"
+                href="tel:+905360320838"
                 className="bg-transparent border border-white/20 hover:bg-white/10 text-white text-lg font-bold py-4 px-10 rounded-xl transition-all"
               >
                 {t('mice.home.cta.call')}

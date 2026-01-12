@@ -45,6 +45,7 @@ const Header = () => {
 
   const miceLinks: NavLinkItem[] = [
     { href: '/mice', label: t('nav.home') },
+    { href: '/mice/hakkimizda', label: t('mice.aboutUs.pageTitle') },
     { href: '/mice/isler-gucler', label: t('nav.events') },
     { href: '/mice/iletisim', label: t('nav.contact') },
   ];
@@ -71,7 +72,7 @@ const Header = () => {
             <div
               className={cn(
                 'text-xl font-bold transition-colors',
-                brand === 'health' ? 'font-poppins text-health-primary' : 'font-oswald text-mice-primary'
+                brand === 'health' ? 'font-poppins text-health-primary' : 'font-poppins text-mice-primary'
               )}
             >
               {brand === 'health' ? (

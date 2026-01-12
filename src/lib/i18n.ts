@@ -341,6 +341,34 @@ const resources = {
             call: 'Bizi Arayın: 0 (212) 216 47 52',
           },
         },
+        faq: {
+          title: 'Sıkça Sorulan Sorular',
+          question1: 'Hangi tür etkinlikler düzenliyorsunuz?',
+          answer1: 'Festivaller, kurumsal lansmanlar, özel galalar, yaratıcı atölyeler ve daha birçok etkinlik türünde hizmet veriyoruz.',
+          question2: 'Kurumsal müşterilere hizmet veriyor musunuz?',
+          answer2: 'Evet, markaların lansman, toplantı, konferans ve motivasyon etkinliklerini A\'dan Z\'ye planlıyor ve yönetiyoruz.',
+          question3: 'Etkinlik planlaması ne kadar sürer?',
+          answer3: 'Etkinliğin büyüklüğüne göre değişmekle birlikte, genellikle 4-8 haftalık bir planlama süreci öneriyoruz.',
+        },
+        aboutUs: {
+          pageTitle: 'Hakkımızda',
+          origin: {
+            title: 'HAKKIMIZDA',
+            content: '2012 yılından bu yana İstanbul\'un en prestijli etkinliklerini tasarlıyor ve hayata geçiriyoruz. Festival organizasyonlarından kurumsal lansımlara kadar geniş bir yelpazede hizmet sunuyor, her projede yaratıcılığı ve operasyonel mükemmelliği bir araya getiriyoruz.',
+          },
+          qualityPolicy: {
+            title: 'HİZMET ANLAYIŞIMIZ',
+            content: 'Her etkinliği bir başyapıt olarak ele alıyor, markanızın ruhunu yansıtan ve katılımcılarınızla derin bağlar kuran deneyimler yaratıyoruz. Detaylara olan tutkumuz ve profesyonel yaklaşımımızla sektörde fark yaratıyoruz.',
+          },
+          closing: 'Bir sonraki etkinliğinizin efsane olması için buradayız.',
+          social: {
+            title: 'SOSYAL MEDYA',
+            content: 'WellWorks MICE dünyasından en güncel haberler ve etkinlik duyuruları için bizi takip edin.',
+            instagram: 'Instagram',
+            linkedin: 'LinkedIn',
+            youtube: 'YouTube',
+          },
+        },
       },
       team: {
         title: 'Familyamız',
@@ -414,11 +442,11 @@ const resources = {
         },
         address: {
           title: 'Adres',
-          content: 'Fulya, Ortaklar Cd. No.14 K.3 D.5\n34360 Şişli/İstanbul',
+          content: 'Emniyetevler Mahallesi Kale Sokak 2/A Kağıthane/İSTANBUL',
         },
         phone: {
           title: 'Telefon',
-          content: '0 (212) 216 47 52',
+          content: '0 536 032 08 38',
         },
         email: {
           title: 'E-posta',
@@ -877,6 +905,34 @@ Telefon: +90 536 032 08 38`,
             call: 'Call Us: +90 (212) 216 47 52',
           },
         },
+        faq: {
+          title: 'Frequently Asked Questions',
+          question1: 'What types of events do you organize?',
+          answer1: 'We provide services for festivals, corporate launches, private galas, creative workshops, and many other event types.',
+          question2: 'Do you serve corporate clients?',
+          answer2: 'Yes, we plan and manage brand launches, meetings, conferences, and motivation events from A to Z.',
+          question3: 'How long does event planning take?',
+          answer3: 'Depending on the size of the event, we typically recommend a 4-8 week planning period.',
+        },
+        aboutUs: {
+          pageTitle: 'About Us',
+          origin: {
+            title: 'ABOUT US',
+            content: "Since 2012, we have been designing and bringing to life Istanbul's most prestigious events. From festival organizations to corporate launches, we offer services across a wide spectrum, combining creativity and operational excellence in every project.",
+          },
+          qualityPolicy: {
+            title: 'OUR SERVICE APPROACH',
+            content: "We treat every event as a masterpiece, creating experiences that reflect your brand's spirit and build deep connections with your attendees. Our passion for detail and professional approach set us apart in the industry.",
+          },
+          closing: 'We are here to make your next event legendary.',
+          social: {
+            title: 'SOCIAL MEDIA',
+            content: 'Follow us for the latest news and event announcements from the world of WellWorks MICE.',
+            instagram: 'Instagram',
+            linkedin: 'LinkedIn',
+            youtube: 'YouTube',
+          },
+        },
       },
       team: {
         title: 'Our Team',
@@ -950,11 +1006,11 @@ Telefon: +90 536 032 08 38`,
         },
         address: {
           title: 'Address',
-          content: 'Fulya, Ortaklar Cd. No.14 K.3 D.5\n34360 Şişli/Istanbul',
+          content: 'Emniyetevler Mahallesi Kale Sokak 2/A Kağıthane/ISTANBUL',
         },
         phone: {
           title: 'Phone',
-          content: '0 (212) 216 47 52',
+          content: '+90 536 032 08 38',
         },
         email: {
           title: 'Email',

@@ -28,20 +28,57 @@ const Footer = () => {
         {/* Main Footer Grid - 3 Columns */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-10 mb-10">
 
-          {/* Column 1: Kurumsal */}
+          {/* Column 1: Kurumsal / Navigation */}
           <div>
             <h4 className="font-bold text-gray-900 mb-4">{t('footer.corporate')}</h4>
             <ul className="space-y-2 text-sm">
-              <li>
-                <Link to="/dailyshot-nedir" className={cn('transition-colors', brandHover)}>
-                  Dailyshot Nedir?
-                </Link>
-              </li>
-              <li>
-                <Link to="/mice/iletisim" className={cn('transition-colors', brandHover)}>
-                  {t('footer.contactLink')}
-                </Link>
-              </li>
+              {brand === 'health' ? (
+                <>
+                  <li>
+                    <Link to="/health" className={cn('transition-colors', brandHover)}>
+                      {t('nav.home')}
+                    </Link>
+                  </li>
+                  <li>
+                    <Link to="/health/hakkimizda" className={cn('transition-colors', brandHover)}>
+                      {t('health.aboutUs.pageTitle')}
+                    </Link>
+                  </li>
+                  <li>
+                    <Link to="/dailyshot-nedir" className={cn('transition-colors', brandHover)}>
+                      Dailyshot Nedir?
+                    </Link>
+                  </li>
+                  <li>
+                    <Link to="/health/iletisim" className={cn('transition-colors', brandHover)}>
+                      {t('footer.contactLink')}
+                    </Link>
+                  </li>
+                </>
+              ) : (
+                <>
+                  <li>
+                    <Link to="/mice" className={cn('transition-colors', brandHover)}>
+                      {t('nav.home')}
+                    </Link>
+                  </li>
+                  <li>
+                    <Link to="/mice/hakkimizda" className={cn('transition-colors', brandHover)}>
+                      {t('mice.aboutUs.pageTitle')}
+                    </Link>
+                  </li>
+                  <li>
+                    <Link to="/mice/isler-gucler" className={cn('transition-colors', brandHover)}>
+                      {t('nav.events')}
+                    </Link>
+                  </li>
+                  <li>
+                    <Link to="/mice/iletisim" className={cn('transition-colors', brandHover)}>
+                      {t('footer.contactLink')}
+                    </Link>
+                  </li>
+                </>
+              )}
               <li>
                 <Link to="/legal/kvkk" className={cn('transition-colors', brandHover)}>
                   {t('footer.privacyPolicy')}
@@ -76,28 +113,19 @@ const Footer = () => {
                   YouTube
                 </a>
               </li>
-              <li>
-                <a
-                  href="https://www.linkedin.com/company/well-works-turkey/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex items-center gap-2 hover:text-[#0A66C2] transition-colors"
-                >
-                  <Linkedin className="w-5 h-5 text-[#0A66C2]" />
-                  Well Works Turkey
-                </a>
-              </li>
-              <li>
-                <a
-                  href="https://www.linkedin.com/company/well-works-health/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex items-center gap-2 hover:text-[#0A66C2] transition-colors"
-                >
-                  <Linkedin className="w-5 h-5 text-[#0A66C2]" />
-                  Well Works Health
-                </a>
-              </li>
+              {brand === 'health' && (
+                <li>
+                  <a
+                    href="https://www.linkedin.com/company/well-works-health/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center gap-2 hover:text-[#0A66C2] transition-colors"
+                  >
+                    <Linkedin className="w-5 h-5 text-[#0A66C2]" />
+                    Well Works Health
+                  </a>
+                </li>
+              )}
             </ul>
           </div>
 

@@ -1,7 +1,7 @@
 import { useTranslation } from 'react-i18next';
 import { useEffect, useState } from 'react';
 import { useBrand } from '@/context/BrandContext';
-import { MapPin, Phone, Mail, Clock, Send } from 'lucide-react';
+import { MapPin, Phone, Mail, Send } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import AnimatedSection from '@/components/shared/AnimatedSection';
 
@@ -55,25 +55,22 @@ const ContactPage = () => {
       title: t('contact.email.title'),
       content: t('contact.email.content'),
     },
-    {
-      icon: <Clock className="w-5 h-5" />,
-      title: t('contact.hours.title'),
-      content: t('contact.hours.content'),
-    },
+
   ];
 
+  const faqKey = brand === 'mice' ? 'mice.faq' : 'contact.faq';
   const faqs = [
     {
-      question: t('contact.faq.question1'),
-      answer: t('contact.faq.answer1'),
+      question: t(`${faqKey}.question1`),
+      answer: t(`${faqKey}.answer1`),
     },
     {
-      question: t('contact.faq.question2'),
-      answer: t('contact.faq.answer2'),
+      question: t(`${faqKey}.question2`),
+      answer: t(`${faqKey}.answer2`),
     },
     {
-      question: t('contact.faq.question3'),
-      answer: t('contact.faq.answer3'),
+      question: t(`${faqKey}.question3`),
+      answer: t(`${faqKey}.answer3`),
     },
   ];
 
@@ -282,26 +279,7 @@ const ContactPage = () => {
               </div>
             </div>
 
-            {/* Map Placeholder */}
-            <div
-              className={cn(
-                'w-full h-[280px] rounded-2xl overflow-hidden shadow-lg relative group cursor-pointer border',
-                brand === 'health' ? 'border-border' : 'border-gray-700'
-              )}
-            >
-              <div
-                className="absolute inset-0 bg-cover bg-center transition-transform duration-500 group-hover:scale-105"
-                style={{
-                  backgroundImage: `url("https://api.mapbox.com/styles/v1/mapbox/dark-v11/static/28.9817,41.0473,12,0/600x400@2x?access_token=pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpejY4NXVycTA2emYycXBndHRqcmZ3N3gifQ.rJcFIG214AriISLbB6B5aw")`,
-                }}
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent flex items-end p-6">
-                <div className="flex items-center gap-2 text-white">
-                  <MapPin className="w-5 h-5" />
-                  <span className="font-bold text-sm">{t('contact.map.view')}</span>
-                </div>
-              </div>
-            </div>
+
           </AnimatedSection>
         </div>
 

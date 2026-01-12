@@ -6,7 +6,7 @@ import { cn } from '@/lib/utils';
 import { useState, useEffect, useRef } from 'react';
 import { animate, stagger } from 'animejs';
 import { Button } from '@/components/ui/button';
-import { FaInstagram, FaLinkedinIn, FaYoutube, FaWhatsapp } from 'react-icons/fa';
+import { FaInstagram, FaWhatsapp } from 'react-icons/fa';
 
 /**
  * GatewayPage - 50/50 Split with Header & Footer
@@ -48,9 +48,8 @@ const GatewayPage = () => {
   };
 
   const socialLinks = [
-    { icon: FaInstagram, href: 'https://www.instagram.com/dailyshot.turkiye/', label: 'Instagram' },
-    { icon: FaYoutube, href: 'https://www.youtube.com/@Dailyshotturkiye', label: 'YouTube' },
-    { icon: FaWhatsapp, href: 'https://wa.me/905301234567', label: 'WhatsApp' },
+    { icon: FaInstagram, href: 'https://www.instagram.com/dailyshottr/', label: 'Instagram' },
+    { icon: FaWhatsapp, href: 'https://wa.me/905360320838?text=Merhaba,%20bilgi%20almak%20istiyorum', label: 'WhatsApp' },
   ];
 
   return (
