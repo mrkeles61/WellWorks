@@ -228,70 +228,79 @@ const HealthHome = () => {
       <div className="h-12 bg-white" />
 
       {/* ===== ELECTROVIT INTRO SECTION (Red Background) ===== */}
-      {/* ===== ELECTROVIT INTRO SECTION (Overlay Split Pattern) ===== */}
-      <section ref={electrovitSectionRef} className="relative w-full h-[85vh] overflow-hidden flex items-center">
-        {/* Full Screen Background Image */}
-        <div className="absolute inset-0 z-0">
-          <img
-            src="/images/electrovit_stadium.png"
-            alt="Electrovit Hero Background"
-            className="w-full h-full object-cover"
-          />
+      {/* ===== ELECTROVIT SECTION (Navy Cinematic - No Badge) ===== */}
+      <section ref={electrovitSectionRef} className="py-20 lg:py-32 relative overflow-hidden bg-[#0f1c2e] text-white">
+
+        {/* Background Visuals */}
+        <div className="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none -z-10">
+          <div className="absolute top-1/4 -left-20 w-96 h-96 bg-[#0ea5e9]/10 rounded-full blur-[100px]"></div>
+          <div className="absolute bottom-0 right-0 w-[500px] h-[500px] bg-blue-600/10 rounded-full blur-[120px]"></div>
         </div>
 
-        {/* Hard Edge Gradient Overlay (Left Split) - Color Zone */}
-        <div className="absolute inset-0 z-10 bg-gradient-to-r from-health-primary via-health-primary/95 to-transparent w-full md:w-[75%]" />
-
-        {/* Soft Radial Watermark for Texture */}
-        <div className="absolute -left-20 top-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-white/5 rounded-full blur-3xl z-10 pointer-events-none" />
-
-        <div className="container mx-auto px-6 relative z-20">
+        <div className="container mx-auto px-6 relative z-10" style={{ maxWidth: '80%' }}>
           <div className="grid lg:grid-cols-2 gap-12 items-center">
-            {/* Left Content Zone (Text) */}
-            <div className="max-w-2xl text-white">
-              {/* Brand/Category Tag */}
-              <div className="inline-flex items-center gap-2 mb-6 border-b border-white/30 pb-2">
-                <span className="font-oswald text-xl uppercase tracking-widest text-white/90">
-                  PERFORMANS SERİSİ
-                </span>
+
+            {/* Left Content */}
+            <div className="space-y-8 lg:pr-8">
+              <div className="text-[#0ea5e9] font-bold tracking-widest text-xs uppercase mb-2">
+                Performans Serisi
               </div>
-
-              {/* Main Headline - Condensed Bold Uppercase */}
-              <h2 className="font-oswald text-6xl md:text-8xl font-bold uppercase leading-[0.9] tracking-tight mb-8">
-                SPORCULARIN<br />
-                <span className="text-white/80">ELEKTROLİT</span><br />
-                TERCİHİ
-              </h2>
-
-              {/* Description - Sans Serif Clean */}
-              <p className="text-xl md:text-2xl font-light text-white/90 leading-relaxed mb-10 max-w-lg border-l-4 border-white/30 pl-6">
-                Electrovit, aktif yaşam sürenler için özel formüle edilmiş <span className="font-semibold">likit elektrolit</span> takviyesidir. Toz karışıklığına son verin.
+              <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tight leading-[1.1] text-white">
+                Sporcuların <br />
+                <span className="text-[#0ea5e9]">Elektrolit</span> Tercihi
+              </h1>
+              <p className="text-base md:text-lg text-slate-400 leading-relaxed max-w-xl">
+                Electrovit, aktif yaşam sürenler için özel formüle edilmiş <strong className="text-slate-200">likit elektrolit</strong> takviyesidir. Toz karışıklığına son verin, performansınızı zirveye taşıyın.
               </p>
 
-              {/* Functional Attributes */}
-              <div className="flex flex-wrap gap-6 mb-12">
-                {[
-                  { icon: Zap, label: "ANINDA ENERJİ" },
-                  { icon: Droplets, label: "HIZLI EMİLİM" },
-                  { icon: Activity, label: "ŞEKERSİZ" }
-                ].map((feature, idx) => (
-                  <div key={idx} className="flex items-center gap-3 bg-white/10 backdrop-blur-md px-5 py-3 rounded-xl border border-white/10 hover:bg-white/20 transition-colors cursor-default">
-                    <feature.icon className="w-6 h-6" strokeWidth={1.5} />
-                    <span className="font-bold text-sm tracking-wider">{feature.label}</span>
-                  </div>
-                ))}
-              </div>
+              <ul className="space-y-4">
+                <li className="flex items-center space-x-3 text-slate-300">
+                  <span className="flex-shrink-0 w-6 h-6 rounded-full bg-[#0ea5e9]/10 flex items-center justify-center text-[#0ea5e9]">
+                    <Zap className="w-3.5 h-3.5" />
+                  </span>
+                  <span className="font-medium text-sm md:text-base">Anında Enerji ve Canlılık</span>
+                </li>
+                <li className="flex items-center space-x-3 text-slate-300">
+                  <span className="flex-shrink-0 w-6 h-6 rounded-full bg-[#0ea5e9]/10 flex items-center justify-center text-[#0ea5e9]">
+                    <Droplets className="w-3.5 h-3.5" />
+                  </span>
+                  <span className="font-medium text-sm md:text-base">Hızlı Emilim Teknolojisi</span>
+                </li>
+                <li className="flex items-center space-x-3 text-slate-300">
+                  <span className="flex-shrink-0 w-6 h-6 rounded-full bg-[#0ea5e9]/10 flex items-center justify-center text-[#0ea5e9]">
+                    <Activity className="w-3.5 h-3.5" />
+                  </span>
+                  <span className="font-medium text-sm md:text-base">Şekersiz ve Kalorisiz Formül</span>
+                </li>
+              </ul>
 
-              {/* CTA */}
-              <Button
-                asChild
-                className="bg-white text-health-primary hover:bg-gray-100 text-lg px-10 py-8 rounded-full font-bold shadow-2xl transition-transform hover:scale-105 border-0"
-              >
-                <a href="https://dailyshot.com.tr/arama/electrovit" target="_blank" rel="noopener noreferrer">
-                  ELECTROVIT'İ KEŞFET <ArrowRight className="ml-3 w-6 h-6" />
-                </a>
-              </Button>
+              <div className="pt-4">
+                <Button
+                  asChild
+                  className="inline-flex items-center justify-center px-8 py-6 text-base font-semibold text-white transition-all duration-200 bg-[#0ea5e9] rounded-full hover:bg-[#0284c7] hover:shadow-lg hover:shadow-[#0ea5e9]/30 border-0"
+                >
+                  <a href="https://dailyshot.com.tr/arama/electrovit" target="_blank" rel="noopener noreferrer" className="group">
+                    Electrovit'i Keşfet <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                  </a>
+                </Button>
+              </div>
             </div>
+
+            {/* Right Image Card */}
+            <div className="relative h-full w-full min-h-[400px] lg:min-h-[600px] flex items-center justify-center">
+              <div className="relative w-full h-full overflow-hidden rounded-3xl shadow-2xl shadow-black/50 aspect-[4/5] lg:aspect-square group">
+                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent z-10"></div>
+                <img
+                  src="/images/electrovit_stadium.png"
+                  alt="Electrovit Stadium"
+                  className="object-cover w-full h-full transform transition-transform duration-700 group-hover:scale-105"
+                />
+                {/* Badge REMOVED as per request */}
+              </div>
+              {/* Visual Border Element behind */}
+              <div className="absolute -z-10 -bottom-6 -right-6 w-full h-full border-2 border-white/10 rounded-3xl"></div>
+            </div>
+
           </div>
         </div>
       </section>

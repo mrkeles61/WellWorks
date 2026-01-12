@@ -7,10 +7,11 @@ import { BrandProvider } from "./context/BrandContext";
 import Layout from "./components/layout/Layout";
 import GatewayPage from "./pages/GatewayPage";
 import HealthHome from "./pages/HealthHome";
-import HealthAbout from "./pages/HealthAbout";
+import DailyshotNedirPage from "./pages/DailyshotNedirPage";
 import HealthContactPage from "./pages/HealthContactPage";
 import ElectrovitNedirPage from "./pages/ElectrovitNedirPage";
 import MiceHome from "./pages/MiceHome";
+import StoreLocatorPage from "./pages/StoreLocatorPage";
 import WorksPage from "./pages/WorksPage";
 import TeamPage from "./pages/TeamPage";
 import ContactPage from "./pages/ContactPage";
@@ -31,7 +32,7 @@ const App = () => (
             <Routes>
               <Route path="/" element={<GatewayPage />} />
               <Route path="/health" element={<HealthHome />} />
-              <Route path="/health/hakkinda" element={<HealthAbout />} />
+              <Route path="/dailyshot-nedir" element={<DailyshotNedirPage />} />
               <Route path="/health/iletisim" element={<HealthContactPage />} />
               <Route path="/health/electrovit-nedir" element={<ElectrovitNedirPage />} />
               <Route path="/mice" element={<MiceHome />} />
@@ -42,6 +43,7 @@ const App = () => (
               <Route path="/ekip" element={<TeamPage />} />
               <Route path="/familyamiz" element={<TeamPage />} />
               <Route path="/legal/:type" element={<LegalPage />} />
+              <Route path="/health/satis-noktalari" element={<StoreLocatorPage />} />
               {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
               <Route path="*" element={<NotFound />} />
             </Routes>

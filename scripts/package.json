@@ -1,0 +1,12 @@
+{
+    "name": "scripts",
+    "version": "1.0.0",
+    "description": "Build scripts for datagen",
+    "main": "index.js",
+    "scripts": {
+        "geocode": "node geocode-pharmacies.js"
+    },
+    "dependencies": {
+        "axios": "^1.6.0"
+    }
+}

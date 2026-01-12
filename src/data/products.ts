@@ -1,15 +1,22 @@
+import energyshot_7 from '@/assets/products/energy-box-bottle.png';
+import hangover_4 from '@/assets/products/hangover-box-bottle.png';
+import relax_7 from '@/assets/products/relax-7-box-new.png'; // NEW IMAGE
+import defenseshot_7 from '@/assets/products/defenseshot-7-box-new.png'; // NEW IMAGE
+import detox_21 from '@/assets/products/kis-semptomlari-10.png';
+import lax_7 from '@/assets/products/lax-6.jpg';
+import libido_14 from '@/assets/products/lbd-1.jpg';
+import electrovit_orange_8 from '@/assets/products/prtk5.jpg';
+import electrovit_watermelon_8 from '@/assets/products/elct2.jpg';
+
+// Keeping these for reference/other usages if needed, though mostly replaced above
 import enerji1 from '@/assets/products/enerji-1.jpg';
 import hango1 from '@/assets/products/hango-1.jpg';
-import relax1 from '@/assets/products/relax-1.png';
 import kis2 from '@/assets/products/kis-semptomlari-2.png';
 import kis10 from '@/assets/products/kis-semptomlari-10.png';
 import lax6 from '@/assets/products/lax-6.jpg';
 import lbd1 from '@/assets/products/lbd-1.jpg';
-import prtk5 from '@/assets/products/prtk5.jpg';
-import elct2 from '@/assets/products/elct2.jpg';
 import energy6 from '@/assets/products/energy-6.jpeg';
-import energyBoxBottle from '@/assets/products/energy-box-bottle.png';
-import hangoverBoxBottle from '@/assets/products/hangover-box-bottle.png';
+
 
 export interface Product {
   id: string;
@@ -37,7 +44,7 @@ export const products: Product[] = [
     shortDescription: 'Anında enerji, uzun süreli performans',
     tagline: 'Enerji',
     price: 489,
-    image: energyBoxBottle,
+    image: energyshot_7,
     color: '#FF6B35',
     category: 'Enerji',
     brand: 'dailyshot',
@@ -54,7 +61,7 @@ export const products: Product[] = [
     shortDescription: 'Yarına keyifle uyan',
     tagline: 'Akşamdan Kalma',
     price: 375,
-    image: hangoverBoxBottle,
+    image: hangover_4,
     color: '#E63946',
     category: 'Akşamdan Kalma',
     brand: 'dailyshot',
@@ -71,7 +78,7 @@ export const products: Product[] = [
     shortDescription: 'Rahatla, dinlen, yenilen',
     tagline: 'Uyku ve Stres',
     price: 515,
-    image: relax1,
+    image: relax_7,
     color: '#457B9D',
     category: 'Uyku ve Stres',
     brand: 'dailyshot',
@@ -88,7 +95,7 @@ export const products: Product[] = [
     shortDescription: 'Bağışıklığını güçlendir',
     tagline: 'Kış Semptomları',
     price: 498,
-    image: kis2,
+    image: defenseshot_7,
     color: '#9B5DE5',
     category: 'Kış Semptomları',
     brand: 'dailyshot',
@@ -105,7 +112,7 @@ export const products: Product[] = [
     shortDescription: 'Kilo kontrol desteği',
     tagline: 'Detoks',
     price: 1749,
-    image: kis10,
+    image: detox_21,
     color: '#2ECC71',
     category: 'Detoks',
     brand: 'dailyshot',
@@ -122,7 +129,7 @@ export const products: Product[] = [
     shortDescription: 'Bağırsak ve sindirim sistemi düzenleyici',
     tagline: 'Sindirim',
     price: 529,
-    image: lax6,
+    image: lax_7,
     color: '#F4A261',
     category: 'Sindirim',
     brand: 'dailyshot',
@@ -139,7 +146,7 @@ export const products: Product[] = [
     shortDescription: 'Libido desteği',
     tagline: 'Libido',
     price: 1689,
-    image: lbd1,
+    image: libido_14,
     color: '#E91E63',
     category: 'Libido',
     brand: 'dailyshot',
@@ -156,7 +163,7 @@ export const products: Product[] = [
     shortDescription: 'Elektrolit takviyesi',
     tagline: 'Elektrolit',
     price: 379,
-    image: prtk5,
+    image: electrovit_orange_8,
     color: '#FF9800',
     category: 'Elektrolit',
     brand: 'electrovit',
@@ -173,7 +180,7 @@ export const products: Product[] = [
     shortDescription: 'Elektrolit takviyesi',
     tagline: 'Elektrolit',
     price: 379,
-    image: elct2,
+    image: electrovit_watermelon_8,
     color: '#4CAF50',
     category: 'Elektrolit',
     brand: 'electrovit',
@@ -190,7 +197,7 @@ export const products: Product[] = [
     shortDescription: 'Deneme paketi',
     tagline: 'Enerji',
     price: 199,
-    image: energyBoxBottle,
+    image: energyshot_7, // Reuse energy image
     color: '#FF6B35',
     category: 'Enerji',
     brand: 'dailyshot',

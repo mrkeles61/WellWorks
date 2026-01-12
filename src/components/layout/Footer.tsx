@@ -33,8 +33,8 @@ const Footer = () => {
             <h4 className="font-bold text-gray-900 mb-4">{t('footer.corporate')}</h4>
             <ul className="space-y-2 text-sm">
               <li>
-                <Link to="/health/hakkinda" className={cn('transition-colors', brandHover)}>
-                  {t('footer.about')}
+                <Link to="/dailyshot-nedir" className={cn('transition-colors', brandHover)}>
+                  Dailyshot Nedir?
                 </Link>
               </li>
               <li>

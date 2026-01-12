@@ -4,6 +4,8 @@ import { MapPin, Navigation, Phone, Search } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { cn } from '@/lib/utils';
+import { ScrollArea } from "@/components/ui/scroll-area"
+import { Map } from "@/components/ui/map";
 
 // Define the shape of our data
 interface Store {
@@ -68,7 +70,7 @@ const StoreLocator = () => {
             <div className="grid lg:grid-cols-12 gap-0">
 
                 {/* Left Panel: Search & Results */}
-                <div className="lg:col-span-5 p-8 flex flex-col h-[600px] border-r border-gray-100">
+                <div className="lg:col-span-4 p-6 lg:p-8 flex flex-col h-[600px] border-r border-gray-100 bg-white z-10 relative">
 
                     <div className="mb-6">
                         <h3 className="text-2xl font-bold text-gray-900 mb-2 flex items-center gap-2">
@@ -115,69 +117,85 @@ const StoreLocator = () => {
                         </div>
                     </div>
 
-                    {/* Results List */}
-                    {/* Results List */}
-                    <div className="flex-1 overflow-y-auto pr-2 -mr-2 space-y-3 custom-scrollbar">
-                        {stores.length > 0 ? (
-                            stores.map((store, idx) => (
-                                <div
-                                    key={idx}
-                                    className="p-4 rounded-xl border border-gray-100 bg-gray-50/30 hover:bg-white hover:border-health-primary/30 hover:shadow-md transition-all group"
-                                >
-                                    <div className="flex justify-between items-start mb-2">
-                                        <h4 className="font-bold text-gray-900 group-hover:text-health-primary transition-colors">
-                                            {store.name}
-                                        </h4>
-                                        <span className="bg-green-100 text-green-700 text-[10px] uppercase font-bold px-2 py-0.5 rounded-full">
-                                            Açık
-                                        </span>
-                                    </div>
+                    {/* Results List - Uses Shadcn ScrollArea */}
+                    <ScrollArea className="flex-1 -mr-4 pr-4">
+                        <div className="space-y-3 pb-4">
+                            {stores.length > 0 ? (
+                                stores.map((store, idx) => (
+                                    <div
+                                        key={idx}
+                                        className="p-4 rounded-xl border border-gray-100 bg-gray-50/30 hover:bg-white hover:border-health-primary/30 hover:shadow-md transition-all group"
+                                    >
+                                        <div className="flex justify-between items-start mb-2">
+                                            <h4 className="font-bold text-gray-900 group-hover:text-health-primary transition-colors text-sm">
+                                                {store.name}
+                                            </h4>
+                                            <span className="bg-green-100 text-green-700 text-[10px] uppercase font-bold px-2 py-0.5 rounded-full whitespace-nowrap">
+                                                Açık
+                                            </span>
+                                        </div>
 
-                                    <div className="flex items-start gap-2 text-gray-500 text-sm mb-3">
-                                        <MapPin className="w-4 h-4 shrink-0 mt-0.5 text-gray-400" />
-                                        <span className="leading-snug text-xs">{store.address}</span>
-                                    </div>
+                                        <div className="flex items-start gap-2 text-gray-500 text-sm mb-3">
+                                            <MapPin className="w-3.5 h-3.5 shrink-0 mt-0.5 text-gray-400" />
+                                            <span className="leading-snug text-xs truncate line-clamp-2">{store.address}</span>
+                                        </div>
 
-                                    <div className="flex items-center gap-2">
-                                        <Button
-                                            asChild
-                                            size="sm"
-                                            variant="outline"
-                                            className="h-8 text-xs w-full border-health-primary/20 text-health-primary hover:bg-health-primary hover:text-white"
-                                        >
-                                            <a
-                                                href={store.map && store.map.length > 0 ? store.map : `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(`${store.name} ${store.address}`)}`}
-                                                target="_blank"
-                                                rel="noopener noreferrer"
-                                            >
-                                                <Navigation className="w-3 h-3 mr-1.5" /> Yol Tarifi
-                                            </a>
-                                        </Button>
-                                        {store.phone && (
+                                        <div className="flex items-center gap-2">
                                             <Button
                                                 asChild
                                                 size="sm"
-                                                variant="ghost"
-                                                className="h-8 w-8 p-0 rounded-full text-gray-400 hover:text-health-primary hover:bg-health-primary/10"
+                                                variant="outline"
+                                                className="h-8 text-xs w-full border-health-primary/20 text-health-primary hover:bg-health-primary hover:text-white"
                                             >
-                                                <a href={`tel:${store.phone}`}>
-                                                    <Phone className="w-3.5 h-3.5" />
+                                                <a
+                                                    href={store.map && store.map.length > 0 ? store.map : `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(`${store.name} ${store.address}`)}`}
+                                                    target="_blank"
+                                                    rel="noopener noreferrer"
+                                                >
+                                                    <Navigation className="w-3 h-3 mr-1.5" /> Yol Tarifi
                                                 </a>
                                             </Button>
-                                        )}
+                                            {store.phone && (
+                                                <Button
+                                                    asChild
+                                                    size="sm"
+                                                    variant="ghost"
+                                                    className="h-8 w-8 p-0 rounded-full text-gray-400 hover:text-health-primary hover:bg-health-primary/10"
+                                                >
+                                                    <a href={`tel:${store.phone}`}>
+                                                        <Phone className="w-3.5 h-3.5" />
+                                                    </a>
+                                                </Button>
+                                            )}
+                                        </div>
                                     </div>
+                                ))
+                            ) : (
+                                <div className="flex flex-col items-center justify-center h-48 text-gray-400 text-center">
+                                    <MapPin className="w-12 h-12 mb-3 opacity-20" />
+                                    <p className="text-sm px-4">
+                                        {isLoading ? 'Yükleniyor...' : (selectedCounty ? 'Bu ilçede kayıtlı satış noktası bulunamadı.' : 'Lütfen il ve ilçe seçiniz.')}
+                                    </p>
                                 </div>
-                            ))
-                        ) : (
-                            <div className="flex flex-col items-center justify-center h-48 text-gray-400 text-center">
-                                <MapPin className="w-12 h-12 mb-3 opacity-20" />
-                                <p className="text-sm">
-                                    {isLoading ? 'Yükleniyor...' : (selectedCounty ? 'Bu ilçede kayıtlı satış noktası bulunamadı.' : 'Lütfen il ve ilçe seçiniz.')}
-                                </p>
-                            </div>
-                        )}
+                            )}
+                        </div>
+                    </ScrollArea>
+                </div>
+
+                {/* Right Panel: MapCN Map visualization */}
+                <div className="lg:col-span-8 bg-slate-50 relative h-[400px] lg:h-[600px] border-l border-slate-100">
+                    <Map
+                        className="w-full h-full"
+                        center={[35.2433, 38.9637]} // Turkey Center
+                        zoom={6}
+                    />
+
+                    {/* Footer Info */}
+                    <div className="absolute bottom-6 right-6 z-10 bg-white/90 backdrop-blur border border-slate-100 px-4 py-2 rounded-lg shadow-sm text-xs text-slate-400">
+                        Harita Görünümü
                     </div>
                 </div>
+
             </div>
         </div>
     );
