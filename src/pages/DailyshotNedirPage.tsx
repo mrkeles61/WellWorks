@@ -35,51 +35,51 @@ const DailyshotNedirPage = () => {
     const benefits = [
         {
             icon: <Zap className="w-6 h-6" />,
-            title: 'Hızlı Emilim',
-            description: 'Likit form teknolojisi ile etken maddeler dakikalar içinde kana karışır.',
+            title: t('health.dailyshotNedir.benefits.fastAbsorption'),
+            description: t('health.dailyshotNedir.benefits.fastAbsorptionDesc'),
         },
         {
             icon: <Activity className="w-6 h-6" />,
-            title: '%90 Biyoyararlanım',
-            description: 'Hap ve kapsüllere göre 5 kata kadar daha yüksek emilim ve etkinlik.',
+            title: t('health.dailyshotNedir.benefits.bioavailability'),
+            description: t('health.dailyshotNedir.benefits.bioavailabilityDesc'),
         },
         {
             icon: <Droplets className="w-6 h-6" />,
-            title: 'Kolay İçim',
-            description: 'Su gerektirmez, çalkala ve iç. Günün her anında pratik kullanım.',
+            title: t('health.dailyshotNedir.benefits.easyDrink'),
+            description: t('health.dailyshotNedir.benefits.easyDrinkDesc'),
         },
         {
             icon: <Shield className="w-6 h-6" />,
-            title: 'Temiz İçerik',
-            description: 'Şeker ilavesiz, glütensiz ve vegan dostu bitkisel formülasyonlar.',
+            title: t('health.dailyshotNedir.benefits.cleanContent'),
+            description: t('health.dailyshotNedir.benefits.cleanContentDesc'),
         },
     ];
 
     const useCases = [
         {
             icon: <Sun className="w-8 h-8" />,
-            title: 'Güne Başlarken',
-            description: 'Energyshot ile güne zinde başlayın, yorgunluğu geride bırakın.',
+            title: t('health.dailyshotNedir.usageRoutine.morning'),
+            description: t('health.dailyshotNedir.usageRoutine.morningDesc'),
         },
         {
             icon: <Activity className="w-8 h-8" />,
-            title: 'Gün İçerisinde',
-            description: 'Detox ve Defense shot ile bağışıklığınızı ve metabolizmanızı destekleyin.',
+            title: t('health.dailyshotNedir.usageRoutine.daytime'),
+            description: t('health.dailyshotNedir.usageRoutine.daytimeDesc'),
         },
         {
             icon: <Moon className="w-8 h-8" />,
-            title: 'Günün Sonunda',
-            description: 'Relaxshot ile günün stresini atın ve kaliteli bir uykuya hazırlanın.',
+            title: t('health.dailyshotNedir.usageRoutine.evening'),
+            description: t('health.dailyshotNedir.usageRoutine.eveningDesc'),
         },
     ];
 
     const targetAudience = [
-        'Yoğun iş temposuna sahip profesyoneller',
-        'Sporcular ve aktif yaşam tutkunları',
-        'Tablet/kapsül yutma zorluğu yaşayanlar',
-        'Hızlı ve etkili sonuç arayanlar',
-        'Bütüncül sağlığına özen gösterenler',
-        'Bitkisel takviyeleri tercih edenler',
+        t('health.dailyshotNedir.targetAudience.item1'),
+        t('health.dailyshotNedir.targetAudience.item2'),
+        t('health.dailyshotNedir.targetAudience.item3'),
+        t('health.dailyshotNedir.targetAudience.item4'),
+        t('health.dailyshotNedir.targetAudience.item5'),
+        t('health.dailyshotNedir.targetAudience.item6'),
     ];
 
     return (
@@ -100,14 +100,13 @@ const DailyshotNedirPage = () => {
                 <div className="container mx-auto px-6 relative z-10 text-center">
                     <AnimatedSection animation="fadeInUp">
                         <span className="text-blue-300 text-sm font-semibold uppercase tracking-widest mb-6 block bg-white/10 backdrop-blur-sm px-4 py-2 rounded-full w-fit mx-auto border border-white/10">
-                            Yeni Nesil Likit Takviye
+                            {t('health.dailyshotNedir.heroLabel')}
                         </span>
                         <h1 className="font-poppins font-bold text-4xl md:text-5xl lg:text-7xl leading-tight mb-6">
-                            Dailyshot Nedir?
+                            {t('health.dailyshotNedir.heroTitle')}
                         </h1>
                         <p className="text-xl text-blue-100 max-w-3xl mx-auto leading-relaxed font-light mb-10">
-                            Dailyshot, doğanın gücünü bilimle buluşturan, likit formda hazırlanmış premium gıda takviyesidir.
-                            Hap yutma zorluğunu ortadan kaldıran lezzetli ve etkili formüller.
+                            {t('health.dailyshotNedir.heroDesc')}
                         </p>
                     </AnimatedSection>
                 </div>
@@ -141,10 +140,10 @@ const DailyshotNedirPage = () => {
                 <div className="container mx-auto px-6">
                     <AnimatedSection animation="fadeInUp" className="text-center mb-16">
                         <span className="text-health-primary text-sm font-semibold uppercase tracking-widest mb-4 block">
-                            Kullanım Rutini
+                            {t('health.dailyshotNedir.usageRoutine.label')}
                         </span>
                         <h2 className="font-poppins font-bold text-3xl md:text-4xl text-gray-900 max-w-2xl mx-auto">
-                            Hayatınıza Uyum Sağlar
+                            {t('health.dailyshotNedir.usageRoutine.title')}
                         </h2>
                     </AnimatedSection>
 
@@ -173,10 +172,10 @@ const DailyshotNedirPage = () => {
                 <div className="container mx-auto px-6">
                     <AnimatedSection animation="fadeInUp" className="text-center mb-16">
                         <span className="text-health-primary text-sm font-semibold uppercase tracking-widest mb-4 block">
-                            Ürün Ailesi
+                            {t('health.dailyshotNedir.productFamily.label')}
                         </span>
                         <h2 className="font-poppins font-bold text-3xl md:text-4xl text-gray-900">
-                            Her İhtiyaca Özel Çözümler
+                            {t('health.dailyshotNedir.productFamily.title')}
                         </h2>
                     </AnimatedSection>
 
@@ -217,7 +216,7 @@ const DailyshotNedirPage = () => {
                                         </p>
 
                                         <div className="flex items-center text-health-primary font-bold text-sm">
-                                            İncele ve Satın Al <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
+                                            {t('health.dailyshotNedir.cta.viewProduct')} <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
                                         </div>
                                     </div>
                                 </a>
@@ -238,14 +237,13 @@ const DailyshotNedirPage = () => {
                     <div className="grid lg:grid-cols-2 gap-16 items-center">
                         <AnimatedSection animation="fadeInRight">
                             <span className="text-blue-400 text-sm font-semibold uppercase tracking-widest mb-4 block">
-                                Kimler İçin?
+                                {t('health.dailyshotNedir.targetAudience.label')}
                             </span>
                             <h2 className="font-poppins font-bold text-3xl md:text-5xl mb-8 leading-tight">
-                                Dailyshot Sizin İçin <br /> Mükemmel Seçim.
+                                {t('health.dailyshotNedir.cta.title')}
                             </h2>
                             <p className="text-gray-300 text-lg mb-10 leading-relaxed">
-                                Modern yaşamın hızına ayak uydururken sağlığınızdan ödün vermeyin.
-                                Dailyshot, vücudunuzun ihtiyaç duyduğu desteği en saf ve en hızlı haliyle sunar.
+                                {t('health.dailyshotNedir.cta.desc')}
                             </p>
 
                             <Button
@@ -254,7 +252,7 @@ const DailyshotNedirPage = () => {
                                 className="bg-health-primary hover:bg-blue-600 text-white font-bold rounded-full px-10 py-7 text-lg shadow-lg shadow-blue-500/30"
                             >
                                 <a href="https://dailyshot.com.tr" target="_blank" rel="noopener noreferrer">
-                                    Online Mağazaya Git <ArrowRight className="w-5 h-5 ml-3" />
+                                    {t('health.dailyshotNedir.cta.button')} <ArrowRight className="w-5 h-5 ml-3" />
                                 </a>
                             </Button>
                         </AnimatedSection>

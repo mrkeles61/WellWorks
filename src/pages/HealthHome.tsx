@@ -1,4 +1,4 @@
-import { ArrowRight, Play, Zap, ShieldCheck, Timer, Shield, Droplets, Activity } from 'lucide-react';
+import { ArrowRight, Play, Zap, ShieldCheck, Timer, Shield, Droplets, Activity, Sparkles } from 'lucide-react';
 import { useTranslation, Trans } from 'react-i18next';
 import { products } from '@/data/products';
 import ProductCard from '@/components/health/ProductCard';
@@ -184,87 +184,112 @@ const HealthHome = () => {
       <div className="h-12 bg-white" />
 
       {/* ===== OUR PRODUCTS SECTION ===== */}
-      <section className="py-20 lg:py-28 bg-white">
+      <section className="py-20 lg:py-28 bg-gradient-to-br from-gray-50 to-white relative overflow-hidden">
+        {/* Background decorations */}
+        <div className="absolute top-0 right-0 w-1/2 h-full bg-gradient-to-l from-blue-50 to-transparent -z-10" />
+        <div className="absolute bottom-0 left-0 w-96 h-96 bg-blue-100 rounded-full blur-3xl opacity-50 -translate-x-1/2 translate-y-1/2 -z-10" />
+
         <div className="container mx-auto px-6">
-          {/* Header */}
-          <AnimatedSection animation="fadeInUp" className="text-center mb-12">
-            <span className="text-health-primary text-sm font-semibold uppercase tracking-widest mb-3 block">
-              {t('health.ourProducts.label')}
-            </span>
-            <h2 className="font-poppins font-bold text-3xl md:text-4xl lg:text-5xl text-gray-900 mb-4">
-              {t('health.ourProducts.title')}
-            </h2>
-            <p className="text-gray-600 max-w-2xl mx-auto text-lg">
-              {t('health.ourProducts.subtitle')}
-            </p>
-          </AnimatedSection>
+          <div className="flex flex-col lg:flex-row items-center gap-12 lg:gap-20">
 
-          {/* Stats Bar */}
-          <AnimatedSection animation="fadeInUp" delay={100} className="flex flex-wrap justify-center gap-8 md:gap-16 mb-16">
-            <div className="text-center">
-              <div className="text-3xl md:text-4xl font-bold text-health-primary">10.000+</div>
-              <div className="text-gray-500 text-sm mt-1">{t('health.ourProducts.stats.customers')}</div>
-            </div>
-            <div className="text-center">
-              <div className="text-3xl md:text-4xl font-bold text-health-primary">500+</div>
-              <div className="text-gray-500 text-sm mt-1">{t('health.ourProducts.stats.stores')}</div>
-            </div>
-            <div className="text-center">
-              <div className="text-3xl md:text-4xl font-bold text-health-primary">2</div>
-              <div className="text-gray-500 text-sm mt-1">{t('health.ourProducts.stats.brands')}</div>
-            </div>
-          </AnimatedSection>
+            {/* Left: Floating Product Image */}
+            <AnimatedSection animation="fadeInLeft" className="w-full lg:w-1/2 relative order-2 lg:order-1">
+              <div className="relative z-10 p-6">
+                {/* Glow effect behind image */}
+                <div className="absolute inset-0 bg-health-primary/20 blur-3xl rounded-full transform scale-75" />
+                <img
+                  src="/images/products_showcase.png"
+                  alt="DailyShot and Electrovit Products"
+                  className="relative w-full h-auto object-contain drop-shadow-2xl hover:scale-105 transition-transform duration-500 animate-[float_6s_ease-in-out_infinite]"
+                />
+              </div>
+              {/* Decorative circle */}
+              <div className="absolute -bottom-10 -left-10 w-24 h-24 border-4 border-health-primary/20 rounded-full hidden lg:block" />
+            </AnimatedSection>
 
-          {/* Brand Cards */}
-          <AnimatedSection animation="fadeInUp" delay={200}>
-            <div className="grid md:grid-cols-2 gap-6 lg:gap-8 max-w-4xl mx-auto">
-              {/* Dailyshot Card */}
-              <div
-                onClick={() => document.getElementById('dailyshot-products')?.scrollIntoView({ behavior: 'smooth' })}
-                className="group relative rounded-3xl overflow-hidden cursor-pointer transition-all duration-500 hover:scale-[1.02] hover:shadow-2xl"
-              >
-                <div className="absolute inset-0 bg-gradient-to-br from-[#00A3E0] to-[#0077B6]" />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent" />
-                <div className="relative z-10 p-8 md:p-10 h-64 flex flex-col justify-between">
-                  <div>
-                    <span className="text-white/80 text-sm uppercase tracking-widest">Dailyshot</span>
-                    <h3 className="text-white font-poppins font-bold text-2xl md:text-3xl mt-2">
-                      {t('health.ourProducts.dailyshot.title')}
+            {/* Right: Content */}
+            <AnimatedSection animation="fadeInRight" className="w-full lg:w-1/2 flex flex-col gap-8 order-1 lg:order-2">
+              {/* Headlines */}
+              <div className="space-y-4">
+                <span className="text-health-primary font-bold tracking-[0.2em] text-sm uppercase block">
+                  {t('health.ourProducts.label')}
+                </span>
+                <h2 className="text-4xl lg:text-5xl xl:text-6xl font-poppins font-bold leading-tight text-gray-900">
+                  {t('health.ourProducts.title')}
+                  <br />
+                  <span className="text-health-primary">{t('health.ourProducts.subtitle')}</span>
+                </h2>
+                <p className="text-gray-600 text-lg max-w-md leading-relaxed">
+                  {t('health.ourProducts.desc')}
+                </p>
+              </div>
+
+              {/* Product Cards */}
+              <div className="grid gap-6 mt-4">
+                {/* DailyShot Card */}
+                <div
+                  onClick={() => document.getElementById('dailyshot-products')?.scrollIntoView({ behavior: 'smooth' })}
+                  className="group relative overflow-hidden rounded-2xl bg-white border border-gray-100 shadow-lg hover:shadow-xl transition-all duration-300 p-6 sm:p-8 flex flex-col sm:flex-row items-start sm:items-center gap-6 cursor-pointer"
+                >
+                  {/* Hover gradient */}
+                  <div className="absolute inset-0 bg-gradient-to-r from-blue-50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+
+                  {/* Icon */}
+                  <div className="h-16 w-16 flex-shrink-0 rounded-full bg-blue-100 flex items-center justify-center text-health-primary relative z-10">
+                    <Droplets className="w-8 h-8" />
+                  </div>
+
+                  {/* Content */}
+                  <div className="flex-grow relative z-10">
+                    <h3 className="text-2xl font-poppins font-bold text-gray-900 mb-2 group-hover:text-health-primary transition-colors">
+                      DailyShot
                     </h3>
-                    <p className="text-white/70 mt-2 text-sm">
+                    <p className="text-gray-600 text-sm">
                       {t('health.ourProducts.dailyshot.desc')}
                     </p>
                   </div>
-                  <div className="flex items-center gap-2 text-white font-semibold group-hover:gap-4 transition-all">
-                    {t('health.ourProducts.explore')} <ArrowRight className="w-5 h-5" />
+
+                  {/* CTA */}
+                  <div className="flex-shrink-0 relative z-10 self-end sm:self-center">
+                    <span className="inline-flex items-center text-sm font-semibold text-health-primary group-hover:translate-x-1 transition-transform">
+                      {t('health.ourProducts.explore')} DailyShot <ArrowRight className="ml-1 w-4 h-4" />
+                    </span>
                   </div>
                 </div>
-              </div>
 
-              {/* Electrovit Card */}
-              <div
-                onClick={() => document.getElementById('electrovit-products')?.scrollIntoView({ behavior: 'smooth' })}
-                className="group relative rounded-3xl overflow-hidden cursor-pointer transition-all duration-500 hover:scale-[1.02] hover:shadow-2xl"
-              >
-                <div className="absolute inset-0 bg-gradient-to-br from-[#39B54A] to-[#2E8B3A]" />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent" />
-                <div className="relative z-10 p-8 md:p-10 h-64 flex flex-col justify-between">
-                  <div>
-                    <span className="text-white/80 text-sm uppercase tracking-widest">Electrovit</span>
-                    <h3 className="text-white font-poppins font-bold text-2xl md:text-3xl mt-2">
-                      {t('health.ourProducts.electrovit.title')}
+                {/* Electrovit Card */}
+                <div
+                  onClick={() => document.getElementById('electrovit-products')?.scrollIntoView({ behavior: 'smooth' })}
+                  className="group relative overflow-hidden rounded-2xl bg-white border border-gray-100 shadow-lg hover:shadow-xl transition-all duration-300 p-6 sm:p-8 flex flex-col sm:flex-row items-start sm:items-center gap-6 cursor-pointer"
+                >
+                  {/* Hover gradient */}
+                  <div className="absolute inset-0 bg-gradient-to-r from-orange-50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+
+                  {/* Icon */}
+                  <div className="h-16 w-16 flex-shrink-0 rounded-full bg-orange-100 flex items-center justify-center text-orange-500 relative z-10">
+                    <Zap className="w-8 h-8" />
+                  </div>
+
+                  {/* Content */}
+                  <div className="flex-grow relative z-10">
+                    <h3 className="text-2xl font-poppins font-bold text-gray-900 mb-2 group-hover:text-orange-500 transition-colors">
+                      Electrovit
                     </h3>
-                    <p className="text-white/70 mt-2 text-sm">
+                    <p className="text-gray-600 text-sm">
                       {t('health.ourProducts.electrovit.desc')}
                     </p>
                   </div>
-                  <div className="flex items-center gap-2 text-white font-semibold group-hover:gap-4 transition-all">
-                    {t('health.ourProducts.explore')} <ArrowRight className="w-5 h-5" />
+
+                  {/* CTA */}
+                  <div className="flex-shrink-0 relative z-10 self-end sm:self-center">
+                    <span className="inline-flex items-center text-sm font-semibold text-orange-500 group-hover:translate-x-1 transition-transform">
+                      {t('health.ourProducts.explore')} Electrovit <ArrowRight className="ml-1 w-4 h-4" />
+                    </span>
                   </div>
                 </div>
               </div>
-            </div>
-          </AnimatedSection>
+            </AnimatedSection>
+          </div>
         </div>
       </section>
 
