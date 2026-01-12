@@ -59,6 +59,39 @@ const resources = {
           description: 'Dailyshot ürünlerini resmi online mağazamızdan güvenle satın alabilirsiniz.',
           cta: 'Online Mağazaya Git',
         },
+        hero2: {
+          label: 'Dailyshot Hakkında',
+          title: 'Türkiye\'nin İlk ve Tek <0>Likit Takviye</0> Markası',
+          desc: 'İnsanlara daha sağlıklı ve daha doğal bir yaşam sağlamak amacıyla yola çıktık. Doğadan aldığımız ilhamla tüketicilerimiz için sağlıklı çözümler sunmayı hedefliyor, doğanın bize sunduklarını gelecek kuşaklara taşıyor ve bu ilhamla yarattığımız besin takviyelerini ihtiyacı olanlarla buluşturuyoruz. Kendimizi, hizmet ettiğimiz kişilerin "Sağlıklı Yaşam Ortakları" olarak görüyor ve bu sorumluluk bilinci ile çalışıyoruz. Duruşumuz ve hedefimizle sektöre bambaşka bir boyut kazandırdığımız inancındayız.',
+          cta: 'Ürünleri Keşfet',
+        },
+        certificates: {
+          title: 'SERTİFİKALARIMIZ',
+          desc: 'Bu ürün sertifikalı tesiste üretilmektedir.',
+        },
+        sections: {
+          dailyshot: {
+            label: 'Dailyshot',
+            title: 'Likit Takviye Ürünleri',
+            cta: 'Mağazaya Git',
+          },
+          electrovit: {
+            label: 'Electrovit',
+            title: 'Elektrolit Takviyeleri',
+            cta: 'Ürünleri Gör',
+          },
+        },
+        liquidRevolution: {
+          label: 'Neden Likit?',
+          title: 'Likit Takviye <0>Devrimi</0>',
+          desc1: 'Likit formüller, hap ve kapsüllerin aksine sindirim sisteminde çözünme sürecine ihtiyaç duymaz. Bu sayede içerikler doğrudan kana karışır ve etkisini çok daha hızlı gösterir.',
+          desc2: 'Araştırmalar, likit formüllerin %90\'a varan oranlarda emilim sağladığını göstermektedir. Geleneksel haplar ise yalnızca %10-20 oranında emilir.',
+        },
+        blog: {
+          title: 'Blog',
+          label: 'Dailyshot',
+          readMore: 'Devamını oku...',
+        },
       },
       mice: {
         hero: {
@@ -80,6 +113,69 @@ const resources = {
           title: 'İşler Güçler',
           subtitle: 'Her biri benzersiz, hepsi unutulmaz',
           viewDetails: 'Detayları Gör',
+        },
+        home: {
+          hero: {
+            badge: 'Premium Etkinlik Organizasyonu',
+            title1: 'İstanbul\'un En',
+            titleHighlight: 'Prestijli',
+            title2: 'Etkinliklerini Tasarlıyoruz',
+            desc: 'Modern Ege ruhunu İstanbul\'un dinamizmiyle buluşturuyoruz. Kurumsal lansmanlardan festivallere, unutulmaz anlar için çözüm ortağınız.',
+            ctaPlan: 'Hemen Planla',
+            ctaReel: 'Showreel İzle',
+          },
+          mission: {
+            philosophy: 'Felsefemiz',
+            title: 'Dünya standartlarında markalar için <0>unutulmaz anlar</0> yaratıyoruz.',
+            desc: 'Sıradanlığı reddediyoruz. Her projeyi, markanızın ruhunu yansıtan, katılımcılarınızla derin bağlar kuran bir başyapıt olarak ele alıyoruz.',
+          },
+          process: {
+            curation: {
+              title: 'Kürasyon',
+              desc: 'Marka kimliğinizi ve hedeflerinizi analiz ederek, size özel yaratıcı bir dünya kurguluyoruz. Her detay, hikayenizin bir parçası.',
+            },
+            planning: {
+              title: 'Planlama',
+              desc: 'Kusursuz operasyonel süreçler. Lojistikten teknik altyapıya kadar her adımı matematiksel bir hassasiyetle yönetiyoruz.',
+            },
+            experience: {
+              title: 'Deneyim',
+              desc: 'Katılımcılarınızın beş duyusuna hitap eden, akıllardan silinmeyecek anlar ve duygusal bağlar yaratıyoruz.',
+            },
+          },
+          services: {
+            label: 'Portföy',
+            title: 'Hizmetlerimiz',
+            desc: 'Yaratıcılığın sınırlarını zorlayan konseptler ve kusursuz operasyon yönetimi.',
+            viewAll: 'Tüm Etkinlikler',
+            viewGallery: 'Galeriyi İncele',
+          },
+          capabilities: {
+            label: 'Uzmanlık Alanlarımız',
+            title: 'Etkinlik Dünyasında Kusursuz Çözümler',
+            desc: 'İhtiyaçlarınıza özel, 360 derece etkinlik yönetimi. Fikirden uygulamaya, her aşamada profesyonel dokunuş.',
+            cta: 'Detaylı Bilgi Al',
+            items: [
+              'Konsept & Tasarım Geliştirme',
+              'Mekan Yönetimi & Dekorasyon',
+              'Ses, Işık & Görüntü Sistemleri',
+              'Sanatçı & Performans Yönetimi',
+              'Catering & İkram Deneyimi',
+              'Lojistik & Konuk Ağırlama',
+              'Prodüksiyon & İçerik Üretimi',
+              'Basın & Halkla İlişkiler'
+            ]
+          },
+          testimonials: {
+            label: 'Referanslar',
+            title: 'Müşterilerimiz Ne Diyor?',
+          },
+          cta: {
+            title: 'Bir Sonraki Etkinliğiniz <0>Efsane</0> Olsun',
+            desc: 'Hayalinizdeki organizasyonu gerçeğe dönüştürmek için bizimle iletişime geçin. Sizin için mükemmeli tasarlayalım.',
+            button: 'Hemen Teklif Al',
+            call: 'Bizi Arayın: 0 (212) 216 47 52',
+          },
         },
       },
       team: {
@@ -335,6 +431,39 @@ Telefon: +90 536 032 08 38`,
           description: 'You can safely purchase Dailyshot products from our official online store.',
           cta: 'Visit Online Store',
         },
+        hero2: {
+          label: 'About Dailyshot',
+          title: 'Turkey\'s First and Only <0>Liquid Supplement</0> Brand',
+          desc: 'We set out to provide people with a healthier and more natural life. Inspired by nature, we aim to offer healthy solutions for our consumers, carry what nature offers us to future generations, and bring the nutritional supplements we create with this inspiration to those who need them. We see ourselves as "Healthy Living Partners" of the people we serve and work with this awareness of responsibility. We believe that we have brought a completely different dimension to the sector with our stance and goal.',
+          cta: 'Discover Products',
+        },
+        certificates: {
+          title: 'OUR CERTIFICATES',
+          desc: 'This product is produced in a certified facility.',
+        },
+        sections: {
+          dailyshot: {
+            label: 'Dailyshot',
+            title: 'Liquid Supplement Products',
+            cta: 'Go to Shop',
+          },
+          electrovit: {
+            label: 'Electrovit',
+            title: 'Electrolyte Supplements',
+            cta: 'View Products',
+          },
+        },
+        liquidRevolution: {
+          label: 'Why Liquid?',
+          title: 'Liquid Supplement <0>Revolution</0>',
+          desc1: 'Unlike pills and capsules, liquid formulas do not require a dissolution process in the digestive system. This allows ingredients to mix directly into the blood and show their effects much faster.',
+          desc2: 'Research shows that liquid formulas provide absorption rates of up to 90%. Traditional pills are only absorbed at a rate of 10-20%.',
+        },
+        blog: {
+          title: 'Blog',
+          label: 'Dailyshot',
+          readMore: 'Read more...',
+        },
       },
       mice: {
         hero: {
@@ -356,6 +485,69 @@ Telefon: +90 536 032 08 38`,
           title: 'Our Work',
           subtitle: 'Each one unique, all unforgettable',
           viewDetails: 'View Details',
+        },
+        home: {
+          hero: {
+            badge: 'Premium Event Organization',
+            title1: 'Designing Istanbul\'s Most',
+            titleHighlight: 'Prestigious',
+            title2: 'Events',
+            desc: 'We blend the spirit of the Modern Aegean with the dynamism of Istanbul. Your solution partner for unforgettable moments, from corporate launches to festivals.',
+            ctaPlan: 'Plan Now',
+            ctaReel: 'Watch Showreel',
+          },
+          mission: {
+            philosophy: 'Our Philosophy',
+            title: 'Creating <0>unforgettable moments</0> for world-class brands.',
+            desc: 'We refuse mediocrity. We treat every project as a masterpiece that reflects your brand\'s spirit and builds deep connections with your attendees.',
+          },
+          process: {
+            curation: {
+              title: 'Curation',
+              desc: 'We build a creative world tailored to you by analyzing your brand identity and goals. Every detail is a part of your story.',
+            },
+            planning: {
+              title: 'Planning',
+              desc: 'Flawless operational processes. We manage every step, from logistics to technical infrastructure, with mathematical precision.',
+            },
+            experience: {
+              title: 'Experience',
+              desc: 'We create moments and emotional bonds that will never be forgotten, appealing to the five senses of your attendees.',
+            },
+          },
+          services: {
+            label: 'Portfolio',
+            title: 'Our Services',
+            desc: 'Concepts that push the boundaries of creativity and flawless operation management.',
+            viewAll: 'All Events',
+            viewGallery: 'View Gallery',
+          },
+          capabilities: {
+            label: 'Our Expertise',
+            title: 'Flawless Solutions in the Event World',
+            desc: '360-degree event management tailored to your needs. Professional touch at every stage, from idea to execution.',
+            cta: 'Get Detailed Info',
+            items: [
+              'Concept & Design Development',
+              'Venue Management & Decoration',
+              'Sound, Light & Visual Systems',
+              'Artist & Performance Management',
+              'Catering & Refreshment Experience',
+              'Logistics & Guest Hosting',
+              'Production & Content Creation',
+              'Press & Public Relations'
+            ]
+          },
+          testimonials: {
+            label: 'Testimonials',
+            title: 'What Our Clients Say',
+          },
+          cta: {
+            title: 'Let Your Next Event Be <0>Legendary</0>',
+            desc: 'Contact us to turn your dream organization into reality. Let us design perfection for you.',
+            button: 'Get a Quote Now',
+            call: 'Call Us: +90 (212) 216 47 52',
+          },
         },
       },
       team: {

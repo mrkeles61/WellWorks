@@ -1,4 +1,4 @@
-import { useTranslation } from 'react-i18next';
+import { useTranslation, Trans } from 'react-i18next';
 import { Link } from 'react-router-dom';
 import { useEffect, useState, useRef } from 'react';
 import { useBrand } from '@/context/BrandContext';
@@ -32,6 +32,28 @@ const MiceHome = () => {
     window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
+
+  /* Process / Pillars Data - Moved inside component to use t() */
+  const processSteps = [
+    {
+      icon: <Sparkles className="w-8 h-8" />,
+      title: t('mice.home.process.curation.title'),
+      description: t('mice.home.process.curation.desc'),
+    },
+    {
+      icon: <Layers className="w-8 h-8" />,
+      title: t('mice.home.process.planning.title'),
+      description: t('mice.home.process.planning.desc'),
+    },
+    {
+      icon: <Medal className="w-8 h-8" />,
+      title: t('mice.home.process.experience.title'),
+      description: t('mice.home.process.experience.desc'),
+    },
+  ];
+
+  /* Capabilities List */
+  const capabilitiesList = t('mice.home.capabilities.items', { returnObjects: true }) as string[];
 
   const stats = [
     { icon: <Diamond className="w-12 h-12" />, value: '12+', label: t('mice.stats.experience') },
@@ -72,36 +94,7 @@ const MiceHome = () => {
     },
   ];
 
-  /* Process / Pillars Data */
-  const processSteps = [
-    {
-      icon: <Sparkles className="w-8 h-8" />,
-      title: "Kürasyon",
-      description: "Marka kimliğinizi ve hedeflerinizi analiz ederek, size özel yaratıcı bir dünya kurguluyoruz. Her detay, hikayenizin bir parçası.",
-    },
-    {
-      icon: <Layers className="w-8 h-8" />,
-      title: "Planlama",
-      description: "Kusursuz operasyonel süreçler. Lojistikten teknik altyapıya kadar her adımı matematiksel bir hassasiyetle yönetiyoruz.",
-    },
-    {
-      icon: <Medal className="w-8 h-8" />,
-      title: "Deneyim",
-      description: "Katılımcılarınızın beş duyusuna hitap eden, akıllardan silinmeyecek anlar ve duygusal bağlar yaratıyoruz.",
-    },
-  ];
 
-  /* Capabilities List */
-  const capabilities = [
-    "Konsept & Tasarım Geliştirme",
-    "Mekan Yönetimi & Dekorasyon",
-    "Ses, Işık & Görüntü Sistemleri",
-    "Sanatçı & Performans Yönetimi",
-    "Catering & İkram Deneyimi",
-    "Lojistik & Konuk Ağırlama",
-    "Prodüksiyon & İçerik Üretimi",
-    "Basın & Halkla İlişkiler",
-  ];
 
   /* Testimonials Data */
   const testimonials = [
@@ -137,19 +130,19 @@ const MiceHome = () => {
             <AnimatedSection animation="fadeInUp">
               <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#2DB34A]/10 text-[#2DB34A] border border-[#2DB34A]/20 mb-6 backdrop-blur-sm">
                 <Star className="w-4 h-4" />
-                <span className="text-xs font-bold uppercase tracking-wider">Premium Event Organization</span>
+                <span className="text-xs font-bold uppercase tracking-wider">{t('mice.home.hero.badge')}</span>
               </div>
             </AnimatedSection>
             <AnimatedSection animation="fadeInUp" delay={100}>
               <h1 className="font-oswald text-5xl md:text-7xl font-extrabold text-white leading-tight tracking-tight mb-6 drop-shadow-lg">
-                İstanbul'un En <span className="text-[#2DB34A]">Prestijli</span>
+                {t('mice.home.hero.title1')} <span className="text-[#2DB34A]">{t('mice.home.hero.titleHighlight')}</span>
                 <br />
-                Etkinliklerini Tasarlıyoruz
+                {t('mice.home.hero.title2')}
               </h1>
             </AnimatedSection>
             <AnimatedSection animation="fadeInUp" delay={200}>
               <p className="text-lg md:text-xl text-[#D8DEE6] mb-10 leading-relaxed max-w-2xl opacity-90 drop-shadow-md">
-                Modern Ege ruhunu İstanbul'un dinamizmiyle buluşturuyoruz. Kurumsal lansmanlardan festivallere, unutulmaz anlar için çözüm ortağınız.
+                {t('mice.home.hero.desc')}
               </p>
             </AnimatedSection>
             <AnimatedSection animation="fadeInUp" delay={300}>
@@ -158,11 +151,11 @@ const MiceHome = () => {
                   to="/mice/iletisim"
                   className="bg-[#2DB34A] hover:bg-[#249A3D] text-white text-lg font-bold py-4 px-8 rounded-xl shadow-xl shadow-[#2DB34A]/20 hover:shadow-2xl hover:-translate-y-1 transition-all duration-300 flex items-center justify-center gap-2"
                 >
-                  <span>Hemen Planla</span>
+                  <span>{t('mice.home.hero.ctaPlan')}</span>
                   <Calendar className="w-5 h-5" />
                 </Link>
                 <button className="bg-gray-800 hover:bg-gray-700 text-white border border-white/20 text-lg font-bold py-4 px-8 rounded-xl flex items-center justify-center gap-2 transition-all hover:border-white/40">
-                  <span>Showreel İzle</span>
+                  <span>{t('mice.home.hero.ctaReel')}</span>
                   <Play className="w-5 h-5" />
                 </button>
               </div>
@@ -207,12 +200,12 @@ const MiceHome = () => {
       <section className="py-24 px-4 bg-[#1A1C20] border-b border-white/5">
         <div className="container mx-auto max-w-4xl text-center">
           <AnimatedSection animation="fadeInUp">
-            <span className="text-[#2DB34A] font-serif italic text-xl mb-6 block">Our Philosophy</span>
+            <span className="text-[#2DB34A] font-serif italic text-xl mb-6 block">{t('mice.home.mission.philosophy')}</span>
             <h2 className="font-oswald text-4xl md:text-5xl lg:text-6xl text-white font-medium leading-tight mb-8">
-              "Dünya standartlarında markalar için <br className="hidden md:block" /> <span className="text-[#2DB34A] italic font-serif">unutulmaz anlar</span> yaratıyoruz."
+              <Trans i18nKey="mice.home.mission.title" components={[<br className="hidden md:block" />, <span className="text-[#2DB34A] italic font-serif" />]} />
             </h2>
             <p className="text-[#D8DEE6] text-lg md:text-xl leading-relaxed opacity-80 max-w-2xl mx-auto font-light">
-              Sıradanlığı reddediyoruz. Her projeyi, markanızın ruhunu yansıtan, katılımcılarınızla derin bağlar kuran bir başyapıt olarak ele alıyoruz.
+              {t('mice.home.mission.desc')}
             </p>
           </AnimatedSection>
         </div>
@@ -242,15 +235,15 @@ const MiceHome = () => {
         <div className="container mx-auto max-w-7xl">
           <div className="flex flex-col md:flex-row justify-between items-end mb-16 gap-6">
             <div>
-              <span className="text-[#2DB34A] text-sm font-medium uppercase tracking-widest mb-3 block">Portfolio</span>
-              <h2 className="font-serif text-4xl md:text-5xl font-normal text-white mb-4 italic">Hizmetlerimiz</h2>
-              <p className="text-[#D8DEE6] max-w-2xl text-lg">Yaratıcılığın sınırlarını zorlayan konseptler ve kusursuz operasyon yönetimi.</p>
+              <span className="text-[#2DB34A] text-sm font-medium uppercase tracking-widest mb-3 block">{t('mice.home.services.label')}</span>
+              <h2 className="font-serif text-4xl md:text-5xl font-normal text-white mb-4 italic">{t('mice.home.services.title')}</h2>
+              <p className="text-[#D8DEE6] max-w-2xl text-lg">{t('mice.home.services.desc')}</p>
             </div>
             <Link
               to="/mice/etkinlikler"
               className="text-[#2DB34A] font-medium hover:text-white transition-colors flex items-center gap-2 group text-sm uppercase tracking-wider"
             >
-              Tüm Etkinlikler
+              {t('mice.home.services.viewAll')}
               <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
             </Link>
           </div>
@@ -287,7 +280,7 @@ const MiceHome = () => {
                     to="/mice/etkinlikler"
                     className="inline-flex items-center gap-2 text-white/70 text-sm hover:text-white transition-colors pt-2"
                   >
-                    View Gallery <ArrowRight className="w-3 h-3" />
+                    {t('mice.home.services.viewGallery')} <ArrowRight className="w-3 h-3" />
                   </Link>
                 </div>
               </div>
@@ -307,15 +300,15 @@ const MiceHome = () => {
               <AnimatedSection animation="fadeInRight">
                 <div className="flex items-center gap-2 mb-6">
                   <div className="h-px w-12 bg-[#2DB34A]" />
-                  <span className="text-[#2DB34A] font-bold uppercase tracking-wider text-sm">Uzmanlık Alanlarımız</span>
+                  <span className="text-[#2DB34A] font-bold uppercase tracking-wider text-sm">{t('mice.home.capabilities.label')}</span>
                 </div>
-                <h2 className="font-oswald text-4xl font-bold text-white mb-8">Etkinlik Dünyasında Kusursuz Çözümler</h2>
+                <h2 className="font-oswald text-4xl font-bold text-white mb-8">{t('mice.home.capabilities.title')}</h2>
                 <p className="text-[#D8DEE6] text-lg mb-10 leading-relaxed">
-                  İhtiyaçlarınıza özel, 360 derece etkinlik yönetimi. Fikirden uygulamaya, her aşamada profesyonel dokunuş.
+                  {t('mice.home.capabilities.desc')}
                 </p>
 
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-y-4 gap-x-8">
-                  {capabilities.map((item, idx) => (
+                  {capabilitiesList.map((item, idx) => (
                     <div key={idx} className="flex items-center gap-3 text-[#D8DEE6]">
                       <Check className="w-5 h-5 text-[#2DB34A] flex-shrink-0" />
                       <span className="font-medium">{item}</span>
@@ -328,7 +321,7 @@ const MiceHome = () => {
                     to="/mice/iletisim"
                     className="border border-white/20 text-white font-bold py-4 px-8 rounded-xl hover:bg-white hover:text-[#0B3A5B] transition-colors hover:shadow-lg inline-block"
                   >
-                    Detaylı Bilgi Al
+                    {t('mice.home.capabilities.cta')}
                   </Link>
                 </div>
               </AnimatedSection>
@@ -362,8 +355,8 @@ const MiceHome = () => {
       <section className="py-24 px-4 bg-[#1A1C20] border-t border-white/5">
         <div className="container mx-auto max-w-6xl">
           <div className="text-center mb-16">
-            <span className="text-[#2DB34A] font-bold uppercase tracking-wider text-sm">Referanslar</span>
-            <h2 className="font-oswald text-4xl text-white mt-2">Müşterilerimiz Ne Diyor?</h2>
+            <span className="text-[#2DB34A] font-bold uppercase tracking-wider text-sm">{t('mice.home.testimonials.label')}</span>
+            <h2 className="font-oswald text-4xl text-white mt-2">{t('mice.home.testimonials.title')}</h2>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
@@ -396,25 +389,23 @@ const MiceHome = () => {
         <div className="container mx-auto relative z-10 text-center">
           <AnimatedSection animation="fadeInUp">
             <h2 className="font-oswald text-4xl md:text-5xl font-bold mb-6 tracking-tight">
-              Bir Sonraki Etkinliğiniz
-              <br />
-              <span className="text-[#2DB34A]">Efsane</span> Olsun
+              <Trans i18nKey="mice.home.cta.title" components={[<span className="text-[#2DB34A]" />]} />
             </h2>
             <p className="text-xl text-[#D8DEE6] mb-10 max-w-2xl mx-auto">
-              Hayalinizdeki organizasyonu gerçeğe dönüştürmek için bizimle iletişime geçin. Sizin için mükemmeli tasarlayalım.
+              {t('mice.home.cta.desc')}
             </p>
             <div className="flex flex-col sm:flex-row justify-center gap-4">
               <Link
                 to="/mice/iletisim"
                 className="bg-[#2DB34A] hover:bg-[#249A3D] text-white text-lg font-bold py-4 px-10 rounded-xl shadow-lg shadow-black/20 hover:shadow-black/30 hover:-translate-y-1 transition-all duration-300"
               >
-                Hemen Teklif Al
+                {t('mice.home.cta.button')}
               </Link>
               <a
                 href="tel:+902122164752"
                 className="bg-transparent border border-white/20 hover:bg-white/10 text-white text-lg font-bold py-4 px-10 rounded-xl transition-all"
               >
-                Bizi Arayın: 0 (212) 216 47 52
+                {t('mice.home.cta.call')}
               </a>
             </div>
           </AnimatedSection>

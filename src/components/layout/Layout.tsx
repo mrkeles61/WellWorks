@@ -1,7 +1,7 @@
 import { ReactNode } from 'react';
 import Header from './Header';
 import Footer from './Footer';
-import WhatsAppButton from '@/components/shared/WhatsAppButton';
+import SocialMediaFAB from '@/components/shared/SocialMediaFAB';
 import CookieConsent from '@/components/shared/CookieConsent';
 import { useLocation } from 'react-router-dom';
 
@@ -19,7 +19,7 @@ const Layout = ({ children }: LayoutProps) => {
       <main className={isGateway ? '' : 'pt-[72px] flex-1'}>{children}</main>
       <Footer />
       <CookieConsent />
-      {!isGateway && <WhatsAppButton />}
+      {!isGateway && <SocialMediaFAB />}
     </div>
   );
 };
