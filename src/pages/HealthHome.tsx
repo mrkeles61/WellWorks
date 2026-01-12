@@ -139,44 +139,49 @@ const HealthHome = () => {
         </div>
       </section>
 
-      {/* ===== DAILYSHOT INTRO SECTION (80% width, text + image) ===== */}
+      {/* ===== DAILYSHOT INTRO SECTION (Option 3: Full Image + Overlay) ===== */}
       <section
         ref={dailyshotSectionRef}
-        className="py-20 lg:py-32 bg-white"
+        className="py-20 lg:py-32 relative overflow-hidden bg-cover bg-center"
+        style={{
+          backgroundImage: 'url(/images/dailyshot_lab.png)',
+        }}
       >
-        <div className="mx-auto px-6" style={{ maxWidth: '80%' }}>
+        {/* Dark overlay with brand gradient */}
+        <div className="absolute inset-0 bg-gradient-to-r from-health-primary/95 via-health-primary/85 to-health-primary/70" />
+
+        <div className="mx-auto px-6 relative z-10" style={{ maxWidth: '80%' }}>
           <div className="grid lg:grid-cols-2 gap-16 items-center">
             {/* Text Content */}
-            <div className="animate-on-scroll opacity-0 space-y-6">
-              <span className="text-health-primary text-sm font-semibold uppercase tracking-widest">
+            <div className="animate-on-scroll opacity-0 space-y-6 text-white">
+              <span className="text-white/80 text-sm font-semibold uppercase tracking-widest">
                 Dailyshot Nedir?
               </span>
-              <h2 className="font-poppins font-bold text-3xl md:text-4xl lg:text-5xl text-gray-900 leading-tight">
-                Likit Takviyenin <span className="text-health-primary">Gücünü</span> Keşfedin
+              <h2 className="font-poppins font-bold text-3xl md:text-4xl lg:text-5xl leading-tight">
+                Likit Takviyenin <span className="text-white/90">Gücünü</span> Keşfedin
               </h2>
-              <p className="text-lg text-gray-600 leading-relaxed">
+              <p className="text-lg text-white/80 leading-relaxed">
                 Dailyshot, içerisinde likit formda ürünler bulunduran bitkisel bir gıda takviyesi markasıdır.
                 Likit yapısı sayesinde kana hızlıca karışır ve etkinin hızlı gözlemlenmesine olanak sağlar.
               </p>
               <ul className="space-y-3">
-                <li className="flex items-center gap-3 text-gray-700">
-                  <Zap className="w-5 h-5 text-health-primary" />
+                <li className="flex items-center gap-3 text-white/90">
+                  <Zap className="w-5 h-5" />
                   <span><strong>%90'a varan</strong> biyoyararlanım oranı</span>
                 </li>
-                <li className="flex items-center gap-3 text-gray-700">
-                  <Shield className="w-5 h-5 text-health-primary" />
+                <li className="flex items-center gap-3 text-white/90">
+                  <Shield className="w-5 h-5" />
                   <span>GMP ve Helal sertifikalı üretim</span>
                 </li>
-                <li className="flex items-center gap-3 text-gray-700">
-                  <Droplets className="w-5 h-5 text-health-primary" />
+                <li className="flex items-center gap-3 text-white/90">
+                  <Droplets className="w-5 h-5" />
                   <span>Hızlı emilim, dakikalar içinde etki</span>
                 </li>
               </ul>
               <Button
                 asChild
-                variant="outline"
                 size="lg"
-                className="border-health-primary text-health-primary hover:bg-health-primary hover:text-white rounded-full px-8 mt-4"
+                className="bg-white text-health-primary hover:bg-gray-100 rounded-full px-8 mt-4"
               >
                 <a href="https://dailyshot.com.tr" target="_blank" rel="noopener noreferrer">
                   Ürünleri Keşfet <ArrowRight className="w-4 h-4 ml-2" />
@@ -184,19 +189,20 @@ const HealthHome = () => {
               </Button>
             </div>
 
-            {/* Image */}
+            {/* Image in glassmorphism card */}
             <a
               href="https://dailyshot.com.tr"
               target="_blank"
               rel="noopener noreferrer"
               className="animate-on-scroll opacity-0 relative group"
             >
-              <img
-                src="/images/dailyshot_lifestyle.png"
-                alt="Dailyshot Lifestyle"
-                className="w-full rounded-3xl shadow-2xl transition-transform duration-500 group-hover:scale-[1.02]"
-              />
-              <div className="absolute inset-0 bg-health-primary/10 rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+              <div className="bg-white/10 backdrop-blur-md rounded-3xl p-6 border border-white/20 hover:bg-white/20 transition-all">
+                <img
+                  src="/images/dailyshot_ingredients.png"
+                  alt="Dailyshot Products with Natural Ingredients"
+                  className="w-full rounded-2xl shadow-xl"
+                />
+              </div>
             </a>
           </div>
         </div>
@@ -241,59 +247,40 @@ const HealthHome = () => {
         </div>
       </section>
 
-      {/* ===== ELECTROVIT INTRO SECTION (80% width, text + image, reversed) ===== */}
-      <section
-        ref={electrovitSectionRef}
-        className="py-20 lg:py-32 bg-gradient-to-br from-orange-50 to-white"
-      >
-        <div className="mx-auto px-6" style={{ maxWidth: '80%' }}>
-          <div className="grid lg:grid-cols-2 gap-16 items-center">
-            {/* Image (left on desktop) */}
-            <a
-              href="https://dailyshot.com.tr/arama/electrovit"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="animate-on-scroll opacity-0 relative group order-2 lg:order-1"
-            >
-              <img
-                src="/images/electrovit_sports.png"
-                alt="Electrovit Sports Hydration"
-                className="w-full rounded-3xl shadow-2xl transition-transform duration-500 group-hover:scale-[1.02]"
-              />
-              <div className="absolute inset-0 bg-orange-500/10 rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-            </a>
-
-            {/* Text Content (right on desktop) */}
-            <div className="animate-on-scroll opacity-0 space-y-6 order-1 lg:order-2">
-              <span className="text-[#FF9800] text-sm font-semibold uppercase tracking-widest">
+      {/* ===== ELECTROVIT INTRO SECTION (Option 4: Split Background) ===== */}
+      <section ref={electrovitSectionRef} className="overflow-hidden">
+        <div className="grid lg:grid-cols-2 min-h-[600px]">
+          {/* Left: Solid Color with Text */}
+          <div className="bg-[#0D9488] p-12 lg:p-20 flex items-center">
+            <div className="animate-on-scroll opacity-0 space-y-6 text-white max-w-lg">
+              <span className="text-white/80 text-sm font-semibold uppercase tracking-widest">
                 Electrovit Nedir?
               </span>
-              <h2 className="font-poppins font-bold text-3xl md:text-4xl lg:text-5xl text-gray-900 leading-tight">
-                Sporcuların <span className="text-[#FF9800]">Elektrolit</span> Tercihi
+              <h2 className="font-poppins font-bold text-3xl md:text-4xl lg:text-5xl leading-tight">
+                Sporcuların <span className="text-white/90">Elektrolit</span> Tercihi
               </h2>
-              <p className="text-lg text-gray-600 leading-relaxed">
+              <p className="text-lg text-white/80 leading-relaxed">
                 Electrovit, aktif yaşam sürenler ve sporcular için özel olarak formüle edilmiş likit elektrolit takviyesidir.
                 Toz değil, hazır içilebilir formatta sunulur.
               </p>
               <ul className="space-y-3">
-                <li className="flex items-center gap-3 text-gray-700">
-                  <Zap className="w-5 h-5 text-[#FF9800]" />
+                <li className="flex items-center gap-3 text-white/90">
+                  <Zap className="w-5 h-5" />
                   <span>Anında enerji ve performans desteği</span>
                 </li>
-                <li className="flex items-center gap-3 text-gray-700">
-                  <Droplets className="w-5 h-5 text-[#FF9800]" />
+                <li className="flex items-center gap-3 text-white/90">
+                  <Droplets className="w-5 h-5" />
                   <span>Karpuz ve Portakal aromalarında</span>
                 </li>
-                <li className="flex items-center gap-3 text-gray-700">
-                  <Heart className="w-5 h-5 text-[#FF9800]" />
-                  <span>Antrenman öncesi, sırası ve sonrasında kullanım</span>
+                <li className="flex items-center gap-3 text-white/90">
+                  <Heart className="w-5 h-5" />
+                  <span>Antrenman öncesi, sırası ve sonrasında</span>
                 </li>
               </ul>
               <Button
                 asChild
-                variant="outline"
                 size="lg"
-                className="border-[#FF9800] text-[#FF9800] hover:bg-[#FF9800] hover:text-white rounded-full px-8 mt-4"
+                className="bg-white text-[#0D9488] hover:bg-gray-100 rounded-full px-8 mt-4"
               >
                 <a href="https://dailyshot.com.tr/arama/electrovit" target="_blank" rel="noopener noreferrer">
                   Electrovit'i Keşfet <ArrowRight className="w-4 h-4 ml-2" />
@@ -301,6 +288,15 @@ const HealthHome = () => {
               </Button>
             </div>
           </div>
+
+          {/* Right: Full Image */}
+          <a
+            href="https://dailyshot.com.tr/arama/electrovit"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="animate-on-scroll opacity-0 bg-cover bg-center min-h-[400px] lg:min-h-full block hover:opacity-90 transition-opacity"
+            style={{ backgroundImage: 'url(/images/electrovit_stadium.png)' }}
+          />
         </div>
       </section>
 
@@ -309,14 +305,14 @@ const HealthHome = () => {
         <div className="container mx-auto px-6">
           <AnimatedSection animation="fadeInUp" className="flex items-center justify-between mb-10">
             <div>
-              <span className="text-[#FF9800] text-sm font-semibold uppercase tracking-widest mb-2 block">
+              <span className="text-[#0D9488] text-sm font-semibold uppercase tracking-widest mb-2 block">
                 {t('health.sections.electrovit.label')}
               </span>
               <h2 className="text-3xl md:text-4xl font-bold font-poppins text-gray-900">
                 {t('health.sections.electrovit.title')}
               </h2>
             </div>
-            <Button asChild variant="ghost" className="text-[#FF9800] hover:text-[#FF9800]/80">
+            <Button asChild variant="ghost" className="text-[#0D9488] hover:text-[#0D9488]/80">
               <a href="https://dailyshot.com.tr/arama/electrovit" target="_blank" rel="noopener noreferrer">
                 {t('health.sections.electrovit.cta')} <ArrowRight className="w-4 h-4 ml-1" />
               </a>
@@ -337,8 +333,8 @@ const HealthHome = () => {
                 </CarouselItem>
               ))}
             </CarouselContent>
-            <CarouselPrevious className="-left-4 lg:-left-12 bg-white border-gray-200 text-gray-700 hover:bg-[#FF9800] hover:text-white hover:border-[#FF9800]" />
-            <CarouselNext className="-right-4 lg:-right-12 bg-white border-gray-200 text-gray-700 hover:bg-[#FF9800] hover:text-white hover:border-[#FF9800]" />
+            <CarouselPrevious className="-left-4 lg:-left-12 bg-white border-gray-200 text-gray-700 hover:bg-[#0D9488] hover:text-white hover:border-[#0D9488]" />
+            <CarouselNext className="-right-4 lg:-right-12 bg-white border-gray-200 text-gray-700 hover:bg-[#0D9488] hover:text-white hover:border-[#0D9488]" />
           </Carousel>
         </div>
       </section>

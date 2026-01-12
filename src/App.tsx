@@ -11,6 +11,7 @@ import HealthAbout from "./pages/HealthAbout";
 import HealthContactPage from "./pages/HealthContactPage";
 import DailyshotNedirPage from "./pages/DailyshotNedirPage";
 import ElectrovitNedirPage from "./pages/ElectrovitNedirPage";
+import StylesPage from "./pages/StylesPage";
 import MiceHome from "./pages/MiceHome";
 import WorksPage from "./pages/WorksPage";
 import TeamPage from "./pages/TeamPage";
@@ -36,6 +37,7 @@ const App = () => (
               <Route path="/health/iletisim" element={<HealthContactPage />} />
               <Route path="/health/dailyshot-nedir" element={<DailyshotNedirPage />} />
               <Route path="/health/electrovit-nedir" element={<ElectrovitNedirPage />} />
+              <Route path="/health/styles" element={<StylesPage />} />
               <Route path="/mice" element={<MiceHome />} />
               <Route path="/mice/isler-gucler" element={<WorksPage />} />
               <Route path="/mice/etkinlikler" element={<MiceHome />} />

@@ -41,6 +41,7 @@ const Header = () => {
     { href: '/health/hakkinda', label: t('nav.about') },
     { href: '/health/dailyshot-nedir', label: 'Dailyshot Nedir?' },
     { href: '/health/electrovit-nedir', label: 'Electrovit Nedir?' },
+    { href: '/health/styles', label: 'Styles' },
   ];
 
   const miceLinks: NavLinkItem[] = [
