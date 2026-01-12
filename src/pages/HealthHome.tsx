@@ -198,7 +198,7 @@ const HealthHome = () => {
             >
               <div className="bg-white/10 backdrop-blur-md rounded-3xl p-6 border border-white/20 hover:bg-white/20 transition-all">
                 <img
-                  src="/images/dailyshot_ingredients.png"
+                  src="/images/dailyshot_ingredients.jpg"
                   alt="Dailyshot Products with Natural Ingredients"
                   className="w-full rounded-2xl shadow-xl"
                 />
@@ -207,6 +207,9 @@ const HealthHome = () => {
           </div>
         </div>
       </section>
+
+      {/* Gradient transition: Dailyshot intro -> Carousel */}
+      <div className="h-24 bg-gradient-to-b from-health-primary to-gray-50" />
 
       {/* Dailyshot Products Carousel Section */}
       <section className="py-16 lg:py-24 bg-gray-50">
@@ -247,11 +250,14 @@ const HealthHome = () => {
         </div>
       </section>
 
+      {/* Gradient transition: Carousel -> Electrovit intro */}
+      <div className="h-24 bg-gradient-to-b from-gray-50 to-[#38BDF8]" />
+
       {/* ===== ELECTROVIT INTRO SECTION (Option 4: Split Background) ===== */}
       <section ref={electrovitSectionRef} className="overflow-hidden">
         <div className="grid lg:grid-cols-2 min-h-[600px]">
           {/* Left: Solid Color with Text */}
-          <div className="bg-[#0D9488] p-12 lg:p-20 flex items-center">
+          <div className="bg-[#38BDF8] p-12 lg:p-20 flex items-center">
             <div className="animate-on-scroll opacity-0 space-y-6 text-white max-w-lg">
               <span className="text-white/80 text-sm font-semibold uppercase tracking-widest">
                 Electrovit Nedir?
@@ -280,7 +286,7 @@ const HealthHome = () => {
               <Button
                 asChild
                 size="lg"
-                className="bg-white text-[#0D9488] hover:bg-gray-100 rounded-full px-8 mt-4"
+                className="bg-white text-[#38BDF8] hover:bg-gray-100 rounded-full px-8 mt-4"
               >
                 <a href="https://dailyshot.com.tr/arama/electrovit" target="_blank" rel="noopener noreferrer">
                   Electrovit'i Keşfet <ArrowRight className="w-4 h-4 ml-2" />
@@ -300,19 +306,22 @@ const HealthHome = () => {
         </div>
       </section>
 
+      {/* Gradient transition: Electrovit split -> Carousel */}
+      <div className="h-24 bg-gradient-to-b from-[#38BDF8] to-white" />
+
       {/* Electrovit Products Carousel Section */}
       <section className="py-16 lg:py-24 bg-white">
         <div className="container mx-auto px-6">
           <AnimatedSection animation="fadeInUp" className="flex items-center justify-between mb-10">
             <div>
-              <span className="text-[#0D9488] text-sm font-semibold uppercase tracking-widest mb-2 block">
+              <span className="text-[#38BDF8] text-sm font-semibold uppercase tracking-widest mb-2 block">
                 {t('health.sections.electrovit.label')}
               </span>
               <h2 className="text-3xl md:text-4xl font-bold font-poppins text-gray-900">
                 {t('health.sections.electrovit.title')}
               </h2>
             </div>
-            <Button asChild variant="ghost" className="text-[#0D9488] hover:text-[#0D9488]/80">
+            <Button asChild variant="ghost" className="text-[#38BDF8] hover:text-[#38BDF8]/80">
               <a href="https://dailyshot.com.tr/arama/electrovit" target="_blank" rel="noopener noreferrer">
                 {t('health.sections.electrovit.cta')} <ArrowRight className="w-4 h-4 ml-1" />
               </a>
@@ -333,8 +342,8 @@ const HealthHome = () => {
                 </CarouselItem>
               ))}
             </CarouselContent>
-            <CarouselPrevious className="-left-4 lg:-left-12 bg-white border-gray-200 text-gray-700 hover:bg-[#0D9488] hover:text-white hover:border-[#0D9488]" />
-            <CarouselNext className="-right-4 lg:-right-12 bg-white border-gray-200 text-gray-700 hover:bg-[#0D9488] hover:text-white hover:border-[#0D9488]" />
+            <CarouselPrevious className="-left-4 lg:-left-12 bg-white border-gray-200 text-gray-700 hover:bg-[#38BDF8] hover:text-white hover:border-[#38BDF8]" />
+            <CarouselNext className="-right-4 lg:-right-12 bg-white border-gray-200 text-gray-700 hover:bg-[#38BDF8] hover:text-white hover:border-[#38BDF8]" />
           </Carousel>
         </div>
       </section>
