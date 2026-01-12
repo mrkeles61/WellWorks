@@ -5,6 +5,23 @@
   "description": "WellWorks Turkey - Dual-brand gateway website for Health (Dailyshot) and MICE (Events)",
   "author": "Well Works Turkey",
   "type": "module",
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "overrides": {
+    "@react-leaflet/core": {
+      "react": "$react",
+      "react-dom": "$react-dom"
+    },
+    "react-leaflet": {
+      "react": "$react",
+      "react-dom": "$react-dom"
+    },
+    "react-leaflet-cluster": {
+      "react": "$react",
+      "react-dom": "$react-dom"
+    }
+  },
   "scripts": {
     "dev": "vite",
     "build": "vite build",
