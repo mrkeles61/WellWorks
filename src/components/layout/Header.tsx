@@ -125,18 +125,6 @@ const Header = () => {
           {/* Right Side Actions */}
           <div className="flex items-center gap-3">
             <BrandToggle />
-
-            <button
-              onClick={() => setIsSearchOpen(true)}
-              className={cn(
-                'p-2 rounded-full transition-colors',
-                brand === 'health' ? 'hover:bg-secondary' : 'hover:bg-secondary'
-              )}
-              aria-label={t('search.placeholder')}
-            >
-              <Search className="w-5 h-5" />
-            </button>
-
             <LanguageToggle />
 
             {/* Mobile Menu Button */}

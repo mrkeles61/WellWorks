@@ -7,6 +7,7 @@ import { Navigation, MapPin, Search, Loader2, ExternalLink } from 'lucide-react'
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { cn } from '@/lib/utils';
+import { useTranslation } from 'react-i18next';
 
 // Fix Leaflet default icon issue
 import iconRetinaUrl from 'leaflet/dist/images/marker-icon-2x.png';
@@ -73,6 +74,7 @@ const getNavigationUrl = (pharmacy: Pharmacy): string => {
 };
 
 const StoreLocatorMap = () => {
+    const { t } = useTranslation();
     const [allPharmacies, setAllPharmacies] = useState<Pharmacy[]>([]);
     const [meta, setMeta] = useState<DataResponse['meta'] | null>(null);
     const [loading, setLoading] = useState(true);
@@ -167,7 +169,7 @@ const StoreLocatorMap = () => {
         return (
             <div className="h-[600px] w-full bg-gray-100 flex items-center justify-center">
                 <Loader2 className="w-8 h-8 animate-spin text-blue-600" />
-                <span className="ml-3 text-gray-600">Yükleniyor…</span>
+                <span className="ml-3 text-gray-600">{t('health.storeLocator.loading')}</span>
             </div>
         );
     }
@@ -188,7 +190,7 @@ const StoreLocatorMap = () => {
                             onChange={(e) => { setSelectedCity(e.target.value); setSelectedCounty(''); }}
                             className="flex-1 px-3 py-2 border border-gray-300 rounded-lg text-sm focus:ring-2 focus:ring-blue-500"
                         >
-                            <option value="">Tüm Şehirler</option>
+                            <option value="">{t('health.storeLocator.allCities')}</option>
                             {cities.map(city => <option key={city} value={city}>{city}</option>)}
                         </select>
                         <select
@@ -197,7 +199,7 @@ const StoreLocatorMap = () => {
                             disabled={!selectedCity}
                             className="flex-1 px-3 py-2 border border-gray-300 rounded-lg text-sm focus:ring-2 focus:ring-blue-500 disabled:opacity-50"
                         >
-                            <option value="">Tüm İlçeler</option>
+                            <option value="">{t('health.storeLocator.allCounties')}</option>
                             {counties.map(county => <option key={county} value={county}>{county}</option>)}
                         </select>
                     </div>
@@ -206,12 +208,12 @@ const StoreLocatorMap = () => {
                         <Input
                             value={searchQuery}
                             onChange={(e) => setSearchQuery(e.target.value)}
-                            placeholder="İsim veya adres ara"
+                            placeholder={t('health.storeLocator.searchPlaceholder')}
                             className="pl-10"
                         />
                     </div>
                     <div className="text-sm text-gray-500">
-                        {filteredPharmacies.length} sonuç
+                        {filteredPharmacies.length} {t('health.storeLocator.results')}
                         {selectedCounty && ` • ${selectedCounty}: ${filteredPharmacies.length}`}
                     </div>
                 </div>
@@ -220,7 +222,7 @@ const StoreLocatorMap = () => {
                 <div className="flex-1 overflow-y-auto">
                     {filteredPharmacies.length === 0 ? (
                         <div className="p-8 text-center text-gray-500">
-                            Bu filtrede sonuç bulunamadı.
+                            {t('health.storeLocator.noResults')}
                         </div>
                     ) : (
                         filteredPharmacies.map(pharmacy => (
@@ -239,7 +241,7 @@ const StoreLocatorMap = () => {
                                         <p className="text-sm text-gray-400 line-clamp-2 mt-1">{pharmacy.address}</p>
                                         {(!pharmacy.lat || !pharmacy.lng) && (
                                             <span className="inline-block mt-2 px-2 py-0.5 bg-amber-100 text-amber-700 text-xs rounded">
-                                                Adres bazlı
+                                                {t('health.storeLocator.addressBased')}
                                             </span>
                                         )}
                                     </div>
@@ -250,7 +252,7 @@ const StoreLocatorMap = () => {
                                         className="ml-3 shrink-0"
                                     >
                                         <ExternalLink className="w-4 h-4 mr-1" />
-                                        Yol Tarifi
+                                        {t('health.storeLocator.getDirections')}
                                     </Button>
                                 </div>
                             </div>
@@ -261,7 +263,7 @@ const StoreLocatorMap = () => {
                 {/* Footer stats */}
                 {meta && (
                     <div className="p-3 border-t border-gray-200 bg-gray-50 text-xs text-gray-500 text-center">
-                        Haritada: {pharmaciesWithCoords.length} / {filteredPharmacies.length} • Adres bazlı: {pharmaciesWithoutCoords.length}
+                        {t('health.storeLocator.onMap')}: {pharmaciesWithCoords.length} / {filteredPharmacies.length} • {t('health.storeLocator.addressBased')}: {pharmaciesWithoutCoords.length}
                     </div>
                 )}
             </div>
@@ -272,14 +274,14 @@ const StoreLocatorMap = () => {
                 <div className="absolute top-4 right-4 z-[1000]">
                     <Button onClick={handleNearMe} className="bg-white text-gray-800 hover:bg-gray-50 shadow-md border border-gray-200">
                         <Navigation className="w-4 h-4 mr-2 text-blue-600" />
-                        Yakınımda
+                        {t('health.storeLocator.nearMe')}
                     </Button>
                 </div>
 
                 {pharmaciesWithCoords.length === 0 ? (
                     <div className="w-full h-full bg-gray-100 flex items-center justify-center text-gray-500">
                         <MapPin className="w-6 h-6 mr-2" />
-                        Bu filtrede haritada konum bulunamadı
+                        {t('health.storeLocator.noMapResults')}
                     </div>
                 ) : (
                     <MapContainer
@@ -323,7 +325,7 @@ const StoreLocatorMap = () => {
                                                     className="mt-2 w-full"
                                                     onClick={() => handleNavigate(pharmacy)}
                                                 >
-                                                    Yol Tarifi Al
+                                                    {t('health.storeLocator.getDirections')}
                                                 </Button>
                                             </div>
                                         </Popup>

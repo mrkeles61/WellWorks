@@ -127,27 +127,26 @@ const HealthHome = () => {
             {/* Text Content */}
             <div className="animate-on-scroll opacity-0 space-y-6">
               <span className="text-health-primary text-sm font-semibold uppercase tracking-widest">
-                WellWorks Health
+                {t('health.wellworksIntro.label')}
               </span>
               <h2 className="font-poppins font-bold text-3xl md:text-4xl lg:text-5xl leading-tight text-white">
-                Likit Takviyenin <span className="text-health-primary">Gücünü</span> Keşfedin
+                <Trans i18nKey="health.wellworksIntro.title" components={[<span className="text-health-primary" />]} />
               </h2>
               <p className="text-lg text-white/80 leading-relaxed">
-                WellWorks Health, içerisinde likit formda ürünler bulunduran bitkisel bir gıda takviyesi markasıdır.
-                Likit yapısı sayesinde kana hızlıca karışır ve etkinin hızlı gözlemlenmesine olanak sağlar.
+                {t('health.wellworksIntro.desc')}
               </p>
               <ul className="space-y-3">
                 <li className="flex items-center gap-3 text-white/90">
                   <Zap className="w-5 h-5 text-health-primary" />
-                  <span><strong>%90'a varan</strong> biyoyararlanım oranı</span>
+                  <span><Trans i18nKey="health.wellworksIntro.feature1" components={[<strong />]} /></span>
                 </li>
                 <li className="flex items-center gap-3 text-white/90">
                   <Shield className="w-5 h-5 text-health-primary" />
-                  <span>GMP ve Helal sertifikalı üretim</span>
+                  <span>{t('health.wellworksIntro.feature2')}</span>
                 </li>
                 <li className="flex items-center gap-3 text-white/90">
                   <Droplets className="w-5 h-5 text-health-primary" />
-                  <span>Hızlı emilim, dakikalar içinde etki</span>
+                  <span>{t('health.wellworksIntro.feature3')}</span>
                 </li>
               </ul>
               <Button
@@ -156,7 +155,7 @@ const HealthHome = () => {
                 className="bg-health-primary text-white hover:bg-health-primary/90 rounded-full px-8 mt-4"
               >
                 <a href="https://dailyshot.com.tr" target="_blank" rel="noopener noreferrer">
-                  Ürünleri Keşfet <ArrowRight className="w-4 h-4 ml-2" />
+                  {t('health.wellworksIntro.cta')} <ArrowRight className="w-4 h-4 ml-2" />
                 </a>
               </Button>
             </div>
@@ -184,8 +183,93 @@ const HealthHome = () => {
       {/* Spacer (removed gradient) */}
       <div className="h-12 bg-white" />
 
+      {/* ===== OUR PRODUCTS SECTION ===== */}
+      <section className="py-20 lg:py-28 bg-white">
+        <div className="container mx-auto px-6">
+          {/* Header */}
+          <AnimatedSection animation="fadeInUp" className="text-center mb-12">
+            <span className="text-health-primary text-sm font-semibold uppercase tracking-widest mb-3 block">
+              {t('health.ourProducts.label')}
+            </span>
+            <h2 className="font-poppins font-bold text-3xl md:text-4xl lg:text-5xl text-gray-900 mb-4">
+              {t('health.ourProducts.title')}
+            </h2>
+            <p className="text-gray-600 max-w-2xl mx-auto text-lg">
+              {t('health.ourProducts.subtitle')}
+            </p>
+          </AnimatedSection>
+
+          {/* Stats Bar */}
+          <AnimatedSection animation="fadeInUp" delay={100} className="flex flex-wrap justify-center gap-8 md:gap-16 mb-16">
+            <div className="text-center">
+              <div className="text-3xl md:text-4xl font-bold text-health-primary">10.000+</div>
+              <div className="text-gray-500 text-sm mt-1">{t('health.ourProducts.stats.customers')}</div>
+            </div>
+            <div className="text-center">
+              <div className="text-3xl md:text-4xl font-bold text-health-primary">500+</div>
+              <div className="text-gray-500 text-sm mt-1">{t('health.ourProducts.stats.stores')}</div>
+            </div>
+            <div className="text-center">
+              <div className="text-3xl md:text-4xl font-bold text-health-primary">2</div>
+              <div className="text-gray-500 text-sm mt-1">{t('health.ourProducts.stats.brands')}</div>
+            </div>
+          </AnimatedSection>
+
+          {/* Brand Cards */}
+          <AnimatedSection animation="fadeInUp" delay={200}>
+            <div className="grid md:grid-cols-2 gap-6 lg:gap-8 max-w-4xl mx-auto">
+              {/* Dailyshot Card */}
+              <div
+                onClick={() => document.getElementById('dailyshot-products')?.scrollIntoView({ behavior: 'smooth' })}
+                className="group relative rounded-3xl overflow-hidden cursor-pointer transition-all duration-500 hover:scale-[1.02] hover:shadow-2xl"
+              >
+                <div className="absolute inset-0 bg-gradient-to-br from-[#00A3E0] to-[#0077B6]" />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent" />
+                <div className="relative z-10 p-8 md:p-10 h-64 flex flex-col justify-between">
+                  <div>
+                    <span className="text-white/80 text-sm uppercase tracking-widest">Dailyshot</span>
+                    <h3 className="text-white font-poppins font-bold text-2xl md:text-3xl mt-2">
+                      {t('health.ourProducts.dailyshot.title')}
+                    </h3>
+                    <p className="text-white/70 mt-2 text-sm">
+                      {t('health.ourProducts.dailyshot.desc')}
+                    </p>
+                  </div>
+                  <div className="flex items-center gap-2 text-white font-semibold group-hover:gap-4 transition-all">
+                    {t('health.ourProducts.explore')} <ArrowRight className="w-5 h-5" />
+                  </div>
+                </div>
+              </div>
+
+              {/* Electrovit Card */}
+              <div
+                onClick={() => document.getElementById('electrovit-products')?.scrollIntoView({ behavior: 'smooth' })}
+                className="group relative rounded-3xl overflow-hidden cursor-pointer transition-all duration-500 hover:scale-[1.02] hover:shadow-2xl"
+              >
+                <div className="absolute inset-0 bg-gradient-to-br from-[#39B54A] to-[#2E8B3A]" />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent" />
+                <div className="relative z-10 p-8 md:p-10 h-64 flex flex-col justify-between">
+                  <div>
+                    <span className="text-white/80 text-sm uppercase tracking-widest">Electrovit</span>
+                    <h3 className="text-white font-poppins font-bold text-2xl md:text-3xl mt-2">
+                      {t('health.ourProducts.electrovit.title')}
+                    </h3>
+                    <p className="text-white/70 mt-2 text-sm">
+                      {t('health.ourProducts.electrovit.desc')}
+                    </p>
+                  </div>
+                  <div className="flex items-center gap-2 text-white font-semibold group-hover:gap-4 transition-all">
+                    {t('health.ourProducts.explore')} <ArrowRight className="w-5 h-5" />
+                  </div>
+                </div>
+              </div>
+            </div>
+          </AnimatedSection>
+        </div>
+      </section>
+
       {/* Dailyshot Products Carousel Section */}
-      <section className="py-16 lg:py-24 bg-gray-50">
+      <section id="dailyshot-products" className="py-16 lg:py-24 bg-gray-50">
         <div className="container mx-auto px-6">
           <AnimatedSection animation="fadeInUp" className="flex items-center justify-between mb-10">
             <div>
@@ -243,14 +327,13 @@ const HealthHome = () => {
             {/* Left Content */}
             <div className="space-y-8 lg:pr-8">
               <div className="text-[#0ea5e9] font-bold tracking-widest text-xs uppercase mb-2">
-                Performans Serisi
+                {t('health.electrovitIntro.label')}
               </div>
               <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tight leading-[1.1] text-white">
-                Sporcuların <br />
-                <span className="text-[#0ea5e9]">Elektrolit</span> Tercihi
+                <Trans i18nKey="health.electrovitIntro.title" components={[<span className="text-[#0ea5e9]" />]} />
               </h1>
               <p className="text-base md:text-lg text-slate-400 leading-relaxed max-w-xl">
-                Electrovit, aktif yaşam sürenler için özel formüle edilmiş <strong className="text-slate-200">likit elektrolit</strong> takviyesidir. Toz karışıklığına son verin, performansınızı zirveye taşıyın.
+                <Trans i18nKey="health.electrovitIntro.desc" components={[<strong className="text-slate-200" />]} />
               </p>
 
               <ul className="space-y-4">
@@ -258,19 +341,19 @@ const HealthHome = () => {
                   <span className="flex-shrink-0 w-6 h-6 rounded-full bg-[#0ea5e9]/10 flex items-center justify-center text-[#0ea5e9]">
                     <Zap className="w-3.5 h-3.5" />
                   </span>
-                  <span className="font-medium text-sm md:text-base">Anında Enerji ve Canlılık</span>
+                  <span className="font-medium text-sm md:text-base">{t('health.electrovitIntro.feature1')}</span>
                 </li>
                 <li className="flex items-center space-x-3 text-slate-300">
                   <span className="flex-shrink-0 w-6 h-6 rounded-full bg-[#0ea5e9]/10 flex items-center justify-center text-[#0ea5e9]">
                     <Droplets className="w-3.5 h-3.5" />
                   </span>
-                  <span className="font-medium text-sm md:text-base">Hızlı Emilim Teknolojisi</span>
+                  <span className="font-medium text-sm md:text-base">{t('health.electrovitIntro.feature2')}</span>
                 </li>
                 <li className="flex items-center space-x-3 text-slate-300">
                   <span className="flex-shrink-0 w-6 h-6 rounded-full bg-[#0ea5e9]/10 flex items-center justify-center text-[#0ea5e9]">
                     <Activity className="w-3.5 h-3.5" />
                   </span>
-                  <span className="font-medium text-sm md:text-base">Şekersiz ve Kalorisiz Formül</span>
+                  <span className="font-medium text-sm md:text-base">{t('health.electrovitIntro.feature3')}</span>
                 </li>
               </ul>
 
@@ -280,7 +363,7 @@ const HealthHome = () => {
                   className="inline-flex items-center justify-center px-8 py-6 text-base font-semibold text-white transition-all duration-200 bg-[#0ea5e9] rounded-full hover:bg-[#0284c7] hover:shadow-lg hover:shadow-[#0ea5e9]/30 border-0"
                 >
                   <a href="https://dailyshot.com.tr/arama/electrovit" target="_blank" rel="noopener noreferrer" className="group">
-                    Electrovit'i Keşfet <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                    {t('health.electrovitIntro.cta')} <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
                   </a>
                 </Button>
               </div>
@@ -306,7 +389,7 @@ const HealthHome = () => {
       </section>
 
       {/* Electrovit Products Carousel Section */}
-      <section className="py-16 lg:py-24 bg-white">
+      <section id="electrovit-products" className="py-16 lg:py-24 bg-white">
         <div className="container mx-auto px-6">
           <AnimatedSection animation="fadeInUp" className="flex items-center justify-between mb-10">
             <div>

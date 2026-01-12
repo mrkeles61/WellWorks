@@ -677,5 +677,2539 @@
     "county": "Konyaaltı",
     "city": "Antalya",
     "timestamp": "2026-01-12T12:13:55.059Z"
+  },
+  {
+    "name": "AYÇA ECZANESİ",
+    "address": "Davutlar Mah.Menderes Cad.No:104/B",
+    "county": "Kuşadası",
+    "city": "Aydın",
+    "timestamp": "2026-01-12T12:14:00.076Z"
+  },
+  {
+    "name": "NATUREL ECZANESİ",
+    "address": "EFELER MAH. CUMHURİYET CAD. 1/B",
+    "county": "Didim",
+    "city": "Aydın",
+    "timestamp": "2026-01-12T12:14:03.806Z"
+  },
+  {
+    "name": "ARI ECZANESİ BALIKESİR",
+    "address": "Uruzbey Cad. Karizma Pazar Yeri Karşısı No:14/4-A",
+    "county": "Karesi",
+    "city": "Balıkesir",
+    "timestamp": "2026-01-12T12:14:07.040Z"
+  },
+  {
+    "name": "BURCU ECZANESİ",
+    "address": "Plevne Mah. Şehit Birol Koç Cad. No:105/A",
+    "county": "Altıeylül",
+    "city": "Balıkesir",
+    "timestamp": "2026-01-12T12:14:11.905Z"
+  },
+  {
+    "name": "DENİZİM ECZANESİ",
+    "address": "BAHÇELİEVLER MAH. 3007 SOK. NO:28/A",
+    "county": "Merkezefendi",
+    "city": "Denizli",
+    "timestamp": "2026-01-12T12:14:16.112Z"
+  },
+  {
+    "name": "ERMAN ECZANESİ",
+    "address": "Karahasanlı Mah. 2040 Sok. 11/8",
+    "county": "Merkezefendi",
+    "city": "Denizli",
+    "timestamp": "2026-01-12T12:14:19.556Z"
+  },
+  {
+    "name": "GÖRKEM ECZANESİ",
+    "address": "KINIKLI MAH. ŞEHİT DR. MÜNİSE ÖZCAN CAD. NO:17/A/17/B",
+    "county": "Pamukkale",
+    "city": "Denizli",
+    "timestamp": "2026-01-12T12:14:24.269Z"
+  },
+  {
+    "name": "MUTLU GÜNLER ECZANESİ",
+    "address": "SİTELER MA. BURSA CAD. NO: 50/A",
+    "county": "Pamukkale",
+    "city": "Denizli",
+    "timestamp": "2026-01-12T12:14:28.554Z"
+  },
+  {
+    "name": "TUĞBA ECZANESİ",
+    "address": "Çıtlakkale Mah. Atatürk Bulv. 217/A",
+    "county": "Merkez",
+    "city": "Giresun",
+    "timestamp": "2026-01-12T12:14:32.161Z"
+  },
+  {
+    "name": "PEHLİVAN ECZANESİ",
+    "address": "Numune Mah. İ.Karaoğlanoğlu Cad. No:29/3 Primemall Avm",
+    "county": "İskenderun",
+    "city": "Hatay",
+    "timestamp": "2026-01-12T12:14:35.718Z"
+  },
+  {
+    "name": "3 GÜL ECZANESİ",
+    "address": "Atatürk Mah. Sütçü İmam Cad. 69/B",
+    "county": "Ümraniye",
+    "city": "İstanbul",
+    "timestamp": "2026-01-12T12:14:39.301Z"
+  },
+  {
+    "name": "ECZANE MEYDAN",
+    "address": "Fatih Sultan Mehmet Mah.Balkan Cad.No:62 Meydan AVM",
+    "county": "Ümraniye",
+    "city": "İstanbul",
+    "timestamp": "2026-01-12T12:14:43.947Z"
+  },
+  {
+    "name": "ELTES MÜGE ECZANESİ",
+    "address": "Madenler Mah. Şehit Ünal Kalafat Cad. Ağaoğlu Gold Residense No:32/4",
+    "county": "Ümraniye",
+    "city": "İstanbul",
+    "timestamp": "2026-01-12T12:14:47.432Z"
+  },
+  {
+    "name": "EYLÜL ECZANESİ",
+    "address": "İSTİKLAL MAH.MİTHATPAŞA CD. AĞAOĞLU İŞ MERKEZİ NO:9/A",
+    "county": "Ümraniye",
+    "city": "İstanbul",
+    "timestamp": "2026-01-12T12:14:51.163Z"
+  },
+  {
+    "name": "ORYAPARK ECZANESİ",
+    "address": "Küçüksu Cad. No:60/B",
+    "county": "Ümraniye",
+    "city": "İstanbul",
+    "timestamp": "2026-01-12T12:14:54.781Z"
+  },
+  {
+    "name": "POZİTİF ECZANESİ",
+    "address": "Dudullu OSB Des 1.Cadde No:4 WELL CLUB",
+    "county": "Ümraniye",
+    "city": "İstanbul",
+    "timestamp": "2026-01-12T12:14:58.321Z"
+  },
+  {
+    "name": "5.LEVENT ECZANESİ",
+    "address": "Güzeltepe Mah.15 Temmuz Şehitler Cad. A1 Blok No:10/6",
+    "county": "Eyüp",
+    "city": "İstanbul",
+    "timestamp": "2026-01-12T12:15:01.913Z"
+  },
+  {
+    "name": "BANU ECZANESİ",
+    "address": "İstanbul Cad. No:2 M13 Göktürk",
+    "county": "Eyüp",
+    "city": "İstanbul",
+    "timestamp": "2026-01-12T12:15:05.579Z"
+  },
+  {
+    "name": "CEYLAN ECZANESİ",
+    "address": "YEŞİLPIAR MAH. ŞÜKRAN SOK YAR APT. NO:8B/1",
+    "county": "Eyüp",
+    "city": "İstanbul",
+    "timestamp": "2026-01-12T12:15:08.821Z"
+  },
+  {
+    "name": "ÇUHADAROĞLU ECZANESİ",
+    "address": "Rami Cuma Mah. Bosna Cad. 9/C",
+    "county": "Eyüp",
+    "city": "İstanbul",
+    "timestamp": "2026-01-12T12:15:12.539Z"
+  },
+  {
+    "name": "DERYA KAYA ECZANESİ",
+    "address": "GÖKTÜRK MERKEZ MAH. CAMİİ SOK. NO:6/B",
+    "county": "Eyüp",
+    "city": "İstanbul",
+    "timestamp": "2026-01-12T12:15:17.266Z"
+  },
+  {
+    "name": "ECZANE AYSUN",
+    "address": "Mithatpaşa Mah. Abdulhamit Han Cad. No:135/A Kemerburgaz",
+    "county": "Eyüp",
+    "city": "İstanbul",
+    "timestamp": "2026-01-12T12:15:20.803Z"
+  },
+  {
+    "name": "ECZANE SEDEF",
+    "address": "Merkez Mah. Belediye Cad. Telekom Sok. No:5/A Göktürk",
+    "county": "Eyüp",
+    "city": "İstanbul",
+    "timestamp": "2026-01-12T12:15:25.578Z"
+  },
+  {
+    "name": "ERDEM ECZANESİ GOP",
+    "address": "YEŞİLPINAR MAH ŞELALE SOK NO 31C",
+    "county": "Eyüp",
+    "city": "İstanbul",
+    "timestamp": "2026-01-12T12:15:29.149Z"
+  },
+  {
+    "name": "GÖKTÜRK ECZANESİ",
+    "address": "Göktürk Merkez Mah. İstanbul Cad. No:26/D",
+    "county": "Eyüp",
+    "city": "İstanbul",
+    "timestamp": "2026-01-12T12:15:32.773Z"
+  },
+  {
+    "name": "İNCİ ECZANESİ",
+    "address": "Göktürk Merkez Mah. İstanbul Cad. no:48/D",
+    "county": "Eyüp",
+    "city": "İstanbul",
+    "timestamp": "2026-01-12T12:15:38.537Z"
+  },
+  {
+    "name": "KAHVECİOĞLU YILDIZ ECZ.",
+    "address": "Göktürk Merkez Mah. İstanbul Cad. 11/1",
+    "county": "Eyüp",
+    "city": "İstanbul",
+    "timestamp": "2026-01-12T12:15:42.189Z"
+  },
+  {
+    "name": "MİMOZA ECZANESİ",
+    "address": "Göktürk Merkez Mah. Göktürk Cad. Gez Corner No:18/C",
+    "county": "Eyüp",
+    "city": "İstanbul",
+    "timestamp": "2026-01-12T12:15:46.079Z"
+  },
+  {
+    "name": "ÖGE ECZANESİ",
+    "address": "Mimarsinan mah. Abdülhamit Han cd. Bakırcı Kemer No:22-24/D",
+    "county": "Eyüp",
+    "city": "İstanbul",
+    "timestamp": "2026-01-12T12:15:49.614Z"
+  },
+  {
+    "name": "ÖZER ECZANESİ VİALAND",
+    "address": "YEŞİLPINAR MAH. ŞEHİT METİN KAYA SOK NO 11/A VİALAND AVM",
+    "county": "Eyüp",
+    "city": "İstanbul",
+    "timestamp": "2026-01-12T12:15:53.302Z"
+  },
+  {
+    "name": "TALYA ECZANESİ",
+    "address": "Göktürk Merkez Mah.İstanbul Cad.No:38/1",
+    "county": "Eyüp",
+    "city": "İstanbul",
+    "timestamp": "2026-01-12T12:15:56.945Z"
+  },
+  {
+    "name": "ACAR ECZANESİ",
+    "address": "Valikonağı Cad. No:105/A",
+    "county": "Şişli",
+    "city": "İstanbul",
+    "timestamp": "2026-01-12T12:16:00.430Z"
+  },
+  {
+    "name": "ALTIN ECZANESİ",
+    "address": "Teşvikiye Mah. Valikonağı Cad. No:60/A",
+    "county": "Şişli",
+    "city": "İstanbul",
+    "timestamp": "2026-01-12T12:16:04.256Z"
+  },
+  {
+    "name": "BUSE ECZANESİ",
+    "address": "Büyükdere Cad. No:75/A",
+    "county": "Şişli",
+    "city": "İstanbul",
+    "timestamp": "2026-01-12T12:16:08.047Z"
+  },
+  {
+    "name": "CADDE İPEKÇİ ECZANESİ",
+    "address": "Abdi İpekçi Cd. No:42/C Nişantaşı,",
+    "county": "Şişli",
+    "city": "İstanbul",
+    "timestamp": "2026-01-12T12:16:11.680Z"
+  },
+  {
+    "name": "CANSU ECZANESİ",
+    "address": "Merkez Mah. Abide-i Hürriyet Cad. Tülin Palas Apt. No:195/B",
+    "county": "Şişli",
+    "city": "İstanbul",
+    "timestamp": "2026-01-12T12:16:15.826Z"
+  },
+  {
+    "name": "DORA ECZANESİ",
+    "address": "Halaskargazi Mah. Rumeli Cad. Panter Apt 69/A",
+    "county": "Şişli",
+    "city": "İstanbul",
+    "timestamp": "2026-01-12T12:16:19.423Z"
+  },
+  {
+    "name": "ECZANE BUTİK NİŞANTAŞI",
+    "address": "Valikonağı Cad.No:111D Nişantaşı",
+    "county": "Şişli",
+    "city": "İstanbul",
+    "timestamp": "2026-01-12T12:16:23.881Z"
+  },
+  {
+    "name": "ECZANE MAVİ ŞİŞLİ",
+    "address": "Bozkurt Mah. Ergenekon Cad. No:7/A",
+    "county": "Şişli",
+    "city": "İstanbul",
+    "timestamp": "2026-01-12T12:16:27.732Z"
+  },
+  {
+    "name": "ELMAS ECZANESİ",
+    "address": "Tevşikiye Mah. Nişantaşı Ihlamur Yolu Sok. Değer Apt. No:16/A",
+    "county": "Şişli",
+    "city": "İstanbul",
+    "timestamp": "2026-01-12T12:16:30.985Z"
+  },
+  {
+    "name": "FULYA BADEM ECZANESİ",
+    "address": "Fulya Mah. Yeşilimen Sok. Polat Tower Residence No : 12/408",
+    "county": "Şişli",
+    "city": "İstanbul",
+    "timestamp": "2026-01-12T12:16:34.204Z"
+  },
+  {
+    "name": "FULYA ECZANESİ NİŞANTAŞI",
+    "address": "Teşvikiye Cad. No:45/A",
+    "county": "Şişli",
+    "city": "İstanbul",
+    "timestamp": "2026-01-12T12:16:37.867Z"
+  },
+  {
+    "name": "FULYA YAŞAM ECZANESİ",
+    "address": "19 Mayıs mah. Mehmetçik Cad. No:112/A",
+    "county": "Şişli",
+    "city": "İstanbul",
+    "timestamp": "2026-01-12T12:16:42.194Z"
+  },
+  {
+    "name": "HARBİYE ECZANESİ",
+    "address": "Ergenekon Mah. Cumhuriyet Cad. No:183/A",
+    "county": "Şişli",
+    "city": "İstanbul",
+    "timestamp": "2026-01-12T12:16:45.952Z"
+  },
+  {
+    "name": "KANYON ECZANESİ",
+    "address": "Büyükdere Cad. No:185/15 Kanyon AVM",
+    "county": "Şişli",
+    "city": "İstanbul",
+    "timestamp": "2026-01-12T12:16:49.724Z"
+  },
+  {
+    "name": "PERLA ECZANESİ",
+    "address": "Teşvikiye Mah. Vali Konağı Cad. 68/A",
+    "county": "Şişli",
+    "city": "İstanbul",
+    "timestamp": "2026-01-12T12:16:53.268Z"
+  },
+  {
+    "name": "POZİTİF ECZANESİ ŞİŞLİ",
+    "address": "Cumhuriyet Mah. Halaskargazi Cad. No:95/A",
+    "county": "Şişli",
+    "city": "İstanbul",
+    "timestamp": "2026-01-12T12:16:56.751Z"
+  },
+  {
+    "name": "RUMELİ DESEN ECZANESİ",
+    "address": "HALASKARGAZİ CAD. RUMELİ CAD. MERİÇ APT NO:21/23-B",
+    "county": "Şişli",
+    "city": "İstanbul",
+    "timestamp": "2026-01-12T12:17:00.892Z"
+  },
+  {
+    "name": "SIRACEVİZLER ECZANESİ",
+    "address": "Sıracevizler cad. No:98",
+    "county": "Şişli",
+    "city": "İstanbul",
+    "timestamp": "2026-01-12T12:17:04.416Z"
+  },
+  {
+    "name": "ŞİŞLİ FULYA ECZANESİ",
+    "address": "Abide-i Hürriyet Cad. 193/A",
+    "county": "Şişli",
+    "city": "İstanbul",
+    "timestamp": "2026-01-12T12:17:09.792Z"
+  },
+  {
+    "name": "VALİKONAĞI ECZANESİ",
+    "address": "Valikonağı Cad. 36/B Nişantaşı",
+    "county": "Şişli",
+    "city": "İstanbul",
+    "timestamp": "2026-01-12T12:17:17.127Z"
+  },
+  {
+    "name": "ACAR ECZANESİ TUZLA",
+    "address": "CAMİ MAH.İSTASYON CADDESİ NO 102-12",
+    "county": "Tuzla",
+    "city": "İstanbul",
+    "timestamp": "2026-01-12T12:17:22.234Z"
+  },
+  {
+    "name": "KARDELEN ECZANESİ",
+    "address": "İÇMELER MAH D-100 KARAYOLU CAD ÇARŞI OFİS BİNASI A BLOK 44 A/34",
+    "county": "Tuzla",
+    "city": "İstanbul",
+    "timestamp": "2026-01-12T12:17:26.093Z"
+  },
+  {
+    "name": "MERCAN ECZANESİ",
+    "address": "Cami Mah. İstasyon Cad. 48/D",
+    "county": "Tuzla",
+    "city": "İstanbul",
+    "timestamp": "2026-01-12T12:17:29.785Z"
+  },
+  {
+    "name": "TUĞBA ECZANESİ TUZLA",
+    "address": "POSTANE MAH. MANASTIRYOLU CAD. 78/A",
+    "county": "Tuzla",
+    "city": "İstanbul",
+    "timestamp": "2026-01-12T12:17:33.435Z"
+  },
+  {
+    "name": "TUZLA PORT ECZANESİ",
+    "address": "Postane Mah. Cumhuriyet Cad. Tuzla Port 5/T -65",
+    "county": "Tuzla",
+    "city": "İstanbul",
+    "timestamp": "2026-01-12T12:17:37.058Z"
+  },
+  {
+    "name": "ACİL ŞİFA ECZANESİ",
+    "address": "MEVLANA MAH HEKİMSUYU CAD TEM 2 AVRUPA KONUTLARI 118/N",
+    "county": "Gaziosmanpaşa",
+    "city": "İstanbul",
+    "timestamp": "2026-01-12T12:17:41.301Z"
+  },
+  {
+    "name": "BAL ECZANESİ GOP",
+    "address": "HÜRİYET MAH 257. SOK NO:4/A",
+    "county": "Gaziosmanpaşa",
+    "city": "İstanbul",
+    "timestamp": "2026-01-12T12:17:45.499Z"
+  },
+  {
+    "name": "ESAT ECZANESİ",
+    "address": "ŞEMSİPAŞA MAH 15 SOK NO :28",
+    "county": "Gaziosmanpaşa",
+    "city": "İstanbul",
+    "timestamp": "2026-01-12T12:17:49.140Z"
+  },
+  {
+    "name": "GÜLŞEN ECZANESİ",
+    "address": "SARIGÖL MAH. LALELİ CAD. No:19/C",
+    "county": "Gaziosmanpaşa",
+    "city": "İstanbul",
+    "timestamp": "2026-01-12T12:17:52.781Z"
+  },
+  {
+    "name": "GÜRCÜOĞLU ECZANESİ",
+    "address": "MERKEZ MAH ÇUKURÇEŞME CAD NO :50 /A",
+    "county": "Gaziosmanpaşa",
+    "city": "İstanbul",
+    "timestamp": "2026-01-12T12:17:56.477Z"
+  },
+  {
+    "name": "IHLAMUR ECZANESİ KÜÇÜKKÖY",
+    "address": "KAZIM KARABEKİR MAH 859 SOK NO 16/1",
+    "county": "Gaziosmanpaşa",
+    "city": "İstanbul",
+    "timestamp": "2026-01-12T12:18:00.098Z"
+  },
+  {
+    "name": "İKİZLER ECZANESİ",
+    "address": "ŞEMSİPAŞA MAHALLESİ KÜÇÜKKÖY CADDESİ NO:173/A",
+    "county": "Gaziosmanpaşa",
+    "city": "İstanbul",
+    "timestamp": "2026-01-12T12:18:03.903Z"
+  },
+  {
+    "name": "MAVİ ECZANE GOP",
+    "address": "Bağlarbaşı Mah. Küçükköy Yolu Cad. No:24/A",
+    "county": "Gaziosmanpaşa",
+    "city": "İstanbul",
+    "timestamp": "2026-01-12T12:18:07.536Z"
+  },
+  {
+    "name": "VİTAMİN ECZANESİ GOP",
+    "address": "MERKEZ MAH ÇUKURRÇEŞME CAD NO:60/A",
+    "county": "Gaziosmanpaşa",
+    "city": "İstanbul",
+    "timestamp": "2026-01-12T12:18:10.740Z"
+  },
+  {
+    "name": "ADA ECZANESİ",
+    "address": "Suadiye Mah. Bağdat Cad. No:366/368 A",
+    "county": "Kadıköy",
+    "city": "İstanbul",
+    "timestamp": "2026-01-12T12:18:15.589Z"
+  },
+  {
+    "name": "AQUA ECZANESİ",
+    "address": "Cadde bostan Mah. Opr. Cemiz Topuzlu Cad. 139/A",
+    "county": "Kadıköy",
+    "city": "İstanbul",
+    "timestamp": "2026-01-12T12:18:18.845Z"
+  },
+  {
+    "name": "ATAŞEHİR KEKİK ECZANESİ",
+    "address": "Atatürk Cad.Makbule Apt.No:37/A",
+    "county": "Kadıköy",
+    "city": "İstanbul",
+    "timestamp": "2026-01-12T12:18:22.947Z"
+  },
+  {
+    "name": "AYŞE LERZAN ECZANESİ",
+    "address": "Söğütlüçeşme cad. No:6/A",
+    "county": "Kadıköy",
+    "city": "İstanbul",
+    "timestamp": "2026-01-12T12:18:26.675Z"
+  },
+  {
+    "name": "BAHÇELER ECZANESİ",
+    "address": "FENERYOLU MAH. BAHÇELER SOK. NO:1/B",
+    "county": "Kadıköy",
+    "city": "İstanbul",
+    "timestamp": "2026-01-12T12:18:31.405Z"
+  },
+  {
+    "name": "CADDE 360 ECZANESİ",
+    "address": "Bağdat Cad.No:327",
+    "county": "Kadıköy",
+    "city": "İstanbul",
+    "timestamp": "2026-01-12T12:18:35.086Z"
+  },
+  {
+    "name": "CADDE GAMZE ECZANESİ",
+    "address": "Caddebostan Mah. Bağdat Cad. 250/A",
+    "county": "Kadıköy",
+    "city": "İstanbul",
+    "timestamp": "2026-01-12T12:18:38.945Z"
+  },
+  {
+    "name": "CANSU KAHRAMAN ECZANESİ",
+    "address": "OSMANAĞA MAH. GENERAL ASIM GÜNDÜZ CAD. NO:44/A",
+    "county": "Kadıköy",
+    "city": "İstanbul",
+    "timestamp": "2026-01-12T12:18:42.679Z"
+  },
+  {
+    "name": "ÇARŞI ZIRHLIOĞLU ECZ.",
+    "address": "Söğütlüçeşme Cd. No:52/A",
+    "county": "Kadıköy",
+    "city": "İstanbul",
+    "timestamp": "2026-01-12T12:18:46.353Z"
+  },
+  {
+    "name": "DALYAN ECZANESİ GÜLCE ÖZDEMİR",
+    "address": "FENERBAHÇE MAH. CEMİL TOPUZLU CAD. DALYAN F BLOK NO:4/A",
+    "county": "Kadıköy",
+    "city": "İstanbul",
+    "timestamp": "2026-01-12T12:18:50.666Z"
+  },
+  {
+    "name": "DAMLATAŞ ECZANESİ",
+    "address": "GÖSTEPE MAH. TÜTÜNCÜ MEHMET EFENDİ CAD. NO:93/3",
+    "county": "Kadıköy",
+    "city": "İstanbul",
+    "timestamp": "2026-01-12T12:18:53.899Z"
+  },
+  {
+    "name": "ECZANE BİLEN",
+    "address": "Kozyatağı Mah. Kaya Sultan Sok.No:44/D",
+    "county": "Kadıköy",
+    "city": "İstanbul",
+    "timestamp": "2026-01-12T12:18:57.550Z"
+  },
+  {
+    "name": "ECZANE LİLYUM",
+    "address": "Bağdat Cad. 92/B",
+    "county": "Kadıköy",
+    "city": "İstanbul",
+    "timestamp": "2026-01-12T12:19:01.230Z"
+  },
+  {
+    "name": "ECZANE NATUREL KADIKÖY",
+    "address": "Fenerbahçe Mah.Op.Cemil Topuzlu Cad.No:19/A",
+    "county": "Kadıköy",
+    "city": "İstanbul",
+    "timestamp": "2026-01-12T12:19:04.825Z"
+  },
+  {
+    "name": "ECZANE NAUTİLUS",
+    "address": "Tepe Nautilus AVM No:4S Acibadem",
+    "county": "Kadıköy",
+    "city": "İstanbul",
+    "timestamp": "2026-01-12T12:19:08.545Z"
+  },
+  {
+    "name": "FENERYOLU ECZANESİ",
+    "address": "FENERYOLU MAH. GAZİ MUHTARPAŞA SOK. NO:34/D",
+    "county": "Kadıköy",
+    "city": "İstanbul",
+    "timestamp": "2026-01-12T12:19:12.164Z"
+  },
+  {
+    "name": "FİTO ECZANESİ",
+    "address": "Hasan Paşa Mah. Söğütlüçeşme Cad. Söğütlühan No:178/A",
+    "county": "Kadıköy",
+    "city": "İstanbul",
+    "timestamp": "2026-01-12T12:19:15.408Z"
+  },
+  {
+    "name": "IHLAMUR ECZANESİ",
+    "address": "Zümrütpaşa Mah.Recep Peker Cad.No:34 1A",
+    "county": "Kadıköy",
+    "city": "İstanbul",
+    "timestamp": "2026-01-12T12:19:18.622Z"
+  },
+  {
+    "name": "KADIKÖY MERKEZ ECZANESİ",
+    "address": "Caferağa Mah. Muvakkathane Cad. No:3",
+    "county": "Kadıköy",
+    "city": "İstanbul",
+    "timestamp": "2026-01-12T12:19:21.828Z"
+  },
+  {
+    "name": "KALYONCU ECZANESİ",
+    "address": "Bayar Cad.Gülbahar Sk.No:93/C",
+    "county": "Kadıköy",
+    "city": "İstanbul",
+    "timestamp": "2026-01-12T12:19:25.630Z"
+  },
+  {
+    "name": "KEKİK ECZANESİ KADIKÖY",
+    "address": "Sahrayıcedit Mah. Atatürk Cad. 37/A",
+    "county": "Kadıköy",
+    "city": "İstanbul",
+    "timestamp": "2026-01-12T12:19:29.207Z"
+  },
+  {
+    "name": "KELEBEK ECZANESİ",
+    "address": "emsettin Günaltay Cad. No:172/C Erenköy",
+    "county": "Kadıköy",
+    "city": "İstanbul",
+    "timestamp": "2026-01-12T12:19:32.426Z"
+  },
+  {
+    "name": "LOKUM ECZANESİ",
+    "address": "Fenerbahçe Mah. Lalezar Sok. No:5/A",
+    "county": "Kadıköy",
+    "city": "İstanbul",
+    "timestamp": "2026-01-12T12:19:36.854Z"
+  },
+  {
+    "name": "MELİS ALTINKAYA ECZANESİ",
+    "address": "Fenerbahçe Mah. Fuat Paşa Cad. Güneş Apt. No:20",
+    "county": "Kadıköy",
+    "city": "İstanbul",
+    "timestamp": "2026-01-12T12:19:40.352Z"
+  },
+  {
+    "name": "METİN UYAR ECZANESİ",
+    "address": "Caddebostan Mah. İskele Sok. Nil Apt. No:17/C",
+    "county": "Kadıköy",
+    "city": "İstanbul",
+    "timestamp": "2026-01-12T12:19:44.161Z"
+  },
+  {
+    "name": "MÜHÜRDAR ECZANESİ",
+    "address": "Mühürdar Cad. No:48/A",
+    "county": "Kadıköy",
+    "city": "İstanbul",
+    "timestamp": "2026-01-12T12:19:48.311Z"
+  },
+  {
+    "name": "NAR AĞACI ECZANESİ",
+    "address": "Fahrettin Kerim Gökay Cad. 68/A",
+    "county": "Kadıköy",
+    "city": "İstanbul",
+    "timestamp": "2026-01-12T12:19:51.847Z"
+  },
+  {
+    "name": "NAZAN ECZANESİ",
+    "address": "19 Mayıs Mah. Şemsettin Günaltay  Cad. No:160-162/D",
+    "county": "Kadıköy",
+    "city": "İstanbul",
+    "timestamp": "2026-01-12T12:19:56.562Z"
+  },
+  {
+    "name": "NOVA ECZANESİ",
+    "address": "Suadiye Mah. Halay Sok. 12/B",
+    "county": "Kadıköy",
+    "city": "İstanbul",
+    "timestamp": "2026-01-12T12:20:00.182Z"
+  },
+  {
+    "name": "NURHAN ECZANESİ",
+    "address": "Caferağa Mah. Güneşli Bahçe Sok. 49/1",
+    "county": "Kadıköy",
+    "city": "İstanbul",
+    "timestamp": "2026-01-12T12:20:03.740Z"
+  },
+  {
+    "name": "PAMUK ECZANESİ",
+    "address": "Göztepe, Mustafa Mazharbey Cad. No:24/B",
+    "county": "Kadıköy",
+    "city": "İstanbul",
+    "timestamp": "2026-01-12T12:20:07.659Z"
+  },
+  {
+    "name": "PELİKAN ECZANESİ",
+    "address": "Tütüncü Mehmet Efendi Cad. No107/B",
+    "county": "Kadıköy",
+    "city": "İstanbul",
+    "timestamp": "2026-01-12T12:20:11.230Z"
+  },
+  {
+    "name": "PERA ECZANESİ",
+    "address": "Erenköy Mah.Ethemefendi Cad.No 26/A",
+    "county": "Kadıköy",
+    "city": "İstanbul",
+    "timestamp": "2026-01-12T12:20:14.911Z"
+  },
+  {
+    "name": "PHARMAMORE ECZANESİ",
+    "address": "CADDEBOSTAN MAH. OP.CEMİL TOPUZLU CAD.nO: 139/B",
+    "county": "Kadıköy",
+    "city": "İstanbul",
+    "timestamp": "2026-01-12T12:20:18.446Z"
+  },
+  {
+    "name": "SAFRANBOLU ECZANESİ",
+    "address": "Erenköy Mah. Tellikavak Sok. No:37/C",
+    "county": "Kadıköy",
+    "city": "İstanbul",
+    "timestamp": "2026-01-12T12:20:21.903Z"
+  },
+  {
+    "name": "SAKURA ECZANESİ",
+    "address": "Osmanağa Mah. Başçavuş Sok. Dedeoğlu Bilişim Han. No:8/A",
+    "county": "Kadıköy",
+    "city": "İstanbul",
+    "timestamp": "2026-01-12T12:20:25.730Z"
+  },
+  {
+    "name": "ŞAŞKINBAKKAL ECZANESİ",
+    "address": "Erenköy Mah. Kazım Karabekir Sok.1/F",
+    "county": "Kadıköy",
+    "city": "İstanbul",
+    "timestamp": "2026-01-12T12:20:29.430Z"
+  },
+  {
+    "name": "SUADİYE MEST ECZANESİ",
+    "address": "SUADİYE MAH. EMİN ALİ PAŞA CAD. NO:61/C",
+    "county": "Kadıköy",
+    "city": "İstanbul",
+    "timestamp": "2026-01-12T12:20:33.058Z"
+  },
+  {
+    "name": "TERECE ECZANESİ",
+    "address": "Bağdat Cad. 350/A",
+    "county": "Kadıköy",
+    "city": "İstanbul",
+    "timestamp": "2026-01-12T12:20:36.918Z"
+  },
+  {
+    "name": "UTKU ECZANESİ",
+    "address": "19 Mayıs Mah. Toktaş Sok. No:1/1D",
+    "county": "Kadıköy",
+    "city": "İstanbul",
+    "timestamp": "2026-01-12T12:20:41.775Z"
+  },
+  {
+    "name": "VENÜS ECZANESİ",
+    "address": "Fenerbahçe Mah.Bağdat Cad.Temel Apt.No:146A",
+    "county": "Kadıköy",
+    "city": "İstanbul",
+    "timestamp": "2026-01-12T12:20:47.212Z"
+  },
+  {
+    "name": "YALÇIN ECZANESİ",
+    "address": "Bağdat Cad. No:132/1 FenerYolu",
+    "county": "Kadıköy",
+    "city": "İstanbul",
+    "timestamp": "2026-01-12T12:20:50.829Z"
+  },
+  {
+    "name": "YENİ NESİL ECZANESİ",
+    "address": "Caddebostan Mah. Tanzimat Sok. 13/A",
+    "county": "Kadıköy",
+    "city": "İstanbul",
+    "timestamp": "2026-01-12T12:20:54.555Z"
+  },
+  {
+    "name": "YENİ ZEYNEP ECZANESİ",
+    "address": "19 mayıs Mah. Okur Sk Sevgili Apt. 11/B",
+    "county": "Kadıköy",
+    "city": "İstanbul",
+    "timestamp": "2026-01-12T12:20:58.817Z"
+  },
+  {
+    "name": "ZEPLİN ECZANESİ",
+    "address": "Osmanağa Mh. Serasker Cd. No:122/B",
+    "county": "Kadıköy",
+    "city": "İstanbul",
+    "timestamp": "2026-01-12T12:21:02.506Z"
+  },
+  {
+    "name": "TANYER ECZANESİ",
+    "address": "BAĞDAT CAD. NO:185/A SELAMİÇEŞME",
+    "county": "Kadıköy",
+    "city": "İstanbul",
+    "timestamp": "2026-01-12T12:21:06.221Z"
+  },
+  {
+    "name": "SUADİYE ÇAĞLA ECZANESİ",
+    "address": "EMİNALİ PAŞA CD NO:44/B SUADIYE",
+    "county": "Kadıköy",
+    "city": "İstanbul",
+    "timestamp": "2026-01-12T12:21:09.467Z"
+  },
+  {
+    "name": "ECE BAYRAM ECZANESİ",
+    "address": "Feneryolu Mah. Bağdat Cd. No:71/A",
+    "county": "Kadıköy",
+    "city": "İstanbul",
+    "timestamp": "2026-01-12T12:21:13.765Z"
+  },
+  {
+    "name": "SU ECZANE OPTİK",
+    "address": "Caddebostan Mah. Bağdat Cad. No: 288/2",
+    "county": "Kadıköy",
+    "city": "İstanbul",
+    "timestamp": "2026-01-12T12:21:18.394Z"
+  },
+  {
+    "name": "AKIN ECZANESİ",
+    "address": "Küçükbakkalköy Mah. Cengiz Topel Cad. No:18-20/B",
+    "county": "Ataşehir",
+    "city": "İstanbul",
+    "timestamp": "2026-01-12T12:21:22.203Z"
+  },
+  {
+    "name": "ATAŞEHİR METROPOL ECZ.",
+    "address": "Atatürk Mah. Ataşehir Bulv. No:14/C",
+    "county": "Ataşehir",
+    "city": "İstanbul",
+    "timestamp": "2026-01-12T12:21:25.713Z"
+  },
+  {
+    "name": "ATAŞEHİR PLUS ECZANESİ",
+    "address": "Vedat Günyol Cad No:32/B Küçükbakkalköy",
+    "county": "Ataşehir",
+    "city": "İstanbul",
+    "timestamp": "2026-01-12T12:21:29.451Z"
+  },
+  {
+    "name": "ATAŞEHİR ŞİFA ECZANESİ",
+    "address": "K.Bakkalköy Mah. Şenlik Sok. No:16/A",
+    "county": "Ataşehir",
+    "city": "İstanbul",
+    "timestamp": "2026-01-12T12:21:33.084Z"
+  },
+  {
+    "name": "AZRA ECZANESİ METROPOL AVM",
+    "address": "Atatürk Mah. Ertuğrul Gazi Sok. D12 No:22 Metropol AVM",
+    "county": "Ataşehir",
+    "city": "İstanbul",
+    "timestamp": "2026-01-12T12:21:36.522Z"
+  },
+  {
+    "name": "BRANDİUM ECZANESİ",
+    "address": "DUDULLU YOLU CAD. ERENKÖY GÜMRÜK KARŞISI BRANDİUM AVM",
+    "county": "Ataşehir",
+    "city": "İstanbul",
+    "timestamp": "2026-01-12T12:21:39.833Z"
+  },
+  {
+    "name": "BULVAR 216 ECZANESİ",
+    "address": "Barbaros Mh. Mor Zambak Sk. No:9/A-13",
+    "county": "Ataşehir",
+    "city": "İstanbul",
+    "timestamp": "2026-01-12T12:21:43.658Z"
+  },
+  {
+    "name": "EVLİYAOĞLU ECZANESİ",
+    "address": "Dilek Sabancı Cad. Erguvan evleri Site 4A Blok 21/C",
+    "county": "Ataşehir",
+    "city": "İstanbul",
+    "timestamp": "2026-01-12T12:21:47.163Z"
+  },
+  {
+    "name": "MAYA ECZANESİ ATAŞEHİR",
+    "address": "Barbaros Mah. Şebboy Sk. Varyap Meridian G1 Blok No:1/D",
+    "county": "Ataşehir",
+    "city": "İstanbul",
+    "timestamp": "2026-01-12T12:21:52.137Z"
+  },
+  {
+    "name": "OPTİMUM PREMİUM ECZ.",
+    "address": "Yeni Sahra Mah. İstiklal Cad. Optimum Avm No:2",
+    "county": "Ataşehir",
+    "city": "İstanbul",
+    "timestamp": "2026-01-12T12:21:55.921Z"
+  },
+  {
+    "name": "PALLADİUM ECZANESİ",
+    "address": "Barbaros Mah.Halk Cad.No:6/BB-125 Kozyatağı",
+    "county": "Ataşehir",
+    "city": "İstanbul",
+    "timestamp": "2026-01-12T12:21:59.749Z"
+  },
+  {
+    "name": "TONBA ECZANESİ",
+    "address": "Atatürk Mah. Atapark Cad. B8 Blok No:3LF",
+    "county": "Ataşehir",
+    "city": "İstanbul",
+    "timestamp": "2026-01-12T12:22:03.244Z"
+  },
+  {
+    "name": "TUBA ARABACIOĞLU ECZ.",
+    "address": "Atatürk Mah. Ertuğrul Gazi Sok. Metropol İstanbul AVM 2SF Blok D8-14",
+    "county": "Ataşehir",
+    "city": "İstanbul",
+    "timestamp": "2026-01-12T12:22:06.690Z"
+  },
+  {
+    "name": "YENİ ANDROMEDA ECZANESİ",
+    "address": "Barbaros Mah. Mor Leylak Sok. C-6 Blok No:2V Ağaoğlu Myworld Andromeda Sitesi",
+    "county": "Ataşehir",
+    "city": "İstanbul",
+    "timestamp": "2026-01-12T12:22:10.446Z"
+  },
+  {
+    "name": "AKMERKEZ ECZANESİ",
+    "address": "Nisbetiye Cad. No:238 Akmerkez",
+    "county": "Beşiktaş",
+    "city": "İstanbul",
+    "timestamp": "2026-01-12T12:22:14.022Z"
+  },
+  {
+    "name": "AYFER ECZANESİ",
+    "address": "Dereboyu Cad. Muvakkit Sok. No:26/A",
+    "county": "Beşiktaş",
+    "city": "İstanbul",
+    "timestamp": "2026-01-12T12:22:17.815Z"
+  },
+  {
+    "name": "BERRİN ECZANESİ  ",
+    "address": "Süleyman Seba Cad.No:54/3",
+    "county": "Beşiktaş",
+    "city": "İstanbul",
+    "timestamp": "2026-01-12T12:22:21.459Z"
+  },
+  {
+    "name": "EMRE ECZANESİ",
+    "address": "Sabancı Center Girişi Selvili Sok. No:9/B-C 4. Levent",
+    "county": "Beşiktaş",
+    "city": "İstanbul",
+    "timestamp": "2026-01-12T12:22:25.218Z"
+  },
+  {
+    "name": "GÜNCE ECZANESİ",
+    "address": "Ortaköy Mah. Dereboyu Cd. Ambarlıdere Yolu Sk. No:4",
+    "county": "Beşiktaş",
+    "city": "İstanbul",
+    "timestamp": "2026-01-12T12:22:28.700Z"
+  },
+  {
+    "name": "HARMONY ECZANESİ",
+    "address": "Türkali Mah. Ihlamurdere Cad. No:5",
+    "county": "Beşiktaş",
+    "city": "İstanbul",
+    "timestamp": "2026-01-12T12:22:32.238Z"
+  },
+  {
+    "name": "LEVENT ÇARŞI ECZANESİ",
+    "address": "Levent Mah. Çarşı Cd. No:11/A",
+    "county": "Beşiktaş",
+    "city": "İstanbul",
+    "timestamp": "2026-01-12T12:22:36.108Z"
+  },
+  {
+    "name": "LEVENT ECZANESİ",
+    "address": "Sabancı Center Girişi Selvili Sk. No:8/C",
+    "county": "Beşiktaş",
+    "city": "İstanbul",
+    "timestamp": "2026-01-12T12:22:40.298Z"
+  },
+  {
+    "name": "NURSEL ECZANESİ",
+    "address": "Ulus Mah. Adnan Saygun Cad. Muderris Salih Rüştü Sok. 6/B",
+    "county": "Beşiktaş",
+    "city": "İstanbul",
+    "timestamp": "2026-01-12T12:22:44.135Z"
+  },
+  {
+    "name": "YENİ ECZANE",
+    "address": "Levent Mah. Çarşı Cad. 19",
+    "county": "Beşiktaş",
+    "city": "İstanbul",
+    "timestamp": "2026-01-12T12:22:47.802Z"
+  },
+  {
+    "name": "ZORLU CENTER ECZANESİ",
+    "address": "Levazım Mah. Koru Sok. No:2/139 Zorlu Center AVM",
+    "county": "Beşiktaş",
+    "city": "İstanbul",
+    "timestamp": "2026-01-12T12:22:51.573Z"
+  },
+  {
+    "name": "AKVARYUM ECZANESİ",
+    "address": "Florya Halkalı Cad. AQUA AVM Zemin Kat:33 Florya",
+    "county": "Bakırköy",
+    "city": "İstanbul",
+    "timestamp": "2026-01-12T12:22:55.134Z"
+  },
+  {
+    "name": "BAYRAKTAR ECZANESİ",
+    "address": "Şenlik Köy Mah. Harman Sok. No:43/B",
+    "county": "Bakırköy",
+    "city": "İstanbul",
+    "timestamp": "2026-01-12T12:22:59.974Z"
+  },
+  {
+    "name": "CAPACİTY ECZANESİ",
+    "address": "Zeytinlik Mah. Fişekhane Cad. 7 ZE03 CAPACİTY AVM",
+    "county": "Bakırköy",
+    "city": "İstanbul",
+    "timestamp": "2026-01-12T12:23:03.509Z"
+  },
+  {
+    "name": "HANDE NUR ECZANESİ",
+    "address": "KARTALTEPE MAH LİMON ÇİÇEĞİ SK NO:4/A",
+    "county": "Bakırköy",
+    "city": "İstanbul",
+    "timestamp": "2026-01-12T12:23:07.064Z"
+  },
+  {
+    "name": "HEKİMOĞLU ECZANESİ B.KÖY",
+    "address": "Zeytinlik Mah. Taşevler Sok.21/A",
+    "county": "Bakırköy",
+    "city": "İstanbul",
+    "timestamp": "2026-01-12T12:23:10.664Z"
+  },
+  {
+    "name": "LOKMAN HEKİM ECZANESİ",
+    "address": "Zeytinlik Mah.Fişekhane Cad. 30/1",
+    "county": "Bakırköy",
+    "city": "İstanbul",
+    "timestamp": "2026-01-12T12:23:14.215Z"
+  },
+  {
+    "name": "MARMARA FORUM ECZANESİ",
+    "address": "Osmaniye Mah. Çobançeşme Koşuyolu Bulv. MARMARA FORUM AVM",
+    "county": "Bakırköy",
+    "city": "İstanbul",
+    "timestamp": "2026-01-12T12:23:17.752Z"
+  },
+  {
+    "name": "PINAR ECZANESİ B.KÖY",
+    "address": "ATAKÖY 5 KISIM ÇARŞISI NO:66/1",
+    "county": "Bakırköy",
+    "city": "İstanbul",
+    "timestamp": "2026-01-12T12:23:22.426Z"
+  },
+  {
+    "name": "POZİTİF ECZANESİ ATAKÖY",
+    "address": "ATAKÖY 7 8 9 10 MAH. ÇOBANÇEŞME E5 YANYOL CAD. NO:22/1/11",
+    "county": "Bakırköy",
+    "city": "İstanbul",
+    "timestamp": "2026-01-12T12:23:26.174Z"
+  },
+  {
+    "name": "SADIK AHMET ECZANESİ",
+    "address": "Cevizlik Mah. İstanbul Cad. Dantelacı Sok. 8",
+    "county": "Bakırköy",
+    "city": "İstanbul",
+    "timestamp": "2026-01-12T12:23:29.648Z"
+  },
+  {
+    "name": "YENİ EDA ECZANESİ",
+    "address": "ŞENLİKKÖY MAH ÇATAL SOK NO 19/A FLORYA",
+    "county": "Bakırköy",
+    "city": "İstanbul",
+    "timestamp": "2026-01-12T12:23:33.451Z"
+  },
+  {
+    "name": "YONCA ECZANESİ",
+    "address": "Ataköy 7.8.9.10 Kısım Mah. Nilüfer Sok. 3/A",
+    "county": "Bakırköy",
+    "city": "İstanbul",
+    "timestamp": "2026-01-12T12:23:37.121Z"
+  },
+  {
+    "name": "ZUHAL ECZANESİ",
+    "address": "ATAKÖY 2.5.6 KISIM MAH NERGİS YOLU SK NO :16/Y",
+    "county": "Bakırköy",
+    "city": "İstanbul",
+    "timestamp": "2026-01-12T12:23:40.294Z"
+  },
+  {
+    "name": "ALPDENİZ ECZANESİ",
+    "address": "BİZİM MAH 1 ETAP 1 KISIM 1438 SOK",
+    "county": "Küçükçekmece",
+    "city": "İstanbul",
+    "timestamp": "2026-01-12T12:23:43.262Z"
+  },
+  {
+    "name": "ARMAN ECZANESİ",
+    "address": "YEŞİLOVA MAH REYHAN CAD NO:51/A",
+    "county": "Küçükçekmece",
+    "city": "İstanbul",
+    "timestamp": "2026-01-12T12:23:46.323Z"
+  },
+  {
+    "name": "ASU ECZANESİ",
+    "address": "Teyfik Bey Mah. M.aksaoy Cad. No:11/A",
+    "county": "Küçükçekmece",
+    "city": "İstanbul",
+    "timestamp": "2026-01-12T12:23:49.123Z"
+  },
+  {
+    "name": "ATAK ECZANESİ",
+    "address": "MEHMET AKİF MAH. 3.İNÖNÜ CAD NO:57/A",
+    "county": "Küçükçekmece",
+    "city": "İstanbul",
+    "timestamp": "2026-01-12T12:23:52.174Z"
+  },
+  {
+    "name": "BAĞLAR ECZANESİ",
+    "address": "Güzeltepe Mah. Bağlar Cad. No:56/A",
+    "county": "Küçükçekmece",
+    "city": "İstanbul",
+    "timestamp": "2026-01-12T12:23:56.322Z"
+  },
+  {
+    "name": "BİLGE ECZANESİ KÜÇÜKÇEKMECE",
+    "address": "CENNET MAH 2 YAVUZ SELİM CAD NO 83/A",
+    "county": "Küçükçekmece",
+    "city": "İstanbul",
+    "timestamp": "2026-01-12T12:23:59.413Z"
+  },
+  {
+    "name": "EGE YAKASI ECZANESİ",
+    "address": "ATAKENT MAH 221 SK EGE YAKASI SİTESİ I BLOK APT NO:661/3",
+    "county": "Küçükçekmece",
+    "city": "İstanbul",
+    "timestamp": "2026-01-12T12:24:02.466Z"
+  },
+  {
+    "name": "ERDEM ECZANESİ",
+    "address": "Atakent Mah. 237 Sok. E Blok No:1/E",
+    "county": "Küçükçekmece",
+    "city": "İstanbul",
+    "timestamp": "2026-01-12T12:24:07.108Z"
+  },
+  {
+    "name": "ESİN ECZANESİ HALKALI",
+    "address": "ATAKENT MAH 222 CAD ELİTE CİTY NO:2A2B",
+    "county": "Küçükçekmece",
+    "city": "İstanbul",
+    "timestamp": "2026-01-12T12:24:10.043Z"
+  },
+  {
+    "name": "ESRA ECZANESİ",
+    "address": "İSTASYON MAH İSTANBUL CAD OLİMPİA İŞ MERKEZİ NO :26",
+    "county": "Küçükçekmece",
+    "city": "İstanbul",
+    "timestamp": "2026-01-12T12:24:13.157Z"
+  },
+  {
+    "name": "EZGİ ECZANESİ",
+    "address": "GÜLTEPE MAH 1012 SOK YURT 4-6A",
+    "county": "Küçükçekmece",
+    "city": "İstanbul",
+    "timestamp": "2026-01-12T12:24:16.279Z"
+  },
+  {
+    "name": "GÖZDEM ECZANESİ",
+    "address": "CENNET MAH. YAHYA KEMAL BEYATLI CAD. NO:4/B",
+    "county": "Küçükçekmece",
+    "city": "İstanbul",
+    "timestamp": "2026-01-12T12:24:19.371Z"
+  },
+  {
+    "name": "HAKAN ECZANESİ",
+    "address": "Sultan Murat Cad. No:54",
+    "county": "Küçükçekmece",
+    "city": "İstanbul",
+    "timestamp": "2026-01-12T12:24:22.359Z"
+  },
+  {
+    "name": "HALKALI MEYDAN ECZANESİ",
+    "address": "Halkalı Merkez Mah. 1. İkitelli Cad. Halkalı Avm 2/F A Blok",
+    "county": "Küçükçekmece",
+    "city": "İstanbul",
+    "timestamp": "2026-01-12T12:24:26.647Z"
+  },
+  {
+    "name": "İSTİKLAL ECZANESİ",
+    "address": "GÜLTEPE MAH BAĞLAR CAD NO 101-B",
+    "county": "Küçükçekmece",
+    "city": "İstanbul",
+    "timestamp": "2026-01-12T12:24:29.785Z"
+  },
+  {
+    "name": "METROPARK ECZANESİ",
+    "address": "ATATÜRK MAH.GÜNER SOK. TEKNİKYAPI ETROPARK SİT. 17 BLOK NO 17",
+    "county": "Küçükçekmece",
+    "city": "İstanbul",
+    "timestamp": "2026-01-12T12:24:32.614Z"
+  },
+  {
+    "name": "SİBEL ECZANESİ",
+    "address": "M.AKİF . ŞEHİT ALBAY RIDVAN ÖZDEN CAD. NO.26/1-A",
+    "county": "Küçükçekmece",
+    "city": "İstanbul",
+    "timestamp": "2026-01-12T12:24:35.657Z"
+  },
+  {
+    "name": "TEMA WORLD ECZANESİ",
+    "address": "Atakent Mah. 243 Sok. No:28/1 Blok No:1",
+    "county": "Küçükçekmece",
+    "city": "İstanbul",
+    "timestamp": "2026-01-12T12:24:38.717Z"
+  },
+  {
+    "name": "YENİ SU ECZANESİ",
+    "address": "KEMALPAŞA MAH. BAĞLAR CAD. NO 18/B",
+    "county": "Küçükçekmece",
+    "city": "İstanbul",
+    "timestamp": "2026-01-12T12:24:41.814Z"
+  },
+  {
+    "name": "UMUDUM ECZANESİ",
+    "address": "KARTALTEPE MH. MALAZGİRT CD. NO:1/6M",
+    "county": "Küçükçekmece",
+    "city": "İstanbul",
+    "timestamp": "2026-01-12T12:24:44.853Z"
+  },
+  {
+    "name": "ALPHAN ECZANESİ",
+    "address": "RÜZGARLIBAHÇE MAH. CUMHURİYET CAD. NO:10 ACARLAR İŞ MERKEZİ",
+    "county": "Beykoz",
+    "city": "İstanbul",
+    "timestamp": "2026-01-12T12:24:47.888Z"
+  },
+  {
+    "name": "DÖRTYOL ECZANESİ",
+    "address": "OKUL CAD. NO:28/C",
+    "county": "Beykoz",
+    "city": "İstanbul",
+    "timestamp": "2026-01-12T12:24:50.954Z"
+  },
+  {
+    "name": "ERSAVAŞ ECZANESİ",
+    "address": "Göztepe Mah. Palmiye Cad. 33/A",
+    "county": "Beykoz",
+    "city": "İstanbul",
+    "timestamp": "2026-01-12T12:24:53.965Z"
+  },
+  {
+    "name": "ÖZLEM ECZANESİ BEYKOZ",
+    "address": "ACARLAR MAH ACARKENT 1. KISIM 3.CD T-6",
+    "county": "Beykoz",
+    "city": "İstanbul",
+    "timestamp": "2026-01-12T12:24:56.948Z"
+  },
+  {
+    "name": "SERAP ECZANESİ",
+    "address": "Acarlar Mah. ACR LOFT AVM No:2 D:22/A",
+    "county": "Beykoz",
+    "city": "İstanbul",
+    "timestamp": "2026-01-12T12:25:00.081Z"
+  },
+  {
+    "name": "ANATOLİUM ECZANESİ",
+    "address": "SOĞANLIK YENİ MAH.SOĞANLIK D-100 KUZEY YANYOL CAD. B BLOK 72-185 ANATOLİUM AVM",
+    "county": "Kartal",
+    "city": "İstanbul",
+    "timestamp": "2026-01-12T12:25:03.885Z"
+  },
+  {
+    "name": "AVRUPA PLUS ECZANESİ",
+    "address": "Esentepe Mah. İnönü Cad. No:151/A",
+    "county": "Kartal",
+    "city": "İstanbul",
+    "timestamp": "2026-01-12T12:25:06.939Z"
+  },
+  {
+    "name": "ÇARŞI ECZANESİ",
+    "address": "KORDONBOYU MAH.ANKARA CAD.NO:56",
+    "county": "Kartal",
+    "city": "İstanbul",
+    "timestamp": "2026-01-12T12:25:10.006Z"
+  },
+  {
+    "name": "MARİN KARTAL ECZANESİ",
+    "address": "PETROL İŞ MAH. ÜSKÜDAR CAD. 90/B",
+    "county": "Kartal",
+    "city": "İstanbul",
+    "timestamp": "2026-01-12T12:25:13.087Z"
+  },
+  {
+    "name": "ÇINAR ECZANESİ",
+    "address": "YUKARI MAH. ÇIRÇIR CAD. NO:21/A",
+    "county": "Kartal",
+    "city": "İstanbul",
+    "timestamp": "2026-01-12T12:25:39.736Z"
+  },
+  {
+    "name": "ARMAĞAN ECZANESİ",
+    "address": "Atatürk cad. No:38/A",
+    "county": "Maltepe",
+    "city": "İstanbul",
+    "timestamp": "2026-01-12T12:25:42.970Z"
+  },
+  {
+    "name": "BANDIRMA ECZANESİ",
+    "address": "Cevizli Mah.Bağdat Cad.No:553/A",
+    "county": "Maltepe",
+    "city": "İstanbul",
+    "timestamp": "2026-01-12T12:25:46.065Z"
+  },
+  {
+    "name": "CEVİZ ECZANESİ",
+    "address": "CEVİZLİ MAH. TOROS CAD. 4/A",
+    "county": "Maltepe",
+    "city": "İstanbul",
+    "timestamp": "2026-01-12T12:25:49.159Z"
+  },
+  {
+    "name": "ECZANE KIRMIZI",
+    "address": "Aydınevler Mah. Siteler Yolu Cad. 28 No: 1/187 HİLLTOWN AVM",
+    "county": "Maltepe",
+    "city": "İstanbul",
+    "timestamp": "2026-01-12T12:25:52.394Z"
+  },
+  {
+    "name": "FUAYE ECZANESİ",
+    "address": "Zümrüt Evler Mah. Ertuğrul Gazi cad. Fuaye Çarşı 10/2",
+    "county": "Maltepe",
+    "city": "İstanbul",
+    "timestamp": "2026-01-12T12:25:55.430Z"
+  },
+  {
+    "name": "NİSH ECZANESİ",
+    "address": "Zümrütevler Mh. Nish Adalar Sit. Yol.3 Sk. 44 Blok No:13 D:124",
+    "county": "Maltepe",
+    "city": "İstanbul",
+    "timestamp": "2026-01-12T12:25:59.403Z"
+  },
+  {
+    "name": "PALLADİUM CADDE ECZANESİ",
+    "address": "Çınar Mah. Rıfkı Tongsir Cad. No:113EA",
+    "county": "Maltepe",
+    "city": "İstanbul",
+    "timestamp": "2026-01-12T12:26:02.216Z"
+  },
+  {
+    "name": "PİAZZA YAŞAM ECZANESİ",
+    "address": "Cevizli Mah.Tugayyolu Cad.No:69/C 203 Piazza AVM",
+    "county": "Maltepe",
+    "city": "İstanbul",
+    "timestamp": "2026-01-12T12:26:05.874Z"
+  },
+  {
+    "name": "SÜREYYA ECZANESİ",
+    "address": "Altıntepe Mah. Cihadiye Cad. no:38/1",
+    "county": "Maltepe",
+    "city": "İstanbul",
+    "timestamp": "2026-01-12T12:26:08.928Z"
+  },
+  {
+    "name": "YAVUZCAN ECZANESİ",
+    "address": "Cevizli Ayhan Sok. No:56",
+    "county": "Maltepe",
+    "city": "İstanbul",
+    "timestamp": "2026-01-12T12:26:11.934Z"
+  },
+  {
+    "name": "MALTEPE PARK ECZANESİ",
+    "address": "CEVİZLİ MAH. TUGAYYOLU CAD. NO:67/A MALTEPE PARK AVM",
+    "county": "Maltepe",
+    "city": "İstanbul",
+    "timestamp": "2026-01-12T12:26:15.896Z"
+  },
+  {
+    "name": "LİTYUM",
+    "address": "CEVİZLİ MAH. 30 AĞUSTOS CAD. NO:9/11 AH",
+    "county": "Maltepe",
+    "city": "İstanbul",
+    "timestamp": "2026-01-12T12:26:19.072Z"
+  },
+  {
+    "name": "ARYA ECZANESİ",
+    "address": "Soğanlı Mah. Mustafa Kemal Paşa Cad. 14/A",
+    "county": "Bahçelievler",
+    "city": "İstanbul",
+    "timestamp": "2026-01-12T12:26:22.242Z"
+  },
+  {
+    "name": "AYÇA ECZANESİ",
+    "address": "Maslak Meydan Sk.Spring Giz Plaza No:1/A",
+    "county": "Sarıyer",
+    "city": "İstanbul",
+    "timestamp": "2026-01-12T12:26:25.292Z"
+  },
+  {
+    "name": "KÖY ECZANESİ",
+    "address": "Zekeriyaköy Mah. Prof. Dr. Oktay Sinanoğlu Cad. 6/B",
+    "county": "Sarıyer",
+    "city": "İstanbul",
+    "timestamp": "2026-01-12T12:26:28.921Z"
+  },
+  {
+    "name": "MASLAK CAN ECZANESİ",
+    "address": "Maslak Mah.Eski Büyükdere Cad.Güney Plaza No:13/B",
+    "county": "Sarıyer",
+    "city": "İstanbul",
+    "timestamp": "2026-01-12T12:26:32.464Z"
+  },
+  {
+    "name": "MASLAK SEZER ECZANESİ",
+    "address": "Akgün Cad. No:8/A",
+    "county": "Sarıyer",
+    "city": "İstanbul",
+    "timestamp": "2026-01-12T12:26:36.688Z"
+  },
+  {
+    "name": "NEVA ECZANESİ",
+    "address": "Maslak Mah.Ahi Evran Cad.No:27/F",
+    "county": "Sarıyer",
+    "city": "İstanbul",
+    "timestamp": "2026-01-12T12:26:40.203Z"
+  },
+  {
+    "name": "ORGANİK ECZANESİ",
+    "address": "Uskumruköy Mah. Ormanada Blv. A No:1A/4",
+    "county": "Sarıyer",
+    "city": "İstanbul",
+    "timestamp": "2026-01-12T12:26:44.303Z"
+  },
+  {
+    "name": "TAN ECZANESİ",
+    "address": "Reşitpaşa Mah. Eski Büyükdere Cad Windowist No:26/2",
+    "county": "Sarıyer",
+    "city": "İstanbul",
+    "timestamp": "2026-01-12T12:26:47.364Z"
+  },
+  {
+    "name": "TARABYA ECZANESİ",
+    "address": "CAMİ SİTESİ NO:1",
+    "county": "Sarıyer",
+    "city": "İstanbul",
+    "timestamp": "2026-01-12T12:26:52.349Z"
+  },
+  {
+    "name": "UNİQ ECZANE",
+    "address": "Huzur Mah. Maslak Ayazağa Cad. No:4/C Uniq AVM",
+    "county": "Sarıyer",
+    "city": "İstanbul",
+    "timestamp": "2026-01-12T12:26:55.776Z"
+  },
+  {
+    "name": "ZEKERİYAKÖY ECZANESİ",
+    "address": "Zekeriyaköy Mahallesi, 4.Cadde No:6",
+    "county": "Sarıyer",
+    "city": "İstanbul",
+    "timestamp": "2026-01-12T12:27:00.180Z"
+  },
+  {
+    "name": "BAHÇEŞEHİR ECZANESİ",
+    "address": "BAHÇEŞEHİR 1 Cİ KISIM MAH SÜZER BULVARI BAHÇEŞEHİR TİCARET MERKEZİ NO 6A",
+    "county": "Başakşehir",
+    "city": "İstanbul",
+    "timestamp": "2026-01-12T12:27:03.495Z"
+  },
+  {
+    "name": "BERRİN ECZANESİ BAŞAKŞEHİR",
+    "address": "Sakarya Mah. Bahçeşehir 1. Kısım Vaditepe t03 Blokları 36/C",
+    "county": "Başakşehir",
+    "city": "İstanbul",
+    "timestamp": "2026-01-12T12:27:06.701Z"
+  },
+  {
+    "name": "ELVİN ECZANESİ",
+    "address": "BAHÇEŞEHİR 2 KISIM MAH. SÜZER BULVARI NO:47/B",
+    "county": "Başakşehir",
+    "city": "İstanbul",
+    "timestamp": "2026-01-12T12:27:09.879Z"
+  },
+  {
+    "name": "HAN ECZANESİ",
+    "address": "BAHÇEŞEHİR 1 Cİ KISIM MAH VALİ RECEP YAZICIOĞLU CAD NO64B/15",
+    "county": "Başakşehir",
+    "city": "İstanbul",
+    "timestamp": "2026-01-12T12:27:14.167Z"
+  },
+  {
+    "name": "HİLAL ECZANESİ",
+    "address": "Başakşehir Mh. ishakpaşa sok hayatpark plus evleri no:27",
+    "county": "Başakşehir",
+    "city": "İstanbul",
+    "timestamp": "2026-01-12T12:27:17.226Z"
+  },
+  {
+    "name": "BEYLİK ECZANESİ",
+    "address": "BARIŞ MAH SAKARYA CAD NO 1 İÇ KAPI NO 1 MİGROS AVM",
+    "county": "Beylikdüzü",
+    "city": "İstanbul",
+    "timestamp": "2026-01-12T12:27:20.660Z"
+  },
+  {
+    "name": "DERMAN ECZANESİ",
+    "address": "Barış Mahallesi, Belediye Caddesi No:30/1",
+    "county": "Beylikdüzü",
+    "city": "İstanbul",
+    "timestamp": "2026-01-12T12:27:24.313Z"
+  },
+  {
+    "name": "IHLAMUR ECZANESİ",
+    "address": "Adnan Kahveci Mah. Ihlamur Cad. No:28/3B",
+    "county": "Beylikdüzü",
+    "city": "İstanbul",
+    "timestamp": "2026-01-12T12:27:27.497Z"
+  },
+  {
+    "name": "MARKA CİTY ECZANESİ",
+    "address": "Büyükşehir Mah. Lokman Hekim Sok. No:2C/209",
+    "county": "Beylikdüzü",
+    "city": "İstanbul",
+    "timestamp": "2026-01-12T12:27:32.001Z"
+  },
+  {
+    "name": "RUMELİ ECZANESİ BEYLİKDÜZÜ",
+    "address": "BARIŞ MAH SAMSUN CAD NO 14/4KAPI NO 92",
+    "county": "Beylikdüzü",
+    "city": "İstanbul",
+    "timestamp": "2026-01-12T12:27:34.814Z"
+  },
+  {
+    "name": "MARİNA ECZANESİ",
+    "address": "MARMARA MH. ULUSUM CAD. DIŞ KAPI NO: 4/38 İÇ KAPI NO:6",
+    "county": "Beylikdüzü",
+    "city": "İstanbul",
+    "timestamp": "2026-01-12T12:27:38.177Z"
+  },
+  {
+    "name": "AYSUN ECZANESİ",
+    "address": "CUMHURİYET MH. CUMHURİYET CAD. ÇANDARLI SK. NO:6 DÜKKAN NO:63",
+    "county": "Beylikdüzü",
+    "city": "İstanbul",
+    "timestamp": "2026-01-12T12:27:41.332Z"
+  },
+  {
+    "name": "KAMEROĞLU BOTANİK ECZANESİ",
+    "address": "CUMHURİYET MH. NADİR SK. KAMEROĞLU METROHOME SİTESİ NO: 12/2E",
+    "county": "Beylikdüzü",
+    "city": "İstanbul",
+    "timestamp": "2026-01-12T12:27:44.554Z"
+  },
+  {
+    "name": "BURCU ECZANESİ ÜSKÜDAR",
+    "address": "Tophanlıoğu Cad. No:40",
+    "county": "Üsküdar",
+    "city": "İstanbul",
+    "timestamp": "2026-01-12T12:27:47.310Z"
+  },
+  {
+    "name": "CANKAN ECZANESİ",
+    "address": "BARBAROS MH MÜTEVELLİ ÇEŞME CD NO:29h",
+    "county": "Üsküdar",
+    "city": "İstanbul",
+    "timestamp": "2026-01-12T12:27:50.305Z"
+  },
+  {
+    "name": "CAPİTOL ECZANESİ",
+    "address": "Capitol AVM No:16",
+    "county": "Üsküdar",
+    "city": "İstanbul",
+    "timestamp": "2026-01-12T12:27:54.736Z"
+  },
+  {
+    "name": "ÇENGELKÖY ECZANESİ",
+    "address": "Çengelköy Cad. No:46",
+    "county": "Üsküdar",
+    "city": "İstanbul",
+    "timestamp": "2026-01-12T12:27:57.809Z"
+  },
+  {
+    "name": "ÇENGELKÖY POZİTİF ECZANESİ",
+    "address": "BAHÇELİEVLER MH BOSNA BULVARI  NO:152/A",
+    "county": "Üsküdar",
+    "city": "İstanbul",
+    "timestamp": "2026-01-12T12:28:01.249Z"
+  },
+  {
+    "name": "DEDEM ECZANESİ",
+    "address": "Acıbadem Cad. No:145",
+    "county": "Üsküdar",
+    "city": "İstanbul",
+    "timestamp": "2026-01-12T12:28:05.355Z"
+  },
+  {
+    "name": "IRMAK ECZANESİ ÜSKÜDAR",
+    "address": "BAHÇELİEVLER MH ZÜBEYDE HANIM CADDESİ NO:38/A2",
+    "county": "Üsküdar",
+    "city": "İstanbul",
+    "timestamp": "2026-01-12T12:28:08.474Z"
+  },
+  {
+    "name": "KIZ KULESİ ECZANESİ",
+    "address": "SULTANTEPE MAH. SELMAN-I PAK CAD. NO:15/A",
+    "county": "Üsküdar",
+    "city": "İstanbul",
+    "timestamp": "2026-01-12T12:28:11.655Z"
+  },
+  {
+    "name": "RASATHANE GİZEM ECZANESİ",
+    "address": "KÜÇÜKSU MAH. RASATHANE CAD. NO:55/A",
+    "county": "Üsküdar",
+    "city": "İstanbul",
+    "timestamp": "2026-01-12T12:28:15.025Z"
+  },
+  {
+    "name": "SEZGİN ECZANESİ",
+    "address": "VALİDE-İ ATİK MAH. ESKİ TOPTAŞI CAD. NO:117/A",
+    "county": "Üsküdar",
+    "city": "İstanbul",
+    "timestamp": "2026-01-12T12:28:19.412Z"
+  },
+  {
+    "name": "TAYFUN ECZANESİ",
+    "address": "Bulgurlu Bağlar Cad. Bülbül Sok. No:1/A",
+    "county": "Üsküdar",
+    "city": "İstanbul",
+    "timestamp": "2026-01-12T12:28:22.921Z"
+  },
+  {
+    "name": "KORU ECZANESİ",
+    "address": "BARBAROS MH. TOPHANELİOĞLU CAD. NO:72B/1",
+    "county": "Üsküdar",
+    "city": "İstanbul",
+    "timestamp": "2026-01-12T12:28:26.198Z"
+  },
+  {
+    "name": "ODAK ECZANESİ",
+    "address": "EMAAR SQUARE MALL ÜNALAN MAH. LİBADİYE CD. L1 KAT MAĞAZA NO 527 ÇAMLICA",
+    "county": "Üsküdar",
+    "city": "İstanbul",
+    "timestamp": "2026-01-12T12:28:29.621Z"
+  },
+  {
+    "name": "CADDEPARK ECZANESİ",
+    "address": "YILDIRIM MAH MİLLET CAD. NO 163 C",
+    "county": "Bayrampaşa",
+    "city": "İstanbul",
+    "timestamp": "2026-01-12T12:28:33.422Z"
+  },
+  {
+    "name": "FORUM İSTANBUL ECZ.",
+    "address": "Kocatepe Mah.Şehir Parkı Cad.No:3 Forum İstanbul AVM",
+    "county": "Bayrampaşa",
+    "city": "İstanbul",
+    "timestamp": "2026-01-12T12:28:36.602Z"
+  },
+  {
+    "name": "MOSTAR ECZANESİ",
+    "address": "YILDIRIM MAH ALİ FUAT BAŞGİL CAD. NO 110/A",
+    "county": "Bayrampaşa",
+    "city": "İstanbul",
+    "timestamp": "2026-01-12T12:28:39.850Z"
+  },
+  {
+    "name": "VİTAMİN ECZANESİ B.PAŞA",
+    "address": "MURATPAŞA MAH BAYIR SOKAK NO:1/A",
+    "county": "Bayrampaşa",
+    "city": "İstanbul",
+    "timestamp": "2026-01-12T12:28:43.190Z"
+  },
+  {
+    "name": "ÇAMLIVADİ ECZANESİ",
+    "address": "HAMİDİYE MAH. İHLAS SOK. 1/1",
+    "county": "Kağıthane",
+    "city": "İstanbul",
+    "timestamp": "2026-01-12T12:28:46.194Z"
+  },
+  {
+    "name": "TOWERS ECZANESİ",
+    "address": "Kuştepe Mah. Mecidiyeköy Yolu Cad. No:12 D:22-4B39",
+    "county": "Kağıthane",
+    "city": "İstanbul",
+    "timestamp": "2026-01-12T12:28:49.255Z"
+  },
+  {
+    "name": "CEBECİ ECZANESİ",
+    "address": "DOĞA MAH. AYDINLI YOLU CAD. NO:87/35",
+    "county": "Pendik",
+    "city": "İstanbul",
+    "timestamp": "2026-01-12T12:28:52.498Z"
+  },
+  {
+    "name": "ECZANE VİAPORT",
+    "address": "Yenişehir Mah.Dedepaşa Cad.No:19/155 Viaport AVM Kurtköy",
+    "county": "Pendik",
+    "city": "İstanbul",
+    "timestamp": "2026-01-12T12:28:55.492Z"
+  },
+  {
+    "name": "LENS İSTANBUL ECZANESİ",
+    "address": "Yenişehir Mah. Millet Cad. No:34/F",
+    "county": "Pendik",
+    "city": "İstanbul",
+    "timestamp": "2026-01-12T12:28:58.698Z"
+  },
+  {
+    "name": "MAVİ ECZANE PENDİK",
+    "address": "YENİŞEHİR MAH. GÖKAY SOK. NO:22/4",
+    "county": "Pendik",
+    "city": "İstanbul",
+    "timestamp": "2026-01-12T12:29:01.777Z"
+  },
+  {
+    "name": "NURAY ECZANESİ",
+    "address": "Sabiha Gökçen Uluslararası Havaalanı Giden Katı DL 713A",
+    "county": "Pendik",
+    "city": "İstanbul",
+    "timestamp": "2026-01-12T12:29:04.976Z"
+  },
+  {
+    "name": "PEKÖZ ECZANESİ",
+    "address": "YENİŞEHİR MAH. CUMHURİYET BLV. 12/4 DUMANKAYA CADDE SİTESİ",
+    "county": "Pendik",
+    "city": "İstanbul",
+    "timestamp": "2026-01-12T12:29:08.005Z"
+  },
+  {
+    "name": "PLATİN ECZANESİ PENDİK",
+    "address": "Yenişehir Mah. Cumhuriyet Blv. No:8/BD",
+    "county": "Pendik",
+    "city": "İstanbul",
+    "timestamp": "2026-01-12T12:29:11.482Z"
+  },
+  {
+    "name": "YEDİTEPE ECZANESİ",
+    "address": "YENİŞEHİR MAH. AKKAYA SOKAK NO: 2FD ",
+    "county": "Pendik",
+    "city": "İstanbul",
+    "timestamp": "2026-01-12T12:29:14.858Z"
+  },
+  {
+    "name": "DOĞA ECZANESİ ÇEKMEKÖY",
+    "address": "Merkez Mah. Selimiye cad. Rapsodi Evleri B Blok 2A2/1",
+    "county": "Çekmeköy",
+    "city": "İstanbul",
+    "timestamp": "2026-01-12T12:29:18.265Z"
+  },
+  {
+    "name": "ELİF YAVUZ ECZANESİ",
+    "address": "Mehmet Akif Mah. Ulubatlı Hasan Cad. No:45/A",
+    "county": "Çekmeköy",
+    "city": "İstanbul",
+    "timestamp": "2026-01-12T12:29:23.062Z"
+  },
+  {
+    "name": "LOTUS ECZANESİ",
+    "address": "Merkez Mah. Oğuzhan Cad. No:3/H",
+    "county": "Çekmeköy",
+    "city": "İstanbul",
+    "timestamp": "2026-01-12T12:29:26.337Z"
+  },
+  {
+    "name": "ÖZÜN ECZANESİ",
+    "address": "Mimar Sinan Mah. Mimar Sinan Cad. 10/A",
+    "county": "Çekmeköy",
+    "city": "İstanbul",
+    "timestamp": "2026-01-12T12:29:29.751Z"
+  },
+  {
+    "name": "SULTANÇİFTLİĞİ ECZANESİ",
+    "address": "TURGUT ÖZAL CAD.NO:86/A TAŞDELEN",
+    "county": "Çekmeköy",
+    "city": "İstanbul",
+    "timestamp": "2026-01-12T12:29:32.909Z"
+  },
+  {
+    "name": "TAŞDELEN ECZANESİ",
+    "address": "Güngören Mah. Turgut Özal Cad. 66-70/F",
+    "county": "Çekmeköy",
+    "city": "İstanbul",
+    "timestamp": "2026-01-12T12:29:35.985Z"
+  },
+  {
+    "name": "VİTAMİN ECZANESİ",
+    "address": "Sultançiftliği Mah. Turgut Özal Bulv. 86/E",
+    "county": "Çekmeköy",
+    "city": "İstanbul",
+    "timestamp": "2026-01-12T12:29:39.192Z"
+  },
+  {
+    "name": "ECZANE AKBATI",
+    "address": "Koza Mah.1655. Sk. Akbatı AVYM",
+    "county": "Esenyurt",
+    "city": "İstanbul",
+    "timestamp": "2026-01-12T12:29:42.548Z"
+  },
+  {
+    "name": "HEP İSTANBUL ECZANESİ",
+    "address": "ZAFER MAH ADİLE NAŞİT BULVARI NO 58",
+    "county": "Esenyurt",
+    "city": "İstanbul",
+    "timestamp": "2026-01-12T12:29:46.926Z"
+  },
+  {
+    "name": "İYİ YAŞAM ECZANESİ",
+    "address": "PİRİ REİS MAH NAZIM HİKMET BULVARI NO 70 /C",
+    "county": "Esenyurt",
+    "city": "İstanbul",
+    "timestamp": "2026-01-12T12:29:50.208Z"
+  },
+  {
+    "name": "SUEDA ECZANESİ",
+    "address": "PİRİ REİS MAH NAZIM HİKMET BULVARI KATİPOĞLU APT. NO:62/D",
+    "county": "Esenyurt",
+    "city": "İstanbul",
+    "timestamp": "2026-01-12T12:29:54.297Z"
+  },
+  {
+    "name": "ECZANE İNTERNATİONAL",
+    "address": "İstanbul Havalimanı Tayakadın Mh. Terminal Cd. No:1 İç Kapı No:740519",
+    "county": "Arnavutköy",
+    "city": "İstanbul",
+    "timestamp": "2026-01-12T12:29:57.593Z"
+  },
+  {
+    "name": "İSTANBUL AİRPORT ECZ.",
+    "address": "Tayakadın Mah. İstanbul Yeni Havalimanı Giden Yolcu Katı No: 7 F-0401",
+    "county": "Arnavutköy",
+    "city": "İstanbul",
+    "timestamp": "2026-01-12T12:30:00.775Z"
+  },
+  {
+    "name": "MELİKE SULTAN ECZANESİ",
+    "address": "Tayakadın Mah. İstanbul Havalimanı Dış Hatlar No:820540 Arnavutköy/İst",
+    "county": "Arnavutköy",
+    "city": "İstanbul",
+    "timestamp": "2026-01-12T12:30:06.139Z"
+  },
+  {
+    "name": "WELLNESS PORT ECZANESİ",
+    "address": "Tayakadın Mah. Terminal Cad. Havalimanı Terminal Binası No:1-230172",
+    "county": "Arnavutköy",
+    "city": "İstanbul",
+    "timestamp": "2026-01-12T12:30:13.873Z"
+  },
+  {
+    "name": "GALATAPORT ECZANESİ",
+    "address": "Kılıç Ali Paşa Mah. Meclisi Mebusan Cd. E Blok No:10/A",
+    "county": "Beyoğlu",
+    "city": "İstanbul",
+    "timestamp": "2026-01-12T12:30:19.155Z"
+  },
+  {
+    "name": "YONCA ECZANESİ",
+    "address": "Keçecipiri Mah. Toygar Sok. No:22/A",
+    "county": "Beyoğlu",
+    "city": "İstanbul",
+    "timestamp": "2026-01-12T12:30:22.379Z"
+  },
+  {
+    "name": "ALİ EMRE ECZANESİ",
+    "address": "ATATÜRK MAH. ATATÜRK CAD. NO:201B",
+    "county": "Sancaktepe",
+    "city": "İstanbul",
+    "timestamp": "2026-01-12T12:30:25.937Z"
+  },
+  {
+    "name": "AHMETOĞLU ECZANESİ",
+    "address": "Yelaltı Mh. 75. Yıl Cumhuriyet Cd. No:18",
+    "county": "Urla",
+    "city": "İzmir",
+    "timestamp": "2026-01-12T12:30:29.636Z"
+  },
+  {
+    "name": "DOĞA ECZANESİ URLA",
+    "address": "Hacı İsa Mah.Bülent Baratalı Bulvarı No:48/E",
+    "county": "Urla",
+    "city": "İzmir",
+    "timestamp": "2026-01-12T12:30:33.330Z"
+  },
+  {
+    "name": "ALAÇATI ECZANESİ",
+    "address": "ALAÇATI MAH. 11003 SK. 4/A",
+    "county": "Çeşme",
+    "city": "İzmir",
+    "timestamp": "2026-01-12T12:30:37.011Z"
+  },
+  {
+    "name": "ÇEŞME ILICA ECZANESİ",
+    "address": "Ilıca Mah. 5065 Sok. No:2/A",
+    "county": "Çeşme",
+    "city": "İzmir",
+    "timestamp": "2026-01-12T12:30:40.672Z"
+  },
+  {
+    "name": "İSMET SARI ECZANESİ",
+    "address": "Tokoğlu Mah. Mektep Cad. No:3/D",
+    "county": "Çeşme",
+    "city": "İzmir",
+    "timestamp": "2026-01-12T12:30:44.531Z"
+  },
+  {
+    "name": "MARİNA ECZANESİ",
+    "address": "Musalla Mah. 1016 Sok. No:49/A",
+    "county": "Çeşme",
+    "city": "İzmir",
+    "timestamp": "2026-01-12T12:30:49.178Z"
+  },
+  {
+    "name": "RÜZGAR ECZANESİ",
+    "address": "ALAÇATI MAH. ALAÇATI ATATÜRK BLV.NO:23/A",
+    "county": "Çeşme",
+    "city": "İzmir",
+    "timestamp": "2026-01-12T12:30:52.858Z"
+  },
+  {
+    "name": "ALIŞ ECZANESİ",
+    "address": "1394 Sok. 11/B Alsancak",
+    "county": "Konak",
+    "city": "İzmir",
+    "timestamp": "2026-01-12T12:31:00.597Z"
+  },
+  {
+    "name": "ANKA ECZANESİ",
+    "address": "Şehit Polis Fethi Sekin Cad. No:3/B Çınarlı",
+    "county": "Konak",
+    "city": "İzmir",
+    "timestamp": "2026-01-12T12:31:04.376Z"
+  },
+  {
+    "name": "KIVILCIM ECZANESİ",
+    "address": "Mithatpaşa Cad. No:1155/A Üçkuyular",
+    "county": "Konak",
+    "city": "İzmir",
+    "timestamp": "2026-01-12T12:31:07.896Z"
+  },
+  {
+    "name": "MAVİ ECZANE İZMİR",
+    "address": "Kültür Mah. Plevne Blv. No:18/B",
+    "county": "Konak",
+    "city": "İzmir",
+    "timestamp": "2026-01-12T12:31:11.665Z"
+  },
+  {
+    "name": "NAZ ECZANESİ",
+    "address": "Çankaya Mah. İnönü Cad. No:328/A",
+    "county": "Konak",
+    "city": "İzmir",
+    "timestamp": "2026-01-12T12:31:15.543Z"
+  },
+  {
+    "name": "SAM ECZANESİ",
+    "address": "Cumhuriyet Bulv. No:180/A",
+    "county": "Konak",
+    "city": "İzmir",
+    "timestamp": "2026-01-12T12:31:19.040Z"
+  },
+  {
+    "name": "SİBEL ATLAS ECZANESİ",
+    "address": "Kıbrıs Şehitleri Cad.No.:177/1 Alsancak",
+    "county": "Konak",
+    "city": "İzmir",
+    "timestamp": "2026-01-12T12:31:22.902Z"
+  },
+  {
+    "name": "VEGA ECZANESİ",
+    "address": "Halkapınar, 1558/1 Sok. No:4/N",
+    "county": "Konak",
+    "city": "İzmir",
+    "timestamp": "2026-01-12T12:31:26.498Z"
+  },
+  {
+    "name": "ZEYTİN ECZANESİ",
+    "address": "PİRİ REİS MH. 269. SK. NO:91/C",
+    "county": "Konak",
+    "city": "İzmir",
+    "timestamp": "2026-01-12T12:31:30.277Z"
+  },
+  {
+    "name": "YENİŞEHİR ECZANESİ",
+    "address": "AKDENİZ MH. FEVZİ PAŞA BLV. NO:17",
+    "county": "Konak",
+    "city": "İzmir",
+    "timestamp": "2026-01-12T12:31:35.300Z"
+  },
+  {
+    "name": "NEFES ECZANESİ ",
+    "address": "Yenişehir Mah. Gaziler Cad. No:341/B ",
+    "county": "Konak",
+    "city": "İzmir",
+    "timestamp": "2026-01-12T12:31:39.083Z"
+  },
+  {
+    "name": "ATAR İÇ VE DIŞ TİC",
+    "address": "EVKA 3 MAH. 119/26 SOK. NO:23",
+    "county": "Bornova",
+    "city": "İzmir",
+    "timestamp": "2026-01-12T12:31:44.413Z"
+  },
+  {
+    "name": "BOTANİK ECZANESİ",
+    "address": "Mansuroğlu Mah.286/8 Sk.F/1 Blok No.1/B",
+    "county": "Bornova",
+    "city": "İzmir",
+    "timestamp": "2026-01-12T12:31:48.382Z"
+  },
+  {
+    "name": "ECZANE FORUM",
+    "address": "Kazım Dirik Mah. 372 Sok. No:40/F Forum AVM",
+    "county": "Bornova",
+    "city": "İzmir",
+    "timestamp": "2026-01-12T12:31:52.345Z"
+  },
+  {
+    "name": "NOVA ECZANESİ İZMİR",
+    "address": "KARACAOĞLAN MAH. 6253 SOK. NO:12/D",
+    "county": "Bornova",
+    "city": "İzmir",
+    "timestamp": "2026-01-12T12:31:55.845Z"
+  },
+  {
+    "name": "PLATİN ECZANESİ",
+    "address": "Kazım Dirik Mah. 367/7 Sok. No:14/1",
+    "county": "Bornova",
+    "city": "İzmir",
+    "timestamp": "2026-01-12T12:31:59.456Z"
+  },
+  {
+    "name": "TEZAY ECZANESİ",
+    "address": "ÇINAR MAH. NO:6/A",
+    "county": "Bornova",
+    "city": "İzmir",
+    "timestamp": "2026-01-12T12:32:04.237Z"
+  },
+  {
+    "name": "YENİ BAYRAKTAR ECZANESİ",
+    "address": "Evka 3 Mah. 121 Sok. No:42/B",
+    "county": "Bornova",
+    "city": "İzmir",
+    "timestamp": "2026-01-12T12:32:07.915Z"
+  },
+  {
+    "name": "AYŞE ECZANESİ",
+    "address": "Mansuroğlu, Derya Apartmanı, Haşim İşcan Cd. No:18/A, 35535",
+    "county": "Bayraklı",
+    "city": "İzmir",
+    "timestamp": "2026-01-12T12:32:11.198Z"
+  },
+  {
+    "name": "DOĞA ECZANESİ BAYRAKLI",
+    "address": "Mansuroğlu Mah.1593/1 Sk.No:2/H Lider Centrio A Blok",
+    "county": "Bayraklı",
+    "city": "İzmir",
+    "timestamp": "2026-01-12T12:32:14.809Z"
+  },
+  {
+    "name": "TAÇ ECZANESİ",
+    "address": "Mansuroğlu Mah. 286 Sok. No:29",
+    "county": "Bayraklı",
+    "city": "İzmir",
+    "timestamp": "2026-01-12T12:32:18.401Z"
+  },
+  {
+    "name": "UFUK ECZANESİ",
+    "address": "Haydar Aliyev Cad. No:18/C ",
+    "county": "Bayraklı",
+    "city": "İzmir",
+    "timestamp": "2026-01-12T12:32:22.049Z"
+  },
+  {
+    "name": "BAŞAK ULUSLU ECZANESİ",
+    "address": "Beyazevler Mahallesi, Akçay Caddesi No:101/B2K Optimum AVM",
+    "county": "Gaziemir",
+    "city": "İzmir",
+    "timestamp": "2026-01-12T12:32:25.356Z"
+  },
+  {
+    "name": "İZMİR HAVALİMANI ECZANESİ",
+    "address": "Dokuz Eylül Mah.Akçay Cad.Adnan Menderes Hvl. İç Hatlar Terminali Giden Yolcu Kara Tarafı No:289/DT DL 152-A",
+    "county": "Gaziemir",
+    "city": "İzmir",
+    "timestamp": "2026-01-12T12:32:29.285Z"
+  },
+  {
+    "name": "YENİ ÇETİNER ECZANESİ",
+    "address": "Atıf Bey Mah. Prof.Dr. Türkan Saylan Cad. No:11/A",
+    "county": "Gaziemir",
+    "city": "İzmir",
+    "timestamp": "2026-01-12T12:32:33.023Z"
+  },
+  {
+    "name": "BUCA YILDIZ ECZANESİ",
+    "address": "YILDIZ MAH. 206/5 SOK. NO:91/B",
+    "county": "Buca",
+    "city": "İzmir",
+    "timestamp": "2026-01-12T12:32:36.616Z"
+  },
+  {
+    "name": "KÖŞE BUCA ECZANESİ",
+    "address": "Adatepe Mah. 6.Sok.no:1/A",
+    "county": "Buca",
+    "city": "İzmir",
+    "timestamp": "2026-01-12T12:32:40.160Z"
+  },
+  {
+    "name": "CANAN ECZANESİ",
+    "address": "CÜNEYTBEY MAH. 683 SOK. 1/A",
+    "county": "Menderes",
+    "city": "İzmir",
+    "timestamp": "2026-01-12T12:32:43.852Z"
+  },
+  {
+    "name": "GÜVEN ECZANESİ MENDERES",
+    "address": "KASIMPAŞA MAH. ATATÜRK CAD. NO:85/A",
+    "county": "Menderes",
+    "city": "İzmir",
+    "timestamp": "2026-01-12T12:32:47.679Z"
+  },
+  {
+    "name": "CEYDA ECZANESİ",
+    "address": "Yalı Mah. 6418 Sok. No:145/B",
+    "county": "Karşıyaka",
+    "city": "İzmir",
+    "timestamp": "2026-01-12T12:32:51.343Z"
+  },
+  {
+    "name": "ERDEM ECZANESİ",
+    "address": "Bostanlı Mah. 1735 Sok. No:198/A",
+    "county": "Karşıyaka",
+    "city": "İzmir",
+    "timestamp": "2026-01-12T12:32:55.108Z"
+  },
+  {
+    "name": "KARŞIYAKA ATA ECZANESİ",
+    "address": "Yalı Mah. Caher Dudayev Bulvarı No:119/A",
+    "county": "Karşıyaka",
+    "city": "İzmir",
+    "timestamp": "2026-01-12T12:32:58.810Z"
+  },
+  {
+    "name": "LİMON ECZANESİ KARŞIYAKA ",
+    "address": "Bostanlı Mh. Girne Blv. No:51/3-B",
+    "county": "Karşıyaka",
+    "city": "İzmir",
+    "timestamp": "2026-01-12T12:33:02.324Z"
+  },
+  {
+    "name": "MAVİŞEHİR ECZANESİ",
+    "address": "Yalı Mah.Ahmet Kemal Baysak Bulvarı No.14 B",
+    "county": "Karşıyaka",
+    "city": "İzmir",
+    "timestamp": "2026-01-12T12:33:06.370Z"
+  },
+  {
+    "name": "NOTA ECZANESİ",
+    "address": "BAHRİYE ÜÇOK MAH. GİRNE BULV.NO:166/A",
+    "county": "Karşıyaka",
+    "city": "İzmir",
+    "timestamp": "2026-01-12T12:33:10.069Z"
+  },
+  {
+    "name": "ORGANİK ECZANESİ İZMİR",
+    "address": "Caher Dudayev Blv. No:40/Z20 Mavişehir Mah.",
+    "county": "Karşıyaka",
+    "city": "İzmir",
+    "timestamp": "2026-01-12T12:33:13.745Z"
+  },
+  {
+    "name": "RIDVAN ECZANESİ",
+    "address": "YALI MAH. 6418 SOK. NO:73/B",
+    "county": "Karşıyaka",
+    "city": "İzmir",
+    "timestamp": "2026-01-12T12:33:17.574Z"
+  },
+  {
+    "name": "SOYSAL ECZANESİ",
+    "address": "Cahar Dudayev Bulvarı No:28/D Mavişehir",
+    "county": "Karşıyaka",
+    "city": "İzmir",
+    "timestamp": "2026-01-12T12:33:21.083Z"
+  },
+  {
+    "name": "DEFNE ECZANESİ",
+    "address": "BOSTANLI MAH. CEMAL GÜRSEL CAD. NO:528/B",
+    "county": "Karşıyaka",
+    "city": "İzmir",
+    "timestamp": "2026-01-12T12:33:24.876Z"
+  },
+  {
+    "name": "DOĞAL ŞİFA ECZANESİ",
+    "address": "65/11 Sok No:4/A karabağlar",
+    "county": "Karabağlar",
+    "city": "İzmir",
+    "timestamp": "2026-01-12T12:33:28.638Z"
+  },
+  {
+    "name": "ZENCEFİL ECZANESİ",
+    "address": "Bahçelievler mah İnönü cad No:175-A",
+    "county": "Karabağlar",
+    "city": "İzmir",
+    "timestamp": "2026-01-12T12:33:32.452Z"
+  },
+  {
+    "name": "GÜVEN ECZANESİ İZMİR",
+    "address": "Ayrancılar Mah. İzmir Aydın Cad.No:118/1A",
+    "county": "Torbalı",
+    "city": "İzmir",
+    "timestamp": "2026-01-12T12:33:36.091Z"
+  },
+  {
+    "name": "KIVANÇ ECZANESİ",
+    "address": "Yeni Mahalle Eski Havalimanı Cd. B6 No:108 MD",
+    "county": "Çiğli",
+    "city": "İzmir",
+    "timestamp": "2026-01-12T12:33:39.810Z"
+  },
+  {
+    "name": "PERA ECZANESİ BALÇOVA",
+    "address": "Mithatpaşa Cad. No:46/z-53",
+    "county": "Balçova",
+    "city": "İzmir",
+    "timestamp": "2026-01-12T12:33:44.423Z"
+  },
+  {
+    "name": "RİTİM ECZANESİ",
+    "address": "Kahramandere Mah.Ata Cad.No:52/C",
+    "county": "Güzelbahçe",
+    "city": "İzmir",
+    "timestamp": "2026-01-12T12:33:47.609Z"
+  },
+  {
+    "name": "ECZANE MAYIS",
+    "address": "YALI MH. İSTİKLAL CAD. NO:10/B ",
+    "county": "Güzelbahçe",
+    "city": "İzmir",
+    "timestamp": "2026-01-12T12:33:50.715Z"
+  },
+  {
+    "name": "SIĞACIK ECZANESİ",
+    "address": "Sığacık Mah. Akkum Cad. No:9/C",
+    "county": "Seferihisar",
+    "city": "İzmir",
+    "timestamp": "2026-01-12T12:33:53.770Z"
+  },
+  {
+    "name": "AHİ ECZANESİ",
+    "address": "TERME CAD. MİNİ ÇARŞI NO:1/A",
+    "county": "Merkez ",
+    "city": "Kırşehir",
+    "timestamp": "2026-01-12T12:33:59.707Z"
+  },
+  {
+    "name": "42 EVLER ECZANESİ",
+    "address": "Körfez Mah. Şehit Basri Sok. 23/A",
+    "county": "İzmit",
+    "city": "Kocaeli",
+    "timestamp": "2026-01-12T12:34:02.791Z"
+  },
+  {
+    "name": "ERİŞ ECZANESİ",
+    "address": "A.YÜKSELCAD.BELSA PLAZA D BLOK NO:38",
+    "county": "İzmit",
+    "city": "Kocaeli",
+    "timestamp": "2026-01-12T12:34:05.619Z"
+  },
+  {
+    "name": "ESİN ECZANESİ",
+    "address": "Yenişehir Mah. Dönmez Sok. no:34",
+    "county": "İzmit",
+    "city": "Kocaeli",
+    "timestamp": "2026-01-12T12:34:08.534Z"
+  },
+  {
+    "name": "İLİM ECZANESİ",
+    "address": "İstiklal Cad. Belsa Plaza No:31",
+    "county": "İzmit",
+    "city": "Kocaeli",
+    "timestamp": "2026-01-12T12:34:11.520Z"
+  },
+  {
+    "name": "PAŞA ECZANESİ",
+    "address": "M.Alipaşa Mah. Kaptan Sok. No:30",
+    "county": "İzmit",
+    "city": "Kocaeli",
+    "timestamp": "2026-01-12T12:34:14.598Z"
+  },
+  {
+    "name": "ALP ECZANESİ",
+    "address": "CUMHURİYET MAH. 2255 SOK. 3/B",
+    "county": "Gebze",
+    "city": "Kocaeli",
+    "timestamp": "2026-01-12T12:34:17.807Z"
+  },
+  {
+    "name": "KAPLUMBAĞA ECZANESİ",
+    "address": "ARAPÇEŞME MAH. KAVAK CAD. NO:6/B",
+    "county": "Gebze",
+    "city": "Kocaeli",
+    "timestamp": "2026-01-12T12:34:20.948Z"
+  },
+  {
+    "name": "ÖZGÜL ECZANESİ",
+    "address": "Hacı Halil Mah. İsmetpaşa Cad. No:9/C",
+    "county": "Gebze",
+    "city": "Kocaeli",
+    "timestamp": "2026-01-12T12:34:24.006Z"
+  },
+  {
+    "name": "YASEMİN ECZANESİ",
+    "address": "HACI HALİL MAH. HÜKÜMET CAD. NO:88/B",
+    "county": "Gebze",
+    "city": "Kocaeli",
+    "timestamp": "2026-01-12T12:34:27.014Z"
+  },
+  {
+    "name": "ZUHAL ECZANESİ GEBZE",
+    "address": "GAZİLER MAH. İBRAHİM AĞA CAD. NO:113/A",
+    "county": "Gebze",
+    "city": "Kocaeli",
+    "timestamp": "2026-01-12T12:34:30.066Z"
+  },
+  {
+    "name": "SERPİL ECZANESİ",
+    "address": "DENİZCİLER CAD. NO:18/1A",
+    "county": "Derince",
+    "city": "Kocaeli",
+    "timestamp": "2026-01-12T12:34:33.064Z"
+  },
+  {
+    "name": "SERPAY ECZANESİ",
+    "address": "Atavardı Mah. Bozdağlı Sok. 14/A",
+    "county": "Meram",
+    "city": "Konya",
+    "timestamp": "2026-01-12T12:34:35.860Z"
+  },
+  {
+    "name": "HAYAT ECZANESİ",
+    "address": "Cumhuriyet Mah. 331 Sk. No:6/D",
+    "county": "Salihli",
+    "city": "Manisa",
+    "timestamp": "2026-01-12T12:34:43.444Z"
+  },
+  {
+    "name": "YAĞIZ KAYDA ECZANESİ",
+    "address": "Sağlık Mah. Şüheda Cad. No:86/D",
+    "county": "Salihli",
+    "city": "Manisa",
+    "timestamp": "2026-01-12T12:34:46.409Z"
+  },
+  {
+    "name": "KİLİKYA ECZANESİ",
+    "address": "Güvenevler Mah. 1.Cad. Forum AVM No:120/25",
+    "county": "Yenişehir",
+    "city": "Mersin",
+    "timestamp": "2026-01-12T12:34:49.430Z"
+  },
+  {
+    "name": "CADDE ECZANESİ ",
+    "address": "GMK BULVARI NO:330/A",
+    "county": "Yenişehir",
+    "city": "Mersin",
+    "timestamp": "2026-01-12T12:34:52.520Z"
+  },
+  {
+    "name": "GİZEM UYGUN ECZANESİ",
+    "address": "FUATMOREL MAH. VALİ HÜSEYİN AKSOY CAD. NO:47/D",
+    "county": "Yenişehir",
+    "city": "Mersin",
+    "timestamp": "2026-01-12T12:34:55.643Z"
+  },
+  {
+    "name": "YUSUF YÜKSEK ECZANESİ",
+    "address": "TEKKE MAH. TÜRKMENİSTAN CAD. NO:58/B",
+    "county": "Tarsus",
+    "city": "Mersin",
+    "timestamp": "2026-01-12T12:34:58.677Z"
+  },
+  {
+    "name": "SOLİ ECZANESİ",
+    "address": "MERKEZ MAH. ZEYTİNLİ CAD. NO:6/A",
+    "county": "Mezitli",
+    "city": "Mersin",
+    "timestamp": "2026-01-12T12:35:01.967Z"
+  },
+  {
+    "name": "BALCI ECZANESİ",
+    "address": "TUZLA MAH. SADİ PEKİN CAD. NO:12/B",
+    "county": "Fethiye",
+    "city": "Muğla",
+    "timestamp": "2026-01-12T12:35:05.124Z"
+  },
+  {
+    "name": "DENİZ ECZANESİ  FETHİYE",
+    "address": "GÖCEK MAH. ÇARŞI MEYDANI NO:6/3",
+    "county": "Fethiye",
+    "city": "Muğla",
+    "timestamp": "2026-01-12T12:35:08.041Z"
+  },
+  {
+    "name": "EROĞLU ECZANESİ",
+    "address": "Cum Mah. Atatürk Cad. No:56/A",
+    "county": "Fethiye",
+    "city": "Muğla",
+    "timestamp": "2026-01-12T12:35:11.046Z"
+  },
+  {
+    "name": "GÖCEK ECZANESİ",
+    "address": "GÖCEK MAH. ÇARŞI YOLU CAD. NO:48/B",
+    "county": "Fethiye",
+    "city": "Muğla",
+    "timestamp": "2026-01-12T12:35:14.081Z"
+  },
+  {
+    "name": "BİTEZ ECZANESİ",
+    "address": "Bitez Mahallesi, Adliye Caddesi No:31/A",
+    "county": "Bodrum",
+    "city": "Muğla",
+    "timestamp": "2026-01-12T12:35:17.128Z"
+  },
+  {
+    "name": "BODRUM TORBA ECZANESİ",
+    "address": "Torba Mah. Rıza Anter Cad. 15/3",
+    "county": "Bodrum",
+    "city": "Muğla",
+    "timestamp": "2026-01-12T12:35:20.056Z"
+  },
+  {
+    "name": "BURCU ECZANESİ BODRUM",
+    "address": "Göltürkbükü Mah. Atatürk Cad. No:171/C/D",
+    "county": "Bodrum",
+    "city": "Muğla",
+    "timestamp": "2026-01-12T12:35:23.232Z"
+  },
+  {
+    "name": "CEREN ECZANESİ",
+    "address": "müskebi mah cumhuriyet cad no 87/A Ortakent",
+    "county": "Bodrum",
+    "city": "Muğla",
+    "timestamp": "2026-01-12T12:35:26.210Z"
+  },
+  {
+    "name": "LİMON ECZANESİ BODRUM",
+    "address": "Yalıkavak Mah. Eser Cad. No:2/6",
+    "county": "Bodrum",
+    "city": "Muğla",
+    "timestamp": "2026-01-12T12:35:29.248Z"
+  },
+  {
+    "name": "MANDARİN ECZANESİ",
+    "address": "Gümbet Mah. Adnan Menderes Cad. No:48/c-4",
+    "county": "Bodrum",
+    "city": "Muğla",
+    "timestamp": "2026-01-12T12:35:32.307Z"
+  },
+  {
+    "name": "ÖZER ECZANESİ",
+    "address": "Yalıkavak Mah. Atatürk Cad. No:12/1-2",
+    "county": "Bodrum",
+    "city": "Muğla",
+    "timestamp": "2026-01-12T12:35:35.314Z"
+  },
+  {
+    "name": "YALIKAVAK MARİNA ECZANESİ",
+    "address": "Yalıkavak Mah. Çökertme Cad. 6-EH/1",
+    "county": "Bodrum",
+    "city": "Muğla",
+    "timestamp": "2026-01-12T12:35:38.333Z"
+  },
+  {
+    "name": "PORTAKAL ECZANESİ",
+    "address": "DEREKÖY MAH. DEREKÖY CAD. 153/3",
+    "county": "Bodrum",
+    "city": "Muğla",
+    "timestamp": "2026-01-12T12:35:41.403Z"
+  },
+  {
+    "name": "HEKİMOĞLU ECZANESİ",
+    "address": "Muslihittin Mah. Şehnaz Sok. No:2/A",
+    "county": "Menteşe",
+    "city": "Muğla",
+    "timestamp": "2026-01-12T12:35:44.402Z"
+  },
+  {
+    "name": "KORKMAZ ECZANESİ",
+    "address": "Şeyh Sinan Mah. Bülent Ecevit Blv. no:268-270/E",
+    "county": "Çorlu",
+    "city": "Tekirdağ",
+    "timestamp": "2026-01-12T12:35:47.491Z"
+  },
+  {
+    "name": "YAKUT TAN",
+    "address": "ÖNERLER MAH. ÇANAKKALE ŞEHİTLERİ BLV. B BLOK NO:18/C ",
+    "county": "Çorlu",
+    "city": "Tekirdağ",
+    "timestamp": "2026-01-12T12:35:50.520Z"
+  },
+  {
+    "name": "İNANIR ECZANESİ",
+    "address": "Kalkınma Mah. Farabi Cad. No:47/A",
+    "county": "Ortahisar",
+    "city": "Trabzon",
+    "timestamp": "2026-01-12T12:35:53.528Z"
+  },
+  {
+    "name": "ESRA ECZANESİ",
+    "address": "KURTULUŞ MAH. 1421 SOK. KARAKİRAZ APT.NO:2/12",
+    "county": "Merkez",
+    "city": "Isparta ",
+    "timestamp": "2026-01-12T12:35:56.720Z"
+  },
+  {
+    "name": "ZULKADİROĞLU ECZANESİ",
+    "address": "BELEDİYE EVLERİ MAH. DR. SADIK AHMET BLV. NO:82/11",
+    "county": "Çukurova",
+    "city": "Adana",
+    "timestamp": "2026-01-12T12:35:59.910Z"
+  },
+  {
+    "name": "AKGEYİK ECZANESİ",
+    "address": "GÜZELYALI MAH. 81163 SOK. 28/B",
+    "county": "Çukurova",
+    "city": "Adana",
+    "timestamp": "2026-01-12T12:36:02.941Z"
+  },
+  {
+    "name": "KUZEY ECZANESİ",
+    "address": "TOROS MAHALLESİ 78141. SK. ŞEHİTLER BULVARI NO:1/A",
+    "county": "Çukurova",
+    "city": "Adana",
+    "timestamp": "2026-01-12T12:36:06.105Z"
+  },
+  {
+    "name": "FEHİMAN ECZANESİ",
+    "address": "ATATÜRK CAD. RAMAZANOĞLU PASAJI NO:40",
+    "county": "Seyhan",
+    "city": "Adana",
+    "timestamp": "2026-01-12T12:36:10.362Z"
+  },
+  {
+    "name": "KİZA ECZANESİ",
+    "address": "T.Cemal Beriker Bulv. Kiza İş Merk. A5 Blok No:437/B",
+    "county": "Seyhan",
+    "city": "Adana",
+    "timestamp": "2026-01-12T12:36:13.695Z"
+  },
+  {
+    "name": "ASLI ULAŞ ECZANESİ",
+    "address": "Yenibaraj Mahallesi, Şehit Yüzbaşı Bülent Angın Bulvarı, Fuat Özkurt Apt. No:94/A ",
+    "county": "Seyhan",
+    "city": "Adana",
+    "timestamp": "2026-01-12T12:36:16.575Z"
+  },
+  {
+    "name": "ÖZMEN ECZANESİ",
+    "address": "MÜCAHİTLER MAH. GAZİMUHTAR PAŞA BLV 69/E.",
+    "county": "Şehitkamil",
+    "city": "Gaziantep",
+    "timestamp": "2026-01-12T12:36:19.404Z"
   }
 ]
