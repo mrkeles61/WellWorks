@@ -1,4 +1,4 @@
-import { ArrowRight, Zap, Shield, Droplets, Heart } from 'lucide-react';
+import { ArrowRight, Play, Zap, ShieldCheck, Timer, Shield, Droplets, Activity } from 'lucide-react';
 import { useTranslation, Trans } from 'react-i18next';
 import { products } from '@/data/products';
 import ProductCard from '@/components/health/ProductCard';
@@ -8,6 +8,7 @@ import bottleOfHealth from '@/assets/bottle-of-health.png';
 import certificationsTransparentImg from '@/assets/certifications_transparent.png';
 import { useEffect, useRef } from 'react';
 import { useBrand } from '@/context/BrandContext';
+import StoreLocator from '@/components/health/StoreLocator';
 import { Button } from '@/components/ui/button';
 import {
   Carousel,
@@ -61,9 +62,12 @@ const HealthHome = () => {
   return (
     <div data-brand="health" className="bg-gray-100 min-h-screen">
       {/* Hero Section - About Us Style */}
-      <section className="relative min-h-[90vh] flex items-center justify-center pt-24 pb-20 overflow-hidden bg-gradient-to-br from-gray-100 via-gray-50 to-gray-100">
-        {/* Subtle background gradient */}
-        <div className="absolute top-0 right-0 w-1/2 h-full bg-gradient-to-l from-health-primary/5 to-transparent pointer-events-none" />
+      <section className="relative min-h-[90vh] flex items-center justify-center pt-24 pb-20 overflow-hidden">
+        {/* Solid Background - Sharp Change */}
+        <div className="absolute inset-0 bg-slate-50" />
+
+        {/* Subtle side accent */}
+        <div className="absolute top-0 right-0 w-1/3 h-full bg-gradient-to-l from-health-primary/5 to-transparent pointer-events-none" />
 
         <div className="container mx-auto px-6 grid lg:grid-cols-2 gap-12 items-center relative z-10">
           {/* Left Content - About Us */}
@@ -109,79 +113,47 @@ const HealthHome = () => {
         </div>
       </section>
 
-      {/* Certificates Section */}
-      <section className="bg-[#0f2942] py-8">
-        <div className="container mx-auto px-6">
-          <div className="flex items-center justify-between gap-6">
-            <h2 className="text-white text-lg md:text-xl font-semibold italic tracking-wide whitespace-nowrap flex-shrink-0 opacity-80">
-              {t('health.certificates.title')}
-            </h2>
-            <div className="flex-1 flex justify-center">
-              <a
-                href="https://dailyshot.com.tr"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="bg-white rounded-xl px-12 py-6 shadow-lg hover:shadow-xl transition-shadow"
-              >
-                <img
-                  src={certificationsTransparentImg}
-                  alt="ISO 22000:2018, GMP, ISO 9001:2015, Well Works Health"
-                  className="h-24 md:h-32 lg:h-44 w-auto object-contain"
-                />
-              </a>
-            </div>
-            <div className="text-white text-xs max-w-[150px] hidden lg:block flex-shrink-0 text-right">
-              <p className="text-white/40 text-[9px] leading-tight">
-                {t('health.certificates.desc')}
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* ===== DAILYSHOT INTRO SECTION (Option 3: Full Image + Overlay) ===== */}
+      {/* ===== WELLWORKS HEALTH INTRO SECTION (Dark Blue Background) ===== */}
       <section
         ref={dailyshotSectionRef}
-        className="py-20 lg:py-32 relative overflow-hidden bg-cover bg-center"
-        style={{
-          backgroundImage: 'url(/images/dailyshot_lab.png)',
-        }}
+        className="py-20 lg:py-32 relative overflow-hidden bg-[#0f2942]"
       >
-        {/* Dark overlay with brand gradient */}
-        <div className="absolute inset-0 bg-gradient-to-r from-health-primary/95 via-health-primary/85 to-health-primary/70" />
+        {/* Subtle decorative elements */}
+        <div className="absolute top-0 right-0 w-96 h-96 bg-white/5 rounded-full blur-3xl" />
+        <div className="absolute bottom-0 left-0 w-72 h-72 bg-health-primary/10 rounded-full blur-3xl" />
 
         <div className="mx-auto px-6 relative z-10" style={{ maxWidth: '80%' }}>
           <div className="grid lg:grid-cols-2 gap-16 items-center">
             {/* Text Content */}
-            <div className="animate-on-scroll opacity-0 space-y-6 text-white">
-              <span className="text-white/80 text-sm font-semibold uppercase tracking-widest">
-                Dailyshot Nedir?
+            <div className="animate-on-scroll opacity-0 space-y-6">
+              <span className="text-health-primary text-sm font-semibold uppercase tracking-widest">
+                WellWorks Health
               </span>
-              <h2 className="font-poppins font-bold text-3xl md:text-4xl lg:text-5xl leading-tight">
-                Likit Takviyenin <span className="text-white/90">Gücünü</span> Keşfedin
+              <h2 className="font-poppins font-bold text-3xl md:text-4xl lg:text-5xl leading-tight text-white">
+                Likit Takviyenin <span className="text-health-primary">Gücünü</span> Keşfedin
               </h2>
               <p className="text-lg text-white/80 leading-relaxed">
-                Dailyshot, içerisinde likit formda ürünler bulunduran bitkisel bir gıda takviyesi markasıdır.
+                WellWorks Health, içerisinde likit formda ürünler bulunduran bitkisel bir gıda takviyesi markasıdır.
                 Likit yapısı sayesinde kana hızlıca karışır ve etkinin hızlı gözlemlenmesine olanak sağlar.
               </p>
               <ul className="space-y-3">
                 <li className="flex items-center gap-3 text-white/90">
-                  <Zap className="w-5 h-5" />
+                  <Zap className="w-5 h-5 text-health-primary" />
                   <span><strong>%90'a varan</strong> biyoyararlanım oranı</span>
                 </li>
                 <li className="flex items-center gap-3 text-white/90">
-                  <Shield className="w-5 h-5" />
+                  <Shield className="w-5 h-5 text-health-primary" />
                   <span>GMP ve Helal sertifikalı üretim</span>
                 </li>
                 <li className="flex items-center gap-3 text-white/90">
-                  <Droplets className="w-5 h-5" />
+                  <Droplets className="w-5 h-5 text-health-primary" />
                   <span>Hızlı emilim, dakikalar içinde etki</span>
                 </li>
               </ul>
               <Button
                 asChild
                 size="lg"
-                className="bg-white text-health-primary hover:bg-gray-100 rounded-full px-8 mt-4"
+                className="bg-health-primary text-white hover:bg-health-primary/90 rounded-full px-8 mt-4"
               >
                 <a href="https://dailyshot.com.tr" target="_blank" rel="noopener noreferrer">
                   Ürünleri Keşfet <ArrowRight className="w-4 h-4 ml-2" />
@@ -196,7 +168,7 @@ const HealthHome = () => {
               rel="noopener noreferrer"
               className="animate-on-scroll opacity-0 relative group"
             >
-              <div className="bg-white/10 backdrop-blur-md rounded-3xl p-6 border border-white/20 hover:bg-white/20 transition-all">
+              <div className="rounded-3xl overflow-hidden shadow-2xl hover:shadow-3xl transition-all duration-500 hover:scale-[1.02]">
                 <img
                   src="/images/dailyshot_ingredients.jpg"
                   alt="Dailyshot Products with Natural Ingredients"
@@ -208,8 +180,9 @@ const HealthHome = () => {
         </div>
       </section>
 
-      {/* Gradient transition: Dailyshot intro -> Carousel */}
-      <div className="h-24 bg-gradient-to-b from-health-primary to-gray-50" />
+      {/* Gradient transition: WellWorks intro -> Carousel */}
+      {/* Spacer (removed gradient) */}
+      <div className="h-12 bg-white" />
 
       {/* Dailyshot Products Carousel Section */}
       <section className="py-16 lg:py-24 bg-gray-50">
@@ -251,63 +224,77 @@ const HealthHome = () => {
       </section>
 
       {/* Gradient transition: Carousel -> Electrovit intro */}
-      <div className="h-24 bg-gradient-to-b from-gray-50 to-[#38BDF8]" />
+      {/* Spacer (removed gradient) */}
+      <div className="h-12 bg-white" />
 
-      {/* ===== ELECTROVIT INTRO SECTION (Option 4: Split Background) ===== */}
-      <section ref={electrovitSectionRef} className="overflow-hidden">
-        <div className="grid lg:grid-cols-2 min-h-[600px]">
-          {/* Left: Solid Color with Text */}
-          <div className="bg-[#38BDF8] p-12 lg:p-20 flex items-center">
-            <div className="animate-on-scroll opacity-0 space-y-6 text-white max-w-lg">
-              <span className="text-white/80 text-sm font-semibold uppercase tracking-widest">
-                Electrovit Nedir?
-              </span>
-              <h2 className="font-poppins font-bold text-3xl md:text-4xl lg:text-5xl leading-tight">
-                Sporcuların <span className="text-white/90">Elektrolit</span> Tercihi
+      {/* ===== ELECTROVIT INTRO SECTION (Red Background) ===== */}
+      {/* ===== ELECTROVIT INTRO SECTION (Overlay Split Pattern) ===== */}
+      <section ref={electrovitSectionRef} className="relative w-full h-[85vh] overflow-hidden flex items-center">
+        {/* Full Screen Background Image */}
+        <div className="absolute inset-0 z-0">
+          <img
+            src="/images/electrovit_stadium.png"
+            alt="Electrovit Hero Background"
+            className="w-full h-full object-cover"
+          />
+        </div>
+
+        {/* Hard Edge Gradient Overlay (Left Split) - Color Zone */}
+        <div className="absolute inset-0 z-10 bg-gradient-to-r from-health-primary via-health-primary/95 to-transparent w-full md:w-[75%]" />
+
+        {/* Soft Radial Watermark for Texture */}
+        <div className="absolute -left-20 top-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-white/5 rounded-full blur-3xl z-10 pointer-events-none" />
+
+        <div className="container mx-auto px-6 relative z-20">
+          <div className="grid lg:grid-cols-2 gap-12 items-center">
+            {/* Left Content Zone (Text) */}
+            <div className="max-w-2xl text-white">
+              {/* Brand/Category Tag */}
+              <div className="inline-flex items-center gap-2 mb-6 border-b border-white/30 pb-2">
+                <span className="font-oswald text-xl uppercase tracking-widest text-white/90">
+                  PERFORMANS SERİSİ
+                </span>
+              </div>
+
+              {/* Main Headline - Condensed Bold Uppercase */}
+              <h2 className="font-oswald text-6xl md:text-8xl font-bold uppercase leading-[0.9] tracking-tight mb-8">
+                SPORCULARIN<br />
+                <span className="text-white/80">ELEKTROLİT</span><br />
+                TERCİHİ
               </h2>
-              <p className="text-lg text-white/80 leading-relaxed">
-                Electrovit, aktif yaşam sürenler ve sporcular için özel olarak formüle edilmiş likit elektrolit takviyesidir.
-                Toz değil, hazır içilebilir formatta sunulur.
+
+              {/* Description - Sans Serif Clean */}
+              <p className="text-xl md:text-2xl font-light text-white/90 leading-relaxed mb-10 max-w-lg border-l-4 border-white/30 pl-6">
+                Electrovit, aktif yaşam sürenler için özel formüle edilmiş <span className="font-semibold">likit elektrolit</span> takviyesidir. Toz karışıklığına son verin.
               </p>
-              <ul className="space-y-3">
-                <li className="flex items-center gap-3 text-white/90">
-                  <Zap className="w-5 h-5" />
-                  <span>Anında enerji ve performans desteği</span>
-                </li>
-                <li className="flex items-center gap-3 text-white/90">
-                  <Droplets className="w-5 h-5" />
-                  <span>Karpuz ve Portakal aromalarında</span>
-                </li>
-                <li className="flex items-center gap-3 text-white/90">
-                  <Heart className="w-5 h-5" />
-                  <span>Antrenman öncesi, sırası ve sonrasında</span>
-                </li>
-              </ul>
+
+              {/* Functional Attributes */}
+              <div className="flex flex-wrap gap-6 mb-12">
+                {[
+                  { icon: Zap, label: "ANINDA ENERJİ" },
+                  { icon: Droplets, label: "HIZLI EMİLİM" },
+                  { icon: Activity, label: "ŞEKERSİZ" }
+                ].map((feature, idx) => (
+                  <div key={idx} className="flex items-center gap-3 bg-white/10 backdrop-blur-md px-5 py-3 rounded-xl border border-white/10 hover:bg-white/20 transition-colors cursor-default">
+                    <feature.icon className="w-6 h-6" strokeWidth={1.5} />
+                    <span className="font-bold text-sm tracking-wider">{feature.label}</span>
+                  </div>
+                ))}
+              </div>
+
+              {/* CTA */}
               <Button
                 asChild
-                size="lg"
-                className="bg-white text-[#38BDF8] hover:bg-gray-100 rounded-full px-8 mt-4"
+                className="bg-white text-health-primary hover:bg-gray-100 text-lg px-10 py-8 rounded-full font-bold shadow-2xl transition-transform hover:scale-105 border-0"
               >
                 <a href="https://dailyshot.com.tr/arama/electrovit" target="_blank" rel="noopener noreferrer">
-                  Electrovit'i Keşfet <ArrowRight className="w-4 h-4 ml-2" />
+                  ELECTROVIT'İ KEŞFET <ArrowRight className="ml-3 w-6 h-6" />
                 </a>
               </Button>
             </div>
           </div>
-
-          {/* Right: Full Image */}
-          <a
-            href="https://dailyshot.com.tr/arama/electrovit"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="animate-on-scroll opacity-0 bg-cover bg-center min-h-[400px] lg:min-h-full block hover:opacity-90 transition-opacity"
-            style={{ backgroundImage: 'url(/images/electrovit_stadium.png)' }}
-          />
         </div>
       </section>
-
-      {/* Gradient transition: Electrovit split -> Carousel */}
-      <div className="h-24 bg-gradient-to-b from-[#38BDF8] to-white" />
 
       {/* Electrovit Products Carousel Section */}
       <section className="py-16 lg:py-24 bg-white">
@@ -348,25 +335,70 @@ const HealthHome = () => {
         </div>
       </section>
 
-      {/* Why Liquid Section */}
-      <section className="py-24 bg-gray-200">
-        <div className="container mx-auto px-6">
-          <div className="max-w-4xl mx-auto text-center">
-            <span className="text-health-primary text-sm font-semibold uppercase tracking-widest mb-4 block">
-              {t('health.liquidRevolution.label')}
-            </span>
-            <h2 className="text-4xl md:text-5xl font-bold font-poppins text-gray-900 mb-8">
-              <Trans i18nKey="health.liquidRevolution.title" components={[<span className="text-health-primary" />]} />
-            </h2>
-            <p className="text-lg text-gray-600 leading-relaxed mb-6">
-              {t('health.liquidRevolution.desc1')}
-            </p>
-            <p className="text-base text-gray-500 leading-relaxed">
-              {t('health.liquidRevolution.desc2')}
-            </p>
+      {/* ===== WHY LIQUID? (Liquid Form Info Section) - Reference Image 4 Style ===== */}
+      <section className="relative py-24 bg-gray-900 overflow-hidden">
+        {/* Background Image */}
+        <div className="absolute inset-0 z-0">
+          <img
+            src="/images/dailyshot_ingredients.jpg"
+            alt="Natural Ingredients"
+            className="w-full h-full object-cover opacity-60"
+          />
+        </div>
+
+        {/* Strong Orange/Amber Overlay Gradient */}
+        <div className="absolute inset-0 z-10 bg-gradient-to-r from-orange-600/90 via-amber-600/80 to-amber-500/40" />
+
+        <div className="container mx-auto px-6 relative z-20">
+          <div className="grid md:grid-cols-3 gap-12 text-white">
+
+            {/* Feature 1: Likit Form */}
+            <div className="space-y-4">
+              <h3 className="font-oswald text-4xl md:text-5xl font-bold uppercase tracking-tight">
+                LİKİT FORM
+              </h3>
+              <div className="h-1 w-20 bg-white/40 mb-4" />
+              <p className="text-white/90 text-lg leading-relaxed font-light">
+                <Trans i18nKey="health.liquidRevolution.desc1">
+                  Vücudunuzun zamana ihtiyacı yok! Likit ürünler, içerisindeki etken maddelerin doğrudan ve hızlı emilimini sağlarken, katı formlar gibi ekstra katkı maddeleri içermez.
+                </Trans>
+              </p>
+              <p className="text-white/80 leading-relaxed font-light">
+                Bu sayede daha hızlı etki sağlar ve maksimum biyoyararlanım sunar. Çünkü hayat hızlı, kullandığınız takviye edici gıdalar da öyle olmalı!
+              </p>
+            </div>
+
+            {/* Feature 2: Bitkisel İçerik */}
+            <div className="space-y-4">
+              <h3 className="font-oswald text-4xl md:text-5xl font-bold uppercase tracking-tight">
+                BİTKİSEL İÇERİK
+              </h3>
+              <div className="h-1 w-20 bg-white/40 mb-4" />
+              <p className="text-white/90 text-lg leading-relaxed font-light">
+                Ürünlerimiz, bitkisel özler, vitaminler ve mineraller ile günlük yaşamda vücudun normal fonksiyonlarına destek olmak amacıyla özenle formüle edilmiştir.
+              </p>
+              <p className="text-white/80 leading-relaxed font-light">
+                Her ürün, doğal kaynaklardan elde edilen bileşenlerle hazırlanır ve günlük beslenmenize pratik bir katkı sağlar.
+              </p>
+            </div>
+
+            {/* Feature 3: Kolay Kullanım */}
+            <div className="space-y-4">
+              <h3 className="font-oswald text-4xl md:text-5xl font-bold uppercase tracking-tight">
+                KOLAY KULLANIM
+              </h3>
+              <div className="h-1 w-20 bg-white/40 mb-4" />
+              <p className="text-white/90 text-lg leading-relaxed font-light">
+                Likit formlar aroma ve tat profili ile kolay ve keyifli bir içim sunar. Ayrıca tatma eylemi, besin yollarını harekete geçirir ve vücudun belirli bölgelerini hedef alarak gıda takviyesinin aktif bileşeninin daha iyi kullanılmasını sağlar.
+              </p>
+            </div>
+
           </div>
         </div>
       </section>
+
+      {/* Store Locator Section */}
+      <StoreLocator />
 
       {/* Blog Section */}
       <BlogSection />

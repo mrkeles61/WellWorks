@@ -202,7 +202,7 @@ const MiceHome = () => {
           <AnimatedSection animation="fadeInUp">
             <span className="text-[#2DB34A] font-serif italic text-xl mb-6 block">{t('mice.home.mission.philosophy')}</span>
             <h2 className="font-oswald text-4xl md:text-5xl lg:text-6xl text-white font-medium leading-tight mb-8">
-              <Trans i18nKey="mice.home.mission.title" components={[<br className="hidden md:block" />, <span className="text-[#2DB34A] italic font-serif" />]} />
+              <Trans i18nKey="mice.home.mission.title" components={[<span className="text-[#2DB34A] italic font-serif" />]} />
             </h2>
             <p className="text-[#D8DEE6] text-lg md:text-xl leading-relaxed opacity-80 max-w-2xl mx-auto font-light">
               {t('mice.home.mission.desc')}

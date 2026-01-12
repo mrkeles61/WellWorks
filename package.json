@@ -9,8 +9,9 @@
     "dev": "vite",
     "build": "vite build",
     "build:dev": "vite build --mode development",
-    "lint": "eslint .",
-    "preview": "vite preview"
+    "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
+    "preview": "vite preview",
+    "convert:cities": "node scripts/convert-cities.mjs"
   },
   "dependencies": {
     "@hookform/resolvers": "^3.10.0",

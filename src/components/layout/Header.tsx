@@ -39,9 +39,7 @@ const Header = () => {
   const healthLinks: NavLinkItem[] = [
     { href: '/health', label: t('nav.home') },
     { href: '/health/hakkinda', label: t('nav.about') },
-    { href: '/health/dailyshot-nedir', label: 'Dailyshot Nedir?' },
     { href: '/health/electrovit-nedir', label: 'Electrovit Nedir?' },
-    { href: '/health/styles', label: 'Styles' },
   ];
 
   const miceLinks: NavLinkItem[] = [
@@ -75,7 +73,17 @@ const Header = () => {
                 brand === 'health' ? 'font-poppins text-health-primary' : 'font-oswald text-mice-primary'
               )}
             >
-              {brand === 'health' ? 'DAILYSHOT' : 'WELL WORKS'}
+              {brand === 'health' ? (
+                <span className="flex gap-2">
+                  <span className="text-white">WellWorks</span>
+                  <span className="text-health-primary">Health</span>
+                </span>
+              ) : (
+                <span className="flex gap-2">
+                  <span className="text-white">WellWorks</span>
+                  <span className="text-mice-primary">MICE</span>
+                </span>
+              )}
             </div>
           </Link>
 

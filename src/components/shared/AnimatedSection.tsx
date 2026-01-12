@@ -2,13 +2,13 @@ import { useEffect, useRef, ReactNode } from 'react';
 import { animate } from 'animejs';
 import { cn } from '@/lib/utils';
 
-type AnimationType = 
-  | 'fadeIn' 
-  | 'fadeInUp' 
-  | 'fadeInDown' 
-  | 'fadeInLeft' 
-  | 'fadeInRight' 
-  | 'scaleIn' 
+type AnimationType =
+  | 'fadeIn'
+  | 'fadeInUp'
+  | 'fadeInDown'
+  | 'fadeInLeft'
+  | 'fadeInRight'
+  | 'scaleIn'
   | 'slideUp';
 
 interface AnimatedSectionProps {
@@ -21,7 +21,16 @@ interface AnimatedSectionProps {
   once?: boolean; // Only animate once
 }
 
-const animationConfigs: Record<AnimationType, anime.AnimeParams> = {
+// Animation config type for anime.js v4
+interface AnimationConfig {
+  opacity: number[];
+  translateY?: number[];
+  translateX?: number[];
+  scale?: number[];
+  easing: string;
+}
+
+const animationConfigs: Record<AnimationType, AnimationConfig> = {
   fadeIn: {
     opacity: [0, 1],
     easing: 'easeOutQuad',
@@ -89,9 +98,9 @@ const AnimatedSection = ({
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
             if (once && hasAnimated.current) return;
-            
+
             hasAnimated.current = true;
-            
+
             animate(element, {
               ...animationConfigs[animation],
               duration,

@@ -117,6 +117,9 @@ export default {
         "glow-health": "0 0 40px rgba(0, 85, 164, 0.3)",
         "glow-mice": "0 0 40px rgba(57, 181, 74, 0.3)",
       },
+      backgroundImage: {
+        'gradient-radial': 'radial-gradient(ellipse at center, var(--tw-gradient-stops))',
+      },
     },
   },
   plugins: [require("tailwindcss-animate")],

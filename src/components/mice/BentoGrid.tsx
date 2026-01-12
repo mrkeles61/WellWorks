@@ -117,20 +117,20 @@ const BentoCard = ({ event, className }: BentoCardProps) => {
             )}
 
             {/* Content */}
-            <div className="relative z-10 h-full flex flex-col justify-end p-6">
+            <div className="relative z-10 h-full flex flex-col justify-end p-4">
                 <motion.div
                     initial={{ y: 20, opacity: 0 }}
                     animate={{ y: 0, opacity: 1 }}
                     transition={{ delay: 0.1 }}
                 >
                     <h3 className={cn(
-                        'font-oswald text-2xl md:text-3xl font-bold text-white uppercase tracking-wider mb-2',
+                        'font-oswald text-xl md:text-2xl font-bold text-white uppercase tracking-wider mb-1',
                         'transition-all duration-300',
                         isHovered && 'text-mice-primary'
                     )}>
                         {event.title}
                     </h3>
-                    <p className="text-white/70 text-sm mb-4">{event.subtitle}</p>
+                    <p className="text-white/70 text-xs mb-2 line-clamp-1">{event.subtitle}</p>
 
                     {/* Meta info */}
                     <div className="flex flex-wrap gap-4 text-white/60 text-sm">
@@ -177,18 +177,18 @@ const BentoGrid = () => {
                 </div>
 
                 {/* Bento Grid Layout - Wider, shorter cards */}
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 auto-rows-[180px] md:auto-rows-[200px]">
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 auto-rows-[120px]">
                     {/* Featured large card */}
                     <BentoCard
                         event={events[0]}
-                        className="md:col-span-2 lg:col-span-2 md:row-span-2"
+                        className="md:col-span-2 lg:col-span-2"
                     />
 
                     {/* Regular cards - wider */}
                     <BentoCard event={events[1]} className="lg:col-span-1" />
                     <BentoCard event={events[2]} className="lg:col-span-1" />
-                    <BentoCard event={events[3]} className="md:col-span-1" />
-                    <BentoCard event={events[4]} className="md:col-span-1" />
+                    <BentoCard event={events[3]} className="lg:col-span-1" />
+                    <BentoCard event={events[4]} className="md:col-span-1 lg:col-span-2" />
                 </div>
 
                 {/* View All CTA */}

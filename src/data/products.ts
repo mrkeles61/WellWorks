@@ -8,6 +8,8 @@ import lbd1 from '@/assets/products/lbd-1.jpg';
 import prtk5 from '@/assets/products/prtk5.jpg';
 import elct2 from '@/assets/products/elct2.jpg';
 import energy6 from '@/assets/products/energy-6.jpeg';
+import energyBoxBottle from '@/assets/products/energy-box-bottle.png';
+import hangoverBoxBottle from '@/assets/products/hangover-box-bottle.png';
 
 export interface Product {
   id: string;
@@ -35,7 +37,7 @@ export const products: Product[] = [
     shortDescription: 'Anında enerji, uzun süreli performans',
     tagline: 'Enerji',
     price: 489,
-    image: enerji1,
+    image: energyBoxBottle,
     color: '#FF6B35',
     category: 'Enerji',
     brand: 'dailyshot',
@@ -52,7 +54,7 @@ export const products: Product[] = [
     shortDescription: 'Yarına keyifle uyan',
     tagline: 'Akşamdan Kalma',
     price: 375,
-    image: hango1,
+    image: hangoverBoxBottle,
     color: '#E63946',
     category: 'Akşamdan Kalma',
     brand: 'dailyshot',
@@ -188,7 +190,7 @@ export const products: Product[] = [
     shortDescription: 'Deneme paketi',
     tagline: 'Enerji',
     price: 199,
-    image: energy6,
+    image: energyBoxBottle,
     color: '#FF6B35',
     category: 'Enerji',
     brand: 'dailyshot',
