@@ -6,9 +6,8 @@ import AnimatedSection from '@/components/shared/AnimatedSection';
 import BlogSection from '@/components/health/BlogSection';
 import bottleOfHealth from '@/assets/bottle-of-health.png';
 import certificationsTransparentImg from '@/assets/certifications_transparent.png';
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { useBrand } from '@/context/BrandContext';
-import StoreLocator from '@/components/health/StoreLocator';
 import { Button } from '@/components/ui/button';
 import {
   Carousel,
@@ -19,7 +18,69 @@ import {
 } from '@/components/ui/carousel';
 import { animate, stagger } from 'animejs';
 
+interface ProductCardProps {
+  type: 'dailyshot' | 'electrovit';
+  onClick: () => void;
+  title: string;
+  desc: string;
+  ctaText: string;
+}
+
+const InteractiveProductCard = ({ type, onClick, title, desc, ctaText }: ProductCardProps) => {
+  const bgRef = useRef<HTMLDivElement>(null);
+
+  const handleEnter = () => {
+    if (bgRef.current) {
+      animate(bgRef.current, { height: '100%', duration: 400, easing: 'easeOutQuad' });
+    }
+  };
+
+  const handleLeave = () => {
+    if (bgRef.current) {
+      animate(bgRef.current, { height: '0%', duration: 400, easing: 'easeInQuad' });
+    }
+  };
+
+  const isDailyshot = type === 'dailyshot';
+  const lightBg = isDailyshot ? 'bg-blue-50/50' : 'bg-orange-50/50';
+  const borderColor = isDailyshot ? 'border-blue-100' : 'border-orange-100';
+  const fillGradient = isDailyshot ? 'bg-gradient-to-br from-[#00A3E0] to-[#0077B6]' : 'bg-gradient-to-br from-[#FF9800] to-orange-700';
+  const iconBg = isDailyshot ? 'bg-blue-100' : 'bg-orange-100';
+  const iconColor = isDailyshot ? 'text-[#00A3E0]' : 'text-[#FF9800]';
+
+  return (
+    <div
+      onClick={onClick}
+      onMouseEnter={handleEnter}
+      onMouseLeave={handleLeave}
+      className={`group relative overflow-hidden rounded-2xl border ${borderColor} ${lightBg} shadow-lg hover:shadow-xl transition-all duration-300 p-6 sm:p-8 flex flex-col sm:flex-row items-start sm:items-center gap-6 cursor-pointer`}
+    >
+      <div ref={bgRef} className={`absolute bottom-0 left-0 w-full h-0 ${fillGradient} z-0`} />
+
+      <div className={`h-16 w-16 flex-shrink-0 rounded-full ${iconBg} flex items-center justify-center ${iconColor} relative z-10 group-hover:bg-white/20 group-hover:text-white transition-colors duration-300`}>
+        {isDailyshot ? <Droplets className="w-8 h-8" /> : <Zap className="w-8 h-8" />}
+      </div>
+
+      <div className="flex-grow relative z-10 group-hover:text-white transition-colors duration-300">
+        <h3 className="text-2xl font-poppins font-bold text-gray-900 mb-2 group-hover:text-white transition-colors">
+          {title}
+        </h3>
+        <p className="text-gray-600 text-sm group-hover:text-white/90 transition-colors">
+          {desc}
+        </p>
+      </div>
+
+      <div className="flex-shrink-0 relative z-10 self-end sm:self-center group-hover:text-white transition-colors duration-300">
+        <span className={`inline-flex items-center text-sm font-semibold ${iconColor} group-hover:text-white group-hover:translate-x-1 transition-all`}>
+          {ctaText} <ArrowRight className="ml-1 w-4 h-4" />
+        </span>
+      </div>
+    </div>
+  );
+};
+
 const HealthHome = () => {
+
   const { setBrand } = useBrand();
   const { t } = useTranslation();
   const dailyshotSectionRef = useRef<HTMLDivElement>(null);
@@ -200,7 +261,7 @@ const HealthHome = () => {
                 <img
                   src="/images/products_showcase.png"
                   alt="DailyShot and Electrovit Products"
-                  className="relative w-full h-auto object-contain drop-shadow-2xl hover:scale-105 transition-transform duration-500 animate-[float_6s_ease-in-out_infinite]"
+                  className="relative w-full h-auto scale-110 object-contain drop-shadow-2xl transition-transform duration-500 animate-float-slow"
                 />
               </div>
               {/* Decorative circle */}
@@ -226,67 +287,21 @@ const HealthHome = () => {
 
               {/* Product Cards */}
               <div className="grid gap-6 mt-4">
-                {/* DailyShot Card */}
-                <div
+                <InteractiveProductCard
+                  type="dailyshot"
+                  title="DailyShot"
+                  desc={t('health.ourProducts.dailyshot.desc')}
+                  ctaText={`${t('health.ourProducts.explore')} DailyShot`}
                   onClick={() => document.getElementById('dailyshot-products')?.scrollIntoView({ behavior: 'smooth' })}
-                  className="group relative overflow-hidden rounded-2xl bg-white border border-gray-100 shadow-lg hover:shadow-xl transition-all duration-300 p-6 sm:p-8 flex flex-col sm:flex-row items-start sm:items-center gap-6 cursor-pointer"
-                >
-                  {/* Hover gradient */}
-                  <div className="absolute inset-0 bg-gradient-to-r from-blue-50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                />
 
-                  {/* Icon */}
-                  <div className="h-16 w-16 flex-shrink-0 rounded-full bg-blue-100 flex items-center justify-center text-health-primary relative z-10">
-                    <Droplets className="w-8 h-8" />
-                  </div>
-
-                  {/* Content */}
-                  <div className="flex-grow relative z-10">
-                    <h3 className="text-2xl font-poppins font-bold text-gray-900 mb-2 group-hover:text-health-primary transition-colors">
-                      DailyShot
-                    </h3>
-                    <p className="text-gray-600 text-sm">
-                      {t('health.ourProducts.dailyshot.desc')}
-                    </p>
-                  </div>
-
-                  {/* CTA */}
-                  <div className="flex-shrink-0 relative z-10 self-end sm:self-center">
-                    <span className="inline-flex items-center text-sm font-semibold text-health-primary group-hover:translate-x-1 transition-transform">
-                      {t('health.ourProducts.explore')} DailyShot <ArrowRight className="ml-1 w-4 h-4" />
-                    </span>
-                  </div>
-                </div>
-
-                {/* Electrovit Card */}
-                <div
+                <InteractiveProductCard
+                  type="electrovit"
+                  title="Electrovit"
+                  desc={t('health.ourProducts.electrovit.desc')}
+                  ctaText={`${t('health.ourProducts.explore')} Electrovit`}
                   onClick={() => document.getElementById('electrovit-products')?.scrollIntoView({ behavior: 'smooth' })}
-                  className="group relative overflow-hidden rounded-2xl bg-white border border-gray-100 shadow-lg hover:shadow-xl transition-all duration-300 p-6 sm:p-8 flex flex-col sm:flex-row items-start sm:items-center gap-6 cursor-pointer"
-                >
-                  {/* Hover gradient */}
-                  <div className="absolute inset-0 bg-gradient-to-r from-orange-50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-
-                  {/* Icon */}
-                  <div className="h-16 w-16 flex-shrink-0 rounded-full bg-orange-100 flex items-center justify-center text-orange-500 relative z-10">
-                    <Zap className="w-8 h-8" />
-                  </div>
-
-                  {/* Content */}
-                  <div className="flex-grow relative z-10">
-                    <h3 className="text-2xl font-poppins font-bold text-gray-900 mb-2 group-hover:text-orange-500 transition-colors">
-                      Electrovit
-                    </h3>
-                    <p className="text-gray-600 text-sm">
-                      {t('health.ourProducts.electrovit.desc')}
-                    </p>
-                  </div>
-
-                  {/* CTA */}
-                  <div className="flex-shrink-0 relative z-10 self-end sm:self-center">
-                    <span className="inline-flex items-center text-sm font-semibold text-orange-500 group-hover:translate-x-1 transition-transform">
-                      {t('health.ourProducts.explore')} Electrovit <ArrowRight className="ml-1 w-4 h-4" />
-                    </span>
-                  </div>
-                </div>
+                />
               </div>
             </AnimatedSection>
           </div>
@@ -514,8 +529,6 @@ const HealthHome = () => {
         </div>
       </section>
 
-      {/* Store Locator Section */}
-      <StoreLocator />
 
       {/* Blog Section */}
       <BlogSection />

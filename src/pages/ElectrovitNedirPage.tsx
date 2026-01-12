@@ -16,53 +16,55 @@ const ElectrovitNedirPage = () => {
     const benefits = [
         {
             icon: <Zap className="w-6 h-6" />,
-            title: 'Anında Enerji',
-            description: 'Elektrolitleri hızla yerine koyarak performansınızı artırır.',
+            title: t('health.electrovitNedir.benefits.instantEnergy'),
+            description: t('health.electrovitNedir.benefits.instantEnergyDesc'),
         },
         {
             icon: <Droplets className="w-6 h-6" />,
-            title: 'Optimal Hidrasyon',
-            description: 'Vücudunuzun su dengesini korur ve dehidrasyonu önler.',
+            title: t('health.electrovitNedir.benefits.hydration'),
+            description: t('health.electrovitNedir.benefits.hydrationDesc'),
         },
         {
             icon: <Activity className="w-6 h-6" />,
-            title: 'Kas Fonksiyonu',
-            description: 'Kasların düzgün çalışmasını destekler, krampları önler.',
+            title: t('health.electrovitNedir.benefits.muscleFunction'),
+            description: t('health.electrovitNedir.benefits.muscleFunctionDesc'),
         },
         {
             icon: <Heart className="w-6 h-6" />,
-            title: 'Kalp Sağlığı',
-            description: 'Sodyum-potasyum dengesi ile kalp ritmini destekler.',
+            title: t('health.electrovitNedir.benefits.heartHealth'),
+            description: t('health.electrovitNedir.benefits.heartHealthDesc'),
         },
     ];
 
     const useCases = [
         {
             icon: <Dumbbell className="w-8 h-8" />,
-            title: 'Antrenman Öncesi',
-            description: 'Performansınızı artırmak için egzersizden 15-30 dakika önce için.',
+            title: t('health.electrovitNedir.usageTime.preWorkout'),
+            description: t('health.electrovitNedir.usageTime.preWorkoutDesc'),
         },
         {
             icon: <Activity className="w-8 h-8" />,
-            title: 'Antrenman Sırasında',
-            description: 'Uzun süreli aktivitelerde elektrolit kaybını önleyin.',
+            title: t('health.electrovitNedir.usageTime.duringWorkout'),
+            description: t('health.electrovitNedir.usageTime.duringWorkoutDesc'),
         },
         {
             icon: <Timer className="w-8 h-8" />,
-            title: 'Antrenman Sonrası',
-            description: 'Kaybedilen elektrolitleri hızla yerine koyun.',
+            title: t('health.electrovitNedir.usageTime.postWorkout'),
+            description: t('health.electrovitNedir.usageTime.postWorkoutDesc'),
         },
     ];
 
     const flavors = [
         {
-            name: 'Karpuz',
+            id: 'watermelon',
+            name: t('health.electrovitNedir.flavors.watermelon'),
             color: '#E91E63',
             gradient: 'from-pink-500 to-red-500',
             link: 'https://dailyshot.com.tr/urun/electrovit-karpuzlu-8-li',
         },
         {
-            name: 'Portakal',
+            id: 'orange',
+            name: t('health.electrovitNedir.flavors.orange'),
             color: '#FF9800',
             gradient: 'from-orange-400 to-orange-600',
             link: 'https://dailyshot.com.tr/urun/electrovit-portakal-aromali-8-li',
@@ -70,12 +72,12 @@ const ElectrovitNedirPage = () => {
     ];
 
     const targetAudience = [
-        'Sporcular ve fitness tutkunları',
-        'Yoğun tempolu iş hayatı yaşayanlar',
-        'Açık havada çalışanlar',
-        'Sıcak havalarda aktif olanlar',
-        'Yüksek terleme oranına sahip kişiler',
-        'Seyahat edenler',
+        t('health.electrovitNedir.targetAudience.item1'),
+        t('health.electrovitNedir.targetAudience.item2'),
+        t('health.electrovitNedir.targetAudience.item3'),
+        t('health.electrovitNedir.targetAudience.item4'),
+        t('health.electrovitNedir.targetAudience.item5'),
+        t('health.electrovitNedir.targetAudience.item6'),
     ];
 
     return (
@@ -87,14 +89,13 @@ const ElectrovitNedirPage = () => {
                     <AnimatedSection animation="fadeInUp">
                         <div className="max-w-3xl">
                             <span className="text-white/80 text-sm font-semibold uppercase tracking-widest mb-4 block bg-white/10 backdrop-blur-sm px-4 py-2 rounded-full w-fit">
-                                Elektrolit Takviyesi
+                                {t('health.electrovitNedir.heroLabel')}
                             </span>
                             <h1 className="font-poppins font-bold text-4xl md:text-5xl lg:text-6xl leading-tight mb-6">
-                                Electrovit Nedir?
+                                {t('health.electrovitNedir.heroTitle')}
                             </h1>
                             <p className="text-xl text-white/90 leading-relaxed max-w-2xl">
-                                Electrovit, aktif yaşam sürenler ve sporcular için özel olarak formüle edilmiş likit elektrolit takviyesidir.
-                                Toz değil, hazır içilebilir formatta sunulur.
+                                {t('health.electrovitNedir.heroDesc')}
                             </p>
                         </div>
                     </AnimatedSection>
@@ -106,10 +107,10 @@ const ElectrovitNedirPage = () => {
                 <div className="container mx-auto px-6">
                     <AnimatedSection animation="fadeInUp" className="text-center mb-16">
                         <span className="text-[#FF9800] text-sm font-semibold uppercase tracking-widest mb-4 block">
-                            Neden Electrovit?
+                            {t('health.electrovitNedir.benefits.label')}
                         </span>
                         <h2 className="font-poppins font-bold text-3xl md:text-4xl text-gray-900 max-w-2xl mx-auto">
-                            Elektrolitlerin Gücü
+                            {t('health.electrovitNedir.benefits.title')}
                         </h2>
                     </AnimatedSection>
 
@@ -138,10 +139,10 @@ const ElectrovitNedirPage = () => {
                 <div className="container mx-auto px-6">
                     <AnimatedSection animation="fadeInUp" className="text-center mb-16">
                         <span className="text-[#FF9800] text-sm font-semibold uppercase tracking-widest mb-4 block">
-                            Kullanım Zamanı
+                            {t('health.electrovitNedir.usageTime.label')}
                         </span>
                         <h2 className="font-poppins font-bold text-3xl md:text-4xl text-gray-900">
-                            Ne Zaman Kullanmalı?
+                            {t('health.electrovitNedir.usageTime.title')}
                         </h2>
                     </AnimatedSection>
 
@@ -168,10 +169,10 @@ const ElectrovitNedirPage = () => {
                 <div className="container mx-auto px-6">
                     <AnimatedSection animation="fadeInUp" className="text-center mb-16">
                         <span className="text-[#FF9800] text-sm font-semibold uppercase tracking-widest mb-4 block">
-                            Aromalar
+                            {t('health.electrovitNedir.flavors.label')}
                         </span>
                         <h2 className="font-poppins font-bold text-3xl md:text-4xl text-gray-900">
-                            İki Lezzetli Seçenek
+                            {t('health.electrovitNedir.flavors.title')}
                         </h2>
                     </AnimatedSection>
 
@@ -184,11 +185,11 @@ const ElectrovitNedirPage = () => {
                                     rel="noopener noreferrer"
                                     className={`block bg-gradient-to-br ${flavor.gradient} rounded-3xl p-10 text-white text-center hover:scale-105 transition-transform shadow-xl`}
                                 >
-                                    <div className="text-6xl mb-4">{flavor.name === 'Karpuz' ? '🍉' : '🍊'}</div>
+                                    <div className="text-6xl mb-4">{flavor.id === 'watermelon' ? '🍉' : '🍊'}</div>
                                     <h3 className="font-poppins font-bold text-3xl mb-2">{flavor.name}</h3>
-                                    <p className="text-white/80 mb-4">Aromalı Electrovit</p>
+                                    <p className="text-white/80 mb-4">{t('health.electrovitNedir.flavors.desc')}</p>
                                     <span className="inline-flex items-center gap-2 text-sm font-semibold">
-                                        Satın Al <ArrowRight className="w-4 h-4" />
+                                        {t('health.electrovitNedir.flavors.buy')} <ArrowRight className="w-4 h-4" />
                                     </span>
                                 </a>
                             </AnimatedSection>
@@ -203,10 +204,10 @@ const ElectrovitNedirPage = () => {
                     <div className="max-w-4xl mx-auto">
                         <AnimatedSection animation="fadeInUp" className="text-center mb-12">
                             <span className="text-[#FF9800] text-sm font-semibold uppercase tracking-widest mb-4 block">
-                                Kimler İçin?
+                                {t('health.electrovitNedir.targetAudience.label')}
                             </span>
                             <h2 className="font-poppins font-bold text-3xl md:text-4xl">
-                                Electrovit Sizin İçin mi?
+                                {t('health.electrovitNedir.targetAudience.title')}
                             </h2>
                         </AnimatedSection>
 
@@ -228,7 +229,7 @@ const ElectrovitNedirPage = () => {
                                 className="bg-[#FF9800] hover:bg-[#FF9800]/90 text-white font-bold rounded-full px-10"
                             >
                                 <a href="https://dailyshot.com.tr/arama/electrovit" target="_blank" rel="noopener noreferrer">
-                                    Electrovit'i Dene <ArrowRight className="w-5 h-5 ml-2" />
+                                    {t('health.electrovitNedir.cta')} <ArrowRight className="w-5 h-5 ml-2" />
                                 </a>
                             </Button>
                         </AnimatedSection>

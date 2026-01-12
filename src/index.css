@@ -99,13 +99,15 @@
     --sidebar-border: 0 0% 15%;
     --sidebar-ring: 130 52% 47%;
   }
+
   .maplibregl-popup-content {
-    @apply bg-transparent! shadow-none! p-0! rounded-none!;
-    @apply bg-transparent! shadow-none! p-0! rounded-none!;
+    @apply bg-transparent ! shadow-none ! p-0 ! rounded-none !;
+    @apply bg-transparent ! shadow-none ! p-0 ! rounded-none !;
   }
+
   .maplibregl-popup-tip {
-    @apply hidden!;
-    @apply hidden!;
+    @apply hidden !;
+    @apply hidden !;
   }
 }
 
@@ -444,6 +446,10 @@
 
 .animate-float {
   animation: float 6s ease-in-out infinite;
+}
+
+.animate-float-slow {
+  animation: float 12s ease-in-out infinite;
 }
 
 .animate-glow-pulse {

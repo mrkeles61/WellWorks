@@ -168,6 +168,8 @@ const resources = {
             title: 'İki Lezzetli Seçenek',
             watermelon: 'Karpuz',
             orange: 'Portakal',
+            desc: 'Aromalı Electrovit',
+            buy: 'Satın Al',
           },
           targetAudience: {
             label: 'Kimler İçin?',
@@ -234,6 +236,25 @@ const resources = {
           getDirections: 'Yol Tarifi',
           addressBased: 'Adres bazlı',
           onMap: 'Haritada',
+        },
+        aboutUs: {
+          pageTitle: 'Hakkımızda',
+          origin: {
+            title: 'HAKKIMIZDA',
+            content: 'İnsanlara daha sağlıklı ve daha doğal bir yaşam sağlamak amacıyla yola çıktık. Doğadan aldığımız ilhamla tüketicilerimiz için sağlıklı çözümler sunmayı hedefliyor, doğanın bize sunduklarını gelecek kuşaklara taşıyor ve bu ilhamla yarattığımız besin takviyelerini ihtiyacı olanlarla buluşturuyoruz. Kendimizi, hizmet ettiğimiz kişilerin "Sağlıklı Yaşam Ortakları" olarak görüyor ve bu sorumluluk bilinci ile çalışıyoruz. Duruşumuz ve hedefimizle sektöre bambaşka bir boyut kazandırdığımız inancındayız.',
+          },
+          qualityPolicy: {
+            title: 'KALİTE POLİTİKAMIZ',
+            content: 'Ürünlerimizin içeriğine, sağladığı faydalara ve kalitesine güveniyoruz. Ürünlerimizde insan sağlığına zarar verecek ya da olumsuz etki edecek hiçbir bileşene yer vermiyoruz. Patentli ham madde kullanıyor ve helal kuralları çerçevesinde birleştiriyoruz. Her gün yenilenen teknoloji ile üretim prosesimizi geliştiriyor, yenilikçi ve özgün ürünler üreterek sağlığınıza hediye ediyoruz. Kalitesinden emin olmadığımız hiçbir ürünü sizlere sunmuyor ve ürün kalitemizi üstün tutuyoruz.',
+          },
+          closing: 'Geçmişten geleceğe yürüdüğümüz bu yolda bize eşlik ettiğiniz için sizlere teşekkür ederiz.',
+          social: {
+            title: 'SOSYAL MEDYA',
+            content: 'WellWorks Health dünyasından en güncel haberler ve sağlıklı yaşam ipuçları için bizi takip edin.',
+            instagram: 'Instagram',
+            linkedin: 'LinkedIn',
+            youtube: 'YouTube',
+          },
         },
       },
       mice: {
@@ -683,6 +704,8 @@ Telefon: +90 536 032 08 38`,
             title: 'Two Delicious Options',
             watermelon: 'Watermelon',
             orange: 'Orange',
+            desc: 'Flavored Electrovit',
+            buy: 'Buy Now',
           },
           targetAudience: {
             label: 'Who is it for?',
@@ -749,6 +772,25 @@ Telefon: +90 536 032 08 38`,
           getDirections: 'Get Directions',
           addressBased: 'Address based',
           onMap: 'On Map',
+        },
+        aboutUs: {
+          pageTitle: 'About Us',
+          origin: {
+            title: 'ABOUT US',
+            content: 'We set out with the aim of providing people with a healthier and more natural life. Inspired by nature, we aim to offer healthy solutions for our consumers, carry what nature offers us to future generations, and bring the nutritional supplements we create with this inspiration to those who need them. We see ourselves as "Healthy Living Partners" of the people we serve and work with this awareness of responsibility. We believe that we have brought a completely different dimension to the sector with our stance and goal.',
+          },
+          qualityPolicy: {
+            title: 'OUR QUALITY POLICY',
+            content: 'We trust the content, benefits and quality of our products. We do not include any components in our products that would harm human health or have negative effects. We use patented raw materials and combine them within the framework of halal rules. We improve our production process with technology that is renewed every day, producing innovative and original products and gifting them to your health. We do not offer you any product whose quality we are not sure of, and we keep our product quality superior.',
+          },
+          closing: 'We thank you for accompanying us on this path we walk from the past to the future.',
+          social: {
+            title: 'SOCIAL MEDIA',
+            content: 'Follow us for the latest news and healthy living tips from the world of WellWorks Health.',
+            instagram: 'Instagram',
+            linkedin: 'LinkedIn',
+            youtube: 'YouTube',
+          },
         },
       },
       mice: {
