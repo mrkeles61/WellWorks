@@ -148,6 +148,7 @@ const HealthHome = () => {
               alt="Dailyshot"
               className="w-full object-contain drop-shadow-sm transform scale-105"
               style={{ maxHeight: '250px' }}
+              loading="eager"
             />
           </div>
 
@@ -188,6 +189,7 @@ const HealthHome = () => {
                 src={bottleOfHealth}
                 alt="Dailyshot - A Bottle of Health"
                 className="w-full max-w-lg mx-auto drop-shadow-2xl transition-transform duration-500 group-hover:scale-105"
+                loading="eager"
               />
               {/* Background glow */}
               <div className="absolute inset-0 -z-10 bg-health-primary/10 blur-3xl rounded-full transform scale-75" />
@@ -252,6 +254,7 @@ const HealthHome = () => {
                   src={introLiquidImage}
                   alt="Dailyshot Liquid Advantages"
                   className="w-full h-auto object-cover"
+                  loading="lazy"
                 />
               </div>
             </a>
@@ -281,6 +284,7 @@ const HealthHome = () => {
                   src="/images/products_showcase.png"
                   alt="DailyShot and Electrovit Products"
                   className="relative w-full h-auto scale-110 object-contain drop-shadow-2xl transition-transform duration-500 animate-float-slow"
+                  loading="lazy"
                 />
               </div>
               {/* Decorative circle */}
@@ -435,6 +439,7 @@ const HealthHome = () => {
                   src={liquidAdvantagesImage}
                   alt="Liquid Form Advantages"
                   className="w-full h-auto object-cover transform transition-transform duration-700 group-hover:scale-105"
+                  loading="lazy"
                 />
               </div>
             </div>
@@ -483,18 +488,19 @@ const HealthHome = () => {
       </section>
 
       {/* ===== WHY LIQUID? (Liquid Form Info Section) - Reference Image 4 Style ===== */}
-      <section className="relative py-24 bg-gray-900 overflow-hidden">
+      <section className="relative py-24 bg-slate-900 overflow-hidden">
         {/* Background Image */}
         <div className="absolute inset-0 z-0">
           <img
-            src="/images/dailyshot_ingredients.jpg"
-            alt="Natural Ingredients"
-            className="w-full h-full object-cover opacity-60"
+            src="/images/dailyshot_products_showcase.png"
+            alt="Dailyshot Products"
+            className="w-full h-full object-contain opacity-40"
+            loading="lazy"
           />
         </div>
 
-        {/* Strong Orange/Amber Overlay Gradient */}
-        <div className="absolute inset-0 z-10 bg-gradient-to-r from-orange-600/90 via-amber-600/80 to-amber-500/40" />
+        {/* Cool Blue/Gray Overlay Gradient */}
+        <div className="absolute inset-0 z-10 bg-gradient-to-r from-slate-900/95 via-slate-800/90 to-slate-700/70" />
 
         <div className="container mx-auto px-6 relative z-20">
           <div className="grid md:grid-cols-3 gap-12 text-white">

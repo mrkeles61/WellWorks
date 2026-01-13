@@ -284,6 +284,10 @@ const resources = {
             content: 'Ürünlerimizin içeriğine, sağladığı faydalara ve kalitesine güveniyoruz. Ürünlerimizde insan sağlığına zarar verecek ya da olumsuz etki edecek hiçbir bileşene yer vermiyoruz. Patentli ham madde kullanıyor ve helal kuralları çerçevesinde birleştiriyoruz. Her gün yenilenen teknoloji ile üretim prosesimizi geliştiriyor, yenilikçi ve özgün ürünler üreterek sağlığınıza hediye ediyoruz. Kalitesinden emin olmadığımız hiçbir ürünü sizlere sunmuyor ve ürün kalitemizi üstün tutuyoruz.',
           },
           closing: 'Geçmişten geleceğe yürüdüğümüz bu yolda bize eşlik ettiğiniz için sizlere teşekkür ederiz.',
+          reachUs: {
+            title: 'Bize Ulaşın!',
+            subtitle: '',
+          },
           social: {
             title: 'SOSYAL MEDYA',
             content: 'WellWorks Health dünyasından en güncel haberler ve sağlıklı yaşam ipuçları için bizi takip edin.',
@@ -424,6 +428,10 @@ const resources = {
             content: 'Her etkinliği bir başyapıt olarak ele alıyor, markanızın ruhunu yansıtan ve katılımcılarınızla derin bağlar kuran deneyimler yaratıyoruz. Detaylara olan tutkumuz ve profesyonel yaklaşımımızla sektörde fark yaratıyoruz.',
           },
           closing: 'Bir sonraki etkinliğinizin efsane olması için buradayız.',
+          reachUs: {
+            title: 'Bize Ulaşın!',
+            subtitle: '',
+          },
           social: {
             title: 'SOSYAL MEDYA',
             content: 'WellWorks MICE dünyasından en güncel haberler ve etkinlik duyuruları için bizi takip edin.',
@@ -912,8 +920,8 @@ Telefon: +90 536 032 08 38`,
           },
           closing: 'We thank you for accompanying us on this path we walk from the past to the future.',
           reachUs: {
-            title: 'REACH US',
-            subtitle: 'Follow us on our social media accounts.',
+            title: 'Contact Us!',
+            subtitle: '',
           },
           social: {
             title: 'SOCIAL MEDIA',
@@ -1056,8 +1064,8 @@ Telefon: +90 536 032 08 38`,
           },
           closing: 'We are here to make your next event legendary.',
           reachUs: {
-            title: 'REACH US',
-            subtitle: 'Follow us on our social media accounts.',
+            title: 'Contact Us!',
+            subtitle: '',
           },
           social: {
             title: 'SOCIAL MEDIA',
