@@ -32,7 +32,7 @@ export const products: Product[] = [
   {
     id: '1',
     name: 'EnergyShot',
-    slug: 'energyshot',
+    slug: 'energyshot-7-li-kutu',
     shortDescription: 'GÜNÜNÜ ATEŞLE!',
     tagline: 'Enerji',
     price: 489,
@@ -49,7 +49,7 @@ export const products: Product[] = [
   {
     id: '2',
     name: 'HangoverShot',
-    slug: 'hangovershot',
+    slug: 'hangovershot4lupaket',
     shortDescription: 'Akşamdan Kalma, Yarına Keyifle Uyan!',
     tagline: 'Akşamdan Kalma',
     price: 375,
@@ -66,7 +66,7 @@ export const products: Product[] = [
   {
     id: '11',
     name: 'HangoverShot Zero',
-    slug: 'hangovershot-zero',
+    slug: 'hangovershotzero4lupaket',
     shortDescription: 'Şekersiz, Yarına Keyifle Uyan!',
     tagline: 'Akşamdan Kalma',
     price: 375,
@@ -83,7 +83,7 @@ export const products: Product[] = [
   {
     id: '3',
     name: 'RelaxShot',
-    slug: 'relaxshot',
+    slug: 'relaxshot-7-li-kutu',
     shortDescription: 'RAHATLA, DİNLEN, YENİLEN!',
     tagline: 'Uyku ve Stres',
     price: 515,
@@ -100,7 +100,7 @@ export const products: Product[] = [
   {
     id: '4',
     name: 'DefenseShot',
-    slug: 'defenseshot',
+    slug: 'defenseshot-7-li-kutu',
     shortDescription: 'HİSSETTİĞİN ANDA YANINDA!',
     tagline: 'Bağışıklık',
     price: 498,
@@ -117,7 +117,7 @@ export const products: Product[] = [
   {
     id: '5',
     name: 'DetoxShot',
-    slug: 'detoxshot',
+    slug: 'detoxshot-kilo-kontrol-destegi',
     shortDescription: 'Harekete Geç, Hafifle, Gücünü Yeniden Keşfet!',
     tagline: 'Detoks',
     price: 1749,
@@ -134,7 +134,7 @@ export const products: Product[] = [
   {
     id: '6',
     name: 'LaxShot',
-    slug: 'laxshot',
+    slug: 'laxshot-bagirsak-ve-sindirim-sistemi-duzenleyici-gaz-siskinlik-icin-lax-shot',
     shortDescription: 'BAĞIRSAKLARIN DOĞAL RİTMİ!',
     tagline: 'Sindirim',
     price: 529,
@@ -151,7 +151,7 @@ export const products: Product[] = [
   {
     id: '7',
     name: 'LibidoShot',
-    slug: 'libidoshot',
+    slug: 'libidoshot-14-lu-kutu',
     shortDescription: 'Bilimle Gelen Mutluluk!',
     tagline: 'Cinsel Sağlık',
     price: 1689,
@@ -168,7 +168,7 @@ export const products: Product[] = [
   {
     id: '8',
     name: 'WellAgingShot',
-    slug: 'wellagingshot',
+    slug: 'anti-ox-shot-14-lu',
     shortDescription: 'Active Cell Technology',
     tagline: 'Anti-Aging',
     price: 899,
@@ -185,7 +185,7 @@ export const products: Product[] = [
   {
     id: '9',
     name: 'Electrovit Portakal',
-    slug: 'electrovit-portakal',
+    slug: 'electrovit-portakal-aromali-8-li',
     shortDescription: 'SU İÇEMEYENLER İÇİN TASARLANDI!',
     tagline: 'Elektrolit',
     price: 379,
@@ -202,7 +202,7 @@ export const products: Product[] = [
   {
     id: '10',
     name: 'Electrovit Karpuz',
-    slug: 'electrovit-karpuz',
+    slug: 'electrovit-karpuzlu-8-li',
     shortDescription: 'SUSUZ KALMA!',
     tagline: 'Elektrolit',
     price: 379,

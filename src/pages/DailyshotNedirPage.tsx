@@ -193,7 +193,11 @@ const DailyshotNedirPage = () => {
                                         <img
                                             src={product.displayImage}
                                             alt={product.name}
-                                            className="h-full w-full object-contain drop-shadow-xl transform transition-transform duration-500 group-hover:scale-110"
+                                            onLoad={(e) => {
+                                                const target = e.target as HTMLImageElement;
+                                                target.style.opacity = '1';
+                                            }}
+                                            className="h-full w-full object-contain drop-shadow-xl transform transition-all duration-500 group-hover:scale-110 opacity-0"
                                         />
                                     </div>
 
@@ -214,8 +218,11 @@ const DailyshotNedirPage = () => {
                                             {product.shortDescription}
                                         </p>
 
-                                        <div className="flex items-center text-health-primary font-bold text-sm">
-                                            {t('health.dailyshotNedir.cta.viewProduct')} <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
+                                        <div
+                                            className="inline-flex items-center justify-center px-4 py-2 rounded-full font-bold text-sm text-white transition-all hover:scale-105 shadow-md"
+                                            style={{ backgroundColor: product.color }}
+                                        >
+                                            {t('health.dailyshotNedir.cta.viewProduct')} <ArrowRight className="w-4 h-4 ml-2" />
                                         </div>
                                     </div>
                                 </a>

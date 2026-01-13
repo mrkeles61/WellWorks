@@ -62,6 +62,46 @@ const MiceAbout = () => {
                     </AnimatedSection>
                 </div>
             </div>
+
+            {/* Reach Us / Social Media Section */}
+            <div className="bg-[#1A1C20] py-20 relative overflow-hidden border-t border-white/5">
+                <div className="max-w-4xl mx-auto px-4 md:px-8 relative z-10 text-center">
+                    <AnimatedSection animation="fadeInUp">
+                        <h2 className="font-poppins font-bold text-3xl md:text-4xl text-white mb-12 inline-block relative">
+                            {t('mice.aboutUs.reachUs.title')}
+                            <div className="absolute -bottom-3 left-1/2 -translate-x-1/2 w-24 h-1 bg-[#2DB34A] rounded-full" />
+                        </h2>
+
+                        <div className="flex justify-center">
+                            <a
+                                href="https://www.instagram.com/wellworksmice/"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="group relative w-full max-w-sm bg-[#22252A] rounded-3xl p-8 border border-white/5 hover:border-[#2DB34A]/50 transition-all duration-300 hover:-translate-y-2 hover:shadow-xl hover:shadow-[#2DB34A]/10"
+                            >
+                                <div className="absolute inset-0 bg-gradient-to-br from-[#2DB34A]/0 to-[#2DB34A]/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+
+                                <div className="relative z-10 flex flex-col items-center">
+                                    <div className="w-24 h-24 rounded-full p-1 border-2 border-dashed border-[#2DB34A]/30 group-hover:border-[#2DB34A] transition-colors duration-300 mb-6">
+                                        <img
+                                            src="/images/social/mice_insta.png"
+                                            alt="WellWorks MICE Instagram"
+                                            className="w-full h-full rounded-full object-cover"
+                                        />
+                                    </div>
+
+                                    <h3 className="text-xl font-bold text-white mb-1">@wellworksmice</h3>
+                                    <p className="text-gray-400 text-sm mb-6">Instagram</p>
+
+                                    <div className="px-6 py-2 rounded-full bg-[#2DB34A]/10 text-[#2DB34A] font-semibold text-sm group-hover:bg-[#2DB34A] group-hover:text-white transition-all duration-300">
+                                        Takip Et
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                    </AnimatedSection>
+                </div>
+            </div>
         </div>
     );
 };

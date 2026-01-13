@@ -54,12 +54,12 @@ const SocialMediaFAB = () => {
 
     return (
         <div
-            className="fixed bottom-6 right-6 z-50 flex flex-col items-center"
+            className="fixed bottom-6 right-6 z-50 flex flex-col items-center group"
             onMouseEnter={() => setIsExpanded(true)}
             onMouseLeave={() => setIsExpanded(false)}
         >
             {/* Social Media Icons - Stack above WhatsApp, animate from bottom */}
-            <div className="flex flex-col items-center gap-3 mb-3">
+            <div className="absolute bottom-16 flex flex-col items-center gap-3 w-full">
                 {socialLinks.map((social, index) => (
                     <a
                         key={social.name}

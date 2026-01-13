@@ -4,6 +4,7 @@ import { useEffect } from 'react';
 import { useBrand } from '@/context/BrandContext';
 import { Button } from '@/components/ui/button';
 import AnimatedSection from '@/components/shared/AnimatedSection';
+import ProductCard from '@/components/health/ProductCard';
 import { products } from '@/data/products';
 
 const ElectrovitNedirPage = () => {
@@ -57,27 +58,6 @@ const ElectrovitNedirPage = () => {
 
     // Get electrovit products for their images
     const electrovitProducts = products.filter(p => p.brand === 'electrovit');
-    const watermelonProduct = electrovitProducts.find(p => p.slug.includes('karpuz'));
-    const orangeProduct = electrovitProducts.find(p => p.slug.includes('portakal'));
-
-    const flavors = [
-        {
-            id: 'watermelon',
-            name: t('health.electrovitNedir.flavors.watermelon'),
-            color: '#E91E63',
-            gradient: 'from-pink-500 to-red-500',
-            link: 'https://dailyshot.com.tr/urun/electrovit-karpuzlu-8-li',
-            image: watermelonProduct?.image,
-        },
-        {
-            id: 'orange',
-            name: t('health.electrovitNedir.flavors.orange'),
-            color: '#FF9800',
-            gradient: 'from-orange-400 to-orange-600',
-            link: 'https://dailyshot.com.tr/urun/electrovit-portakal-aromali-8-li',
-            image: orangeProduct?.image,
-        },
-    ];
 
     const targetAudience = [
         t('health.electrovitNedir.targetAudience.item1'),
@@ -106,10 +86,10 @@ const ElectrovitNedirPage = () => {
                             <span className="text-orange-300 text-sm font-semibold uppercase tracking-widest mb-4 block bg-white/10 backdrop-blur-sm px-4 py-2 rounded-full w-fit">
                                 {t('health.electrovitNedir.heroLabel')}
                             </span>
-                            <h1 className="font-poppins font-bold text-4xl md:text-5xl lg:text-6xl leading-tight mb-6">
+                            <h1 className="font-poppins font-bold text-5xl md:text-6xl lg:text-7xl leading-tight mb-6">
                                 {t('health.electrovitNedir.heroTitle')}
                             </h1>
-                            <p className="text-xl text-orange-100 leading-relaxed max-w-2xl">
+                            <p className="text-2xl text-orange-100 leading-relaxed max-w-2xl">
                                 {t('health.electrovitNedir.heroDesc')}
                             </p>
                         </div>
@@ -124,7 +104,7 @@ const ElectrovitNedirPage = () => {
                         <span className="text-[#FF9800] text-sm font-semibold uppercase tracking-widest mb-4 block">
                             {t('health.electrovitNedir.benefits.label')}
                         </span>
-                        <h2 className="font-poppins font-bold text-3xl md:text-4xl text-gray-900 max-w-2xl mx-auto">
+                        <h2 className="font-poppins font-bold text-4xl md:text-5xl text-gray-900 max-w-2xl mx-auto">
                             {t('health.electrovitNedir.benefits.title')}
                         </h2>
                     </AnimatedSection>
@@ -136,10 +116,10 @@ const ElectrovitNedirPage = () => {
                                     <div className="w-14 h-14 bg-[#FF9800]/10 rounded-2xl flex items-center justify-center text-[#FF9800] mb-6 mx-auto">
                                         {benefit.icon}
                                     </div>
-                                    <h3 className="font-poppins font-bold text-xl text-gray-900 mb-3">
+                                    <h3 className="font-poppins font-bold text-2xl text-gray-900 mb-3">
                                         {benefit.title}
                                     </h3>
-                                    <p className="text-gray-600 leading-relaxed">
+                                    <p className="text-gray-600 leading-relaxed text-lg">
                                         {benefit.description}
                                     </p>
                                 </div>
@@ -156,7 +136,7 @@ const ElectrovitNedirPage = () => {
                         <span className="text-[#FF9800] text-sm font-semibold uppercase tracking-widest mb-4 block">
                             {t('health.electrovitNedir.usageTime.label')}
                         </span>
-                        <h2 className="font-poppins font-bold text-3xl md:text-4xl text-gray-900">
+                        <h2 className="font-poppins font-bold text-4xl md:text-5xl text-gray-900">
                             {t('health.electrovitNedir.usageTime.title')}
                         </h2>
                     </AnimatedSection>
@@ -168,10 +148,10 @@ const ElectrovitNedirPage = () => {
                                     <div className="w-16 h-16 bg-[#FF9800] rounded-full flex items-center justify-center text-white mb-6 mx-auto">
                                         {useCase.icon}
                                     </div>
-                                    <h3 className="font-poppins font-bold text-xl text-gray-900 mb-3">
+                                    <h3 className="font-poppins font-bold text-2xl text-gray-900 mb-3">
                                         {useCase.title}
                                     </h3>
-                                    <p className="text-gray-600">{useCase.description}</p>
+                                    <p className="text-gray-600 text-lg">{useCase.description}</p>
                                 </div>
                             </AnimatedSection>
                         ))}
@@ -182,43 +162,14 @@ const ElectrovitNedirPage = () => {
             {/* Flavors */}
             <section className="py-20 lg:py-28">
                 <div className="container mx-auto px-6">
-                    <AnimatedSection animation="fadeInUp" className="text-center mb-16">
-                        <span className="text-[#FF9800] text-sm font-semibold uppercase tracking-widest mb-4 block">
-                            {t('health.electrovitNedir.flavors.label')}
-                        </span>
-                        <h2 className="font-poppins font-bold text-3xl md:text-4xl text-gray-900">
-                            {t('health.electrovitNedir.flavors.title')}
-                        </h2>
-                    </AnimatedSection>
 
-                    <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
-                        {flavors.map((flavor, index) => (
-                            <AnimatedSection key={index} animation="fadeInUp" delay={index * 100}>
-                                <a
-                                    href={flavor.link}
-                                    target="_blank"
-                                    rel="noopener noreferrer"
-                                    className="block bg-white rounded-3xl overflow-hidden hover:scale-105 transition-transform shadow-xl group"
-                                >
-                                    {/* Product Image */}
-                                    <div className={`h-64 bg-gradient-to-br ${flavor.gradient} p-6 flex items-center justify-center`}>
-                                        {flavor.image && (
-                                            <img
-                                                src={flavor.image}
-                                                alt={flavor.name}
-                                                className="h-full w-full object-contain drop-shadow-2xl group-hover:scale-110 transition-transform duration-500"
-                                            />
-                                        )}
-                                    </div>
-                                    {/* Content */}
-                                    <div className="p-8 text-center">
-                                        <h3 className="font-poppins font-bold text-2xl text-gray-900 mb-2">{flavor.name}</h3>
-                                        <p className="text-gray-600 mb-4">{t('health.electrovitNedir.flavors.desc')}</p>
-                                        <span className="inline-flex items-center gap-2 text-sm font-semibold" style={{ color: flavor.color }}>
-                                            {t('health.electrovitNedir.flavors.buy')} <ArrowRight className="w-4 h-4" />
-                                        </span>
-                                    </div>
-                                </a>
+
+                    <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
+                        {electrovitProducts.map((product, index) => (
+                            <AnimatedSection key={product.id} animation="fadeInUp" delay={index * 100}>
+                                <div className="h-full">
+                                    <ProductCard product={product} />
+                                </div>
                             </AnimatedSection>
                         ))}
                     </div>
@@ -233,7 +184,7 @@ const ElectrovitNedirPage = () => {
                             <span className="text-[#FF9800] text-sm font-semibold uppercase tracking-widest mb-4 block">
                                 {t('health.electrovitNedir.targetAudience.label')}
                             </span>
-                            <h2 className="font-poppins font-bold text-3xl md:text-4xl">
+                            <h2 className="font-poppins font-bold text-4xl md:text-5xl">
                                 {t('health.electrovitNedir.targetAudience.title')}
                             </h2>
                         </AnimatedSection>
@@ -243,7 +194,7 @@ const ElectrovitNedirPage = () => {
                                 {targetAudience.map((item, index) => (
                                     <div key={index} className="flex items-center gap-3 bg-white/5 rounded-xl px-6 py-4">
                                         <div className="w-2 h-2 bg-[#FF9800] rounded-full" />
-                                        <span className="text-gray-200">{item}</span>
+                                        <span className="text-gray-200 text-lg">{item}</span>
                                     </div>
                                 ))}
                             </div>

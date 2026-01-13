@@ -126,8 +126,10 @@ const Header = () => {
 
           {/* Right Side Actions */}
           <div className="flex items-center gap-3">
-            <BrandToggle />
-            <LanguageToggle />
+            <div className="hidden lg:flex items-center gap-3">
+              <BrandToggle />
+              <LanguageToggle />
+            </div>
 
             {/* Mobile Menu Button */}
             <button
@@ -199,8 +201,18 @@ const Header = () => {
               )}
             </nav>
 
-            <div className="mt-8">
-              <LanguageToggle />
+            <div className="mt-8 space-y-6">
+              <div className="flex flex-col gap-4">
+                <p className="text-sm text-gray-400 font-medium">Ayarlar</p>
+                <div className="flex items-center justify-between">
+                  <span>Dil</span>
+                  <LanguageToggle />
+                </div>
+                <div className="flex items-center justify-between">
+                  <span>Mod Değiştir</span>
+                  <BrandToggle />
+                </div>
+              </div>
             </div>
           </div>
         </div>

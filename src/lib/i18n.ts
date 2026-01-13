@@ -911,6 +911,10 @@ Telefon: +90 536 032 08 38`,
             content: 'We trust the content, benefits and quality of our products. We do not include any components in our products that would harm human health or have negative effects. We use patented raw materials and combine them within the framework of halal rules. We improve our production process with technology that is renewed every day, producing innovative and original products and gifting them to your health. We do not offer you any product whose quality we are not sure of, and we keep our product quality superior.',
           },
           closing: 'We thank you for accompanying us on this path we walk from the past to the future.',
+          reachUs: {
+            title: 'REACH US',
+            subtitle: 'Follow us on our social media accounts.',
+          },
           social: {
             title: 'SOCIAL MEDIA',
             content: 'Follow us for the latest news and healthy living tips from the world of WellWorks Health.',
@@ -1051,6 +1055,10 @@ Telefon: +90 536 032 08 38`,
             content: "We treat every event as a masterpiece, creating experiences that reflect your brand's spirit and build deep connections with your attendees. Our passion for detail and professional approach set us apart in the industry.",
           },
           closing: 'We are here to make your next event legendary.',
+          reachUs: {
+            title: 'REACH US',
+            subtitle: 'Follow us on our social media accounts.',
+          },
           social: {
             title: 'SOCIAL MEDIA',
             content: 'Follow us for the latest news and event announcements from the world of WellWorks MICE.',

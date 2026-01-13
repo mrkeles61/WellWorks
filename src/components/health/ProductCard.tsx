@@ -41,12 +41,15 @@ const ProductCard = memo(({ product, priority = false }: ProductCardProps) => {
 
           {/* Product Image - Expanded to fill available space */}
           <div className="relative mb-6 flex-grow flex items-center justify-center overflow-hidden">
-
             <img
               src={product.image}
               alt={product.name}
               loading={priority ? 'eager' : 'lazy'}
-              className="w-full h-full object-contain object-top p-4 transition-transform duration-700 group-hover:scale-110 drop-shadow-xl"
+              onLoad={(e) => {
+                const target = e.target as HTMLImageElement;
+                target.style.opacity = '1';
+              }}
+              className="w-full h-full object-contain object-top p-4 transition-all duration-700 group-hover:scale-110 drop-shadow-xl opacity-0"
             />
           </div>
 
