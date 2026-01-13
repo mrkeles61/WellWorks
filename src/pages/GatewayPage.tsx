@@ -1,6 +1,6 @@
 import { useNavigate } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
-import { ArrowRight, ChevronDown } from 'lucide-react';
+import { ArrowRight, ChevronDown, Mail } from 'lucide-react';
 import { useBrand } from '@/context/BrandContext';
 import { cn } from '@/lib/utils';
 import { useState, useEffect, useRef } from 'react';
@@ -49,6 +49,7 @@ const GatewayPage = () => {
 
   const socialLinks = [
     { icon: FaWhatsapp, href: 'https://wa.me/905360320838?text=Merhaba,%20bilgi%20almak%20istiyorum', label: 'WhatsApp' },
+    { icon: Mail, href: 'mailto:pazarlama@wellworksturkey.com', label: 'Email' },
   ];
 
   return (
