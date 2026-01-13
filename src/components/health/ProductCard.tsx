@@ -17,7 +17,7 @@ interface ProductCardProps {
  * - Min 44px button height for touch compliance
  */
 const ProductCard = memo(({ product, priority = false }: ProductCardProps) => {
-  const { i18n } = useTranslation();
+  const { t, i18n } = useTranslation();
   const productUrl = `https://www.dailyshot.com.tr/urun/${product.slug}`;
   const features = i18n.language === 'tr' ? product.featuresTr : product.features;
 
@@ -43,7 +43,7 @@ const ProductCard = memo(({ product, priority = false }: ProductCardProps) => {
               className="absolute top-6 left-6 z-10 px-4 py-2 text-white text-sm font-bold rounded-full shadow-md"
               style={{ backgroundColor: product.color }}
             >
-              YENİ
+              {t('health.products.new').toUpperCase()}
             </span>
           )}
 
@@ -116,7 +116,7 @@ const ProductCard = memo(({ product, priority = false }: ProductCardProps) => {
               color: 'white'
             }}
           >
-            İNCELE
+            {t('health.products.discover').toUpperCase()}
             <ArrowRight className="w-5 h-5 transition-transform group-hover:translate-x-1" />
           </div>
         </div>

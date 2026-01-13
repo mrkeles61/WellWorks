@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { motion } from 'framer-motion';
-import { MapPin, Calendar, Users, ExternalLink } from 'lucide-react';
+import { MapPin, Calendar, ExternalLink } from 'lucide-react';
+import { useTranslation } from 'react-i18next';
 import { cn } from '@/lib/utils';
 
 interface BentoEvent {
@@ -72,6 +73,7 @@ interface BentoCardProps {
 
 const BentoCard = ({ event, className }: BentoCardProps) => {
     const [isHovered, setIsHovered] = useState(false);
+    const { t } = useTranslation();
 
     return (
         <motion.div
@@ -111,7 +113,7 @@ const BentoCard = ({ event, className }: BentoCardProps) => {
                         <span className="relative inline-flex rounded-full h-2 w-2 bg-red-500" />
                     </span>
                     <span className="text-xs text-white font-medium">
-                        {event.viewingCount} kişi şu an inceliyor
+                        {event.viewingCount} {t('mice.bentoGrid.viewing')}
                     </span>
                 </div>
             )}
@@ -152,7 +154,7 @@ const BentoCard = ({ event, className }: BentoCardProps) => {
                         className="mt-4"
                     >
                         <button className="px-6 py-2 bg-mice-primary text-white rounded-full font-medium text-sm flex items-center gap-2 hover:bg-mice-primary-hover transition-colors">
-                            Detayları Gör
+                            {t('mice.bentoGrid.viewDetails')}
                             <ExternalLink className="w-4 h-4" strokeWidth={1.5} />
                         </button>
                     </motion.div>
@@ -163,16 +165,16 @@ const BentoCard = ({ event, className }: BentoCardProps) => {
 };
 
 const BentoGrid = () => {
+    const { t } = useTranslation();
     return (
         <section className="py-16 md:py-24 bg-black">
             <div className="container">
-                {/* Section Header */}
                 <div className="text-center mb-12">
                     <h2 className="font-oswald text-4xl md:text-5xl font-bold text-white uppercase tracking-wider mb-4">
-                        Etkinliklerimiz
+                        {t('mice.bentoGrid.title')}
                     </h2>
                     <p className="text-mice-text-muted max-w-2xl mx-auto">
-                        Dünya standartlarında organizasyonlar ile markanızı unutulmaz anlarla buluşturuyoruz
+                        {t('mice.bentoGrid.subtitle')}
                     </p>
                 </div>
 
@@ -191,10 +193,9 @@ const BentoGrid = () => {
                     <BentoCard event={events[4]} className="md:col-span-1 lg:col-span-2" />
                 </div>
 
-                {/* View All CTA */}
                 <div className="text-center mt-12">
                     <button className="px-8 py-4 border border-mice-primary text-mice-primary rounded-full font-medium hover:bg-mice-primary hover:text-white transition-all duration-300">
-                        Tüm Etkinlikleri Görüntüle
+                        {t('mice.bentoGrid.viewAll')}
                     </button>
                 </div>
             </div>

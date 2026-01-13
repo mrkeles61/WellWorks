@@ -278,6 +278,13 @@ const resources = {
           subtitle: 'Her biri benzersiz, hepsi unutulmaz',
           viewDetails: 'Detayları Gör',
         },
+        bentoGrid: {
+          title: 'Etkinliklerimiz',
+          subtitle: 'Dünya standartlarında organizasyonlar ile markanızı unutulmaz anlarla buluşturuyoruz',
+          viewAll: 'Tüm Etkinlikleri Görüntüle',
+          viewDetails: 'Detayları Gör',
+          viewing: 'kişi şu an inceliyor',
+        },
         home: {
           hero: {
             badge: 'Premium Etkinlik Organizasyonu',
@@ -861,6 +868,13 @@ Telefon: +90 536 032 08 38`,
           title: 'Our Work',
           subtitle: 'Each one unique, all unforgettable',
           viewDetails: 'View Details',
+        },
+        bentoGrid: {
+          title: 'Our Events',
+          subtitle: 'We connect your brand with unforgettable moments through world-class organizations',
+          viewAll: 'View All Events',
+          viewDetails: 'View Details',
+          viewing: 'people viewing now',
         },
         home: {
           hero: {

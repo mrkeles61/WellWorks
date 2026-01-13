@@ -14,7 +14,7 @@ import iconRetinaUrl from 'leaflet/dist/images/marker-icon-2x.png';
 import iconUrl from 'leaflet/dist/images/marker-icon.png';
 import shadowUrl from 'leaflet/dist/images/marker-shadow.png';
 
-delete (L.Icon.Default.prototype as any)._getIconUrl;
+delete (L.Icon.Default.prototype as { _getIconUrl?: () => string })._getIconUrl;
 
 L.Icon.Default.mergeOptions({
     iconRetinaUrl,
@@ -60,7 +60,7 @@ const MapController = ({ center, zoom }: { center: [number, number] | null; zoom
 
 // Navigation URL generator
 const getNavigationUrl = (pharmacy: Pharmacy): string => {
-    const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent) && !(window as any).MSStream;
+    const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent) && !(window as unknown as { MSStream?: unknown }).MSStream;
 
     if (pharmacy.lat && pharmacy.lng) {
         if (isIOS) {
