@@ -3,7 +3,7 @@ import { useTranslation, Trans } from 'react-i18next';
 import { products } from '@/data/products';
 import ProductCard from '@/components/health/ProductCard';
 import AnimatedSection from '@/components/shared/AnimatedSection';
-import BlogSection from '@/components/health/BlogSection';
+
 import bottleOfHealth from '@/assets/bottle-of-health.png';
 import certificationsTransparentImg from '@/assets/certifications_transparent.png';
 import { useEffect, useRef, useState } from 'react';
@@ -543,8 +543,7 @@ const HealthHome = () => {
       </section>
 
 
-      {/* Blog Section */}
-      <BlogSection />
+
     </div>
   );
 };
