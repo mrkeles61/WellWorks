@@ -39,8 +39,8 @@ const Header = () => {
   const healthLinks: NavLinkItem[] = [
     { href: '/health', label: t('nav.home') },
     { href: '/health/hakkimizda', label: t('health.aboutUs.pageTitle') },
-    { href: '/dailyshot-nedir', label: 'Dailyshot Nedir?' },
-    { href: '/health/electrovit-nedir', label: 'Electrovit Nedir?' },
+    { href: '/dailyshot-nedir', label: t('nav.dailyshotNedir') },
+    { href: '/health/electrovit-nedir', label: t('nav.electrovitNedir') },
   ];
 
   const miceLinks: NavLinkItem[] = [

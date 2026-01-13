@@ -46,7 +46,7 @@ const Footer = () => {
                   </li>
                   <li>
                     <Link to="/dailyshot-nedir" className={cn('transition-colors', brandHover)}>
-                      Dailyshot Nedir?
+                      {t('nav.dailyshotNedir')}
                     </Link>
                   </li>
                   <li>

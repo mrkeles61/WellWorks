@@ -499,41 +499,39 @@ const HealthHome = () => {
             {/* Feature 1: Likit Form */}
             <div className="space-y-4">
               <h3 className="font-oswald text-4xl md:text-5xl font-bold uppercase tracking-tight">
-                LİKİT FORM
+                {t('health.whyLiquid.liquidForm.title')}
               </h3>
               <div className="h-1 w-20 bg-white/40 mb-4" />
               <p className="text-white/90 text-lg leading-relaxed font-light">
-                <Trans i18nKey="health.liquidRevolution.desc1">
-                  Vücudunuzun zamana ihtiyacı yok! Likit ürünler, içerisindeki etken maddelerin doğrudan ve hızlı emilimini sağlarken, katı formlar gibi ekstra katkı maddeleri içermez.
-                </Trans>
+                {t('health.whyLiquid.liquidForm.desc1')}
               </p>
               <p className="text-white/80 leading-relaxed font-light">
-                Bu sayede daha hızlı etki sağlar ve maksimum biyoyararlanım sunar. Çünkü hayat hızlı, kullandığınız takviye edici gıdalar da öyle olmalı!
+                {t('health.whyLiquid.liquidForm.desc2')}
               </p>
             </div>
 
             {/* Feature 2: Bitkisel İçerik */}
             <div className="space-y-4">
               <h3 className="font-oswald text-4xl md:text-5xl font-bold uppercase tracking-tight">
-                BİTKİSEL İÇERİK
+                {t('health.whyLiquid.herbalContent.title')}
               </h3>
               <div className="h-1 w-20 bg-white/40 mb-4" />
               <p className="text-white/90 text-lg leading-relaxed font-light">
-                Ürünlerimiz, bitkisel özler, vitaminler ve mineraller ile günlük yaşamda vücudun normal fonksiyonlarına destek olmak amacıyla özenle formüle edilmiştir.
+                {t('health.whyLiquid.herbalContent.desc1')}
               </p>
               <p className="text-white/80 leading-relaxed font-light">
-                Her ürün, doğal kaynaklardan elde edilen bileşenlerle hazırlanır ve günlük beslenmenize pratik bir katkı sağlar.
+                {t('health.whyLiquid.herbalContent.desc2')}
               </p>
             </div>
 
             {/* Feature 3: Kolay Kullanım */}
             <div className="space-y-4">
               <h3 className="font-oswald text-4xl md:text-5xl font-bold uppercase tracking-tight">
-                KOLAY KULLANIM
+                {t('health.whyLiquid.easyUse.title')}
               </h3>
               <div className="h-1 w-20 bg-white/40 mb-4" />
               <p className="text-white/90 text-lg leading-relaxed font-light">
-                Likit formlar aroma ve tat profili ile kolay ve keyifli bir içim sunar. Ayrıca tatma eylemi, besin yollarını harekete geçirir ve vücudun belirli bölgelerini hedef alarak gıda takviyesinin aktif bileşeninin daha iyi kullanılmasını sağlar.
+                {t('health.whyLiquid.easyUse.desc')}
               </p>
             </div>
 

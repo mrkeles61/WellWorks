@@ -14,6 +14,8 @@ const resources = {
         contact: 'İletişim',
         menu: 'Menü',
         close: 'Kapat',
+        dailyshotNedir: 'Dailyshot Nedir?',
+        electrovitNedir: 'Electrovit Nedir?',
       },
       gateway: {
         health: {
@@ -86,6 +88,22 @@ const resources = {
           title: 'Likit Takviye <0>Devrimi</0>',
           desc1: 'Likit formüller, hap ve kapsüllerin aksine sindirim sisteminde çözünme sürecine ihtiyaç duymaz. Bu sayede içerikler doğrudan kana karışır ve etkisini çok daha hızlı gösterir.',
           desc2: 'Araştırmalar, likit formüllerin %90\'a varan oranlarda emilim sağladığını göstermektedir. Geleneksel haplar ise yalnızca %10-20 oranında emilir.',
+        },
+        whyLiquid: {
+          liquidForm: {
+            title: 'LİKİT FORM',
+            desc1: 'Vücudunuzun zamana ihtiyacı yok! Likit ürünler, içerisindeki etken maddelerin doğrudan ve hızlı emilimini sağlarken, katı formlar gibi ekstra katkı maddeleri içermez.',
+            desc2: 'Bu sayede daha hızlı etki sağlar ve maksimum biyoyararlanım sunar. Çünkü hayat hızlı, kullandığınız takviye edici gıdalar da öyle olmalı!',
+          },
+          herbalContent: {
+            title: 'BİTKİSEL İÇERİK',
+            desc1: 'Ürünlerimiz, bitkisel özler, vitaminler ve mineraller ile günlük yaşamda vücudun normal fonksiyonlarına destek olmak amacıyla özenle formüle edilmiştir.',
+            desc2: 'Her ürün, doğal kaynaklardan elde edilen bileşenlerle hazırlanır ve günlük beslenmenize pratik bir katkı sağlar.',
+          },
+          easyUse: {
+            title: 'KOLAY KULLANIM',
+            desc: 'Likit formlar aroma ve tat profili ile kolay ve keyifli bir içim sunar. Ayrıca tatma eylemi, besin yollarını harekete geçirir ve vücudun belirli bölgelerini hedef alarak gıda takviyesinin aktif bileşeninin daha iyi kullanılmasını sağlar.',
+          },
         },
         blog: {
           title: 'Blog',
@@ -605,6 +623,8 @@ Telefon: +90 536 032 08 38`,
         contact: 'Contact',
         menu: 'Menu',
         close: 'Close',
+        dailyshotNedir: 'What is Dailyshot?',
+        electrovitNedir: 'What is Electrovit?',
       },
       gateway: {
         health: {
@@ -677,6 +697,22 @@ Telefon: +90 536 032 08 38`,
           title: 'Liquid Supplement <0>Revolution</0>',
           desc1: 'Unlike pills and capsules, liquid formulas do not require a dissolution process in the digestive system. This allows ingredients to mix directly into the blood and show their effects much faster.',
           desc2: 'Research shows that liquid formulas provide absorption rates of up to 90%. Traditional pills are only absorbed at a rate of 10-20%.',
+        },
+        whyLiquid: {
+          liquidForm: {
+            title: 'LIQUID FORM',
+            desc1: 'Your body does not need time! Liquid products provide direct and fast absorption of active ingredients while not containing extra additives like solid forms.',
+            desc2: 'This provides faster effect and maximum bioavailability. Because life is fast, and so should be your supplements!',
+          },
+          herbalContent: {
+            title: 'HERBAL CONTENT',
+            desc1: 'Our products are carefully formulated with herbal extracts, vitamins and minerals to support the normal functions of the body in daily life.',
+            desc2: 'Each product is prepared with ingredients from natural sources and provides a practical contribution to your daily nutrition.',
+          },
+          easyUse: {
+            title: 'EASY TO USE',
+            desc: 'Liquid forms offer easy and enjoyable consumption with their aroma and taste profile. The tasting action activates the nutritional pathways and enables better use of the active ingredient of the food supplement by targeting specific areas of the body.',
+          },
         },
         blog: {
           title: 'Blog',
