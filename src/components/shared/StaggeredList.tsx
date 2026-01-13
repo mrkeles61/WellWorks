@@ -12,6 +12,25 @@ interface StaggeredListProps {
   animation?: 'fadeInUp' | 'fadeInLeft' | 'fadeInRight' | 'scaleIn';
 }
 
+const animationConfigs = {
+  fadeInUp: {
+    opacity: [0, 1],
+    translateY: [30, 0],
+  },
+  fadeInLeft: {
+    opacity: [0, 1],
+    translateX: [-30, 0],
+  },
+  fadeInRight: {
+    opacity: [0, 1],
+    translateX: [30, 0],
+  },
+  scaleIn: {
+    opacity: [0, 1],
+    scale: [0.8, 1],
+  },
+};
+
 const StaggeredList = ({
   children,
   staggerDelay = 100,
@@ -23,25 +42,6 @@ const StaggeredList = ({
 }: StaggeredListProps) => {
   const containerRef = useRef<HTMLDivElement>(null);
   const hasAnimated = useRef(false);
-
-  const animationConfigs = {
-    fadeInUp: {
-      opacity: [0, 1],
-      translateY: [30, 0],
-    },
-    fadeInLeft: {
-      opacity: [0, 1],
-      translateX: [-30, 0],
-    },
-    fadeInRight: {
-      opacity: [0, 1],
-      translateX: [30, 0],
-    },
-    scaleIn: {
-      opacity: [0, 1],
-      scale: [0.8, 1],
-    },
-  };
 
   useEffect(() => {
     const container = containerRef.current;
