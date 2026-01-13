@@ -424,18 +424,14 @@ const HealthHome = () => {
             </div>
 
             {/* Right Image Card */}
-            <div className="relative h-full w-full min-h-[400px] lg:min-h-[600px] flex items-center justify-center">
-              <div className="relative w-full h-full overflow-hidden rounded-3xl shadow-2xl shadow-black/50 aspect-[4/5] lg:aspect-square group">
-                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent z-10"></div>
+            <div className="relative h-full w-full flex items-center justify-center">
+              <div className="relative w-full h-auto overflow-hidden rounded-3xl shadow-2xl shadow-black/50 group">
                 <img
                   src={liquidAdvantagesImage}
                   alt="Liquid Form Advantages"
-                  className="object-contain w-full h-full transform transition-transform duration-700 group-hover:scale-105"
+                  className="w-full h-auto object-cover transform transition-transform duration-700 group-hover:scale-105"
                 />
-                {/* Badge REMOVED as per request */}
               </div>
-              {/* Visual Border Element behind */}
-              <div className="absolute -z-10 -bottom-6 -right-6 w-full h-full border-2 border-white/10 rounded-3xl"></div>
             </div>
 
           </div>
