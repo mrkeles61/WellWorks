@@ -213,10 +213,7 @@ const HealthHome = () => {
                   <Zap className="w-5 h-5 text-health-primary" />
                   <span><Trans i18nKey="health.wellworksIntro.feature1" components={[<strong />]} /></span>
                 </li>
-                <li className="flex items-center gap-3 text-white/90">
-                  <Shield className="w-5 h-5 text-health-primary" />
-                  <span>{t('health.wellworksIntro.feature2')}</span>
-                </li>
+
                 <li className="flex items-center gap-3 text-white/90">
                   <Droplets className="w-5 h-5 text-health-primary" />
                   <span>{t('health.wellworksIntro.feature3')}</span>
@@ -332,7 +329,7 @@ const HealthHome = () => {
                 {t('health.sections.dailyshot.title')}
               </h2>
             </div>
-            <Button asChild variant="ghost" className="text-health-primary hover:text-health-primary/80">
+            <Button asChild className="bg-health-primary text-white hover:bg-health-primary rounded-full px-6 transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-health-primary/30">
               <a href="https://dailyshot.com.tr" target="_blank" rel="noopener noreferrer">
                 {t('health.sections.dailyshot.cta')} <ArrowRight className="w-4 h-4 ml-1" />
               </a>

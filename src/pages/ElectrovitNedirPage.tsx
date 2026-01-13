@@ -4,6 +4,7 @@ import { useEffect } from 'react';
 import { useBrand } from '@/context/BrandContext';
 import { Button } from '@/components/ui/button';
 import AnimatedSection from '@/components/shared/AnimatedSection';
+import { products } from '@/data/products';
 
 const ElectrovitNedirPage = () => {
     const { setBrand } = useBrand();
@@ -54,6 +55,11 @@ const ElectrovitNedirPage = () => {
         },
     ];
 
+    // Get electrovit products for their images
+    const electrovitProducts = products.filter(p => p.brand === 'electrovit');
+    const watermelonProduct = electrovitProducts.find(p => p.slug.includes('karpuz'));
+    const orangeProduct = electrovitProducts.find(p => p.slug.includes('portakal'));
+
     const flavors = [
         {
             id: 'watermelon',
@@ -61,6 +67,7 @@ const ElectrovitNedirPage = () => {
             color: '#E91E63',
             gradient: 'from-pink-500 to-red-500',
             link: 'https://dailyshot.com.tr/urun/electrovit-karpuzlu-8-li',
+            image: watermelonProduct?.image,
         },
         {
             id: 'orange',
@@ -68,6 +75,7 @@ const ElectrovitNedirPage = () => {
             color: '#FF9800',
             gradient: 'from-orange-400 to-orange-600',
             link: 'https://dailyshot.com.tr/urun/electrovit-portakal-aromali-8-li',
+            image: orangeProduct?.image,
         },
     ];
 
@@ -83,18 +91,25 @@ const ElectrovitNedirPage = () => {
     return (
         <div data-brand="health" className="bg-gray-50 min-h-screen">
             {/* Hero Section */}
-            <section className="relative pt-32 pb-20 bg-gradient-to-br from-[#FF9800] to-orange-700 text-white overflow-hidden">
-                <div className="absolute inset-0 bg-[url('/images/pattern.svg')] opacity-10" />
+            <section className="relative pt-32 pb-20 overflow-hidden bg-gray-900 text-white">
+                <div className="absolute inset-0 z-0">
+                    <img
+                        src="/images/electrovit_hero_bg.png"
+                        alt="Electrovit Ürünleri"
+                        className="w-full h-full object-cover opacity-60 mix-blend-overlay"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-br from-orange-900/90 to-amber-900/90 mix-blend-multiply" />
+                </div>
                 <div className="container mx-auto px-6 relative z-10">
                     <AnimatedSection animation="fadeInUp">
                         <div className="max-w-3xl">
-                            <span className="text-white/80 text-sm font-semibold uppercase tracking-widest mb-4 block bg-white/10 backdrop-blur-sm px-4 py-2 rounded-full w-fit">
+                            <span className="text-orange-300 text-sm font-semibold uppercase tracking-widest mb-4 block bg-white/10 backdrop-blur-sm px-4 py-2 rounded-full w-fit">
                                 {t('health.electrovitNedir.heroLabel')}
                             </span>
                             <h1 className="font-poppins font-bold text-4xl md:text-5xl lg:text-6xl leading-tight mb-6">
                                 {t('health.electrovitNedir.heroTitle')}
                             </h1>
-                            <p className="text-xl text-white/90 leading-relaxed max-w-2xl">
+                            <p className="text-xl text-orange-100 leading-relaxed max-w-2xl">
                                 {t('health.electrovitNedir.heroDesc')}
                             </p>
                         </div>
@@ -176,21 +191,33 @@ const ElectrovitNedirPage = () => {
                         </h2>
                     </AnimatedSection>
 
-                    <div className="grid md:grid-cols-2 gap-8 max-w-3xl mx-auto">
+                    <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
                         {flavors.map((flavor, index) => (
                             <AnimatedSection key={index} animation="fadeInUp" delay={index * 100}>
                                 <a
                                     href={flavor.link}
                                     target="_blank"
                                     rel="noopener noreferrer"
-                                    className={`block bg-gradient-to-br ${flavor.gradient} rounded-3xl p-10 text-white text-center hover:scale-105 transition-transform shadow-xl`}
+                                    className="block bg-white rounded-3xl overflow-hidden hover:scale-105 transition-transform shadow-xl group"
                                 >
-                                    <div className="text-6xl mb-4">{flavor.id === 'watermelon' ? '🍉' : '🍊'}</div>
-                                    <h3 className="font-poppins font-bold text-3xl mb-2">{flavor.name}</h3>
-                                    <p className="text-white/80 mb-4">{t('health.electrovitNedir.flavors.desc')}</p>
-                                    <span className="inline-flex items-center gap-2 text-sm font-semibold">
-                                        {t('health.electrovitNedir.flavors.buy')} <ArrowRight className="w-4 h-4" />
-                                    </span>
+                                    {/* Product Image */}
+                                    <div className={`h-64 bg-gradient-to-br ${flavor.gradient} p-6 flex items-center justify-center`}>
+                                        {flavor.image && (
+                                            <img
+                                                src={flavor.image}
+                                                alt={flavor.name}
+                                                className="h-full w-full object-contain drop-shadow-2xl group-hover:scale-110 transition-transform duration-500"
+                                            />
+                                        )}
+                                    </div>
+                                    {/* Content */}
+                                    <div className="p-8 text-center">
+                                        <h3 className="font-poppins font-bold text-2xl text-gray-900 mb-2">{flavor.name}</h3>
+                                        <p className="text-gray-600 mb-4">{t('health.electrovitNedir.flavors.desc')}</p>
+                                        <span className="inline-flex items-center gap-2 text-sm font-semibold" style={{ color: flavor.color }}>
+                                            {t('health.electrovitNedir.flavors.buy')} <ArrowRight className="w-4 h-4" />
+                                        </span>
+                                    </div>
                                 </a>
                             </AnimatedSection>
                         ))}

@@ -2,39 +2,39 @@ import { ArrowRight } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
 
 interface BlogPost {
-    id: number;
-    title: string;
-    excerpt: string;
+    id: string;
+    titleKey: string;
+    excerptKey: string;
     image: string;
     url: string;
 }
 
-const blogPosts: BlogPost[] = [
+const blogPostsConfig: BlogPost[] = [
     {
-        id: 1,
-        title: '"Hangover" kelimesi nereden geliyor?',
-        excerpt: 'Türkçede "akşamdan kalma" olarak kullandığımız Hangover kelimesinin kökenini hiç merak ettiniz mi? Aslında Hangover kelimesinin bir efsaneyle birlikte ortaya çıktığı sanılıyor.',
+        id: 'hangover',
+        titleKey: 'health.blog.posts.hangover.title',
+        excerptKey: 'health.blog.posts.hangover.excerpt',
         image: '/blog/hangover.jpg',
         url: 'https://www.dailyshot.com.tr/blog/icerik/hangover-kelimesi-nereden-geliyor',
     },
     {
-        id: 2,
-        title: 'Sabah gelen "EYVAH!" perilerinin ismi Hangxiety!',
-        excerpt: 'Haydi itiraf edelim! Birçoğumuz alkolün dozunu biraz fazla kaçırdığımız akşamların sabahında küçük çaplı bir panik hali yaşamışızdır.',
+        id: 'hangxiety',
+        titleKey: 'health.blog.posts.hangxiety.title',
+        excerptKey: 'health.blog.posts.hangxiety.excerpt',
         image: '/blog/hangxiety.jpg',
         url: 'https://www.dailyshot.com.tr/blog/icerik/hangxiety',
     },
     {
-        id: 3,
-        title: 'Alkolün vücudumuzdaki yolculuğunu biliyor musunuz?',
-        excerpt: 'Alkolün ilk yudumla başlayıp bütün bedenimize hızla ulaşan ve sonra yavaş yavaş bizi terk eden yolculuğunu merak ediyorsanız bu yazımızı ilgiyle okuyacağınıza eminiz.',
+        id: 'alcoholJourney',
+        titleKey: 'health.blog.posts.alcoholJourney.title',
+        excerptKey: 'health.blog.posts.alcoholJourney.excerpt',
         image: '/blog/alcohol-journey.jpg',
         url: 'https://www.dailyshot.com.tr/blog/icerik/alkolun-vucudumuzdaki-yolculugu',
     },
     {
-        id: 4,
-        title: 'Alkol ile ilgili eğlenceli bilgiler!',
-        excerpt: 'Alkol ile ilgili kimi kanıtlanmış kimi ise dile yayılmış eğlenceli mitleri öğrenmek ister misiniz? İşte bazıları!',
+        id: 'alcoholFacts',
+        titleKey: 'health.blog.posts.alcoholFacts.title',
+        excerptKey: 'health.blog.posts.alcoholFacts.excerpt',
         image: '/blog/alcohol-facts.jpg',
         url: 'https://www.dailyshot.com.tr/blog/icerik/alkol-ile-ilgili-eglenceli-bilgiler',
     },
@@ -58,7 +58,7 @@ const BlogSection = () => {
 
                 {/* Blog Grid */}
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-                    {blogPosts.map((post) => (
+                    {blogPostsConfig.map((post) => (
                         <a
                             key={post.id}
                             href={post.url}
@@ -70,7 +70,7 @@ const BlogSection = () => {
                             <div className="aspect-[4/3] overflow-hidden bg-gray-200">
                                 <img
                                     src={post.image}
-                                    alt={post.title}
+                                    alt={t(post.titleKey)}
                                     className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                                     onError={(e) => {
                                         (e.target as HTMLImageElement).src = 'https://via.placeholder.com/400x300?text=Blog';
@@ -81,10 +81,10 @@ const BlogSection = () => {
                             {/* Content */}
                             <div className="p-5">
                                 <h3 className="font-semibold text-gray-900 mb-2 line-clamp-2 group-hover:text-health-primary transition-colors">
-                                    {post.title}
+                                    {t(post.titleKey)}
                                 </h3>
                                 <p className="text-gray-600 text-sm line-clamp-4 mb-4">
-                                    {post.excerpt}
+                                    {t(post.excerptKey)}
                                 </p>
                                 <span className="text-health-primary text-sm font-medium flex items-center gap-1 group-hover:gap-2 transition-all">
                                     {t('health.blog.readMore')} <ArrowRight className="w-4 h-4" />

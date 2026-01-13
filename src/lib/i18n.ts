@@ -109,6 +109,24 @@ const resources = {
           title: 'Blog',
           label: 'Dailyshot',
           readMore: 'Devamını oku...',
+          posts: {
+            hangover: {
+              title: '"Hangover" kelimesi nereden geliyor?',
+              excerpt: 'Türkçede "akşamdan kalma" olarak kullandığımız Hangover kelimesinin kökenini hiç merak ettiniz mi? Aslında Hangover kelimesinin bir efsaneyle birlikte ortaya çıktığı sanılıyor.',
+            },
+            hangxiety: {
+              title: 'Sabah gelen "EYVAH!" perilerinin ismi Hangxiety!',
+              excerpt: 'Haydi itiraf edelim! Birçoğumuz alkolün dozunu biraz fazla kaçırdığımız akşamların sabahında küçük çaplı bir panik hali yaşamışızdır.',
+            },
+            alcoholJourney: {
+              title: 'Alkolün vücudumuzdaki yolculuğunu biliyor musunuz?',
+              excerpt: 'Alkolün ilk yudumla başlayıp bütün bedenimize hızla ulaşan ve sonra yavaş yavaş bizi terk eden yolculuğunu merak ediyorsanız bu yazımızı ilgiyle okuyacağınıza eminiz.',
+            },
+            alcoholFacts: {
+              title: 'Alkol ile ilgili eğlenceli bilgiler!',
+              excerpt: 'Alkol ile ilgili kimi kanıtlanmış kimi ise dile yayılmış eğlenceli mitleri öğrenmek ister misiniz? İşte bazıları!',
+            },
+          },
         },
         dailyshotNedir: {
           heroLabel: 'Yeni Nesil Likit Takviye',
@@ -152,7 +170,7 @@ const resources = {
             title: 'Dailyshot Sizin İçin Mükemmel Seçim.',
             desc: 'Modern yaşamın hızına ayak uydururken sağlığınızdan ödün vermeyin. Dailyshot, vücudunuzun ihtiyaç duyduğu desteği en saf ve en hızlı haliyle sunar.',
             button: 'Online Mağazaya Git',
-            viewProduct: 'İncele ve Satın Al',
+            viewProduct: 'İncele',
           },
         },
         electrovitNedir: {
@@ -207,7 +225,7 @@ const resources = {
           desc: 'WellWorks Health, içerisinde likit formda ürünler bulunduran bitkisel bir gıda takviyesi markasıdır. Likit yapısı sayesinde kana hızlıca karışır ve etkinin hızlı gözlemlenmesine olanak sağlar.',
           feature1: '<0>%90\'a varan</0> biyoyararlanım oranı',
           feature2: 'GMP ve Helal sertifikalı üretim',
-          feature3: 'Hızlı emilim, dakikalar içinde etki',
+          feature3: 'Hızlı etki başlangıcı',
           cta: 'Ürünleri Keşfet',
         },
         electrovitIntro: {
@@ -718,6 +736,24 @@ Telefon: +90 536 032 08 38`,
           title: 'Blog',
           label: 'Dailyshot',
           readMore: 'Read more...',
+          posts: {
+            hangover: {
+              title: 'Where does the word "Hangover" come from?',
+              excerpt: 'Have you ever wondered about the origin of the word Hangover? It is believed that the word Hangover originated with a legend.',
+            },
+            hangxiety: {
+              title: 'The morning "OH NO!" fairies are called Hangxiety!',
+              excerpt: 'Let\'s admit it! Many of us have experienced a minor panic attack on the mornings after we\'ve had a bit too much to drink.',
+            },
+            alcoholJourney: {
+              title: 'Do you know alcohol\'s journey through our body?',
+              excerpt: 'If you\'re curious about alcohol\'s journey that starts with the first sip, quickly reaches our entire body, and then slowly leaves us, we\'re sure you\'ll read this article with interest.',
+            },
+            alcoholFacts: {
+              title: 'Fun facts about alcohol!',
+              excerpt: 'Would you like to learn some proven and some folklore-based fun myths about alcohol? Here are some!',
+            },
+          },
         },
         dailyshotNedir: {
           heroLabel: 'Next-Gen Liquid Supplement',
@@ -761,7 +797,7 @@ Telefon: +90 536 032 08 38`,
             title: 'Dailyshot is The Perfect Choice For You.',
             desc: 'Don\'t compromise your health while keeping up with the pace of modern life. Dailyshot offers the support your body needs in its purest and fastest form.',
             button: 'Go to Online Store',
-            viewProduct: 'View & Buy',
+            viewProduct: 'View',
           },
         },
         electrovitNedir: {

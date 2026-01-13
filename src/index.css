@@ -318,7 +318,7 @@
   }
 
   50% {
-    transform: translateY(-10px) rotate(2deg);
+    transform: translateY(-25px) rotate(2deg);
   }
 }
 
@@ -449,7 +449,7 @@
 }
 
 .animate-float-slow {
-  animation: float 12s ease-in-out infinite;
+  animation: float 5s ease-in-out infinite;
 }
 
 .animate-glow-pulse {

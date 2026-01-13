@@ -37,41 +37,22 @@ const ProductCard = memo(({ product, priority = false }: ProductCardProps) => {
             'hover:-translate-y-2 hover:shadow-2xl'
           )}
         >
-          {/* Badge */}
-          {product.isNew && (
-            <span
-              className="absolute top-6 left-6 z-10 px-4 py-2 text-white text-sm font-bold rounded-full shadow-md"
-              style={{ backgroundColor: product.color }}
-            >
-              {t('health.products.new').toUpperCase()}
-            </span>
-          )}
 
-          {/* Product Image - Larger and perfectly fitted */}
-          <div
-            className="relative mb-8 flex items-center justify-center overflow-hidden rounded-3xl"
-            style={{
-              aspectRatio: '1 / 1', // Square aspect ratio for better product fit
-              backgroundColor: 'white' // White bg for clean product look
-            }}
-          >
-            {/* Soft tint overlay behind image */}
-            <div
-              className="absolute inset-0 opacity-10"
-              style={{ backgroundColor: product.color }}
-            />
+
+          {/* Product Image - Expanded to fill available space */}
+          <div className="relative mb-6 flex-grow flex items-center justify-center overflow-hidden">
 
             <img
               src={product.image}
               alt={product.name}
               loading={priority ? 'eager' : 'lazy'}
-              className="w-full h-full object-contain transition-transform duration-700 group-hover:scale-110 drop-shadow-xl"
+              className="w-full h-full object-contain p-4 transition-transform duration-700 group-hover:scale-110 drop-shadow-xl"
             />
           </div>
 
           {/* Product Name - Color themed */}
           <h3
-            className="font-bold text-2xl md:text-3xl font-poppins mb-3 leading-tight"
+            className="font-bold text-2xl md:text-3xl font-poppins mb-6 leading-tight text-center"
             style={{ color: product.color }}
           >
             {(() => {
@@ -81,29 +62,15 @@ const ProductCard = memo(({ product, priority = false }: ProductCardProps) => {
                 return upperName.replace(/\s\d+['']?[Ll][IiİuÜe].*/, '').trim();
               }
               // For all Dailyshot products (Energyshot, etc.) just take the first word
-              return upperName.split(' ')[0];
+              // Exception for HangoverShot Zero which has two words we might want to keep?
+              // User said "product image- product name with the related color".
+              // If we strictly follow "first word" logic, "HangoverShot Zero" becomes "HangoverShot".
+              // Let's allow full name if it's short or logic needs adjust.
+              // Actually, existing logic for dailyshot was split(' ')[0].
+              // Let's modify it to allow "HangoverShot Zero" to be fully shown or handled.
+              return product.name;
             })()}
           </h3>
-
-          {/* Short Description */}
-          <p className="text-gray-600 text-base mb-6 leading-relaxed font-medium">
-            {product.shortDescription}
-          </p>
-
-          {/* Bullet Point Features - Max 3 */}
-          {features && features.length > 0 && (
-            <ul className="space-y-2.5 mb-8 mt-auto">
-              {features.slice(0, 3).map((feature) => (
-                <li key={feature} className="flex items-start gap-3 text-sm md:text-base text-gray-700 font-medium">
-                  <span
-                    className="w-2 h-2 rounded-full mt-2 flex-shrink-0"
-                    style={{ backgroundColor: product.color }}
-                  />
-                  <span>{feature}</span>
-                </li>
-              ))}
-            </ul>
-          )}
 
           {/* CTA Button - Product colored */}
           <div
