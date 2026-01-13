@@ -91,6 +91,11 @@ const HealthHome = () => {
     ? '/images/liquid-advantages-en.png'
     : '/images/liquid-advantages-tr.png';
 
+  // Determine intro image based on language
+  const introLiquidImage = i18n.language === 'en'
+    ? '/images/intro-liquid-en.png'
+    : '/images/intro-liquid-tr.png';
+
   useEffect(() => {
     setBrand('health');
   }, [setBrand]);
@@ -240,13 +245,13 @@ const HealthHome = () => {
               href="https://dailyshot.com.tr"
               target="_blank"
               rel="noopener noreferrer"
-              className="animate-on-scroll opacity-0 relative group"
+              className="animate-on-scroll opacity-0 relative group flex justify-center"
             >
-              <div className="rounded-3xl overflow-hidden shadow-2xl hover:shadow-3xl transition-all duration-500 hover:scale-[1.02]">
+              <div className="relative w-full max-w-xl rounded-3xl overflow-hidden shadow-2xl hover:shadow-3xl transition-all duration-500 hover:scale-[1.02]">
                 <img
-                  src="/images/dailyshot_ingredients.jpg"
-                  alt="Dailyshot Products with Natural Ingredients"
-                  className="w-full rounded-2xl shadow-xl"
+                  src={introLiquidImage}
+                  alt="Dailyshot Liquid Advantages"
+                  className="w-full h-auto object-cover"
                 />
               </div>
             </a>
