@@ -82,9 +82,14 @@ const InteractiveProductCard = ({ type, onClick, title, desc, ctaText }: Product
 const HealthHome = () => {
 
   const { setBrand } = useBrand();
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
   const dailyshotSectionRef = useRef<HTMLDivElement>(null);
   const electrovitSectionRef = useRef<HTMLDivElement>(null);
+
+  // Determine image based on language (default to TR if not English)
+  const liquidAdvantagesImage = i18n.language === 'en'
+    ? '/images/liquid-advantages-en.png'
+    : '/images/liquid-advantages-tr.png';
 
   useEffect(() => {
     setBrand('health');
@@ -423,9 +428,9 @@ const HealthHome = () => {
               <div className="relative w-full h-full overflow-hidden rounded-3xl shadow-2xl shadow-black/50 aspect-[4/5] lg:aspect-square group">
                 <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent z-10"></div>
                 <img
-                  src="/images/electrovit_stadium.png"
-                  alt="Electrovit Stadium"
-                  className="object-cover w-full h-full transform transition-transform duration-700 group-hover:scale-105"
+                  src={liquidAdvantagesImage}
+                  alt="Liquid Form Advantages"
+                  className="object-contain w-full h-full transform transition-transform duration-700 group-hover:scale-105"
                 />
                 {/* Badge REMOVED as per request */}
               </div>

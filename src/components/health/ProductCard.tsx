@@ -46,7 +46,7 @@ const ProductCard = memo(({ product, priority = false }: ProductCardProps) => {
               src={product.image}
               alt={product.name}
               loading={priority ? 'eager' : 'lazy'}
-              className="w-full h-full object-contain p-4 transition-transform duration-700 group-hover:scale-110 drop-shadow-xl"
+              className="w-full h-full object-contain object-top p-4 transition-transform duration-700 group-hover:scale-110 drop-shadow-xl"
             />
           </div>
 
