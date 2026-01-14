@@ -9,6 +9,7 @@ import { Skeleton } from '@/components/ui/skeleton';
 import { cn } from '@/lib/utils'; // Assuming utils is available
 
 const DailyshotProductCard = ({ product, t }: { product: any, t: any }) => {
+    const { i18n } = useTranslation();
     const [isLoaded, setIsLoaded] = useState(false);
 
     // Map product slug to i18n description key

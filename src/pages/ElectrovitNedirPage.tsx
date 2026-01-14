@@ -1,11 +1,8 @@
-import { ArrowRight, Zap, Droplets, Heart, Activity, Dumbbell, Timer } from 'lucide-react';
+import { ArrowRight, Droplets, Activity } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
 import { useBrand } from '@/hooks/useBrand';
-import { Button } from '@/components/ui/button';
 import AnimatedSection from '@/components/shared/AnimatedSection';
-import ProductCard from '@/components/health/ProductCard';
-import { products } from '@/data/products';
 
 const ElectrovitNedirPage = () => {
     const { setBrand } = useBrand();
@@ -15,268 +12,125 @@ const ElectrovitNedirPage = () => {
         setBrand('health');
     }, [setBrand]);
 
-    const benefits = [
-        {
-            icon: <Zap className="w-6 h-6" />,
-            title: t('health.electrovitNedir.benefits.instantEnergy'),
-            description: t('health.electrovitNedir.benefits.instantEnergyDesc'),
-        },
-        {
-            icon: <Droplets className="w-6 h-6" />,
-            title: t('health.electrovitNedir.benefits.hydration'),
-            description: t('health.electrovitNedir.benefits.hydrationDesc'),
-        },
-        {
-            icon: <Activity className="w-6 h-6" />,
-            title: t('health.electrovitNedir.benefits.muscleFunction'),
-            description: t('health.electrovitNedir.benefits.muscleFunctionDesc'),
-        },
-        {
-            icon: <Heart className="w-6 h-6" />,
-            title: t('health.electrovitNedir.benefits.heartHealth'),
-            description: t('health.electrovitNedir.benefits.heartHealthDesc'),
-        },
-    ];
-
-    const useCases = [
-        {
-            icon: <Droplets className="w-8 h-8" />,
-            title: t('health.electrovitNedir.usageTime.preWorkout'),
-            description: t('health.electrovitNedir.usageTime.preWorkoutDesc'),
-        },
-        {
-            icon: <Zap className="w-8 h-8" />,
-            title: t('health.electrovitNedir.usageTime.duringWorkout'),
-            description: t('health.electrovitNedir.usageTime.duringWorkoutDesc'),
-        },
-        {
-            icon: <Activity className="w-8 h-8" />,
-            title: t('health.electrovitNedir.usageTime.postWorkout'),
-            description: t('health.electrovitNedir.usageTime.postWorkoutDesc'),
-        },
-    ];
-
-    // Get electrovit products for their images
-    const electrovitProducts = products.filter(p => p.brand === 'electrovit');
-
-    const targetAudience = [
-        t('health.electrovitNedir.targetAudience.item1'),
-        t('health.electrovitNedir.targetAudience.item2'),
-        t('health.electrovitNedir.targetAudience.item3'),
-        t('health.electrovitNedir.targetAudience.item4'),
-        t('health.electrovitNedir.targetAudience.item5'),
-        t('health.electrovitNedir.targetAudience.item6'),
-    ];
-
-    const [imagePosition, setImagePosition] = useState(() => {
-        const saved = localStorage.getItem('electrovit_image_pos');
-        return saved ? Number(saved) : 41;
-    });
-
-    const [cardWidth, setCardWidth] = useState(() => {
-        const saved = localStorage.getItem('electrovit_card_width');
-        return saved ? Number(saved) : 627;
-    });
-
-    useEffect(() => {
-        localStorage.setItem('electrovit_image_pos', String(imagePosition));
-    }, [imagePosition]);
-
-    useEffect(() => {
-        localStorage.setItem('electrovit_card_width', String(cardWidth));
-    }, [cardWidth]);
-
     return (
-        <div data-brand="health" className="bg-gray-50 min-h-screen">
-            {/* Blue Hero Background - The "Base" */}
-            <section className="relative h-[50vh] w-full bg-gradient-to-b from-[#00A3E0] to-[#0077B6] flex items-center justify-center overflow-hidden">
-                {/* Subtle Background Pattern */}
-                <div className="absolute inset-0 opacity-10 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] bg-repeat" />
+        <div className="bg-slate-50 dark:bg-slate-900 font-sans text-slate-900 dark:text-slate-100 antialiased overflow-x-hidden min-h-screen">
 
-                {/* Hero Text */}
-                <div className="relative z-10 text-center px-6 -mt-20">
-                    <AnimatedSection animation="fadeInUp">
-                        <span className="text-white/80 font-bold tracking-[0.3em] uppercase text-sm mb-4 block">
-                            {t('health.electrovitNedir.heroLabel')}
-                        </span>
-                        <h1 className="text-white font-black text-4xl md:text-6xl lg:text-7xl tracking-tight drop-shadow-lg font-poppins italic mb-6">
-                            {t('health.electrovitNedir.heroSlogan')}
-                        </h1>
-                        <p className="text-blue-100 text-lg md:text-xl max-w-2xl mx-auto font-light">
-                            {t('health.electrovitNedir.introSection.paragraph1')}
-                        </p>
-                    </AnimatedSection>
+            {/* NEW SPLIT HERO SECTION */}
+            <section className="relative min-h-[90vh] w-full flex items-center overflow-hidden bg-[#E0F7FA]">
+                {/* Background Water Image (Placeholder for AI Gen) */}
+                <div className="absolute inset-0 z-0 select-none pointer-events-none">
+                    <img
+                        src="https://images.unsplash.com/photo-1541675154750-0444c7d51e8e?q=80&w=2030&auto=format&fit=crop"
+                        alt="Water Background"
+                        className="w-full h-full object-cover opacity-60 mix-blend-multiply transition-opacity duration-1000"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-r from-white via-white/80 to-transparent dark:from-slate-900 dark:via-slate-900/80" />
+                </div>
+
+                <div className="container mx-auto px-6 relative z-10 grid lg:grid-cols-2 gap-12 items-center h-full py-20">
+                    {/* LEFT: Text Content */}
+                    <div className="max-w-xl mx-auto lg:mx-0 text-center lg:text-left">
+                        <AnimatedSection animation="fadeInLeft">
+                            <span className="inline-block px-4 py-2 rounded-full bg-[#00AEEF]/10 text-[#00AEEF] font-bold text-xs uppercase tracking-widest mb-6 border border-[#00AEEF]/20 backdrop-blur-sm">
+                                {t('health.electrovitIntro.title')}
+                            </span>
+                            <h1 className="text-5xl md:text-6xl lg:text-7xl font-black text-[#0077B6] leading-[1.1] mb-6 font-poppins">
+                                {t('health.electrovitNedir.heroTitle')} <br />
+                                <span className="text-[#00A3E0] italic drop-shadow-sm">{t('health.electrovitNedir.heroTitleHighlight')}</span>
+                            </h1>
+                            <p className="text-xl text-slate-600 dark:text-slate-400 mb-8 leading-relaxed max-w-lg mx-auto lg:mx-0">
+                                {t('health.electrovitNedir.introSection.paragraph1')}
+                            </p>
+
+                            <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
+                                <a
+                                    href="https://dailyshot.com.tr/arama/electrovit"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className="px-8 py-4 bg-[#00AEEF] hover:bg-[#0095CC] text-white rounded-full font-bold transition-all shadow-lg hover:shadow-[#00AEEF]/30 hover:-translate-y-1 active:scale-95 flex items-center justify-center gap-2"
+                                >
+                                    {t('health.electrovitNedir.cta')} <ArrowRight className="w-5 h-5" />
+                                </a>
+                                <div className="px-8 py-4 bg-white/60 backdrop-blur-md border border-[#00AEEF]/20 text-[#0077B6] rounded-full font-semibold cursor-default flex items-center justify-center gap-2">
+                                    <Activity className="w-5 h-5" />
+                                    {t('health.electrovitNedir.usageTime.preWorkout')}
+                                </div>
+                            </div>
+                        </AnimatedSection>
+                    </div>
+
+                    {/* RIGHT: Vertical Product Image */}
+                    <div className="relative flex items-center justify-center lg:justify-end">
+                        <AnimatedSection animation="fadeInUp" delay={200} className="relative w-full max-w-sm sm:max-w-md lg:max-w-md xl:max-w-lg perspective-1000">
+                            {/* Card Container for the Vertical Image */}
+                            <div className="relative rounded-[2rem] sm:rounded-[3rem] overflow-hidden shadow-[0_25px_50px_-12px_rgba(0,163,224,0.3)] border-4 border-white transform transition-all duration-700 hover:rotate-1 hover:scale-[1.02] bg-white group">
+                                <img
+                                    src="/images/electrovit_vertical.jpg"
+                                    alt="Electrovit Vertical"
+                                    className="w-full h-auto object-cover"
+                                />
+                                {/* Glossy Overlay */}
+                                <div className="absolute inset-0 bg-gradient-to-tr from-transparent via-white/20 to-transparent pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
+                            </div>
+
+                            {/* Floating "0 Sugar" Badge */}
+                            <div className="absolute -bottom-6 -left-6 bg-white p-4 rounded-2xl shadow-xl flex items-center gap-3 animate-bounce-slow border border-gray-100 hidden sm:flex">
+                                <div className="bg-blue-50 p-2.5 rounded-full">
+                                    <Droplets className="w-6 h-6 text-[#00AEEF]" />
+                                </div>
+                                <div>
+                                    <div className="text-[10px] text-gray-500 font-bold uppercase tracking-wider">Şeker</div>
+                                    <div className="text-xl font-black text-[#0077B6]">0 GR</div>
+                                </div>
+                            </div>
+                        </AnimatedSection>
+                    </div>
                 </div>
             </section>
 
-            {/* Overlapping Image Section - The "Bridge" */}
-            <div className="relative z-20 -mt-48 container mx-auto px-6">
-                <AnimatedSection animation="fadeInUp" delay={200}>
-                    <div className="relative max-w-5xl mx-auto">
-                        {/* Glow Effect */}
-                        <div className="absolute inset-0 bg-[#00A3E0]/40 blur-3xl transform scale-90 -z-10 rounded-full" />
+            {/* Info Card Section (Preserved & Styled) */}
+            <section id="details" className="max-w-5xl mx-auto px-6 -mt-20 relative z-20 pb-24">
+                <AnimatedSection animation="fadeInUp">
+                    <div className="bg-white dark:bg-slate-800 rounded-[2.5rem] p-8 lg:p-14 shadow-[0_20px_50px_-12px_rgba(0,0,0,0.1)] text-center relative overflow-hidden group border border-slate-100 dark:border-slate-700">
+                        {/* Top Gradient Line */}
+                        <div className="absolute top-0 left-0 right-0 h-1.5 bg-gradient-to-r from-[#00AEEF] to-[#0077B6]"></div>
 
-                        {/* The Image Card */}
-                        <div className="bg-white/5 backdrop-blur-sm rounded-3xl p-2 shadow-2xl border border-white/20">
-                            <div className="bg-white rounded-[20px] overflow-hidden relative aspect-[21/9] shadow-inner group">
-                                <img
-                                    src="/images/electrovit_info.png"
-                                    alt="Electrovit Info"
-                                    className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
-                                    style={{
-                                        filter: 'grayscale(100%) sepia(100%) hue-rotate(170deg) saturate(200%) brightness(0.95)'
-                                    }}
-                                />
-                                {/* Inner Shadow Overlay for depth */}
-                                <div className="absolute inset-0 shadow-[inset_0_0_100px_rgba(0,0,0,0.1)] pointer-events-none" />
-                            </div>
+                        <div className="mb-8 inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-[#00AEEF]/5 text-[#00AEEF] group-hover:scale-110 transition-transform">
+                            <Activity className="w-8 h-8" />
+                        </div>
+
+                        <h2 className="text-3xl lg:text-4xl font-poppins font-bold text-slate-900 dark:text-white mb-6">
+                            Su İçemeyenler İçin Tasarlandı.
+                        </h2>
+
+                        <div className="max-w-2xl mx-auto space-y-6">
+                            <p className="text-slate-600 dark:text-slate-400 text-lg leading-relaxed">
+                                Unutkanlık, tüketim alışkanlığı ya da su kaybına sebep olacak dış faktörlerin varlığı nedeniyle günlük su ihtiyacını karşılayamayanlar için geliştirilmiş bir elektrolit takviyesidir.
+                            </p>
+                            <div className="h-px w-24 bg-slate-200 dark:bg-slate-700 mx-auto"></div>
+                            <p className="text-slate-500 dark:text-slate-500 italic text-base">
+                                Günlük elektrolit ihtiyacınızı karşılayarak vücudun sıvı dengesini, sinir iletimi ve kas fonksiyonlarını destekler. Yorgunluk ve bitkinliğin azalmasına katkıda bulunur.
+                            </p>
+                        </div>
+
+                        {/* Grid Stats */}
+                        <div id="how-it-works" className="grid grid-cols-2 md:grid-cols-4 gap-6 mt-12">
+                            {[
+                                { label: 'Sodyum', val: 'Na+' },
+                                { label: 'Potasyum', val: 'K+' },
+                                { label: 'Magnezyum', val: 'Mg++' },
+                                { label: 'İlave Şeker', val: '0' }
+                            ].map((item, i) => (
+                                <div key={i} className="p-4 rounded-2xl bg-slate-50 dark:bg-slate-900/50 border border-slate-100 dark:border-slate-700 transition-all hover:shadow-lg hover:border-[#00AEEF]/30">
+                                    <div className="text-[#00AEEF] font-bold text-xl mb-1">{item.val}</div>
+                                    <div className="text-xs font-medium text-slate-500 uppercase">{item.label}</div>
+                                </div>
+                            ))}
                         </div>
                     </div>
                 </AnimatedSection>
-            </div>
-
-            {/* Intro Content - The "Landing" */}
-            <section className="pt-24 pb-20 bg-gray-50">
-                <div className="container mx-auto px-6 text-center">
-                    <AnimatedSection animation="fadeInUp">
-                        <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-8 font-poppins">
-                            {t('health.electrovitNedir.heroTitle')} <span className="text-[#00A3E0]">{t('health.electrovitNedir.heroTitleHighlight')}</span>
-                        </h2>
-                        <p className="text-gray-600 text-lg max-w-3xl mx-auto leading-relaxed">
-                            {t('health.electrovitNedir.introSection.paragraph2')}
-                        </p>
-
-                        <div className="mt-12">
-                            <a
-                                href="https://dailyshot.com.tr/arama/electrovit"
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                className="inline-block bg-[#00A3E0] hover:bg-[#0077B6] text-white px-10 py-4 rounded-full font-bold transition-all duration-300 shadow-lg shadow-blue-500/30 hover:shadow-blue-500/50 hover:-translate-y-1"
-                            >
-                                {t('health.electrovitNedir.cta')}
-                            </a>
-                        </div>
-                    </AnimatedSection>
-                </div>
             </section>
 
-            {/* Benefits */}
-            < section className="py-20 lg:py-28" >
-                <div className="container mx-auto px-6">
-                    <AnimatedSection animation="fadeInUp" className="text-center mb-16">
-                        <span className="text-[#FF9800] text-sm font-semibold uppercase tracking-widest mb-4 block">
-                            {t('health.electrovitNedir.benefits.label')}
-                        </span>
-                        <h2 className="font-poppins font-bold text-4xl md:text-5xl text-gray-900 max-w-2xl mx-auto">
-                            {t('health.electrovitNedir.benefits.title')}
-                        </h2>
-                    </AnimatedSection>
-
-                    <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-                        {benefits.map((benefit, index) => (
-                            <AnimatedSection key={index} animation="fadeInUp" delay={index * 100}>
-                                <div className="bg-white rounded-2xl p-8 shadow-lg border border-gray-100 h-full hover:shadow-xl transition-shadow text-center">
-                                    <div className="w-14 h-14 bg-[#FF9800]/10 rounded-2xl flex items-center justify-center text-[#FF9800] mb-6 mx-auto">
-                                        {benefit.icon}
-                                    </div>
-                                    <h3 className="font-poppins font-bold text-2xl text-gray-900 mb-3">
-                                        {benefit.title}
-                                    </h3>
-                                    <p className="text-gray-600 leading-relaxed text-lg">
-                                        {benefit.description}
-                                    </p>
-                                </div>
-                            </AnimatedSection>
-                        ))}
-                    </div>
-                </div>
-            </section >
-
-            {/* When to Use */}
-            < section className="py-20 bg-gray-100" >
-                <div className="container mx-auto px-6">
-                    <AnimatedSection animation="fadeInUp" className="text-center mb-16">
-                        <span className="text-[#FF9800] text-sm font-semibold uppercase tracking-widest mb-4 block">
-                            {t('health.electrovitNedir.usageTime.label')}
-                        </span>
-                        <h2 className="font-poppins font-bold text-4xl md:text-5xl text-gray-900">
-                            {t('health.electrovitNedir.usageTime.title')}
-                        </h2>
-                    </AnimatedSection>
-
-                    <div className="grid md:grid-cols-3 gap-8 max-w-4xl mx-auto">
-                        {useCases.map((useCase, index) => (
-                            <AnimatedSection key={index} animation="fadeInUp" delay={index * 100}>
-                                <div className="bg-white rounded-2xl p-8 shadow-lg text-center">
-                                    <div className="w-16 h-16 bg-[#FF9800] rounded-full flex items-center justify-center text-white mb-6 mx-auto">
-                                        {useCase.icon}
-                                    </div>
-                                    <h3 className="font-poppins font-bold text-2xl text-gray-900 mb-3">
-                                        {useCase.title}
-                                    </h3>
-                                    <p className="text-gray-600 text-lg">{useCase.description}</p>
-                                </div>
-                            </AnimatedSection>
-                        ))}
-                    </div>
-                </div>
-            </section >
-
-            {/* Flavors */}
-            < section className="py-20 lg:py-28" >
-                <div className="container mx-auto px-6">
-
-
-                    <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
-                        {electrovitProducts.map((product, index) => (
-                            <AnimatedSection key={product.id} animation="fadeInUp" delay={index * 100}>
-                                <div className="h-full">
-                                    <ProductCard product={product} />
-                                </div>
-                            </AnimatedSection>
-                        ))}
-                    </div>
-                </div>
-            </section >
-
-            {/* Target Audience */}
-            < section className="py-20 bg-gray-900 text-white" >
-                <div className="container mx-auto px-6">
-                    <div className="max-w-4xl mx-auto">
-                        <AnimatedSection animation="fadeInUp" className="text-center mb-12">
-                            <span className="text-[#FF9800] text-sm font-semibold uppercase tracking-widest mb-4 block">
-                                {t('health.electrovitNedir.targetAudience.label')}
-                            </span>
-                            <h2 className="font-poppins font-bold text-4xl md:text-5xl">
-                                {t('health.electrovitNedir.targetAudience.title')}
-                            </h2>
-                        </AnimatedSection>
-
-                        <AnimatedSection animation="fadeInUp" delay={100}>
-                            <div className="grid md:grid-cols-2 gap-4">
-                                {targetAudience.map((item, index) => (
-                                    <div key={index} className="flex items-center gap-3 bg-white/5 rounded-xl px-6 py-4 transition-colors hover:bg-white/10">
-                                        <div className="w-2 h-2 bg-[#FF9800] rounded-full" />
-                                        <span className="text-gray-200 text-lg">{item}</span>
-                                    </div>
-                                ))}
-                            </div>
-                        </AnimatedSection>
-
-                        <AnimatedSection animation="fadeInUp" delay={200} className="text-center mt-12">
-                            <Button
-                                asChild
-                                size="lg"
-                                className="bg-[#FF9800] hover:bg-[#FF9800]/90 text-white font-bold rounded-full px-10"
-                            >
-                                <a href="https://dailyshot.com.tr/arama/electrovit" target="_blank" rel="noopener noreferrer">
-                                    {t('health.electrovitNedir.cta')} <ArrowRight className="w-5 h-5 ml-2" />
-                                </a>
-                            </Button>
-                        </AnimatedSection>
-                    </div>
-                </div>
-            </section>
         </div>
     );
 };
