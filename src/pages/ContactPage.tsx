@@ -6,10 +6,14 @@ import { cn } from '@/lib/utils';
 import AnimatedSection from '@/components/shared/AnimatedSection';
 import emailjs from '@emailjs/browser';
 
-// EmailJS Configuration - Replace with your actual IDs
-const EMAILJS_SERVICE_ID = 'service_wellworks';
-const EMAILJS_TEMPLATE_ID = 'template_contact';
-const EMAILJS_PUBLIC_KEY = 'YOUR_PUBLIC_KEY'; // User needs to replace this
+// EmailJS Configuration
+const EMAILJS_SERVICE_ID = 'service_u7o0qbs';
+const EMAILJS_TEMPLATE_ID = 'template_2c609lm';
+const EMAILJS_PUBLIC_KEY = '0dp1lH8wFweRYDlq1';
+
+// Rate limiting - prevent spam
+const RATE_LIMIT_KEY = 'emailjs_last_submit';
+const RATE_LIMIT_MS = 60000; // 1 minute between submissions
 
 const ContactPage = () => {
   const { t } = useTranslation();
@@ -18,10 +22,12 @@ const ContactPage = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [isSuccess, setIsSuccess] = useState(false);
   const [errorMessage, setErrorMessage] = useState('');
+  const [honeypot, setHoneypot] = useState(''); // Honeypot for bot detection
   const [formData, setFormData] = useState({
     fullName: '',
     email: '',
     phone: '',
+    company: '',
     subject: 'general',
     message: '',
   });
@@ -36,10 +42,67 @@ const ContactPage = () => {
     }
   }, [setBrand]);
 
+  // Email validation
+  const isValidEmail = (email: string) => {
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return emailRegex.test(email);
+  };
+
+  // Phone validation (basic - allows various formats)
+  const isValidPhone = (phone: string) => {
+    const phoneRegex = /^[\d\s\-\+\(\)]{7,20}$/;
+    return phone === '' || phoneRegex.test(phone);
+  };
+
+  // Rate limit check
+  const isRateLimited = () => {
+    const lastSubmit = localStorage.getItem(RATE_LIMIT_KEY);
+    if (lastSubmit) {
+      const timeSince = Date.now() - parseInt(lastSubmit, 10);
+      return timeSince < RATE_LIMIT_MS;
+    }
+    return false;
+  };
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    setIsLoading(true);
     setErrorMessage('');
+
+    // Honeypot check - if filled, it's a bot
+    if (honeypot) {
+      console.log('Bot detected');
+      setIsSuccess(true); // Fake success to confuse bots
+      return;
+    }
+
+    // Rate limit check
+    if (isRateLimited()) {
+      setErrorMessage('Lütfen bir dakika bekleyip tekrar deneyin.');
+      return;
+    }
+
+    // Validate required fields
+    if (!formData.fullName.trim() || formData.fullName.length < 2) {
+      setErrorMessage('Lütfen geçerli bir isim girin.');
+      return;
+    }
+
+    if (!isValidEmail(formData.email)) {
+      setErrorMessage('Lütfen geçerli bir e-posta adresi girin.');
+      return;
+    }
+
+    if (!isValidPhone(formData.phone)) {
+      setErrorMessage('Lütfen geçerli bir telefon numarası girin.');
+      return;
+    }
+
+    if (!formData.message.trim() || formData.message.length < 10) {
+      setErrorMessage('Mesajınız en az 10 karakter olmalıdır.');
+      return;
+    }
+
+    setIsLoading(true);
 
     try {
       // Send email via EmailJS
@@ -47,21 +110,26 @@ const ContactPage = () => {
         EMAILJS_SERVICE_ID,
         EMAILJS_TEMPLATE_ID,
         {
-          from_name: formData.fullName,
-          from_email: formData.email,
-          phone: formData.phone,
+          from_name: formData.fullName.trim(),
+          from_email: formData.email.trim(),
+          phone: formData.phone.trim() || 'Belirtilmedi',
+          company: formData.company.trim() || 'Belirtilmedi',
           subject: formData.subject,
-          message: formData.message,
+          message: formData.message.trim(),
           to_email: 'pazarlama@wellworksturkey.com',
         },
         EMAILJS_PUBLIC_KEY
       );
+
+      // Set rate limit
+      localStorage.setItem(RATE_LIMIT_KEY, Date.now().toString());
 
       setIsSuccess(true);
       setFormData({
         fullName: '',
         email: '',
         phone: '',
+        company: '',
         subject: 'general',
         message: '',
       });
@@ -159,6 +227,18 @@ const ContactPage = () => {
               )}
             >
               <form onSubmit={handleSubmit} className="flex flex-col gap-6">
+                {/* Honeypot field - hidden from humans, bots will fill it */}
+                <input
+                  type="text"
+                  name="website"
+                  value={honeypot}
+                  onChange={(e) => setHoneypot(e.target.value)}
+                  className="absolute -left-[9999px] opacity-0 pointer-events-none"
+                  tabIndex={-1}
+                  autoComplete="off"
+                  aria-hidden="true"
+                />
+
                 {/* Name and Email */}
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
                   <label className="flex flex-col">
@@ -223,26 +303,46 @@ const ContactPage = () => {
                   </label>
                   <label className="flex flex-col">
                     <span className="text-sm font-semibold mb-2">
-                      {t('contact.form.subject')}
+                      {t('contact.form.company')}
                     </span>
-                    <select
-                      name="subject"
-                      value={formData.subject}
+                    <input
+                      type="text"
+                      name="company"
+                      value={formData.company}
                       onChange={handleChange}
                       className={cn(
-                        'px-4 py-3 rounded-xl border focus:outline-none focus:ring-2 transition-all cursor-pointer',
+                        'px-4 py-3 rounded-xl border focus:outline-none focus:ring-2 transition-all',
                         brand === 'health'
                           ? 'bg-background border-border focus:ring-health-primary'
                           : 'bg-gray-900 border-gray-600 text-white focus:ring-mice-primary'
                       )}
-                    >
-                      <option value="general">{t('contact.form.subjectGeneral')}</option>
-                      <option value="product">{t('contact.form.subjectProduct')}</option>
-                      <option value="event">{t('contact.form.subjectEvent')}</option>
-                      <option value="partnership">{t('contact.form.subjectPartnership')}</option>
-                    </select>
+                      placeholder={t('contact.form.companyPlaceholder')}
+                    />
                   </label>
                 </div>
+
+                {/* Subject */}
+                <label className="flex flex-col">
+                  <span className="text-sm font-semibold mb-2">
+                    {t('contact.form.subject')}
+                  </span>
+                  <select
+                    name="subject"
+                    value={formData.subject}
+                    onChange={handleChange}
+                    className={cn(
+                      'px-4 py-3 rounded-xl border focus:outline-none focus:ring-2 transition-all cursor-pointer',
+                      brand === 'health'
+                        ? 'bg-background border-border focus:ring-health-primary'
+                        : 'bg-gray-900 border-gray-600 text-white focus:ring-mice-primary'
+                    )}
+                  >
+                    <option value="general">{t('contact.form.subjectGeneral')}</option>
+                    <option value="product">{t('contact.form.subjectProduct')}</option>
+                    <option value="event">{t('contact.form.subjectEvent')}</option>
+                    <option value="partnership">{t('contact.form.subjectPartnership')}</option>
+                  </select>
+                </label>
 
                 {/* Message */}
                 <label className="flex flex-col">
@@ -381,8 +481,8 @@ const ContactPage = () => {
             ))}
           </div>
         </AnimatedSection>
-      </div>
-    </div>
+      </div >
+    </div >
   );
 };
 

@@ -141,17 +141,6 @@ const HealthHome = () => {
         <div className="absolute top-0 right-0 w-1/3 h-full bg-gradient-to-l from-health-primary/5 to-transparent pointer-events-none" />
 
         <div className="container mx-auto px-6 relative z-10 flex flex-col items-center">
-          {/* Dailyshot Logo - Top of Hero, Full Width */}
-          <div className="w-full mb-8 flex justify-center">
-            <img
-              src="/images/dailyshot_logo_transparent.png"
-              alt="Dailyshot"
-              className="w-full object-contain drop-shadow-sm transform scale-105"
-              style={{ maxHeight: '250px' }}
-              loading="eager"
-            />
-          </div>
-
           <div className="grid lg:grid-cols-2 gap-12 items-center w-full">
             {/* Left Content - About Us */}
             <div className="flex flex-col items-start space-y-6">

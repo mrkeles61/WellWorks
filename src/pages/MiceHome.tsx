@@ -133,10 +133,6 @@ const MiceHome = () => {
         <div className="container relative z-20 px-4 mx-auto sm:px-6 lg:px-8 text-center md:text-left">
           <div className="max-w-3xl">
             <AnimatedSection animation="fadeInUp">
-              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#2DB34A]/10 text-[#2DB34A] border border-[#2DB34A]/20 mb-6 backdrop-blur-sm">
-                <Star className="w-4 h-4" />
-                <span className="text-xs font-bold uppercase tracking-wider">{t('mice.home.hero.badge')}</span>
-              </div>
             </AnimatedSection>
             <AnimatedSection animation="fadeInUp" delay={100}>
               <h1 className="font-oswald text-5xl md:text-7xl font-extrabold text-white leading-tight tracking-tight mb-6 drop-shadow-lg">

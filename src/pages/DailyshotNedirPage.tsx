@@ -11,6 +11,39 @@ import { cn } from '@/lib/utils'; // Assuming utils is available
 const DailyshotProductCard = ({ product, t }: { product: any, t: any }) => {
     const [isLoaded, setIsLoaded] = useState(false);
 
+    // Map product slug to i18n description key
+    const getDescriptionKey = (slug: string) => {
+        if (slug.includes('energyshot')) return 'energyshot';
+        if (slug.includes('hangovershotzero')) return 'hangovershotzero';
+        if (slug.includes('hangovershot')) return 'hangovershot';
+        if (slug.includes('relaxshot')) return 'relaxshot';
+        if (slug.includes('defenseshot')) return 'defenseshot';
+        if (slug.includes('detoxshot')) return 'detoxshot';
+        if (slug.includes('laxshot')) return 'laxshot';
+        if (slug.includes('libidoshot')) return 'libidoshot';
+        if (slug.includes('antioxshot')) return 'antioxshot';
+        return 'energyshot'; // fallback
+    };
+
+    // Map category to i18n key
+    const getCategoryKey = (category: string) => {
+        const categoryMap: { [key: string]: string } = {
+            'Enerji': 'energy',
+            'Akşamdan Kalma': 'hangover',
+            'Uyku ve Stres': 'sleep',
+            'Bağışıklık': 'immunity',
+            'Detoks': 'detox',
+            'Sindirim': 'digestion',
+            'Vitalite': 'vitality',
+            'Antioksidan': 'antioxidant',
+        };
+        return categoryMap[category] || 'energy';
+    };
+
+    const descKey = getDescriptionKey(product.slug);
+    const catKey = getCategoryKey(product.category);
+    const packLabelKey = product.slug.includes('4') ? 'packLabel4' : 'packLabel';
+
     return (
         <a
             href={`https://dailyshot.com.tr/urun/${product.slug}`}
@@ -39,17 +72,17 @@ const DailyshotProductCard = ({ product, t }: { product: any, t: any }) => {
             <div className="p-8">
                 <div className="mb-4">
                     <span className="inline-block px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wide text-white" style={{ backgroundColor: product.color }}>
-                        {product.category}
+                        {t(`health.dailyshotNedir.productCards.categories.${catKey}`)}
                     </span>
                 </div>
-                <h3 className="font-poppins font-bold text-2xl text-gray-900 mb-2 group-hover:text-health-primary transition-colors">
+                <h3
+                    className="font-poppins font-bold text-2xl mb-2 transition-colors"
+                    style={{ color: product.color }}
+                >
                     {product.displayName}
                 </h3>
-                <p className="text-gray-500 font-medium mb-4">
-                    {product.packLabel}
-                </p>
                 <p className="text-gray-600 text-sm mb-6 line-clamp-2">
-                    {product.shortDescription}
+                    {t(`health.dailyshotNedir.productCards.descriptions.${descKey}`)}
                 </p>
 
                 <div
@@ -139,18 +172,102 @@ const DailyshotNedirPage = () => {
         t('health.dailyshotNedir.targetAudience.item6'),
     ];
 
+    // Image Editor State
+    const [editorOpen, setEditorOpen] = useState(true);
+    const [imgScale, setImgScale] = useState(100);
+    const [imgX, setImgX] = useState(50); // 50% = center
+    const [imgY, setImgY] = useState(50); // 50% = center
+    const [objectFit, setObjectFit] = useState<'cover' | 'contain' | 'fill' | 'none' | 'scale-down'>('cover');
+
     return (
         <div data-brand="health" className="bg-gray-50 min-h-screen font-sans">
+            {/* IN-PAGE IMAGE EDITOR */}
+            {editorOpen && (
+                <div className="fixed top-24 left-4 z-50 bg-black/90 p-5 rounded-xl text-white border border-gray-700 shadow-2xl backdrop-blur-md w-72 font-mono text-xs">
+                    <div className="flex justify-between items-center mb-4 border-b border-gray-700 pb-2">
+                        <h3 className="font-bold text-orange-400 uppercase tracking-widest">Hero Image Editor</h3>
+                        <button onClick={() => setEditorOpen(false)} className="text-gray-400 hover:text-white">✕</button>
+                    </div>
+
+                    {/* Mode Selection */}
+                    <div className="mb-4 space-y-2">
+                        <p className="text-gray-400 font-bold">1. Fit Mode</p>
+                        <div className="grid grid-cols-2 gap-2">
+                            {['cover', 'contain', 'fill', 'none'].map((mode) => (
+                                <button
+                                    key={mode}
+                                    onClick={() => setObjectFit(mode as any)}
+                                    className={`px-2 py-1 rounded border ${objectFit === mode ? 'bg-orange-500 border-orange-500 text-black' : 'bg-transparent border-gray-600 hover:bg-gray-800'}`}
+                                >
+                                    {mode}
+                                </button>
+                            ))}
+                        </div>
+                    </div>
+
+                    {/* Transforms */}
+                    <div className="space-y-4">
+                        <p className="text-gray-400 font-bold border-t border-gray-700 pt-2">2. Transform</p>
+
+                        <div>
+                            <div className="flex justify-between mb-1">
+                                <span>Scale</span>
+                                <span className="text-orange-400">{imgScale}%</span>
+                            </div>
+                            <input
+                                type="range" min="10" max="250" value={imgScale}
+                                onChange={(e) => setImgScale(Number(e.target.value))}
+                                className="w-full accent-orange-500"
+                            />
+                        </div>
+
+                        <div>
+                            <div className="flex justify-between mb-1">
+                                <span>Pos X (Left/Right)</span>
+                                <span className="text-blue-400">{imgX}%</span>
+                            </div>
+                            <input
+                                type="range" min="0" max="100" value={imgX}
+                                onChange={(e) => setImgX(Number(e.target.value))}
+                                className="w-full accent-blue-500"
+                            />
+                        </div>
+
+                        <div>
+                            <div className="flex justify-between mb-1">
+                                <span>Pos Y (Up/Down)</span>
+                                <span className="text-green-400">{imgY}%</span>
+                            </div>
+                            <input
+                                type="range" min="0" max="100" value={imgY}
+                                onChange={(e) => setImgY(Number(e.target.value))}
+                                className="w-full accent-green-500"
+                            />
+                        </div>
+                    </div>
+
+                    <div className="mt-4 pt-4 border-t border-gray-700 text-[10px] text-gray-500">
+                        * Set "Fit Mode" to 'none' or 'contain' to see full image before scaling.
+                    </div>
+                </div>
+            )}
 
             {/* Hero Section */}
             <section className="relative pt-32 pb-20 overflow-hidden bg-gray-900 text-white">
-                <div className="absolute inset-0 z-0">
+                <div className="absolute inset-0 z-0 flex items-center justify-center overflow-hidden">
                     <img
-                        src="/images/products_showcase.png"
+                        src="/images/products_showcase_v2.png"
                         alt="Dailyshot Ürünleri"
-                        className="w-full h-full object-cover opacity-60 mix-blend-overlay"
+                        className="transition-all duration-75 ease-linear pointer-events-none"
+                        style={{
+                            width: '100%',
+                            height: '100%',
+                            objectFit: objectFit,
+                            objectPosition: `${imgX}% ${imgY}%`,
+                            transform: `scale(${imgScale / 100})`
+                        }}
                     />
-                    <div className="absolute inset-0 bg-gradient-to-br from-blue-900/90 to-purple-900/90 mix-blend-multiply" />
+                    <div className="absolute inset-0 bg-gradient-to-br from-blue-900/90 to-purple-900/90 mix-blend-multiply pointer-events-none" />
                 </div>
 
                 <div className="container mx-auto px-6 relative z-10 text-center">
