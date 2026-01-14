@@ -1,6 +1,6 @@
 import { Heart, Calendar } from 'lucide-react';
 import { useNavigate, useLocation } from 'react-router-dom';
-import { useBrand } from '@/context/BrandContext';
+import { useBrand } from '@/hooks/useBrand';
 import { cn } from '@/lib/utils';
 
 const BrandToggle = () => {

@@ -1,14 +1,5 @@
-import React, { createContext, useContext, useState, useEffect, ReactNode } from 'react';
-
-type Brand = 'health' | 'mice';
-
-interface BrandContextType {
-  brand: Brand;
-  setBrand: (brand: Brand) => void;
-  toggleBrand: () => void;
-}
-
-const BrandContext = createContext<BrandContextType | undefined>(undefined);
+import React, { useState, useEffect, ReactNode } from 'react';
+import { Brand, BrandContext } from './brand-context-definition';
 
 export const BrandProvider = ({ children }: { children: ReactNode }) => {
   const [brand, setBrandState] = useState<Brand>('health');
@@ -39,12 +30,4 @@ export const BrandProvider = ({ children }: { children: ReactNode }) => {
       {children}
     </BrandContext.Provider>
   );
-};
-
-export const useBrand = () => {
-  const context = useContext(BrandContext);
-  if (context === undefined) {
-    throw new Error('useBrand must be used within a BrandProvider');
-  }
-  return context;
 };

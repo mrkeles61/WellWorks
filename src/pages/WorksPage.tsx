@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 import { useEffect } from 'react';
-import { useBrand } from '@/context/BrandContext';
+import { useBrand } from '@/hooks/useBrand';
 import { ArrowUpRight, Calendar, MapPin, Users, ExternalLink } from 'lucide-react';
 import AnimatedSection from '@/components/shared/AnimatedSection';
 

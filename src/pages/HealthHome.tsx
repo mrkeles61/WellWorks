@@ -7,7 +7,7 @@ import AnimatedSection from '@/components/shared/AnimatedSection';
 import bottleOfHealth from '@/assets/bottle-of-health.png';
 import certificationsTransparentImg from '@/assets/certifications_transparent.png';
 import { useEffect, useRef, useState } from 'react';
-import { useBrand } from '@/context/BrandContext';
+import { useBrand } from '@/hooks/useBrand';
 import { Button } from '@/components/ui/button';
 import {
   Carousel,

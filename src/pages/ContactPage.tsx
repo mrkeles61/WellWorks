@@ -1,13 +1,23 @@
 import { useTranslation } from 'react-i18next';
-import { useEffect, useState } from 'react';
-import { useBrand } from '@/context/BrandContext';
-import { MapPin, Phone, Mail, Send } from 'lucide-react';
+import { useEffect, useState, useRef } from 'react';
+import { useBrand } from '@/hooks/useBrand';
+import { MapPin, Phone, Mail, Send, Loader2, CheckCircle } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import AnimatedSection from '@/components/shared/AnimatedSection';
+import emailjs from '@emailjs/browser';
+
+// EmailJS Configuration - Replace with your actual IDs
+const EMAILJS_SERVICE_ID = 'service_wellworks';
+const EMAILJS_TEMPLATE_ID = 'template_contact';
+const EMAILJS_PUBLIC_KEY = 'YOUR_PUBLIC_KEY'; // User needs to replace this
 
 const ContactPage = () => {
   const { t } = useTranslation();
   const { brand, setBrand } = useBrand();
+  const formRef = useRef<HTMLFormElement>(null);
+  const [isLoading, setIsLoading] = useState(false);
+  const [isSuccess, setIsSuccess] = useState(false);
+  const [errorMessage, setErrorMessage] = useState('');
   const [formData, setFormData] = useState({
     fullName: '',
     email: '',
@@ -26,10 +36,44 @@ const ContactPage = () => {
     }
   }, [setBrand]);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    // TODO: Implement form submission
-    // Form submitted successfully - data would be sent to backend
+    setIsLoading(true);
+    setErrorMessage('');
+
+    try {
+      // Send email via EmailJS
+      await emailjs.send(
+        EMAILJS_SERVICE_ID,
+        EMAILJS_TEMPLATE_ID,
+        {
+          from_name: formData.fullName,
+          from_email: formData.email,
+          phone: formData.phone,
+          subject: formData.subject,
+          message: formData.message,
+          to_email: 'pazarlama@wellworksturkey.com',
+        },
+        EMAILJS_PUBLIC_KEY
+      );
+
+      setIsSuccess(true);
+      setFormData({
+        fullName: '',
+        email: '',
+        phone: '',
+        subject: 'general',
+        message: '',
+      });
+
+      // Reset success state after 5 seconds
+      setTimeout(() => setIsSuccess(false), 5000);
+    } catch (error) {
+      console.error('EmailJS Error:', error);
+      setErrorMessage('Mesaj gönderilemedi. Lütfen tekrar deneyin.');
+    } finally {
+      setIsLoading(false);
+    }
   };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
@@ -221,18 +265,43 @@ const ContactPage = () => {
                   />
                 </label>
 
+                {/* Error Message */}
+                {errorMessage && (
+                  <div className="p-4 bg-red-100 border border-red-300 text-red-700 rounded-xl text-sm">
+                    {errorMessage}
+                  </div>
+                )}
+
+                {/* Success Message */}
+                {isSuccess && (
+                  <div className="p-4 bg-green-100 border border-green-300 text-green-700 rounded-xl text-sm flex items-center gap-2">
+                    <CheckCircle className="w-5 h-5" />
+                    Mesajınız başarıyla gönderildi!
+                  </div>
+                )}
+
                 {/* Submit Button */}
                 <button
                   type="submit"
+                  disabled={isLoading}
                   className={cn(
-                    'flex items-center justify-center gap-2 py-3 px-6 rounded-xl font-semibold transition-all shadow-md hover:shadow-lg',
+                    'flex items-center justify-center gap-2 py-3 px-6 rounded-xl font-semibold transition-all shadow-md hover:shadow-lg disabled:opacity-70 disabled:cursor-not-allowed',
                     brand === 'health'
                       ? 'bg-health-primary text-white hover:bg-health-primary-hover'
                       : 'bg-mice-primary text-white hover:bg-mice-primary-hover'
                   )}
                 >
-                  <Send className="w-5 h-5" />
-                  {t('contact.form.submit')}
+                  {isLoading ? (
+                    <>
+                      <Loader2 className="w-5 h-5 animate-spin" />
+                      Gönderiliyor...
+                    </>
+                  ) : (
+                    <>
+                      <Send className="w-5 h-5" />
+                      {t('contact.form.submit')}
+                    </>
+                  )}
                 </button>
               </form>
             </div>

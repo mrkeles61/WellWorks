@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { cn } from '@/lib/utils';
-import { useBrand } from '@/context/BrandContext';
+import { useBrand } from '@/hooks/useBrand';
 
 const SocialMediaFAB = () => {
     const [isExpanded, setIsExpanded] = useState(false);

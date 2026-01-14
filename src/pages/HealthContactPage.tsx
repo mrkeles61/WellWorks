@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import { useBrand } from '@/context/BrandContext';
+import { useBrand } from '@/hooks/useBrand';
 import { MapPin, Phone, Mail, Send, CheckCircle } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';

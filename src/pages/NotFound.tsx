@@ -2,7 +2,7 @@ import { Link, useLocation } from "react-router-dom";
 import { useEffect } from "react";
 import { useTranslation } from "react-i18next";
 import { Home } from "lucide-react";
-import { useBrand } from "@/context/BrandContext";
+import { useBrand } from "@/hooks/useBrand";
 import { cn } from "@/lib/utils";
 
 const NotFound = () => {

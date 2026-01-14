@@ -1,7 +1,7 @@
 import { useTranslation, Trans } from 'react-i18next';
 import { Link } from 'react-router-dom';
 import { useEffect, useState, useRef } from 'react';
-import { useBrand } from '@/context/BrandContext';
+import { useBrand } from '@/hooks/useBrand';
 import { Calendar, Star, Diamond, CalendarDays, Users, ArrowRight, Play, MapPin, Phone, Mail, Clock, Quote, Check, Sparkles, Layers, Medal } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import AnimatedSection from '@/components/shared/AnimatedSection';
@@ -159,10 +159,6 @@ const MiceHome = () => {
                   <span>{t('mice.home.hero.ctaPlan')}</span>
                   <Calendar className="w-5 h-5" />
                 </Link>
-                <button className="bg-gray-800 hover:bg-gray-700 text-white border border-white/20 text-lg font-bold py-4 px-8 rounded-xl flex items-center justify-center gap-2 transition-all hover:border-white/40">
-                  <span>{t('mice.home.hero.ctaReel')}</span>
-                  <Play className="w-5 h-5" />
-                </button>
               </div>
             </AnimatedSection>
           </div>

@@ -1,8 +1,9 @@
 import { ArrowRight } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import type { Product } from '@/data/products';
-import { memo } from 'react';
+import { memo, useState } from 'react';
 import { useTranslation } from 'react-i18next';
+import { Skeleton } from '@/components/ui/skeleton';
 
 interface ProductCardProps {
   product: Product;
@@ -18,8 +19,8 @@ interface ProductCardProps {
  */
 const ProductCard = memo(({ product, priority = false }: ProductCardProps) => {
   const { t, i18n } = useTranslation();
+  const [isLoaded, setIsLoaded] = useState(false);
   const productUrl = `https://www.dailyshot.com.tr/urun/${product.slug}`;
-  const features = i18n.language === 'tr' ? product.featuresTr : product.features;
 
   return (
     <article className="group relative h-full">
@@ -32,24 +33,25 @@ const ProductCard = memo(({ product, priority = false }: ProductCardProps) => {
         <div
           className={cn(
             'relative overflow-hidden h-full flex flex-col',
-            'bg-gray-100 rounded-[2rem] p-8', // Increased padding and rounding
+            'bg-gray-100 rounded-[2rem] p-8',
             'transition-all duration-300 ease-out',
             'hover:-translate-y-2 hover:shadow-2xl'
           )}
         >
-
-
           {/* Product Image - Expanded to fill available space */}
-          <div className="relative mb-6 flex-grow flex items-center justify-center overflow-hidden">
+          <div className="relative mb-6 flex-grow flex items-center justify-center overflow-hidden min-h-[200px]">
+            {!isLoaded && (
+              <Skeleton className="absolute inset-0 rounded-xl bg-gray-200" />
+            )}
             <img
               src={product.image}
               alt={product.name}
               loading={priority ? 'eager' : 'lazy'}
-              onLoad={(e) => {
-                const target = e.target as HTMLImageElement;
-                target.style.opacity = '1';
-              }}
-              className="w-full h-full object-contain object-top p-4 transition-all duration-700 group-hover:scale-110 drop-shadow-xl opacity-0"
+              onLoad={() => setIsLoaded(true)}
+              className={cn(
+                "w-full h-full object-contain object-top p-4 transition-all duration-700 group-hover:scale-110 drop-shadow-xl",
+                isLoaded ? "opacity-100" : "opacity-0"
+              )}
             />
           </div>
 
@@ -61,16 +63,8 @@ const ProductCard = memo(({ product, priority = false }: ProductCardProps) => {
             {(() => {
               const upperName = product.name.toUpperCase();
               if (upperName.includes('ELECTROVIT')) {
-                // Remove the count part (e.g. " 8'LI")
                 return upperName.replace(/\s\d+['']?[Ll][IiİuÜe].*/, '').trim();
               }
-              // For all Dailyshot products (Energyshot, etc.) just take the first word
-              // Exception for HangoverShot Zero which has two words we might want to keep?
-              // User said "product image- product name with the related color".
-              // If we strictly follow "first word" logic, "HangoverShot Zero" becomes "HangoverShot".
-              // Let's allow full name if it's short or logic needs adjust.
-              // Actually, existing logic for dailyshot was split(' ')[0].
-              // Let's modify it to allow "HangoverShot Zero" to be fully shown or handled.
               return product.name;
             })()}
           </h3>

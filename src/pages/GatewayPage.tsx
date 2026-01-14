@@ -1,7 +1,7 @@
 import { useNavigate } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { ArrowRight, ChevronDown, Mail } from 'lucide-react';
-import { useBrand } from '@/context/BrandContext';
+import { useBrand } from '@/hooks/useBrand';
 import { cn } from '@/lib/utils';
 import { useState, useEffect, useRef } from 'react';
 import { animate, stagger } from 'animejs';

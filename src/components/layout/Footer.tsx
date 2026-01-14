@@ -8,7 +8,7 @@ import {
   Phone,
   Mail,
 } from 'lucide-react';
-import { useBrand } from '@/context/BrandContext';
+import { useBrand } from '@/hooks/useBrand';
 import { cn } from '@/lib/utils';
 
 const Footer = () => {

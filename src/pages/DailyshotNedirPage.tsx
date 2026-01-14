@@ -1,10 +1,67 @@
 import { ArrowRight, Zap, Shield, Droplets, Moon, Sun, Clock, Activity, Check } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
-import { useEffect } from 'react';
-import { useBrand } from '@/context/BrandContext';
+import { useEffect, useState } from 'react';
+import { useBrand } from '@/hooks/useBrand';
 import { Button } from '@/components/ui/button';
 import AnimatedSection from '@/components/shared/AnimatedSection';
 import { products } from '@/data/products';
+import { Skeleton } from '@/components/ui/skeleton';
+import { cn } from '@/lib/utils'; // Assuming utils is available
+
+const DailyshotProductCard = ({ product, t }: { product: any, t: any }) => {
+    const [isLoaded, setIsLoaded] = useState(false);
+
+    return (
+        <a
+            href={`https://dailyshot.com.tr/urun/${product.slug}`}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="block bg-white rounded-[2rem] overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 group h-full hover:-translate-y-1"
+        >
+            {/* Image Area */}
+            <div className="h-64 bg-gray-100 relative p-4 flex items-center justify-center overflow-hidden">
+                <div className="absolute inset-0 opacity-10 transition-opacity group-hover:opacity-20" style={{ backgroundColor: product.color }}></div>
+                {!isLoaded && (
+                    <Skeleton className="absolute inset-0 bg-gray-200" />
+                )}
+                <img
+                    src={product.displayImage}
+                    alt={product.name}
+                    onLoad={() => setIsLoaded(true)}
+                    className={cn(
+                        "h-full w-full object-contain drop-shadow-xl transform transition-all duration-500 group-hover:scale-110",
+                        isLoaded ? "opacity-100" : "opacity-0"
+                    )}
+                />
+            </div>
+
+            {/* Content Area */}
+            <div className="p-8">
+                <div className="mb-4">
+                    <span className="inline-block px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wide text-white" style={{ backgroundColor: product.color }}>
+                        {product.category}
+                    </span>
+                </div>
+                <h3 className="font-poppins font-bold text-2xl text-gray-900 mb-2 group-hover:text-health-primary transition-colors">
+                    {product.displayName}
+                </h3>
+                <p className="text-gray-500 font-medium mb-4">
+                    {product.packLabel}
+                </p>
+                <p className="text-gray-600 text-sm mb-6 line-clamp-2">
+                    {product.shortDescription}
+                </p>
+
+                <div
+                    className="inline-flex items-center justify-center px-4 py-2 rounded-full font-bold text-sm text-white transition-all hover:scale-105 shadow-md"
+                    style={{ backgroundColor: product.color }}
+                >
+                    {t('health.dailyshotNedir.cta.viewProduct')} <ArrowRight className="w-4 h-4 ml-2" />
+                </div>
+            </div>
+        </a>
+    );
+};
 
 const DailyshotNedirPage = () => {
     const { setBrand } = useBrand();
@@ -181,51 +238,7 @@ const DailyshotNedirPage = () => {
                     <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
                         {displayProducts.map((product, index) => (
                             <AnimatedSection key={index} animation="fadeInUp" delay={index * 100}>
-                                <a
-                                    href={`https://dailyshot.com.tr/urun/${product.slug}`}
-                                    target="_blank"
-                                    rel="noopener noreferrer"
-                                    className="block bg-white rounded-[2rem] overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 group h-full hover:-translate-y-1"
-                                >
-                                    {/* Image Area */}
-                                    <div className="h-64 bg-gray-100 relative p-4 flex items-center justify-center overflow-hidden">
-                                        <div className="absolute inset-0 opacity-10 transition-opacity group-hover:opacity-20" style={{ backgroundColor: product.color }}></div>
-                                        <img
-                                            src={product.displayImage}
-                                            alt={product.name}
-                                            onLoad={(e) => {
-                                                const target = e.target as HTMLImageElement;
-                                                target.style.opacity = '1';
-                                            }}
-                                            className="h-full w-full object-contain drop-shadow-xl transform transition-all duration-500 group-hover:scale-110 opacity-0"
-                                        />
-                                    </div>
-
-                                    {/* Content Area */}
-                                    <div className="p-8">
-                                        <div className="mb-4">
-                                            <span className="inline-block px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wide text-white" style={{ backgroundColor: product.color }}>
-                                                {product.category}
-                                            </span>
-                                        </div>
-                                        <h3 className="font-poppins font-bold text-2xl text-gray-900 mb-2 group-hover:text-health-primary transition-colors">
-                                            {product.displayName}
-                                        </h3>
-                                        <p className="text-gray-500 font-medium mb-4">
-                                            {product.packLabel}
-                                        </p>
-                                        <p className="text-gray-600 text-sm mb-6 line-clamp-2">
-                                            {product.shortDescription}
-                                        </p>
-
-                                        <div
-                                            className="inline-flex items-center justify-center px-4 py-2 rounded-full font-bold text-sm text-white transition-all hover:scale-105 shadow-md"
-                                            style={{ backgroundColor: product.color }}
-                                        >
-                                            {t('health.dailyshotNedir.cta.viewProduct')} <ArrowRight className="w-4 h-4 ml-2" />
-                                        </div>
-                                    </div>
-                                </a>
+                                <DailyshotProductCard product={product} t={t} />
                             </AnimatedSection>
                         ))}
                     </div>

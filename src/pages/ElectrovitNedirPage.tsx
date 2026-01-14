@@ -1,7 +1,7 @@
 import { ArrowRight, Zap, Droplets, Heart, Activity, Dumbbell, Timer } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
 import { useEffect } from 'react';
-import { useBrand } from '@/context/BrandContext';
+import { useBrand } from '@/hooks/useBrand';
 import { Button } from '@/components/ui/button';
 import AnimatedSection from '@/components/shared/AnimatedSection';
 import ProductCard from '@/components/health/ProductCard';
@@ -40,17 +40,17 @@ const ElectrovitNedirPage = () => {
 
     const useCases = [
         {
-            icon: <Dumbbell className="w-8 h-8" />,
+            icon: <Droplets className="w-8 h-8" />,
             title: t('health.electrovitNedir.usageTime.preWorkout'),
             description: t('health.electrovitNedir.usageTime.preWorkoutDesc'),
         },
         {
-            icon: <Activity className="w-8 h-8" />,
+            icon: <Zap className="w-8 h-8" />,
             title: t('health.electrovitNedir.usageTime.duringWorkout'),
             description: t('health.electrovitNedir.usageTime.duringWorkoutDesc'),
         },
         {
-            icon: <Timer className="w-8 h-8" />,
+            icon: <Activity className="w-8 h-8" />,
             title: t('health.electrovitNedir.usageTime.postWorkout'),
             description: t('health.electrovitNedir.usageTime.postWorkoutDesc'),
         },

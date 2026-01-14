@@ -2,7 +2,7 @@ import { Link, useLocation } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { Menu, Search, X } from 'lucide-react';
 import { useState, useEffect } from 'react';
-import { useBrand } from '@/context/BrandContext';
+import { useBrand } from '@/hooks/useBrand';
 import BrandToggle from '@/components/shared/BrandToggle';
 import LanguageToggle from '@/components/shared/LanguageToggle';
 import SearchModal from '@/components/shared/SearchModal';

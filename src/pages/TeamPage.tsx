@@ -1,7 +1,7 @@
 import { useTranslation } from 'react-i18next';
 import { Linkedin, Instagram } from 'lucide-react';
 import { team } from '@/data/team';
-import { useBrand } from '@/context/BrandContext';
+import { useBrand } from '@/hooks/useBrand';
 import { cn } from '@/lib/utils';
 
 const TeamPage = () => {
