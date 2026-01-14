@@ -17,7 +17,7 @@ import {
   CarouselNext,
   CarouselPrevious,
 } from '@/components/ui/carousel';
-import { animate, stagger } from 'animejs';
+import { animate } from 'animejs';
 
 interface ProductCardProps {
   type: 'dailyshot' | 'electrovit';
@@ -32,13 +32,13 @@ const InteractiveProductCard = ({ type, onClick, title, desc, ctaText }: Product
 
   const handleEnter = () => {
     if (bgRef.current) {
-      animate(bgRef.current, { height: '100%', duration: 400, easing: 'easeOutQuad' });
+      animate(bgRef.current, { scaleY: 1, duration: 400, easing: 'easeOutQuad' });
     }
   };
 
   const handleLeave = () => {
     if (bgRef.current) {
-      animate(bgRef.current, { height: '0%', duration: 400, easing: 'easeInQuad' });
+      animate(bgRef.current, { scaleY: 0, duration: 400, easing: 'easeInQuad' });
     }
   };
 
@@ -56,7 +56,7 @@ const InteractiveProductCard = ({ type, onClick, title, desc, ctaText }: Product
       onMouseLeave={handleLeave}
       className={`group relative overflow-hidden rounded-2xl border ${borderColor} ${lightBg} shadow-lg hover:shadow-xl transition-all duration-300 p-6 sm:p-8 flex flex-col sm:flex-row items-start sm:items-center gap-6 cursor-pointer`}
     >
-      <div ref={bgRef} className={`absolute bottom-0 left-0 w-full h-0 ${fillGradient} z-0`} />
+      <div ref={bgRef} className={`absolute bottom-0 left-0 w-full h-full origin-bottom scale-y-0 ${fillGradient} z-0`} />
 
       <div className={`h-16 w-16 flex-shrink-0 rounded-full ${iconBg} flex items-center justify-center ${iconColor} relative z-10 group-hover:bg-white/20 group-hover:text-white transition-colors duration-300`}>
         {isDailyshot ? <Droplets className="w-8 h-8" /> : <Zap className="w-8 h-8" />}
@@ -84,13 +84,12 @@ const HealthHome = () => {
 
   const { setBrand } = useBrand();
   const { t, i18n } = useTranslation();
-  const dailyshotSectionRef = useRef<HTMLDivElement>(null);
-  const electrovitSectionRef = useRef<HTMLDivElement>(null);
+  // Refs for manual observation removed in favor of AnimatedSection
 
   // Determine image based on language (default to TR if not English)
   const liquidAdvantagesImage = i18n.language === 'en'
-    ? '/images/liquid-advantages-en.png'
-    : '/images/liquid-advantages-tr.png';
+    ? '/images/liquid-advantages-tr.png'
+    : '/images/liquid-advantages-en.png';
 
   // Determine intro image based on language
   const introLiquidImage = i18n.language === 'en'
@@ -101,35 +100,7 @@ const HealthHome = () => {
     setBrand('health');
   }, [setBrand]);
 
-  // Anime.js entrance animation for feature sections
-  useEffect(() => {
-    const observerOptions = {
-      threshold: 0.2,
-      rootMargin: '0px 0px -100px 0px',
-    };
-
-    const animateSection = (entries: IntersectionObserverEntry[]) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          const target = entry.target as HTMLElement;
-          animate(target.querySelectorAll('.animate-on-scroll'), {
-            opacity: [0, 1],
-            translateY: [40, 0],
-            duration: 800,
-            delay: stagger(150),
-            easing: 'easeOutCubic',
-          });
-        }
-      });
-    };
-
-    const observer = new IntersectionObserver(animateSection, observerOptions);
-
-    if (dailyshotSectionRef.current) observer.observe(dailyshotSectionRef.current);
-    if (electrovitSectionRef.current) observer.observe(electrovitSectionRef.current);
-
-    return () => observer.disconnect();
-  }, []);
+  // Manual IntersectionObserver removed for performance
 
   return (
     <div data-brand="health" className="bg-gray-100 min-h-screen">
@@ -178,16 +149,11 @@ const HealthHome = () => {
               <motion.img
                 src={bottleOfHealth}
                 alt="Dailyshot - A Bottle of Health"
-                className="w-full max-w-lg mx-auto drop-shadow-2xl"
+                className="w-full max-w-3xl mx-auto drop-shadow-xl"
                 loading="eager"
-                animate={{
-                  filter: [
-                    "drop-shadow(0 10px 15px rgba(59, 130, 246, 0.2))",
-                    "drop-shadow(0 25px 40px rgba(59, 130, 246, 0.7))",
-                    "drop-shadow(0 10px 15px rgba(59, 130, 246, 0.2))"
-                  ]
-                }}
-                transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
+                whileHover={{ scale: 1.05 }}
+                animate={{ y: [-10, 10, -10] }}
+                transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
               />
               {/* Background glow */}
               <div className="absolute inset-0 -z-10 bg-health-primary/10 blur-3xl rounded-full transform scale-75" />
@@ -198,17 +164,16 @@ const HealthHome = () => {
 
       {/* ===== WELLWORKS HEALTH INTRO SECTION (Dark Blue Background) ===== */}
       <section
-        ref={dailyshotSectionRef}
         className="py-20 lg:py-32 relative overflow-hidden bg-[#0f2942]"
       >
         {/* Subtle decorative elements */}
-        <div className="absolute top-0 right-0 w-96 h-96 bg-white/5 rounded-full blur-3xl" />
-        <div className="absolute bottom-0 left-0 w-72 h-72 bg-health-primary/10 rounded-full blur-3xl" />
+        <div className="absolute top-0 right-0 w-96 h-96 bg-white/5 rounded-full blur-3xl transform-gpu will-change-transform" />
+        <div className="absolute bottom-0 left-0 w-72 h-72 bg-health-primary/10 rounded-full blur-3xl transform-gpu will-change-transform" />
 
         <div className="mx-auto px-6 relative z-10" style={{ maxWidth: '80%' }}>
           <div className="grid lg:grid-cols-2 gap-16 items-center">
             {/* Text Content */}
-            <div className="animate-on-scroll opacity-0 space-y-6">
+            <AnimatedSection animation="fadeInUp" className="space-y-6">
               <span className="text-health-primary text-sm font-semibold uppercase tracking-widest">
                 {t('health.wellworksIntro.label')}
               </span>
@@ -238,24 +203,29 @@ const HealthHome = () => {
                   {t('health.wellworksIntro.cta')} <ArrowRight className="w-4 h-4 ml-2" />
                 </a>
               </Button>
-            </div>
+            </AnimatedSection>
 
             {/* Image in glassmorphism card */}
-            <a
-              href="https://dailyshot.com.tr"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="animate-on-scroll opacity-0 relative group flex justify-center"
+            <AnimatedSection
+              animation="scaleIn"
+              delay={200}
+              className="relative group flex justify-center"
             >
-              <div className="relative w-full max-w-xl rounded-3xl overflow-hidden shadow-2xl hover:shadow-3xl transition-all duration-500 hover:scale-[1.02]">
-                <img
-                  src={introLiquidImage}
-                  alt="Dailyshot Liquid Advantages"
-                  className="w-full h-auto object-cover"
-                  loading="lazy"
-                />
-              </div>
-            </a>
+              <a
+                href="https://dailyshot.com.tr"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <div className="relative w-full max-w-3xl rounded-3xl overflow-hidden shadow-2xl hover:shadow-3xl transition-all duration-500 hover:scale-105">
+                  <img
+                    src={liquidAdvantagesImage}
+                    alt="Dailyshot - A Bottle of Health"
+                    className="w-full h-auto object-contain drop-shadow-xl"
+                    loading="lazy"
+                  />
+                </div>
+              </a>
+            </AnimatedSection>
           </div>
         </div>
       </section>
@@ -274,21 +244,26 @@ const HealthHome = () => {
           <div className="flex flex-col lg:flex-row items-center gap-12 lg:gap-20">
 
             {/* Left: Floating Product Image */}
-            <AnimatedSection animation="fadeInLeft" className="w-full lg:w-1/2 relative order-2 lg:order-1">
-              <div className="relative z-10 p-6" style={{ perspective: 1000 }}>
-                {/* Glow effect behind image */}
-                <div className="absolute inset-0 bg-health-primary/20 blur-3xl rounded-full transform scale-75" />
+            <AnimatedSection animation="fadeInLeft" className="w-full lg:w-1/2 relative order-2 lg:order-1 flex justify-center">
+              <div className="relative group p-4">
+                {/* Dark Blue Gradient Glow on Hover */}
+                <motion.div
+                  className="absolute inset-0 rounded-3xl bg-gradient-to-r from-[#0f1c2e] via-[#1e40af] to-[#0f1c2e] opacity-0 group-hover:opacity-100 blur-xl transition-opacity duration-500 -z-10"
+                  animate={{ backgroundPosition: ["0% 50%", "100% 50%"] }}
+                  transition={{ duration: 3, repeat: Infinity, repeatType: "mirror", ease: "linear" }}
+                  style={{ backgroundSize: "200% 200%" }}
+                />
+
                 <motion.img
-                  src="/images/two_brands_vision.png"
+                  src="/images/dailyshot_full_range.png"
                   alt="DailyShot and Electrovit Products"
-                  className="relative w-full h-auto scale-110 object-contain drop-shadow-2xl"
+                  className="relative w-full max-w-2xl h-auto object-contain z-10 drop-shadow-2xl"
                   loading="lazy"
-                  animate={{ rotateY: 360 }}
-                  transition={{ duration: 6, repeat: Infinity, ease: "linear" }}
+                  initial={{ scale: 1 }}
+                  whileHover={{ scale: 1.05 }}
+                  transition={{ duration: 0.8, ease: "easeOut" }}
                 />
               </div>
-              {/* Decorative circle */}
-              <div className="absolute -bottom-10 -left-10 w-24 h-24 border-4 border-health-primary/20 rounded-full hidden lg:block" />
             </AnimatedSection>
 
             {/* Right: Content */}
@@ -376,12 +351,12 @@ const HealthHome = () => {
 
       {/* ===== ELECTROVIT INTRO SECTION (Red Background) ===== */}
       {/* ===== ELECTROVIT SECTION (Navy Cinematic - No Badge) ===== */}
-      <section ref={electrovitSectionRef} className="py-20 lg:py-32 relative overflow-hidden bg-[#0f1c2e] text-white">
+      <section className="py-20 lg:py-32 relative overflow-hidden bg-[#0f1c2e] text-white">
 
         {/* Background Visuals */}
         <div className="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none -z-10">
-          <div className="absolute top-1/4 -left-20 w-96 h-96 bg-[#0ea5e9]/10 rounded-full blur-[100px]"></div>
-          <div className="absolute bottom-0 right-0 w-[500px] h-[500px] bg-blue-600/10 rounded-full blur-[120px]"></div>
+          <div className="absolute top-1/4 -left-20 w-96 h-96 bg-[#0ea5e9]/10 rounded-full blur-3xl transform-gpu will-change-transform"></div>
+          <div className="absolute bottom-0 right-0 w-[500px] h-[500px] bg-blue-600/10 rounded-full blur-3xl transform-gpu will-change-transform"></div>
         </div>
 
         <div className="container mx-auto px-6 relative z-10" style={{ maxWidth: '80%' }}>
@@ -436,7 +411,7 @@ const HealthHome = () => {
             <div className="relative h-full w-full flex items-center justify-center">
               <div className="relative w-full h-auto overflow-hidden rounded-3xl shadow-2xl shadow-black/50">
                 <img
-                  src="/images/electrovit_reklam.png"
+                  src="/images/electrovit_campaign.jpg"
                   alt="Electrovit Kampanya"
                   className="w-full h-auto object-cover transform transition-transform duration-700 group-hover:scale-105"
                   loading="lazy"

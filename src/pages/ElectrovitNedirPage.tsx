@@ -88,140 +88,77 @@ const ElectrovitNedirPage = () => {
 
     return (
         <div data-brand="health" className="bg-gray-50 min-h-screen">
-            {/* Temporary Control Panel */}
-            <div className="fixed top-24 left-4 z-50 bg-black/80 p-4 rounded-lg text-white border border-white/20 shadow-xl backdrop-blur-md w-64">
-                <h3 className="text-xs font-bold mb-3 uppercase tracking-wider text-gray-400 border-b border-gray-700 pb-1">Page Controls</h3>
+            {/* Blue Hero Background - The "Base" */}
+            <section className="relative h-[50vh] w-full bg-gradient-to-b from-[#00A3E0] to-[#0077B6] flex items-center justify-center overflow-hidden">
+                {/* Subtle Background Pattern */}
+                <div className="absolute inset-0 opacity-10 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] bg-repeat" />
 
-                {/* Image Position */}
-                <div className="mb-4">
-                    <p className="text-[10px] font-bold mb-1 uppercase text-orange-400">Hero Image Y-Pos</p>
-                    <input
-                        type="range"
-                        min="0"
-                        max="100"
-                        value={imagePosition}
-                        onChange={(e) => setImagePosition(Number(e.target.value))}
-                        className="w-full accent-orange-500 cursor-pointer"
-                    />
-                    <div className="flex justify-between items-center mt-1">
-                        <span className="text-[10px] text-gray-500">Top</span>
-                        <span className="text-sm font-bold font-mono text-orange-400">{imagePosition}%</span>
-                        <span className="text-[10px] text-gray-500">Bottom</span>
-                    </div>
-                </div>
-
-                {/* Card Width */}
-                <div>
-                    <p className="text-[10px] font-bold mb-1 uppercase text-blue-400">Content Card Width</p>
-                    <input
-                        type="range"
-                        min="400"
-                        max="1200"
-                        value={cardWidth}
-                        onChange={(e) => setCardWidth(Number(e.target.value))}
-                        className="w-full accent-blue-500 cursor-pointer"
-                    />
-                    <div className="flex justify-between items-center mt-1">
-                        <span className="text-[10px] text-gray-500">Narrow</span>
-                        <span className="text-sm font-bold font-mono text-blue-400">{cardWidth}px</span>
-                        <span className="text-[10px] text-gray-500">Wide</span>
-                    </div>
-                </div>
-            </div>
-
-            {/* Hero Section - 65vh with centered logo */}
-            <section className="relative h-[65vh] w-full overflow-hidden bg-gray-900">
-                <div className="absolute inset-0 z-0">
-                    <img
-                        src="/images/electrovit_hero_v2.png"
-                        alt="Electrovit Ürünleri"
-                        className="w-full h-full object-cover opacity-60 mix-blend-overlay transition-all duration-100 ease-out"
-                        style={{ objectPosition: `center ${imagePosition}%` }}
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-br from-orange-900/90 to-amber-900/90 mix-blend-multiply" />
-                </div>
-                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-10 w-full text-center px-4">
-                    <span className="text-white font-black text-4xl md:text-6xl tracking-tight drop-shadow-2xl font-poppins italic">
-                        {t('health.electrovitNedir.heroSlogan')}
-                    </span>
+                {/* Hero Text */}
+                <div className="relative z-10 text-center px-6 -mt-20">
+                    <AnimatedSection animation="fadeInUp">
+                        <span className="text-white/80 font-bold tracking-[0.3em] uppercase text-sm mb-4 block">
+                            {t('health.electrovitNedir.heroLabel')}
+                        </span>
+                        <h1 className="text-white font-black text-4xl md:text-6xl lg:text-7xl tracking-tight drop-shadow-lg font-poppins italic mb-6">
+                            {t('health.electrovitNedir.heroSlogan')}
+                        </h1>
+                        <p className="text-blue-100 text-lg md:text-xl max-w-2xl mx-auto font-light">
+                            {t('health.electrovitNedir.introSection.paragraph1')}
+                        </p>
+                    </AnimatedSection>
                 </div>
             </section>
 
-            {/* Overlapping Content Card */}
-            <section className="relative -mt-32 pb-24 px-6 z-10" id="intro-card-section">
-                <div className="container mx-auto flex flex-col lg:flex-row items-center justify-between gap-8 lg:gap-12">
-                    {/* LEFT PRODUCT - Watermelon */}
-                    <div className="hidden lg:block w-48 xl:w-64">
-                        <AnimatedSection animation="fadeInRight" delay={300}>
-                            <a href="https://www.dailyshot.com.tr/urun/electrovit-karpuzlu-8-li" target="_blank" rel="noopener noreferrer" className="block transition-transform hover:scale-105">
+            {/* Overlapping Image Section - The "Bridge" */}
+            <div className="relative z-20 -mt-48 container mx-auto px-6">
+                <AnimatedSection animation="fadeInUp" delay={200}>
+                    <div className="relative max-w-5xl mx-auto">
+                        {/* Glow Effect */}
+                        <div className="absolute inset-0 bg-[#00A3E0]/40 blur-3xl transform scale-90 -z-10 rounded-full" />
+
+                        {/* The Image Card */}
+                        <div className="bg-white/5 backdrop-blur-sm rounded-3xl p-2 shadow-2xl border border-white/20">
+                            <div className="bg-white rounded-[20px] overflow-hidden relative aspect-[21/9] shadow-inner group">
                                 <img
-                                    src={products.find(p => p.slug.includes('karpuz'))?.image}
-                                    alt="Electrovit Karpuz"
-                                    className="w-full h-auto object-contain drop-shadow-2xl transform -rotate-12 hover:-rotate-6 transition-transform duration-500"
+                                    src="/images/electrovit_info.png"
+                                    alt="Electrovit Info"
+                                    className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
+                                    style={{
+                                        filter: 'grayscale(100%) sepia(100%) hue-rotate(170deg) saturate(200%) brightness(0.95)'
+                                    }}
                                 />
-                            </a>
-                        </AnimatedSection>
-                    </div>
-
-                    {/* Dynamic Width Container */}
-                    <div className="transition-all duration-200 ease-out flex-shrink-0" style={{ width: `${cardWidth}px`, maxWidth: '100%' }}>
-                        <AnimatedSection animation="fadeInUp">
-                            <div className="bg-white rounded-3xl shadow-2xl p-8 md:p-12 mb-12 border border-gray-100 relative overflow-hidden">
-                                <div className="absolute top-0 left-0 w-full h-2 bg-gradient-to-r from-orange-400 to-red-500" />
-                                {/* Water Drop Icon */}
-                                <div className="flex justify-center mb-6">
-                                    <Droplets className="w-12 h-12 text-[#E67E22]" />
-                                </div>
-
-                                {/* Title */}
-                                <h1 className="text-4xl md:text-5xl font-bold text-center mb-8 text-gray-900 tracking-tight font-poppins">
-                                    {t('health.electrovitNedir.heroTitle')} <span className="text-[#E67E22]">{t('health.electrovitNedir.heroTitleHighlight')}</span>
-                                </h1>
-
-                                {/* Content Paragraphs */}
-                                <div className="space-y-6 text-center">
-                                    <p className="text-lg md:text-xl leading-relaxed text-gray-500 font-light">
-                                        {t('health.electrovitNedir.introSection.paragraph1')}
-                                    </p>
-                                    <div className="h-px w-24 bg-[#E67E22]/30 mx-auto my-8" />
-                                    <p className="text-lg md:text-xl leading-relaxed text-gray-700">
-                                        {t('health.electrovitNedir.introSection.paragraph2')}
-                                    </p>
-                                </div>
+                                {/* Inner Shadow Overlay for depth */}
+                                <div className="absolute inset-0 shadow-[inset_0_0_100px_rgba(0,0,0,0.1)] pointer-events-none" />
                             </div>
-                        </AnimatedSection>
+                        </div>
+                    </div>
+                </AnimatedSection>
+            </div>
 
-                        {/* CTA Button inside Card */}
-                        <div className="text-center mt-10">
+            {/* Intro Content - The "Landing" */}
+            <section className="pt-24 pb-20 bg-gray-50">
+                <div className="container mx-auto px-6 text-center">
+                    <AnimatedSection animation="fadeInUp">
+                        <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-8 font-poppins">
+                            {t('health.electrovitNedir.heroTitle')} <span className="text-[#00A3E0]">{t('health.electrovitNedir.heroTitleHighlight')}</span>
+                        </h2>
+                        <p className="text-gray-600 text-lg max-w-3xl mx-auto leading-relaxed">
+                            {t('health.electrovitNedir.introSection.paragraph2')}
+                        </p>
+
+                        <div className="mt-12">
                             <a
                                 href="https://dailyshot.com.tr/arama/electrovit"
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                className="inline-block bg-[#E67E22] hover:bg-orange-600 text-white px-10 py-4 rounded-full font-semibold transition-all duration-300 shadow-lg shadow-orange-500/20 hover:shadow-orange-500/40 transform hover:-translate-y-1"
+                                className="inline-block bg-[#00A3E0] hover:bg-[#0077B6] text-white px-10 py-4 rounded-full font-bold transition-all duration-300 shadow-lg shadow-blue-500/30 hover:shadow-blue-500/50 hover:-translate-y-1"
                             >
                                 {t('health.electrovitNedir.cta')}
                             </a>
-                            <p className="mt-6 text-gray-500 text-sm italic">
-                                *{t('health.electrovitNedir.disclaimer')}
-                            </p>
                         </div>
-                    </div>
-
-
-                    {/* RIGHT PRODUCT - Orange */}
-                    <div className="hidden lg:block w-48 xl:w-64">
-                        <AnimatedSection animation="fadeInLeft" delay={300}>
-                            <a href="https://www.dailyshot.com.tr/urun/electrovit-portakal-aromali-8-li" target="_blank" rel="noopener noreferrer" className="block transition-transform hover:scale-105">
-                                <img
-                                    src={products.find(p => p.slug.includes('portakal'))?.image}
-                                    alt="Electrovit Portakal"
-                                    className="w-full h-auto object-contain drop-shadow-2xl transform rotate-12 hover:rotate-6 transition-transform duration-500"
-                                />
-                            </a>
-                        </AnimatedSection>
-                    </div>
-                </div >
-            </section >
+                    </AnimatedSection>
+                </div>
+            </section>
 
             {/* Benefits */}
             < section className="py-20 lg:py-28" >

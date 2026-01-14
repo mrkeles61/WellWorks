@@ -82,7 +82,7 @@ const DailyshotProductCard = ({ product, t }: { product: any, t: any }) => {
                     {product.displayName}
                 </h3>
                 <p className="text-gray-600 text-sm mb-6 line-clamp-2">
-                    {t(`health.dailyshotNedir.productCards.descriptions.${descKey}`)}
+                    {i18n.language === 'tr' ? (product.shortDescriptionTr || product.shortDescription) : product.shortDescription}
                 </p>
 
                 <div

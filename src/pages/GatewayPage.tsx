@@ -106,7 +106,7 @@ const GatewayPage = () => {
               </h1>
             </div>
 
-            <h2 className="animate-item font-poppins italic text-3xl md:text-4xl text-black transition-colors duration-500 mb-8" style={{ opacity: 0 }}>
+            <h2 className="animate-item font-oswald font-bold uppercase tracking-[0.2em] text-4xl md:text-5xl text-black transition-colors duration-500 mb-8" style={{ opacity: 0 }}>
               Health
             </h2>
 
@@ -145,7 +145,7 @@ const GatewayPage = () => {
               </h1>
             </div>
 
-            <h2 className="animate-item font-poppins italic text-3xl md:text-4xl text-black transition-colors duration-500 mb-8" style={{ opacity: 0 }}>
+            <h2 className="animate-item font-oswald font-bold uppercase tracking-[0.2em] text-4xl md:text-5xl text-black transition-colors duration-500 mb-8" style={{ opacity: 0 }}>
               M.I.C.E
             </h2>
 
