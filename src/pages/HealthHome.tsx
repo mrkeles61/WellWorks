@@ -1,5 +1,6 @@
 import { ArrowRight, Play, Zap, ShieldCheck, Timer, Shield, Droplets, Activity, Sparkles } from 'lucide-react';
 import { useTranslation, Trans } from 'react-i18next';
+import { motion } from 'framer-motion';
 import { products } from '@/data/products';
 import ProductCard from '@/components/health/ProductCard';
 import AnimatedSection from '@/components/shared/AnimatedSection';
@@ -174,11 +175,19 @@ const HealthHome = () => {
               rel="noopener noreferrer"
               className="relative flex justify-center lg:justify-end mt-10 lg:mt-0 group cursor-pointer"
             >
-              <img
+              <motion.img
                 src={bottleOfHealth}
                 alt="Dailyshot - A Bottle of Health"
-                className="w-full max-w-lg mx-auto drop-shadow-2xl transition-transform duration-500 group-hover:scale-105"
+                className="w-full max-w-lg mx-auto drop-shadow-2xl"
                 loading="eager"
+                animate={{
+                  filter: [
+                    "drop-shadow(0 10px 15px rgba(59, 130, 246, 0.2))",
+                    "drop-shadow(0 25px 40px rgba(59, 130, 246, 0.7))",
+                    "drop-shadow(0 10px 15px rgba(59, 130, 246, 0.2))"
+                  ]
+                }}
+                transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
               />
               {/* Background glow */}
               <div className="absolute inset-0 -z-10 bg-health-primary/10 blur-3xl rounded-full transform scale-75" />
@@ -266,14 +275,16 @@ const HealthHome = () => {
 
             {/* Left: Floating Product Image */}
             <AnimatedSection animation="fadeInLeft" className="w-full lg:w-1/2 relative order-2 lg:order-1">
-              <div className="relative z-10 p-6">
+              <div className="relative z-10 p-6" style={{ perspective: 1000 }}>
                 {/* Glow effect behind image */}
                 <div className="absolute inset-0 bg-health-primary/20 blur-3xl rounded-full transform scale-75" />
-                <img
-                  src="/images/products_showcase.png"
+                <motion.img
+                  src="/images/two_brands_vision.png"
                   alt="DailyShot and Electrovit Products"
-                  className="relative w-full h-auto scale-110 object-contain drop-shadow-2xl transition-transform duration-500 animate-float-slow"
+                  className="relative w-full h-auto scale-110 object-contain drop-shadow-2xl"
                   loading="lazy"
+                  animate={{ rotateY: 360 }}
+                  transition={{ duration: 6, repeat: Infinity, ease: "linear" }}
                 />
               </div>
               {/* Decorative circle */}

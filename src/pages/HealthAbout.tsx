@@ -1,5 +1,6 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
+import { motion } from 'framer-motion';
 import AnimatedSection from '@/components/shared/AnimatedSection';
 import wellworksHealthHqImg from '@/assets/wellworks_health_hq.png';
 
@@ -15,10 +16,16 @@ const HealthAbout = () => {
             {/* Image Side */}
             <div className="w-full md:w-1/2">
               <div className="relative aspect-[4/3] rounded-2xl overflow-hidden shadow-2xl transform rotate-1 hover:rotate-0 transition-transform duration-500">
-                <img
+                <motion.img
                   src={wellworksHealthHqImg}
                   alt="WellWorks Health"
                   className="w-full h-full object-cover"
+                  animate={{ scale: [1, 1.05, 1] }}
+                  transition={{
+                    duration: 3,
+                    repeat: Infinity,
+                    ease: "easeInOut",
+                  }}
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent pointer-events-none" />
               </div>

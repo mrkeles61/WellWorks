@@ -66,54 +66,19 @@ const MiceHome = () => {
     { icon: <Users className="w-12 h-12" />, value: '500K+', label: t('mice.stats.attendees') },
   ];
 
-  const services = [
-    {
-      name: 'HoliFest İstanbul',
-      description: 'Renklerin dansı ve müziğin ritmiyle şehrin en enerjik festivali.',
-      image: 'https://lh3.googleusercontent.com/aida-public/AB6AXuBfAYhIK-nGMz49c4JMrT1z0kXLI7fhR9CrKsYFAQdAjkRUkBeHWM986voT0DQliTSrXHdeydatBRnLyJrltL7-WRpdzIpFk-wHdKWyCancjBLvzeioGRjPgDh-2uhcOJfCjsNMDmSpjD-8BYDDSywzjKHY_FHOV-pG0eHkZLpfGApyh_Rk3HHipKiZc2m-xT3XrhdZPfRAN5c206NulzamjFK-DMRfB6UFhKoQP5wALDMMinrqSece_S6v0P8QfATkQVxchswtiA',
-    },
-    {
-      name: 'Christmas Market',
-      description: 'Kış masallarını gerçeğe dönüştüren büyülü bir pazar deneyimi.',
-      image: 'https://lh3.googleusercontent.com/aida-public/AB6AXuCB4ncuXlL5kbcoY3syjBZySjH-voCBmDjOIFNpel4dclT_ilZiZgUBVrFmXaYyDKpdMM1uVzsFsBFBjCqDC4Z33IEtGdOXCnxHgi_D35C3IJ8QDyR1YH-meF5P0OXToF9EciSKfLjaua2LLTumOVAcFTI7JzJtBoa4H-8AhaemHNzlD74sJxDestfqPFFUsdfdj8FgsuSELg1S0M2SGwn5xwru5VSNOtfda9h1-bDEnzda7AuMq0HpQOddbof3hcGvm7H1kHJrig',
-    },
-    {
-      name: 'Coffee Festival',
-      description: 'Şehrin en iyi kahve kokularını ve baristalarını buluşturuyoruz.',
-      image: 'https://lh3.googleusercontent.com/aida-public/AB6AXuDNCxQsMAXt1YugVjgtgIe8Pzxd4S_MAz_pFrwYujsXnneEHPHfriZd59wc4QdhKkHF8KVGAlJwtsuMyDpW_N0lgK1ueJsbkTjaBupsTpgiYla9YZ2Ek9uOEIPejz2Gn0W7HCMTPzftaLbvu0TsWDBHkr5uxtHOx0MNqCjhIU3jpWcXCHAwb0Pj2luN05AMySHg6Q3VUcduQP4_nXTaUFQ13Ka4CLLjxNYUtRqQl6h6MirUGVoT03gii04bs8g5J0EOBSZq_XRPpg',
-    },
-    {
-      name: 'Kurumsal Lansman',
-      description: 'Markanızın gücünü yansıtan profesyonel tanıtım etkinlikleri.',
-      image: 'https://lh3.googleusercontent.com/aida-public/AB6AXuClNOVi_xSGO70QYVZy1oFE-T90pTqaP7bzczPGxJ31MsgzolhmrSp6RQ-YAuM_JlEQREoxFAHk1xCip0hLmJpWZGT_OlrkXclPg7tfMEm1Dkwozq0Z58jEHcwrZC8IhgR8ceseHC19xJTIvZ3HckFNUgJwZXMpE50Rl7FUqu-m1_KeEkeIx7-xEtjPYWSRsysL44zUBgQIJdwJyJt5R0MRBH2YtjrR2Fop_APqr9_T2htqqFiskEq4CSJTMSOf-QjkqjEHVdJTag',
-    },
-    {
-      name: 'Özel Galalar',
-      description: 'Seçkin davetliler için tasarlanmış şık ve unutulmaz geceler.',
-      image: 'https://lh3.googleusercontent.com/aida-public/AB6AXuCtzHcwz3t_Yf1CigEKQ6WO5LahhV2jXYnk50lOIHmlmHH61ZuXOOS8Ft-UsOvF9tzvXJh_L4cy_GHfznjJL6YQi9hurJryRXNrmzWgN_k-HC7cJ3YU2zyna37ZSd_Pl_akZxect71IrFmS7tvweVbJHtLaiM1lNU70t1AWPjgsEz7P1HEpmQDs9RZ-50J3Rd7rnVhWnrQiGBEBD49Boe5KnIG3Vqh_hpIWivezeBCZPG1OdBXbMb8nn8gUjDzoIfMTMbd9NTxZ5A',
-    },
-    {
-      name: 'Yaratıcı Atölyeler',
-      description: 'İlham veren ve yetenekleri keşfettiren interaktif workshoplar.',
-      image: 'https://lh3.googleusercontent.com/aida-public/AB6AXuAPy3yey5lMkiNfhoojJqF_u6ySRPRTC_bdciIlQ-cwqyc_hfAF1twz0sjuGIqMHeP8xf2OggslMXKIZkIMMnKKpw7yAJA3GqZi0qVd_HwfU4mx9HG4q540TXDAr4zP-4CWbhAhGdctdNeOeDafTw5BUZx2U7EUj5FgDxfwYpLukpxI16QKEtzCufF6g1bHsnMeh1NTSDSLOPqVRZJqp6Kx2o23P2yWNaQoakoPFmnDGU7E87fPAQ6yUOM1SzRgfMMDhsVVYhtYvA',
-    },
-  ];
-
-
+  /* Services Data */
+  const services = t('mice.home.services.items', { returnObjects: true }) as {
+    name: string;
+    description: string;
+    image: string;
+  }[];
 
   /* Testimonials Data */
-  const testimonials = [
-    {
-      quote: "Well Works ekibi, hayalimizdeki lansmanı beklediğimizin çok ötesinde bir vizyonla gerçeğe dönüştürdü. Sadece bir organizasyon değil, sanat eseriydi.",
-      author: "Elif Demir",
-      role: "Pazarlama Direktörü, TechGlobal",
-    },
-    {
-      quote: "Operasyonel mükemmellik ve yaratıcı zeka bir arada. Festivalimiz, onların dokunuşuyla bambaşka bir seviyeye yükseldi.",
-      author: "Caner Yılmaz",
-      role: "Etkinlik Yöneticisi, ArtIstanbul",
-    },
-  ];
+  const testimonials = t('mice.home.testimonials.items', { returnObjects: true }) as {
+    quote: string;
+    author: string;
+    role: string;
+  }[];
 
 
 

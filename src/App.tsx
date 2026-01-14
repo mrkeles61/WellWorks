@@ -16,6 +16,7 @@ import MiceHome from "./pages/MiceHome";
 import MiceAbout from "./pages/MiceAbout";
 import StoreLocatorPage from "./pages/StoreLocatorPage";
 import WorksPage from "./pages/WorksPage";
+import StylesPage from "./pages/StylesPage";
 import TeamPage from "./pages/TeamPage";
 import ContactPage from "./pages/ContactPage";
 import LegalPage from "./pages/LegalPage";
@@ -50,6 +51,7 @@ const App = () => (
                 <Route path="/familyamiz" element={<TeamPage />} />
                 <Route path="/legal/:type" element={<LegalPage />} />
                 <Route path="/health/satis-noktalari" element={<StoreLocatorPage />} />
+                <Route path="/stiller" element={<StylesPage />} />
                 {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
                 <Route path="*" element={<NotFound />} />
               </Routes>
