@@ -423,10 +423,10 @@ const HealthHome = () => {
 
             {/* Right Image Card */}
             <div className="relative h-full w-full flex items-center justify-center">
-              <div className="relative w-full h-auto overflow-hidden rounded-3xl shadow-2xl shadow-black/50 group">
+              <div className="relative w-full h-auto overflow-hidden rounded-3xl shadow-2xl shadow-black/50">
                 <img
-                  src={liquidAdvantagesImage}
-                  alt="Liquid Form Advantages"
+                  src="/images/electrovit_reklam.png"
+                  alt="Electrovit Kampanya"
                   className="w-full h-auto object-cover transform transition-transform duration-700 group-hover:scale-105"
                   loading="lazy"
                 />

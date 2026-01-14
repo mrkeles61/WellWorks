@@ -172,12 +172,41 @@ const DailyshotNedirPage = () => {
         t('health.dailyshotNedir.targetAudience.item6'),
     ];
 
-    // Image Editor State
+    // Image Editor State - Load from localStorage if available
     const [editorOpen, setEditorOpen] = useState(true);
-    const [imgScale, setImgScale] = useState(100);
-    const [imgX, setImgX] = useState(50); // 50% = center
-    const [imgY, setImgY] = useState(50); // 50% = center
-    const [objectFit, setObjectFit] = useState<'cover' | 'contain' | 'fill' | 'none' | 'scale-down'>('cover');
+    const [imgScale, setImgScale] = useState(() => {
+        const saved = localStorage.getItem('dailyshot_imgScale');
+        return saved ? Number(saved) : 100;
+    });
+    const [imgX, setImgX] = useState(() => {
+        const saved = localStorage.getItem('dailyshot_imgX');
+        return saved ? Number(saved) : 50;
+    });
+    const [imgY, setImgY] = useState(() => {
+        const saved = localStorage.getItem('dailyshot_imgY');
+        return saved ? Number(saved) : 50;
+    });
+    const [objectFit, setObjectFit] = useState<'cover' | 'contain' | 'fill' | 'none' | 'scale-down'>(() => {
+        const saved = localStorage.getItem('dailyshot_objectFit');
+        return (saved as 'cover' | 'contain' | 'fill' | 'none' | 'scale-down') || 'cover';
+    });
+
+    // Persist slider values to localStorage
+    useEffect(() => {
+        localStorage.setItem('dailyshot_imgScale', imgScale.toString());
+    }, [imgScale]);
+
+    useEffect(() => {
+        localStorage.setItem('dailyshot_imgX', imgX.toString());
+    }, [imgX]);
+
+    useEffect(() => {
+        localStorage.setItem('dailyshot_imgY', imgY.toString());
+    }, [imgY]);
+
+    useEffect(() => {
+        localStorage.setItem('dailyshot_objectFit', objectFit);
+    }, [objectFit]);
 
     return (
         <div data-brand="health" className="bg-gray-50 min-h-screen font-sans">
@@ -256,7 +285,7 @@ const DailyshotNedirPage = () => {
             <section className="relative pt-32 pb-20 overflow-hidden bg-gray-900 text-white">
                 <div className="absolute inset-0 z-0 flex items-center justify-center overflow-hidden">
                     <img
-                        src="/images/products_showcase_v2.png"
+                        src="/images/dailyshot_hero_bg.png"
                         alt="Dailyshot Ürünleri"
                         className="transition-all duration-75 ease-linear pointer-events-none"
                         style={{
