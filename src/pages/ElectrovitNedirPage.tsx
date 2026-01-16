@@ -1,11 +1,44 @@
 import { ArrowRight, Activity } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useRef } from 'react';
 import { useBrand } from '@/hooks/useBrand';
 import AnimatedSection from '@/components/shared/AnimatedSection';
 import { products } from '@/data/products';
 import { Skeleton } from '@/components/ui/skeleton';
 import { cn } from '@/lib/utils';
+import { animate } from 'animejs';
+
+const InteractiveHeroButton = ({ text, href }: { text: string, href: string }) => {
+    const bgRef = useRef<HTMLDivElement>(null);
+
+    const handleEnter = () => {
+        if (bgRef.current) {
+            animate(bgRef.current, { scaleY: 1, duration: 400, easing: 'easeOutQuad' });
+        }
+    };
+
+    const handleLeave = () => {
+        if (bgRef.current) {
+            animate(bgRef.current, { scaleY: 0, duration: 400, easing: 'easeInQuad' });
+        }
+    };
+
+    return (
+        <a
+            href={href}
+            target="_blank"
+            rel="noopener noreferrer"
+            onMouseEnter={handleEnter}
+            onMouseLeave={handleLeave}
+            className="group relative px-10 py-4 bg-white text-[#00AEEF] rounded-full font-bold transition-all shadow-[0_10px_20px_-5px_rgba(0,0,0,0.2)] hover:shadow-[0_15px_25px_-5px_rgba(0,0,0,0.3)] flex items-center gap-2 text-lg overflow-hidden border border-transparent hover:border-white/20"
+        >
+            <div ref={bgRef} className="absolute bottom-0 left-0 w-full h-full bg-[#00AEEF] origin-bottom scale-y-0 z-0" />
+            <span className="relative z-10 group-hover:text-white transition-colors duration-300 flex items-center gap-2">
+                {text} <ArrowRight className="w-5 h-5" />
+            </span>
+        </a>
+    );
+};
 
 const ProductCard = ({ product, t }: { product: any, t: any }) => {
     const { i18n } = useTranslation();
@@ -106,14 +139,10 @@ const ElectrovitNedirPage = () => {
 
                             {/* CTA Button */}
                             <div className="flex justify-center lg:justify-start">
-                                <a
+                                <InteractiveHeroButton
+                                    text={t('health.electrovitNedir.cta')}
                                     href="https://dailyshot.com.tr/arama/electrovit"
-                                    target="_blank"
-                                    rel="noopener noreferrer"
-                                    className="px-10 py-4 bg-white text-[#00AEEF] hover:bg-blue-50 rounded-full font-bold transition-all shadow-[0_10px_20px_-5px_rgba(0,0,0,0.2)] hover:shadow-[0_15px_25px_-5px_rgba(0,0,0,0.3)] hover:-translate-y-1 active:scale-95 flex items-center gap-2 text-lg"
-                                >
-                                    {t('health.electrovitNedir.cta')} <ArrowRight className="w-5 h-5" />
-                                </a>
+                                />
                             </div>
                         </AnimatedSection>
                     </div>

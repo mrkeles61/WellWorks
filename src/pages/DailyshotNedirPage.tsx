@@ -214,16 +214,64 @@ const DailyshotNedirPage = () => {
 
 
 
+    // Marquee Editor State
+    const [marqueeOpen, setMarqueeOpen] = useState(false);
+    const [mqSpeed, setMqSpeed] = useState(3);
+    const [mqHeight, setMqHeight] = useState(16); // tailwind h-16 equivalent approx in arbitrary units or just use styles
+    const [mqPadding, setMqPadding] = useState(2); // py-2
+    const [mqColor, setMqColor] = useState('#00AEEF'); // Default health-primary
+
     return (
         <div data-brand="health" className="bg-gray-50 min-h-screen font-sans">
 
-            {/* IN-PAGE IMAGE EDITOR */}
-            {editorOpen && (
-                <div className="fixed top-24 left-4 z-50 bg-black/90 p-5 rounded-xl text-white border border-gray-700 shadow-2xl backdrop-blur-md w-72 font-mono text-xs">
+            {/* TOGGLES FOR EDITORS */}
+            <div className="fixed top-24 left-4 z-50 flex flex-col gap-2">
+                <button onClick={() => setEditorOpen(!editorOpen)} className="bg-black/80 text-white text-xs px-3 py-2 rounded-full border border-gray-700 hover:bg-orange-500 transition-colors">
+                    🖼️ Hero Editor
+                </button>
+                <button onClick={() => setMarqueeOpen(!marqueeOpen)} className="bg-black/80 text-white text-xs px-3 py-2 rounded-full border border-gray-700 hover:bg-blue-500 transition-colors">
+                    ⚡ Marquee Editor
+                </button>
+            </div>
+
+            {/* MARQUEE EDITOR PANEL */}
+            {marqueeOpen && (
+                <div className="fixed top-40 left-4 z-50 bg-black/90 p-5 rounded-xl text-white border border-gray-700 shadow-2xl backdrop-blur-md w-72 font-mono text-xs">
                     <div className="flex justify-between items-center mb-4 border-b border-gray-700 pb-2">
-                        <h3 className="font-bold text-orange-400 uppercase tracking-widest">Hero Image Editor</h3>
-                        <button onClick={() => setEditorOpen(false)} className="text-gray-400 hover:text-white">✕</button>
+                        <h3 className="font-bold text-blue-400 uppercase tracking-widest">Marquee Editor</h3>
+                        <button onClick={() => setMarqueeOpen(false)} className="text-gray-400 hover:text-white">✕</button>
                     </div>
+
+                    <div className="space-y-4">
+                        <div>
+                            <div className="flex justify-between mb-1"><span>Speed</span> <span className="text-blue-400">{mqSpeed}</span></div>
+                            <input type="range" min="0.1" max="10" step="0.1" value={mqSpeed} onChange={(e) => setMqSpeed(Number(e.target.value))} className="w-full accent-blue-500" />
+                        </div>
+                        <div>
+                            <div className="flex justify-between mb-1"><span>Height (px)</span> <span className="text-green-400">{mqHeight * 4}px</span></div>
+                            {/* Using approximate height correlation for 'h-X' classes, but will use inline style for precision if needed, or just map logic */}
+                            <input type="range" min="4" max="40" step="1" value={mqHeight} onChange={(e) => setMqHeight(Number(e.target.value))} className="w-full accent-green-500" />
+                        </div>
+                        <div>
+                            <div className="flex justify-between mb-1"><span>Padding (py)</span> <span className="text-orange-400">{mqPadding}</span></div>
+                            <input type="range" min="0" max="20" step="1" value={mqPadding} onChange={(e) => setMqPadding(Number(e.target.value))} className="w-full accent-orange-500" />
+                        </div>
+                        <div>
+                            <div className="flex justify-between mb-1"><span>Color</span> <span className="text-white" style={{ color: mqColor }}>{mqColor}</span></div>
+                            <div className="grid grid-cols-5 gap-2 mt-2">
+                                {['#00AEEF', '#EF4444', '#F58220', '#10B981', '#000000'].map(c => (
+                                    <button key={c} onClick={() => setMqColor(c)} className={`w-6 h-6 rounded-full border border-white/20 hover:scale-110 transition-transform ${mqColor === c ? 'ring-2 ring-white' : ''}`} style={{ backgroundColor: c }} />
+                                ))}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            )}
+
+            {/* IN-PAGE IMAGE EDITOR (Existing) */}
+            {editorOpen && (
+                <div className="fixed top-24 left-80 z-50 bg-black/90 p-5 rounded-xl text-white border border-gray-700 shadow-2xl backdrop-blur-md w-72 font-mono text-xs">
+                    {/* ... (Existing Editor Content) ... */}
 
                     {/* Mode Selection */}
                     <div className="mb-4 space-y-2">
@@ -320,14 +368,30 @@ const DailyshotNedirPage = () => {
             </section>
 
             {/* CONCEPT 4: ANIMATED MARQUEE BANNER (CurvedLoop) */}
-            <div className="bg-health-primary text-white py-2 overflow-hidden relative z-30 border-y-2 border-white/20 shadow-md">
-                {/* Overlay gradient for depth */}
-                <div className="absolute inset-0 bg-gradient-to-r from-health-primary via-transparent to-health-primary z-10 pointer-events-none" />
+            {/* CONCEPT 4: ANIMATED MARQUEE BANNER (CurvedLoop) */}
+            <div
+                className="text-white overflow-hidden relative z-30 border-y-2 border-white/20 shadow-md transition-all duration-300"
+                style={{
+                    backgroundColor: mqColor,
+                    paddingTop: `${mqPadding * 0.25}rem`,
+                    paddingBottom: `${mqPadding * 0.25}rem`
+                }}
+            >
+                {/* Overlay gradient for depth - updated to match dynamic color */}
+                <div
+                    className="absolute inset-0 bg-gradient-to-r via-transparent z-10 pointer-events-none"
+                    style={{
+                        backgroundImage: `linear-gradient(to right, ${mqColor}, transparent, ${mqColor})`
+                    }}
+                />
 
-                <div className="relative z-0 scale-100 flex justify-center items-center h-12 md:h-16">
+                <div
+                    className="relative z-0 scale-100 flex justify-center items-center transition-all duration-300"
+                    style={{ height: `${mqHeight * 4}px` }}
+                >
                     <CurvedLoop
                         marqueeText="DAILYSHOT.COM.TR ✦ "
-                        speed={3}
+                        speed={mqSpeed}
                         curveAmount={0}
                         interactive={true}
                         className="fill-white font-poppins font-bold tracking-widest drop-shadow-sm text-sm"

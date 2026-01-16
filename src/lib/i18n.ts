@@ -201,7 +201,8 @@ const resources = {
         electrovitNedir: {
           heroLabel: '',
           heroTitle: 'Su İhtiyacınızı Karşılamanın',
-          heroTitleHighlight: 'En Akıllı Yolu',
+          heroTitleHighlight: 'En Akıllı',
+          heroTitleHighlight2: 'Yolu',
           heroSlogan: 'Su içemeyenler için tasarlandı.',
           heroDesc: '',
           introSection: {
@@ -930,7 +931,8 @@ Telefon: +90 536 032 08 38`,
         electrovitNedir: {
           heroLabel: '',
           heroTitle: 'The Smartest Way to Meet',
-          heroTitleHighlight: 'Your Hydration Needs',
+          heroTitleHighlight: 'Your Hydration',
+          heroTitleHighlight2: 'Needs',
           heroSlogan: 'For those who can\'t drink water.',
           heroDesc: '',
           introSection: {
