@@ -1,4 +1,4 @@
-import { ArrowRight, Droplets, Activity } from 'lucide-react';
+import { ArrowRight, Activity } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
 import { useEffect } from 'react';
 import { useBrand } from '@/hooks/useBrand';
@@ -15,81 +15,66 @@ const ElectrovitNedirPage = () => {
     return (
         <div className="bg-slate-50 dark:bg-slate-900 font-sans text-slate-900 dark:text-slate-100 antialiased overflow-x-hidden min-h-screen">
 
-            {/* NEW SPLIT HERO SECTION */}
-            <section className="relative min-h-[90vh] w-full flex items-center overflow-hidden bg-[#E0F7FA]">
-                {/* Background Water Image (Placeholder for AI Gen) */}
-                <div className="absolute inset-0 z-0 select-none pointer-events-none">
+            {/* NEW HERO SECTION */}
+            <section className="relative min-h-[90vh] w-full flex items-center overflow-hidden bg-white">
+                {/* Background Image Layer */}
+                <div className="absolute inset-0 z-0">
                     <img
-                        src="https://images.unsplash.com/photo-1541675154750-0444c7d51e8e?q=80&w=2030&auto=format&fit=crop"
-                        alt="Water Background"
-                        className="w-full h-full object-cover opacity-60 mix-blend-multiply transition-opacity duration-1000"
+                        src="/images/electrovit_reklam.png"
+                        alt="Background"
+                        className="w-full h-full object-cover object-left opacity-100" // Assuming the image is the full splash art
                     />
-                    <div className="absolute inset-0 bg-gradient-to-r from-white via-white/80 to-transparent dark:from-slate-900 dark:via-slate-900/80" />
+                    {/* Optional Gradient Fade for text readability on mobile if needed */}
+                    <div className="absolute inset-0 bg-gradient-to-r from-white/90 via-white/50 to-transparent lg:hidden" />
                 </div>
 
                 <div className="container mx-auto px-6 relative z-10 grid lg:grid-cols-2 gap-12 items-center h-full py-20">
                     {/* LEFT: Text Content */}
                     <div className="max-w-xl mx-auto lg:mx-0 text-center lg:text-left">
                         <AnimatedSection animation="fadeInLeft">
-                            <span className="inline-block px-4 py-2 rounded-full bg-[#00AEEF]/10 text-[#00AEEF] font-bold text-xs uppercase tracking-widest mb-6 border border-[#00AEEF]/20 backdrop-blur-sm">
-                                {t('health.electrovitIntro.title')}
-                            </span>
-                            <h1 className="text-5xl md:text-6xl lg:text-7xl font-black text-[#0077B6] leading-[1.1] mb-6 font-poppins">
-                                {t('health.electrovitNedir.heroTitle')} <br />
-                                <span className="text-[#00A3E0] italic drop-shadow-sm">{t('health.electrovitNedir.heroTitleHighlight')}</span>
+                            {/* Main Headline */}
+                            <h1 className="text-5xl md:text-6xl lg:text-7xl font-black text-slate-900 leading-[1.1] mb-6 font-poppins">
+                                Su İhtiyacınızı <br />
+                                Karşılamanın <br />
+                                <span className="text-[#00AEEF] italic">En Akıllı</span> Yolu
                             </h1>
-                            <p className="text-xl text-slate-600 dark:text-slate-400 mb-8 leading-relaxed max-w-lg mx-auto lg:mx-0">
-                                {t('health.electrovitNedir.introSection.paragraph1')}
+
+                            {/* Description */}
+                            <p className="text-xl text-slate-700 font-medium mb-8 leading-relaxed max-w-lg mx-auto lg:mx-0">
+                                Günlük elektrolit ihtiyacını karşılayarak dehidrasyonun önlenmesini, vücudun sıvı dengesini, sinir iletimi ve kas fonksiyonlarını destekler.
                             </p>
 
-                            <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
+                            {/* CTA Button */}
+                            <div className="flex justify-center lg:justify-start">
                                 <a
                                     href="https://dailyshot.com.tr/arama/electrovit"
                                     target="_blank"
                                     rel="noopener noreferrer"
-                                    className="px-8 py-4 bg-[#00AEEF] hover:bg-[#0095CC] text-white rounded-full font-bold transition-all shadow-lg hover:shadow-[#00AEEF]/30 hover:-translate-y-1 active:scale-95 flex items-center justify-center gap-2"
+                                    className="px-10 py-4 bg-[#0077FF] hover:bg-[#0066DD] text-white rounded-full font-bold transition-all shadow-lg hover:shadow-blue-500/30 hover:-translate-y-1 active:scale-95 flex items-center gap-2 text-lg"
                                 >
-                                    {t('health.electrovitNedir.cta')} <ArrowRight className="w-5 h-5" />
+                                    Hemen Keşfedin <ArrowRight className="w-5 h-5" />
                                 </a>
-                                <div className="px-8 py-4 bg-white/60 backdrop-blur-md border border-[#00AEEF]/20 text-[#0077B6] rounded-full font-semibold cursor-default flex items-center justify-center gap-2">
-                                    <Activity className="w-5 h-5" />
-                                    {t('health.electrovitNedir.usageTime.preWorkout')}
-                                </div>
                             </div>
                         </AnimatedSection>
                     </div>
 
-                    {/* RIGHT: Vertical Product Image */}
+                    {/* RIGHT: Product Image */}
                     <div className="relative flex items-center justify-center lg:justify-end">
-                        <AnimatedSection animation="fadeInUp" delay={200} className="relative w-full max-w-sm sm:max-w-md lg:max-w-md xl:max-w-lg perspective-1000">
-                            {/* Card Container for the Vertical Image */}
-                            <div className="relative rounded-[2rem] sm:rounded-[3rem] overflow-hidden shadow-[0_25px_50px_-12px_rgba(0,163,224,0.3)] border-4 border-white transform transition-all duration-700 hover:rotate-1 hover:scale-[1.02] bg-white group">
+                        <AnimatedSection animation="fadeInUp" delay={200} className="relative w-full max-w-md lg:max-w-lg">
+                            <div className="relative transform hover:scale-[1.02] transition-transform duration-700">
                                 <img
-                                    src="/images/electrovit_vertical.jpg"
-                                    alt="Electrovit Vertical"
-                                    className="w-full h-auto object-cover"
+                                    src="/images/electrovit_hero_bottle.png"
+                                    alt="Electrovit Bottle"
+                                    className="w-full h-auto object-contain drop-shadow-2xl"
                                 />
-                                {/* Glossy Overlay */}
-                                <div className="absolute inset-0 bg-gradient-to-tr from-transparent via-white/20 to-transparent pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
-                            </div>
-
-                            {/* Floating "0 Sugar" Badge */}
-                            <div className="absolute -bottom-6 -left-6 bg-white p-4 rounded-2xl shadow-xl flex items-center gap-3 animate-bounce-slow border border-gray-100 hidden sm:flex">
-                                <div className="bg-blue-50 p-2.5 rounded-full">
-                                    <Droplets className="w-6 h-6 text-[#00AEEF]" />
-                                </div>
-                                <div>
-                                    <div className="text-[10px] text-gray-500 font-bold uppercase tracking-wider">Şeker</div>
-                                    <div className="text-xl font-black text-[#0077B6]">0 GR</div>
-                                </div>
                             </div>
                         </AnimatedSection>
                     </div>
                 </div>
             </section>
 
-            {/* Info Card Section (Preserved & Styled) */}
-            <section id="details" className="max-w-5xl mx-auto px-6 -mt-20 relative z-20 pb-24">
+            {/* Info Card Section (Preserved) */}
+            <section id="details" className="max-w-5xl mx-auto px-6 -mt-10 relative z-20 pb-24">
                 <AnimatedSection animation="fadeInUp">
                     <div className="bg-white dark:bg-slate-800 rounded-[2.5rem] p-8 lg:p-14 shadow-[0_20px_50px_-12px_rgba(0,0,0,0.1)] text-center relative overflow-hidden group border border-slate-100 dark:border-slate-700">
                         {/* Top Gradient Line */}

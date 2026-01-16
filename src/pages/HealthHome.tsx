@@ -408,8 +408,16 @@ const HealthHome = () => {
             </div>
 
             {/* Right Image Card */}
-            <div className="relative h-full w-full flex items-center justify-center">
-              <div className="relative w-full h-auto overflow-hidden rounded-3xl shadow-2xl shadow-black/50">
+            <div className="relative h-full w-full flex items-center justify-center group">
+              {/* Electrovit Cyan/Blue Gradient Glow */}
+              <motion.div
+                className="absolute inset-0 rounded-3xl bg-gradient-to-r from-[#00AEEF] via-[#0077B6] to-[#00AEEF] opacity-0 group-hover:opacity-100 blur-xl transition-opacity duration-500 -z-10"
+                animate={{ backgroundPosition: ["0% 50%", "100% 50%"] }}
+                transition={{ duration: 3, repeat: Infinity, repeatType: "mirror", ease: "linear" }}
+                style={{ backgroundSize: "200% 200%" }}
+              />
+
+              <div className="relative w-full h-auto overflow-hidden rounded-3xl shadow-2xl shadow-black/50 z-10">
                 <img
                   src="/images/electrovit_campaign.jpg"
                   alt="Electrovit Kampanya"
