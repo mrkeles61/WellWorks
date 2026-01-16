@@ -13,14 +13,18 @@ import { motion, useScroll, useTransform, AnimatePresence, useSpring } from 'fra
 import { useRef } from 'react';
 const InteractiveHeroButton = ({ text, href, color }: { text: string, href: string, color?: string }) => {
     const bgRef = useRef<HTMLDivElement>(null);
+    const [isHovered, setIsHovered] = useState(false);
+    const activeColor = color || '#00AEEF'; // Default to health primary
 
     const handleEnter = () => {
+        setIsHovered(true);
         if (bgRef.current) {
             animate(bgRef.current, { scaleY: 1, duration: 400, easing: 'easeOutQuad' });
         }
     };
 
     const handleLeave = () => {
+        setIsHovered(false);
         if (bgRef.current) {
             animate(bgRef.current, { scaleY: 0, duration: 400, easing: 'easeInQuad' });
         }
@@ -33,18 +37,21 @@ const InteractiveHeroButton = ({ text, href, color }: { text: string, href: stri
             rel="noopener noreferrer"
             onMouseEnter={handleEnter}
             onMouseLeave={handleLeave}
-            className={cn(
-                "group relative px-10 py-4 bg-white rounded-full font-bold transition-all flex items-center gap-2 text-lg overflow-hidden border-2 inline-flex",
-                color ? `shadow-[0_10px_20px_-5px_${color}4d] hover:shadow-[0_15px_25px_-5px_${color}66]` : "text-health-primary border-health-primary shadow-[0_10px_20px_-5px_rgba(0,174,239,0.3)] hover:shadow-[0_15px_25px_-5px_rgba(0,174,239,0.4)]"
-            )}
-            style={color ? { color: color, borderColor: color } : undefined}
+            className="group relative px-10 py-4 bg-white rounded-full font-bold transition-all flex items-center gap-2 text-lg overflow-hidden border-2 inline-flex"
+            style={{
+                borderColor: activeColor,
+                color: isHovered ? '#ffffff' : activeColor,
+                boxShadow: isHovered
+                    ? `0 15px 25px -5px ${activeColor}66` // 40% opacity
+                    : `0 10px 20px -5px ${activeColor}33` // 20% opacity
+            }}
         >
             <div
                 ref={bgRef}
-                className={cn("absolute bottom-0 left-0 w-full h-full origin-bottom scale-y-0 z-0", !color && "bg-health-primary")}
-                style={color ? { backgroundColor: color } : undefined}
+                className="absolute bottom-0 left-0 w-full h-full origin-bottom scale-y-0 z-0"
+                style={{ backgroundColor: activeColor }}
             />
-            <span className="relative z-10 group-hover:text-white transition-colors duration-300 flex items-center gap-2">
+            <span className="relative z-10 transition-colors duration-300 flex items-center gap-2">
                 {text} <ArrowRight className="w-5 h-5" />
             </span>
         </a>
@@ -142,6 +149,7 @@ const DailyshotProductCard = ({ product, t }: { product: any, t: any }) => {
 
 const DailyshotNedirPage = () => {
     const { setBrand } = useBrand();
+
     const { t } = useTranslation();
 
     useEffect(() => {
@@ -189,23 +197,7 @@ const DailyshotNedirPage = () => {
         },
     ];
 
-    const useCases = [
-        {
-            icon: <Sun className="w-8 h-8" />,
-            title: t('health.dailyshotNedir.usageRoutine.morning'),
-            description: t('health.dailyshotNedir.usageRoutine.morningDesc'),
-        },
-        {
-            icon: <Activity className="w-8 h-8" />,
-            title: t('health.dailyshotNedir.usageRoutine.daytime'),
-            description: t('health.dailyshotNedir.usageRoutine.daytimeDesc'),
-        },
-        {
-            icon: <Moon className="w-8 h-8" />,
-            title: t('health.dailyshotNedir.usageRoutine.evening'),
-            description: t('health.dailyshotNedir.usageRoutine.eveningDesc'),
-        },
-    ];
+    // useCases removed
 
     const targetAudience = [
         t('health.dailyshotNedir.targetAudience.item1'),
@@ -284,16 +276,28 @@ const DailyshotNedirPage = () => {
 
                     {/* RIGHT: Image Area */}
                     <div className="relative flex items-center justify-center lg:justify-end w-full">
-                        <AnimatedSection animation="fadeInUp" delay={200} className="relative w-full aspect-[16/9] lg:aspect-[2/1] overflow-hidden rounded-3xl shadow-xl border border-gray-100 bg-gray-50/50 backdrop-blur-sm">
-                            <img
-                                src="/images/dailyshot_full_range.png"
-                                alt="Dailyshot Ürün Ailesi"
-                                className="w-full h-full object-contain p-8"
-                                style={{
-                                    objectPosition: `${imgX}% ${imgY}%`,
-                                    transform: `scale(${imgScale / 100}) rotate(${imgRotate}deg)`
-                                }}
-                            />
+                        <AnimatedSection animation="fadeInUp" delay={200} className="relative w-full aspect-[16/9] lg:aspect-[2/1] flex items-center justify-center">
+                            <motion.div
+                                className="relative w-full h-full rounded-3xl p-[3px] group transition-all duration-300"
+                                whileHover={{ y: -8, boxShadow: "0 20px 40px -15px rgba(0,0,0,0.1)" }}
+                                transition={{ type: "spring", stiffness: 300, damping: 20 }}
+                            >
+                                {/* Gradient Border Background */}
+                                <div className="absolute inset-0 rounded-3xl bg-gradient-to-r from-blue-400 via-purple-500 to-blue-400 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
+
+                                {/* Inner Content */}
+                                <div className="relative w-full h-full rounded-[21px] flex items-center justify-center overflow-hidden">
+                                    <img
+                                        src="/images/dailyshot_full_range.png"
+                                        alt="Dailyshot Ürün Ailesi"
+                                        className="w-[90%] h-[90%] object-contain z-10 relative"
+                                        style={{
+                                            objectPosition: `${imgX}% ${imgY}%`,
+                                            transform: `scale(${imgScale / 100}) rotate(${imgRotate}deg)`
+                                        }}
+                                    />
+                                </div>
+                            </motion.div>
                         </AnimatedSection>
                     </div>
                 </div>
@@ -322,37 +326,7 @@ const DailyshotNedirPage = () => {
                 </div>
             </section >
 
-            {/* Why Liquid / Use Cases */}
-            < section className="py-20 bg-white" >
-                <div className="container mx-auto px-6">
-                    <AnimatedSection animation="fadeInUp" className="text-center mb-16">
-                        <span className="text-health-primary text-sm font-semibold uppercase tracking-widest mb-4 block">
-                            {t('health.dailyshotNedir.usageRoutine.label')}
-                        </span>
-                        <h2 className="font-poppins font-bold text-3xl md:text-4xl text-gray-900 max-w-2xl mx-auto">
-                            {t('health.dailyshotNedir.usageRoutine.title')}
-                        </h2>
-                    </AnimatedSection>
-
-                    <div className="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
-                        {useCases.map((useCase, index) => (
-                            <AnimatedSection key={index} animation="fadeInUp" delay={index * 100}>
-                                <div className="bg-gray-50 rounded-3xl p-8 border border-gray-100 text-center h-full">
-                                    <div className="w-16 h-16 bg-white rounded-full shadow-sm flex items-center justify-center text-health-primary mb-6 mx-auto">
-                                        {useCase.icon}
-                                    </div>
-                                    <h3 className="font-poppins font-bold text-xl text-gray-900 mb-3">
-                                        {useCase.title}
-                                    </h3>
-                                    <p className="text-gray-600">
-                                        {useCase.description}
-                                    </p>
-                                </div>
-                            </AnimatedSection>
-                        ))}
-                    </div>
-                </div>
-            </section >
+            {/* Why Liquid / Use Cases Removed */}
 
             {/* Product Family Grid */}
             < section className="py-20 lg:py-28 bg-gray-50" >
@@ -422,87 +396,7 @@ const DailyshotNedirPage = () => {
             </section >
 
             {/* Image Editor Controls - Top Left Fixed */}
-            <div className="fixed top-24 left-4 z-50 flex flex-col items-start gap-2">
-                {!editorOpen && (
-                    <Button
-                        onClick={() => setEditorOpen(true)}
-                        variant="outline"
-                        size="icon"
-                        className="bg-white/80 backdrop-blur shadow-lg hover:bg-white"
-                    >
-                        <Settings className="w-5 h-5 text-gray-700" />
-                    </Button>
-                )}
-
-                {editorOpen && (
-                    <div className="bg-white/90 backdrop-blur-md p-6 rounded-2xl shadow-2xl border border-gray-200 w-80 animate-in slide-in-from-left-2">
-                        <div className="flex justify-between items-center mb-4">
-                            <h3 className="font-bold text-gray-900">Image Settings</h3>
-                            <Button variant="ghost" size="sm" onClick={() => setEditorOpen(false)} className="h-6 w-6 p-0 rounded-full">
-                                <X className="w-4 h-4" />
-                            </Button>
-                        </div>
-
-                        <div className="space-y-4">
-                            <div className="space-y-2">
-                                <label className="text-xs font-medium text-gray-500 flex justify-between">
-                                    Scale <span>{imgScale}%</span>
-                                </label>
-                                <Slider
-                                    value={[imgScale]}
-                                    onValueChange={(v) => setImgScale(v[0])}
-                                    min={50}
-                                    max={200}
-                                    step={1}
-                                    className="cursor-pointer"
-                                />
-                            </div>
-
-                            <div className="space-y-2">
-                                <label className="text-xs font-medium text-gray-500 flex justify-between">
-                                    Position X <span>{imgX}%</span>
-                                </label>
-                                <Slider
-                                    value={[imgX]}
-                                    onValueChange={(v) => setImgX(v[0])}
-                                    min={0}
-                                    max={100}
-                                    step={1}
-                                />
-                            </div>
-
-                            <div className="space-y-2">
-                                <label className="text-xs font-medium text-gray-500 flex justify-between">
-                                    Position Y <span>{imgY}%</span>
-                                </label>
-                                <Slider
-                                    value={[imgY]}
-                                    onValueChange={(v) => setImgY(v[0])}
-                                    min={0}
-                                    max={100}
-                                    step={1}
-                                />
-                            </div>
-
-                            <div className="space-y-2">
-                                <label className="text-xs font-medium text-gray-500 flex justify-between">
-                                    Rotation <span>{imgRotate}°</span>
-                                </label>
-                                <Slider
-                                    value={[imgRotate]}
-                                    onValueChange={(v) => setImgRotate(v[0])}
-                                    min={-180}
-                                    max={180}
-                                    step={1}
-                                />
-                            </div>
-                            <div className="pt-2 text-xs text-center text-gray-400">
-                                Values saved automatically
-                            </div>
-                        </div>
-                    </div>
-                )}
-            </div>
+            {/* Editor UI Removed */}
         </div>
     );
 };

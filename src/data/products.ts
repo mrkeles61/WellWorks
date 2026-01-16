@@ -186,7 +186,7 @@ export const products: Product[] = [
     tagline: 'Anti-Aging',
     price: 899,
     image: wellaging_new_img,
-    color: '#EB1C24',
+    color: '#751421',
     category: 'Anti-Aging',
     brand: 'dailyshot',
     isNew: true,

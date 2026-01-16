@@ -245,24 +245,25 @@ const HealthHome = () => {
 
             {/* Left: Floating Product Image */}
             <AnimatedSection animation="fadeInLeft" className="w-full lg:w-1/2 relative order-2 lg:order-1 flex justify-center">
-              <div className="relative group p-4">
-                {/* Dark Blue Gradient Glow on Hover */}
-                <motion.div
-                  className="absolute inset-0 rounded-3xl bg-gradient-to-r from-[#0f1c2e] via-[#1e40af] to-[#0f1c2e] opacity-0 group-hover:opacity-100 blur-xl transition-opacity duration-500 -z-10"
-                  animate={{ backgroundPosition: ["0% 50%", "100% 50%"] }}
-                  transition={{ duration: 3, repeat: Infinity, repeatType: "mirror", ease: "linear" }}
-                  style={{ backgroundSize: "200% 200%" }}
-                />
+              <div className="relative w-full max-w-2xl rounded-3xl p-[3px] overflow-hidden group bg-white shadow-xl hover:shadow-2xl transition-all duration-300">
+                {/* Gradient Border Background - Style 03 */}
+                <div className="absolute inset-0 bg-gradient-to-r from-blue-400 via-purple-500 to-blue-400 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
 
-                <motion.img
-                  src="/images/dailyshot_full_range.png"
-                  alt="DailyShot and Electrovit Products"
-                  className="relative w-full max-w-2xl h-auto object-contain z-10 drop-shadow-2xl"
-                  loading="lazy"
-                  initial={{ scale: 1 }}
-                  whileHover={{ scale: 1.05 }}
-                  transition={{ duration: 0.8, ease: "easeOut" }}
-                />
+                {/* Inner Content Component */}
+                <div className="relative w-full h-full rounded-[21px] overflow-hidden bg-white p-2 md:p-4">
+                  <motion.img
+                    src="/images/dailyshot_full_range.png"
+                    alt="DailyShot and Electrovit Products"
+                    className="relative w-full h-auto object-contain z-10 drop-shadow-2xl"
+                    loading="lazy"
+                    initial={{ scale: 1 }}
+                    whileHover={{ scale: 1.05 }}
+                    transition={{ duration: 0.8, ease: "easeOut" }}
+                  />
+
+                  {/* Gloss Effect */}
+                  <div className="absolute inset-0 bg-gradient-to-tr from-white/0 via-white/30 to-white/0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none z-20" />
+                </div>
               </div>
             </AnimatedSection>
 
