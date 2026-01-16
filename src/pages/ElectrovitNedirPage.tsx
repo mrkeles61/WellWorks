@@ -89,19 +89,19 @@ const ElectrovitNedirPage = () => {
                         <AnimatedSection animation="fadeInLeft">
                             {/* Main Headline */}
                             <h1 className="text-5xl md:text-6xl lg:text-7xl font-black text-white leading-[1.1] mb-6 font-poppins drop-shadow-sm">
-                                Su İhtiyacınızı <br />
-                                Karşılamanın <br />
+                                {t('health.electrovitNedir.heroTitle')} <br />
+                                {t('health.electrovitNedir.heroTitleHighlight')} <br />
                                 <span className="text-white italic relative inline-block">
-                                    En Akıllı
+                                    {t('health.electrovitNedir.heroTitleHighlight2')}
                                     <svg className="absolute w-full h-3 -bottom-1 left-0 text-white/40" viewBox="0 0 100 10" preserveAspectRatio="none">
                                         <path d="M0 5 Q 50 10 100 5" stroke="currentColor" strokeWidth="3" fill="none" />
                                     </svg>
-                                </span> Yolu
+                                </span>
                             </h1>
 
                             {/* Description */}
                             <p className="text-xl text-blue-50 font-medium mb-8 leading-relaxed max-w-lg mx-auto lg:mx-0">
-                                Günlük elektrolit ihtiyacını karşılayarak dehidrasyonun önlenmesini, vücudun sıvı dengesini, sinir iletimi ve kas fonksiyonlarını destekler.
+                                {t('health.electrovitNedir.introSection.paragraph2')}
                             </p>
 
                             {/* CTA Button */}
@@ -112,7 +112,7 @@ const ElectrovitNedirPage = () => {
                                     rel="noopener noreferrer"
                                     className="px-10 py-4 bg-white text-[#00AEEF] hover:bg-blue-50 rounded-full font-bold transition-all shadow-[0_10px_20px_-5px_rgba(0,0,0,0.2)] hover:shadow-[0_15px_25px_-5px_rgba(0,0,0,0.3)] hover:-translate-y-1 active:scale-95 flex items-center gap-2 text-lg"
                                 >
-                                    Hemen Keşfedin <ArrowRight className="w-5 h-5" />
+                                    {t('health.electrovitNedir.cta')} <ArrowRight className="w-5 h-5" />
                                 </a>
                             </div>
                         </AnimatedSection>
@@ -145,26 +145,26 @@ const ElectrovitNedirPage = () => {
                         </div>
 
                         <h2 className="text-3xl lg:text-4xl font-poppins font-bold text-slate-900 dark:text-white mb-6">
-                            Su İçemeyenler İçin Tasarlandı.
+                            {t('health.electrovitIntro.title')}
                         </h2>
 
                         <div className="max-w-2xl mx-auto space-y-6">
                             <p className="text-slate-600 dark:text-slate-400 text-lg leading-relaxed">
-                                Unutkanlık, tüketim alışkanlığı ya da su kaybına sebep olacak dış faktörlerin varlığı nedeniyle günlük su ihtiyacını karşılayamayanlar için geliştirilmiş bir elektrolit takviyesidir.
+                                {t('health.electrovitNedir.introSection.paragraph1')}
                             </p>
                             <div className="h-px w-24 bg-slate-200 dark:bg-slate-700 mx-auto"></div>
                             <p className="text-slate-500 dark:text-slate-500 italic text-base">
-                                Günlük elektrolit ihtiyacınızı karşılayarak vücudun sıvı dengesini, sinir iletimi ve kas fonksiyonlarını destekler. Yorgunluk ve bitkinliğin azalmasına katkıda bulunur.
+                                {t('health.electrovitIntro.desc')}
                             </p>
                         </div>
 
                         {/* Grid Stats */}
                         <div id="how-it-works" className="grid grid-cols-2 md:grid-cols-4 gap-6 mt-12">
                             {[
-                                { label: 'Sodyum', val: 'Na+' },
-                                { label: 'Potasyum', val: 'K+' },
-                                { label: 'Magnezyum', val: 'Mg++' },
-                                { label: 'İlave Şeker', val: '0' }
+                                { label: t('health.electrovitNedir.stats.sodium', 'Sodyum'), val: 'Na+' },
+                                { label: t('health.electrovitNedir.stats.potassium', 'Potasyum'), val: 'K+' },
+                                { label: t('health.electrovitNedir.stats.magnesium', 'Magnezyum'), val: 'Mg++' },
+                                { label: t('health.electrovitNedir.stats.sugar', 'İlave Şeker'), val: '0' }
                             ].map((item, i) => (
                                 <div key={i} className="p-4 rounded-2xl bg-slate-50 dark:bg-slate-900/50 border border-slate-100 dark:border-slate-700 transition-all hover:shadow-lg hover:border-[#00AEEF]/30">
                                     <div className="text-[#00AEEF] font-bold text-xl mb-1">{item.val}</div>
@@ -181,10 +181,10 @@ const ElectrovitNedirPage = () => {
                 <div className="container mx-auto px-6">
                     <AnimatedSection animation="fadeInUp" className="text-center mb-16">
                         <span className="text-[#00AEEF] text-sm font-semibold uppercase tracking-widest mb-4 block">
-                            Ürünlerimiz
+                            {t('health.electrovitNedir.products.title')}
                         </span>
                         <h2 className="font-poppins font-bold text-3xl md:text-4xl text-gray-900">
-                            Electrovit Ailesi
+                            {t('health.electrovitNedir.products.family')}
                         </h2>
                     </AnimatedSection>
 

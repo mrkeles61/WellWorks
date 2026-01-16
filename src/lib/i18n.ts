@@ -256,6 +256,16 @@ const resources = {
           },
           cta: 'Şimdi Keşfedin',
           disclaimer: 'Takviye edici gıdalar normal beslenmenin yerine geçemez.',
+          products: {
+            title: 'Ürünlerimiz',
+            family: 'Electrovit Ailesi',
+          },
+          stats: {
+            sodium: 'Sodyum',
+            potassium: 'Potasyum',
+            magnesium: 'Magnezyum',
+            sugar: 'İlave Şeker',
+          },
         },
         wellworksIntro: {
           label: 'WellWorks Health',
@@ -975,6 +985,16 @@ Telefon: +90 536 032 08 38`,
           },
           cta: 'Discover Now',
           disclaimer: 'Supplements cannot replace a normal diet.',
+          products: {
+            title: 'Our Products',
+            family: 'Electrovit Family',
+          },
+          stats: {
+            sodium: 'Sodium',
+            potassium: 'Potassium',
+            magnesium: 'Magnesium',
+            sugar: 'Added Sugar',
+          },
         },
         wellworksIntro: {
           label: 'WellWorks Health',

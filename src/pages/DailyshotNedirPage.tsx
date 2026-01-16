@@ -320,17 +320,17 @@ const DailyshotNedirPage = () => {
             </section>
 
             {/* CONCEPT 4: ANIMATED MARQUEE BANNER (CurvedLoop) */}
-            <div className="bg-health-primary text-white py-10 overflow-hidden relative z-30 border-y-4 border-white/20 shadow-lg">
+            <div className="bg-health-primary text-white py-2 overflow-hidden relative z-30 border-y-2 border-white/20 shadow-md">
                 {/* Overlay gradient for depth */}
                 <div className="absolute inset-0 bg-gradient-to-r from-health-primary via-transparent to-health-primary z-10 pointer-events-none" />
 
-                <div className="relative z-0 scale-100">
+                <div className="relative z-0 scale-100 flex justify-center items-center h-12 md:h-16">
                     <CurvedLoop
                         marqueeText="DAILYSHOT.COM.TR ✦ "
                         speed={3}
-                        curveAmount={80}
+                        curveAmount={0}
                         interactive={true}
-                        className="fill-white font-poppins font-black tracking-widest drop-shadow-md"
+                        className="fill-white font-poppins font-bold tracking-widest drop-shadow-sm text-sm"
                     />
                 </div>
             </div>
