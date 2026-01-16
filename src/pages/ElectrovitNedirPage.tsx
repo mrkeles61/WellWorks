@@ -1,5 +1,5 @@
 import { ArrowRight, Activity } from 'lucide-react';
-import { useTranslation } from 'react-i18next';
+import { useTranslation, Trans } from 'react-i18next';
 import { useEffect, useState, useRef } from 'react';
 import { useBrand } from '@/hooks/useBrand';
 import AnimatedSection from '@/components/shared/AnimatedSection';
@@ -174,7 +174,10 @@ const ElectrovitNedirPage = () => {
                         </div>
 
                         <h2 className="text-3xl lg:text-4xl font-poppins font-bold text-slate-900 dark:text-white mb-6">
-                            {t('health.electrovitIntro.title')}
+                            <Trans
+                                i18nKey="health.electrovitIntro.title"
+                                components={{ 0: <span className="text-[#00AEEF]" /> }}
+                            />
                         </h2>
 
                         <div className="max-w-2xl mx-auto space-y-6">

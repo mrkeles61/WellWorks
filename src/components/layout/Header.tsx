@@ -42,6 +42,8 @@ const Header = () => {
     { href: '/health/hakkimizda', label: t('health.aboutUs.pageTitle') },
     { href: '/dailyshot-nedir', label: t('nav.dailyshotNedir') },
     { href: '/health/electrovit-nedir', label: t('nav.electrovitNedir') },
+    { href: '/gateway-a', label: 'Gateway A' },
+    { href: '/gateway-b', label: 'Gateway B' },
   ];
 
   const miceLinks: NavLinkItem[] = [
@@ -49,6 +51,8 @@ const Header = () => {
     { href: '/mice/hakkimizda', label: t('mice.aboutUs.pageTitle') },
     { href: '/mice/isler-gucler', label: t('nav.events') },
     { href: '/mice/iletisim', label: t('nav.contact') },
+    { href: '/gateway-a', label: 'Gateway A' },
+    { href: '/gateway-b', label: 'Gateway B' },
   ];
 
   const links = brand === 'health' ? healthLinks : miceLinks;

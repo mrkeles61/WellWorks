@@ -1,4 +1,5 @@
 import { ArrowRight, Zap, Shield, Droplets, Moon, Sun, Clock, Activity, Check } from 'lucide-react';
+import { animate } from 'animejs';
 import { useTranslation } from 'react-i18next';
 import { useEffect, useState } from 'react';
 import { useBrand } from '@/hooks/useBrand';
@@ -9,7 +10,37 @@ import { Skeleton } from '@/components/ui/skeleton';
 import { cn } from '@/lib/utils';
 import { motion, useScroll, useTransform, AnimatePresence, useSpring } from 'framer-motion';
 import { useRef } from 'react';
-import CurvedLoop from '@/components/CurvedLoop';
+const InteractiveHeroButton = ({ text, href }: { text: string, href: string }) => {
+    const bgRef = useRef<HTMLDivElement>(null);
+
+    const handleEnter = () => {
+        if (bgRef.current) {
+            animate(bgRef.current, { scaleY: 1, duration: 400, easing: 'easeOutQuad' });
+        }
+    };
+
+    const handleLeave = () => {
+        if (bgRef.current) {
+            animate(bgRef.current, { scaleY: 0, duration: 400, easing: 'easeInQuad' });
+        }
+    };
+
+    return (
+        <a
+            href={href}
+            target="_blank"
+            rel="noopener noreferrer"
+            onMouseEnter={handleEnter}
+            onMouseLeave={handleLeave}
+            className="group relative px-10 py-4 bg-white text-health-primary rounded-full font-bold transition-all shadow-[0_10px_20px_-5px_rgba(0,0,0,0.2)] hover:shadow-[0_15px_25px_-5px_rgba(0,0,0,0.3)] flex items-center gap-2 text-lg overflow-hidden border border-transparent hover:border-white/20 inline-flex"
+        >
+            <div ref={bgRef} className="absolute bottom-0 left-0 w-full h-full bg-health-primary origin-bottom scale-y-0 z-0" />
+            <span className="relative z-10 group-hover:text-white transition-colors duration-300 flex items-center gap-2">
+                {text} <ArrowRight className="w-5 h-5" />
+            </span>
+        </a>
+    );
+};
 
 const DailyshotProductCard = ({ product, t }: { product: any, t: any }) => {
     const { i18n } = useTranslation();
@@ -190,36 +221,21 @@ const DailyshotNedirPage = () => {
         const saved = localStorage.getItem('dailyshot_imgY');
         return saved ? Number(saved) : 50;
     });
+    const [imgRotate, setImgRotate] = useState(() => {
+        const saved = localStorage.getItem('dailyshot_imgRotate');
+        return saved ? Number(saved) : 0;
+    });
     const [objectFit, setObjectFit] = useState<'cover' | 'contain' | 'fill' | 'none' | 'scale-down'>(() => {
         const saved = localStorage.getItem('dailyshot_objectFit');
         return (saved as 'cover' | 'contain' | 'fill' | 'none' | 'scale-down') || 'cover';
     });
 
     // Persist slider values to localStorage
-    useEffect(() => {
-        localStorage.setItem('dailyshot_imgScale', imgScale.toString());
-    }, [imgScale]);
-
-    useEffect(() => {
-        localStorage.setItem('dailyshot_imgX', imgX.toString());
-    }, [imgX]);
-
-    useEffect(() => {
-        localStorage.setItem('dailyshot_imgY', imgY.toString());
-    }, [imgY]);
-
-    useEffect(() => {
-        localStorage.setItem('dailyshot_objectFit', objectFit);
-    }, [objectFit]);
-
-
-
-    // Marquee Editor State
-    const [marqueeOpen, setMarqueeOpen] = useState(false);
-    const [mqSpeed, setMqSpeed] = useState(3);
-    const [mqHeight, setMqHeight] = useState(16); // tailwind h-16 equivalent approx in arbitrary units or just use styles
-    const [mqPadding, setMqPadding] = useState(2); // py-2
-    const [mqColor, setMqColor] = useState('#00AEEF'); // Default health-primary
+    useEffect(() => { localStorage.setItem('dailyshot_imgScale', imgScale.toString()); }, [imgScale]);
+    useEffect(() => { localStorage.setItem('dailyshot_imgX', imgX.toString()); }, [imgX]);
+    useEffect(() => { localStorage.setItem('dailyshot_imgY', imgY.toString()); }, [imgY]);
+    useEffect(() => { localStorage.setItem('dailyshot_imgRotate', imgRotate.toString()); }, [imgRotate]);
+    useEffect(() => { localStorage.setItem('dailyshot_objectFit', objectFit); }, [objectFit]);
 
     return (
         <div data-brand="health" className="bg-gray-50 min-h-screen font-sans">
@@ -229,44 +245,7 @@ const DailyshotNedirPage = () => {
                 <button onClick={() => setEditorOpen(!editorOpen)} className="bg-black/80 text-white text-xs px-3 py-2 rounded-full border border-gray-700 hover:bg-orange-500 transition-colors">
                     🖼️ Hero Editor
                 </button>
-                <button onClick={() => setMarqueeOpen(!marqueeOpen)} className="bg-black/80 text-white text-xs px-3 py-2 rounded-full border border-gray-700 hover:bg-blue-500 transition-colors">
-                    ⚡ Marquee Editor
-                </button>
             </div>
-
-            {/* MARQUEE EDITOR PANEL */}
-            {marqueeOpen && (
-                <div className="fixed top-40 left-4 z-50 bg-black/90 p-5 rounded-xl text-white border border-gray-700 shadow-2xl backdrop-blur-md w-72 font-mono text-xs">
-                    <div className="flex justify-between items-center mb-4 border-b border-gray-700 pb-2">
-                        <h3 className="font-bold text-blue-400 uppercase tracking-widest">Marquee Editor</h3>
-                        <button onClick={() => setMarqueeOpen(false)} className="text-gray-400 hover:text-white">✕</button>
-                    </div>
-
-                    <div className="space-y-4">
-                        <div>
-                            <div className="flex justify-between mb-1"><span>Speed</span> <span className="text-blue-400">{mqSpeed}</span></div>
-                            <input type="range" min="0.1" max="10" step="0.1" value={mqSpeed} onChange={(e) => setMqSpeed(Number(e.target.value))} className="w-full accent-blue-500" />
-                        </div>
-                        <div>
-                            <div className="flex justify-between mb-1"><span>Height (px)</span> <span className="text-green-400">{mqHeight * 4}px</span></div>
-                            {/* Using approximate height correlation for 'h-X' classes, but will use inline style for precision if needed, or just map logic */}
-                            <input type="range" min="4" max="40" step="1" value={mqHeight} onChange={(e) => setMqHeight(Number(e.target.value))} className="w-full accent-green-500" />
-                        </div>
-                        <div>
-                            <div className="flex justify-between mb-1"><span>Padding (py)</span> <span className="text-orange-400">{mqPadding}</span></div>
-                            <input type="range" min="0" max="20" step="1" value={mqPadding} onChange={(e) => setMqPadding(Number(e.target.value))} className="w-full accent-orange-500" />
-                        </div>
-                        <div>
-                            <div className="flex justify-between mb-1"><span>Color</span> <span className="text-white" style={{ color: mqColor }}>{mqColor}</span></div>
-                            <div className="grid grid-cols-5 gap-2 mt-2">
-                                {['#00AEEF', '#EF4444', '#F58220', '#10B981', '#000000'].map(c => (
-                                    <button key={c} onClick={() => setMqColor(c)} className={`w-6 h-6 rounded-full border border-white/20 hover:scale-110 transition-transform ${mqColor === c ? 'ring-2 ring-white' : ''}`} style={{ backgroundColor: c }} />
-                                ))}
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            )}
 
             {/* IN-PAGE IMAGE EDITOR (Existing) */}
             {editorOpen && (
@@ -328,6 +307,18 @@ const DailyshotNedirPage = () => {
                                 className="w-full accent-green-500"
                             />
                         </div>
+
+                        <div>
+                            <div className="flex justify-between mb-1">
+                                <span>Rotation</span>
+                                <span className="text-purple-400">{imgRotate}°</span>
+                            </div>
+                            <input
+                                type="range" min="-180" max="180" value={imgRotate}
+                                onChange={(e) => setImgRotate(Number(e.target.value))}
+                                className="w-full accent-purple-500"
+                            />
+                        </div>
                     </div>
 
                     <div className="mt-4 pt-4 border-t border-gray-700 text-[10px] text-gray-500">
@@ -348,7 +339,7 @@ const DailyshotNedirPage = () => {
                             height: '100%',
                             objectFit: objectFit,
                             objectPosition: `${imgX}% ${imgY}%`,
-                            transform: `scale(${imgScale / 100})`
+                            transform: `scale(${imgScale / 100}) rotate(${imgRotate}deg)`
                         }}
                     />
                     {/* Overlay removed as requested */}
@@ -363,41 +354,16 @@ const DailyshotNedirPage = () => {
                         <p className="text-xl text-blue-100 max-w-3xl mx-auto leading-relaxed font-light mb-10 drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)]">
                             {t('health.dailyshotNedir.heroDesc')}
                         </p>
+
+                        <div className="flex justify-center mt-8">
+                            <InteractiveHeroButton
+                                text={t('health.dailyshotNedir.cta.button')}
+                                href="https://dailyshot.com.tr"
+                            />
+                        </div>
                     </AnimatedSection>
                 </div>
             </section>
-
-            {/* CONCEPT 4: ANIMATED MARQUEE BANNER (CurvedLoop) */}
-            {/* CONCEPT 4: ANIMATED MARQUEE BANNER (CurvedLoop) */}
-            <div
-                className="text-white overflow-hidden relative z-30 border-y-2 border-white/20 shadow-md transition-all duration-300"
-                style={{
-                    backgroundColor: mqColor,
-                    paddingTop: `${mqPadding * 0.25}rem`,
-                    paddingBottom: `${mqPadding * 0.25}rem`
-                }}
-            >
-                {/* Overlay gradient for depth - updated to match dynamic color */}
-                <div
-                    className="absolute inset-0 bg-gradient-to-r via-transparent z-10 pointer-events-none"
-                    style={{
-                        backgroundImage: `linear-gradient(to right, ${mqColor}, transparent, ${mqColor})`
-                    }}
-                />
-
-                <div
-                    className="relative z-0 scale-100 flex justify-center items-center transition-all duration-300"
-                    style={{ height: `${mqHeight * 4}px` }}
-                >
-                    <CurvedLoop
-                        marqueeText="DAILYSHOT.COM.TR ✦ "
-                        speed={mqSpeed}
-                        curveAmount={0}
-                        interactive={true}
-                        className="fill-white font-poppins font-bold tracking-widest drop-shadow-sm text-sm"
-                    />
-                </div>
-            </div>
 
             {/* Benefits Grid */}
             < section className="py-20 lg:py-28 relative z-20 -mt-0" >

@@ -7,6 +7,7 @@ interface CurvedLoopProps {
   curveAmount?: number;
   direction?: 'left' | 'right';
   interactive?: boolean;
+  style?: React.CSSProperties;
 }
 
 const CurvedLoop: FC<CurvedLoopProps> = ({
@@ -15,7 +16,8 @@ const CurvedLoop: FC<CurvedLoopProps> = ({
   className,
   curveAmount = 400,
   direction = 'left',
-  interactive = true
+  interactive = true,
+  style
 }) => {
   const text = useMemo(() => {
     const hasTrailing = /\s|\u00A0$/.test(marqueeText);
@@ -117,17 +119,17 @@ const CurvedLoop: FC<CurvedLoopProps> = ({
       onPointerLeave={endDrag}
     >
       <svg
-        className="select-none w-full overflow-visible block aspect-[100/12] text-xl md:text-4xl font-bold uppercase leading-none"
+        className="select-none w-full overflow-visible block aspect-[100/12] font-bold uppercase leading-none"
         viewBox="0 0 1440 120"
       >
-        <text ref={measureRef} xmlSpace="preserve" style={{ visibility: 'hidden', opacity: 0, pointerEvents: 'none' }}>
+        <text ref={measureRef} xmlSpace="preserve" style={{ visibility: 'hidden', opacity: 0, pointerEvents: 'none', ...style }}>
           {text}
         </text>
         <defs>
           <path ref={pathRef} id={pathId} d={pathD} fill="none" stroke="transparent" />
         </defs>
         {ready && (
-          <text xmlSpace="preserve" className={`fill-white ${className ?? ''}`}>
+          <text xmlSpace="preserve" className={`fill-white ${className ?? ''}`} style={style}>
             <textPath ref={textPathRef} href={`#${pathId}`} startOffset={offset + 'px'} xmlSpace="preserve">
               {totalText}
             </textPath>
