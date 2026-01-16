@@ -97,8 +97,7 @@ const MiceHome = () => {
         </div>
         <div className="container relative z-20 px-4 mx-auto sm:px-6 lg:px-8 text-center md:text-left">
           <div className="max-w-3xl">
-            <AnimatedSection animation="fadeInUp">
-            </AnimatedSection>
+
             <AnimatedSection animation="fadeInUp" delay={100}>
               <h1 className="font-oswald text-5xl md:text-7xl font-extrabold text-white leading-tight tracking-tight mb-6 drop-shadow-lg">
                 {t('mice.home.hero.title1')} <span className="text-[#2DB34A]">{t('mice.home.hero.titleHighlight')}</span>
@@ -195,64 +194,18 @@ const MiceHome = () => {
         </div>
       </section>
 
-      {/* Services Section - Editorial Style */}
-      <section className="py-28 px-4 md:px-6 bg-[#1A1C20]">
-        <div className="container mx-auto max-w-7xl">
-          <div className="flex flex-col md:flex-row justify-between items-end mb-16 gap-6">
-            <div>
-              <span className="text-[#2DB34A] text-sm font-medium uppercase tracking-widest mb-3 block">{t('mice.home.services.label')}</span>
-              <h2 className="font-serif text-4xl md:text-5xl font-normal text-white mb-4 italic">{t('mice.home.services.title')}</h2>
-              <p className="text-[#D8DEE6] max-w-2xl text-lg">{t('mice.home.services.desc')}</p>
-            </div>
-            <Link
-              to="/mice/etkinlikler"
-              className="text-[#2DB34A] font-medium hover:text-white transition-colors flex items-center gap-2 group text-sm uppercase tracking-wider"
-            >
-              {t('mice.home.services.viewAll')}
-              <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-            </Link>
-          </div>
-          <StaggeredList
-            className="grid grid-cols-1 md:grid-cols-2 gap-10"
-            staggerDelay={100}
-            animation="fadeInUp"
-          >
-            {services.map((service, index) => (
-              <div
-                key={index}
-                className="group cursor-pointer"
-              >
-                {/* Image Container */}
-                <div className="relative overflow-hidden rounded-lg mb-6 aspect-[4/5]">
-                  <img
-                    alt={service.name}
-                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
-                    src={service.image}
-                    loading="lazy"
-                  />
-                </div>
-
-                {/* Editorial Text */}
-                <div className="space-y-3">
-                  <span className="text-[#2DB34A] text-xs uppercase tracking-widest font-medium">Event</span>
-                  <h3 className="font-serif text-2xl text-white italic group-hover:text-[#2DB34A] transition-colors">
-                    {service.name}
-                  </h3>
-                  <p className="text-[#8B9199] text-sm leading-relaxed line-clamp-2">
-                    {service.description}
-                  </p>
-                  <Link
-                    to="/mice/etkinlikler"
-                    className="inline-flex items-center gap-2 text-white/70 text-sm hover:text-white transition-colors pt-2"
-                  >
-                    {t('mice.home.services.viewGallery')} <ArrowRight className="w-3 h-3" />
-                  </Link>
-                </div>
-              </div>
-            ))}
-          </StaggeredList>
-        </div>
-      </section>
+      {/* MICE Past Work / Services - BENTO GRID UPGRADE */}
+      <BentoGrid
+        items={services.map((s, i) => ({
+          id: `service-${i}`,
+          title: s.name,
+          subtitle: s.description,
+          image: s.image,
+          // Optional/Mock metadata for visual flair if specific data isn't in i18n yet
+          date: i === 0 ? '2025' : undefined,
+          location: i === 0 ? 'İstanbul' : undefined
+        }))}
+      />
 
 
 

@@ -6,7 +6,10 @@ import { Button } from '@/components/ui/button';
 import AnimatedSection from '@/components/shared/AnimatedSection';
 import { products } from '@/data/products';
 import { Skeleton } from '@/components/ui/skeleton';
-import { cn } from '@/lib/utils'; // Assuming utils is available
+import { cn } from '@/lib/utils';
+import { motion, useScroll, useTransform, AnimatePresence, useSpring } from 'framer-motion';
+import { useRef } from 'react';
+import CurvedLoop from '@/components/CurvedLoop';
 
 const DailyshotProductCard = ({ product, t }: { product: any, t: any }) => {
     const { i18n } = useTranslation();
@@ -174,7 +177,7 @@ const DailyshotNedirPage = () => {
     ];
 
     // Image Editor State - Load from localStorage if available
-    const [editorOpen, setEditorOpen] = useState(true);
+    const [editorOpen, setEditorOpen] = useState(false);
     const [imgScale, setImgScale] = useState(() => {
         const saved = localStorage.getItem('dailyshot_imgScale');
         return saved ? Number(saved) : 100;
@@ -209,8 +212,11 @@ const DailyshotNedirPage = () => {
         localStorage.setItem('dailyshot_objectFit', objectFit);
     }, [objectFit]);
 
+
+
     return (
         <div data-brand="health" className="bg-gray-50 min-h-screen font-sans">
+
             {/* IN-PAGE IMAGE EDITOR */}
             {editorOpen && (
                 <div className="fixed top-24 left-4 z-50 bg-black/90 p-5 rounded-xl text-white border border-gray-700 shadow-2xl backdrop-blur-md w-72 font-mono text-xs">
@@ -297,26 +303,40 @@ const DailyshotNedirPage = () => {
                             transform: `scale(${imgScale / 100})`
                         }}
                     />
-                    <div className="absolute inset-0 bg-gradient-to-br from-blue-900/90 to-purple-900/90 mix-blend-multiply pointer-events-none" />
+                    {/* Overlay removed as requested */}
                 </div>
 
                 <div className="container mx-auto px-6 relative z-10 text-center">
                     <AnimatedSection animation="fadeInUp">
-                        <span className="text-blue-300 text-sm font-semibold uppercase tracking-widest mb-6 block bg-white/10 backdrop-blur-sm px-4 py-2 rounded-full w-fit mx-auto border border-white/10">
-                            {t('health.dailyshotNedir.heroLabel')}
-                        </span>
-                        <h1 className="font-poppins font-bold text-4xl md:text-5xl lg:text-7xl leading-tight mb-6">
+                        {/* Label removed as requested */}
+                        <h1 className="font-poppins font-bold text-4xl md:text-5xl lg:text-7xl leading-tight mb-6 drop-shadow-[0_4px_4px_rgba(0,0,0,0.8)]">
                             {t('health.dailyshotNedir.heroTitle')}
                         </h1>
-                        <p className="text-xl text-blue-100 max-w-3xl mx-auto leading-relaxed font-light mb-10">
+                        <p className="text-xl text-blue-100 max-w-3xl mx-auto leading-relaxed font-light mb-10 drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)]">
                             {t('health.dailyshotNedir.heroDesc')}
                         </p>
                     </AnimatedSection>
                 </div>
             </section>
 
+            {/* CONCEPT 4: ANIMATED MARQUEE BANNER (CurvedLoop) */}
+            <div className="bg-health-primary text-white py-10 overflow-hidden relative z-30 border-y-4 border-white/20 shadow-lg">
+                {/* Overlay gradient for depth */}
+                <div className="absolute inset-0 bg-gradient-to-r from-health-primary via-transparent to-health-primary z-10 pointer-events-none" />
+
+                <div className="relative z-0 scale-100">
+                    <CurvedLoop
+                        marqueeText="DAILYSHOT.COM.TR ✦ "
+                        speed={3}
+                        curveAmount={80}
+                        interactive={true}
+                        className="fill-white font-poppins font-black tracking-widest drop-shadow-md"
+                    />
+                </div>
+            </div>
+
             {/* Benefits Grid */}
-            <section className="py-20 lg:py-28 relative z-20 -mt-10">
+            < section className="py-20 lg:py-28 relative z-20 -mt-0" >
                 <div className="container mx-auto px-6">
                     <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
                         {benefits.map((benefit, index) => (
@@ -336,10 +356,10 @@ const DailyshotNedirPage = () => {
                         ))}
                     </div>
                 </div>
-            </section>
+            </section >
 
             {/* Why Liquid / Use Cases */}
-            <section className="py-20 bg-white">
+            < section className="py-20 bg-white" >
                 <div className="container mx-auto px-6">
                     <AnimatedSection animation="fadeInUp" className="text-center mb-16">
                         <span className="text-health-primary text-sm font-semibold uppercase tracking-widest mb-4 block">
@@ -368,10 +388,10 @@ const DailyshotNedirPage = () => {
                         ))}
                     </div>
                 </div>
-            </section>
+            </section >
 
             {/* Product Family Grid */}
-            <section className="py-20 lg:py-28 bg-gray-50">
+            < section className="py-20 lg:py-28 bg-gray-50" >
                 <div className="container mx-auto px-6">
                     <AnimatedSection animation="fadeInUp" className="text-center mb-16">
                         <span className="text-health-primary text-sm font-semibold uppercase tracking-widest mb-4 block">
@@ -390,14 +410,14 @@ const DailyshotNedirPage = () => {
                         ))}
                     </div>
                 </div>
-            </section>
+            </section >
 
             {/* Target Audience / CTA */}
-            <section className="py-24 bg-gray-900 text-white relative overflow-hidden">
+            < section className="py-24 bg-gray-900 text-white relative overflow-hidden" >
                 {/* Molecular Pattern Background */}
-                <div className="absolute inset-0 opacity-10">
+                < div className="absolute inset-0 opacity-10" >
                     <img src="/images/dailyshot_molecule_bg.png" className="w-full h-full object-cover" alt="pattern" />
-                </div>
+                </div >
 
                 <div className="container mx-auto px-6 relative z-10">
                     <div className="grid lg:grid-cols-2 gap-16 items-center">
@@ -437,8 +457,9 @@ const DailyshotNedirPage = () => {
                         </AnimatedSection>
                     </div>
                 </div>
-            </section>
-        </div>
+            </section >
+
+        </div >
     );
 };
 

@@ -27,6 +27,7 @@ export interface Product {
   featuresTr?: string[];
   rating?: number;
   reviews?: number;
+  customButtonColor?: string;
 }
 
 export const products: Product[] = [
@@ -201,7 +202,7 @@ export const products: Product[] = [
     tagline: 'Elektrolit',
     price: 379,
     image: electrovit_orange_8,
-    color: '#239BCF',
+    color: '#F58220', // Updated to Orange
     category: 'Elektrolit',
     brand: 'electrovit',
     isNew: true,
@@ -209,6 +210,7 @@ export const products: Product[] = [
     featuresTr: ['Hızlı Hidrasyon', 'Magnezyum & Potasyum', 'Lezzetli Tadım'],
     rating: 0,
     reviews: 0,
+    customButtonColor: '#F58220', // Orange color
   },
   {
     id: '10',
@@ -219,7 +221,7 @@ export const products: Product[] = [
     tagline: 'Elektrolit',
     price: 379,
     image: electrovit_watermelon_8,
-    color: '#239BCF',
+    color: '#EF4444', // Updated to Watermelon Red
     category: 'Elektrolit',
     brand: 'electrovit',
     isNew: true,
@@ -227,6 +229,7 @@ export const products: Product[] = [
     featuresTr: ['Elektrolit Desteği', 'Şekersiz', 'Ferahlatıcı Lezzet'],
     rating: 0,
     reviews: 0,
+    customButtonColor: '#EF4444', // Watermelon red (Tailwind red-500)
   },
 ];
 

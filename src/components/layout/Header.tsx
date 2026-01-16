@@ -1,6 +1,6 @@
 import { Link, useLocation } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
-import { Menu, Search, X } from 'lucide-react';
+import { Menu, Search, X, ArrowRight } from 'lucide-react';
 import { useState, useEffect } from 'react';
 import { useBrand } from '@/hooks/useBrand';
 import BrandToggle from '@/components/shared/BrandToggle';
@@ -18,6 +18,7 @@ const Header = () => {
 
   // Check if we're on gateway page
   const isGateway = location.pathname === '/';
+  const isDailyshotPage = location.pathname === '/dailyshot-nedir';
 
   useEffect(() => {
     const handleScroll = () => {
@@ -41,6 +42,7 @@ const Header = () => {
     { href: '/health/hakkimizda', label: t('health.aboutUs.pageTitle') },
     { href: '/dailyshot-nedir', label: t('nav.dailyshotNedir') },
     { href: '/health/electrovit-nedir', label: t('nav.electrovitNedir') },
+    { href: '/health/electrovit-premium', label: 'Electrovit (Premium)' },
     { href: '/stiller', label: 'Stiller' },
   ];
 
@@ -57,7 +59,7 @@ const Header = () => {
     <>
       <header
         className={cn(
-          'fixed top-0 left-0 right-0 z-50 h-[72px] transition-all duration-500',
+          'fixed left-0 right-0 z-50 h-[72px] transition-all duration-500 top-0',
           isScrolled
             ? brand === 'health'
               ? 'bg-slate-900/95 backdrop-blur-md shadow-md'
@@ -127,6 +129,7 @@ const Header = () => {
 
           {/* Right Side Actions */}
           <div className="flex items-center gap-3">
+
             <div className="hidden lg:flex items-center gap-3">
               <BrandToggle />
               <LanguageToggle />

@@ -61,9 +61,9 @@ const HealthAbout = () => {
               {t('health.aboutUs.reachUs.title')}
             </h2>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 max-w-7xl mx-auto">
+            <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-4 max-w-7xl mx-auto">
               {/* Instagram */}
-              <a href="https://www.instagram.com/dailyshottr/" target="_blank" rel="noopener noreferrer" className="group bg-gray-50 rounded-3xl p-8 border border-gray-100 hover:shadow-xl hover:shadow-pink-500/10 hover:-translate-y-1 transition-all duration-300">
+              <a href="https://www.instagram.com/dailyshottr/" target="_blank" rel="noopener noreferrer" className="group bg-gray-50 rounded-3xl p-5 border border-gray-100 hover:shadow-xl hover:shadow-pink-500/10 hover:-translate-y-1 transition-all duration-300">
                 <div className="relative w-24 h-24 mx-auto mb-6">
                   <div className="w-full h-full rounded-full overflow-hidden border-4 border-white shadow-lg group-hover:scale-105 transition-transform duration-300">
                     <img src="/images/social/dailyshot_insta.png" alt="DailyShot Instagram" className="w-full h-full object-cover" />
@@ -79,7 +79,7 @@ const HealthAbout = () => {
               </a>
 
               {/* LinkedIn */}
-              <a href="https://www.linkedin.com/company/well-works-health/" target="_blank" rel="noopener noreferrer" className="group bg-gray-50 rounded-3xl p-8 border border-gray-100 hover:shadow-xl hover:shadow-[#0A4D80]/10 hover:-translate-y-1 transition-all duration-300">
+              <a href="https://www.linkedin.com/company/well-works-health/" target="_blank" rel="noopener noreferrer" className="group bg-gray-50 rounded-3xl p-5 border border-gray-100 hover:shadow-xl hover:shadow-[#0A4D80]/10 hover:-translate-y-1 transition-all duration-300">
                 <div className="relative w-24 h-24 mx-auto mb-6">
                   <div className="w-full h-full rounded-full overflow-hidden border-4 border-white shadow-lg group-hover:scale-105 transition-transform duration-300">
                     <img src="/images/social/wellworks_linkedin.png" alt="Well Works Health LinkedIn" className="w-full h-full object-cover" />
@@ -95,7 +95,7 @@ const HealthAbout = () => {
               </a>
 
               {/* WhatsApp */}
-              <a href="https://wa.me/905360320838?text=Merhaba,%20bilgi%20almak%20istiyorum" target="_blank" rel="noopener noreferrer" className="group bg-gray-50 rounded-3xl p-8 border border-gray-100 hover:shadow-xl hover:shadow-green-500/10 hover:-translate-y-1 transition-all duration-300">
+              <a href="https://wa.me/905360320838?text=Merhaba,%20bilgi%20almak%20istiyorum" target="_blank" rel="noopener noreferrer" className="group bg-gray-50 rounded-3xl p-5 border border-gray-100 hover:shadow-xl hover:shadow-green-500/10 hover:-translate-y-1 transition-all duration-300">
                 <div className="relative w-24 h-24 mx-auto mb-6">
                   <div className="w-full h-full rounded-full overflow-hidden border-4 border-white shadow-lg group-hover:scale-105 transition-transform duration-300">
                     <img src={wellworksHealthHqImg} alt="Health WhatsApp" className="w-full h-full object-cover" />
@@ -110,8 +110,24 @@ const HealthAbout = () => {
                 <span className="inline-block px-6 py-2 bg-green-100 text-green-600 rounded-full font-semibold text-sm group-hover:bg-green-500 group-hover:text-white transition-colors">Mesaj Gönder</span>
               </a>
 
+              {/* X (Twitter) */}
+              <a href="https://x.com/dailyshottr" target="_blank" rel="noopener noreferrer" className="group bg-gray-50 rounded-3xl p-5 border border-gray-100 hover:shadow-xl hover:shadow-gray-800/10 hover:-translate-y-1 transition-all duration-300">
+                <div className="relative w-24 h-24 mx-auto mb-6">
+                  <div className="w-full h-full rounded-full overflow-hidden border-4 border-white shadow-lg group-hover:scale-105 transition-transform duration-300">
+                    <img src="/images/social/dailyshot_insta.png" alt="DailyShot X" className="w-full h-full object-cover" />
+                  </div>
+                  <div className="absolute -bottom-1 -right-1 w-10 h-10 rounded-full bg-black border-2 border-white flex items-center justify-center text-white shadow-md group-hover:scale-110 transition-transform duration-300">
+                    <svg className="w-5 h-5" viewBox="0 0 24 24" fill="currentColor">
+                      <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
+                    </svg>
+                  </div>
+                </div>
+                <h3 className="font-bold text-xl text-gray-900 mb-6 font-poppins">X (Twitter)</h3>
+                <span className="inline-block px-6 py-2 bg-gray-100 text-gray-800 rounded-full font-semibold text-sm group-hover:bg-black group-hover:text-white transition-colors">Takip Et</span>
+              </a>
+
               {/* YouTube */}
-              <a href="https://www.youtube.com/@Dailyshotturkiye" target="_blank" rel="noopener noreferrer" className="group bg-gray-50 rounded-3xl p-8 border border-gray-100 hover:shadow-xl hover:shadow-red-500/10 hover:-translate-y-1 transition-all duration-300">
+              <a href="https://www.youtube.com/@Dailyshotturkiye" target="_blank" rel="noopener noreferrer" className="group bg-gray-50 rounded-3xl p-5 border border-gray-100 hover:shadow-xl hover:shadow-red-500/10 hover:-translate-y-1 transition-all duration-300">
                 <div className="relative w-24 h-24 mx-auto mb-6">
                   <div className="w-full h-full rounded-full overflow-hidden border-4 border-white shadow-lg group-hover:scale-105 transition-transform duration-300">
                     <img src="/images/social/dailyshot_youtube.png" alt="DailyShot YouTube" className="w-full h-full object-cover" />

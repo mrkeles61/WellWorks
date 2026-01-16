@@ -17,10 +17,14 @@ interface ProductCardProps {
  * - Bullet point descriptions (max 3)
  * - Min 44px button height for touch compliance
  */
+
 const ProductCard = memo(({ product, priority = false }: ProductCardProps) => {
   const { t, i18n } = useTranslation();
   const [isLoaded, setIsLoaded] = useState(false);
   const productUrl = `https://www.dailyshot.com.tr/urun/${product.slug}`;
+
+  // Fruit Icon Logic
+  const buttonColor = product.customButtonColor || product.color;
 
   return (
     <article className="group relative h-full">
@@ -72,11 +76,11 @@ const ProductCard = memo(({ product, priority = false }: ProductCardProps) => {
           {/* CTA Button - Product colored */}
           <div
             className={cn(
-              'w-full min-h-[56px] py-4 rounded-full font-bold text-lg flex items-center justify-center gap-2',
+              'w-full min-h-[56px] py-4 rounded-full font-bold text-lg flex items-center justify-center gap-2 relative overflow-hidden',
               'transition-all duration-300 shadow-md transform group-hover:scale-[1.02]'
             )}
             style={{
-              backgroundColor: product.color,
+              backgroundColor: buttonColor,
               color: 'white'
             }}
           >
