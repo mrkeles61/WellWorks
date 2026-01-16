@@ -1,4 +1,5 @@
-import { ArrowRight, Zap, Shield, Droplets, Moon, Sun, Clock, Activity, Check } from 'lucide-react';
+import { ArrowRight, Zap, Shield, Droplets, Moon, Sun, Clock, Activity, Check, Settings, X } from 'lucide-react';
+import { Slider } from '@/components/ui/slider';
 import { animate } from 'animejs';
 import { useTranslation } from 'react-i18next';
 import { useEffect, useState } from 'react';
@@ -10,7 +11,7 @@ import { Skeleton } from '@/components/ui/skeleton';
 import { cn } from '@/lib/utils';
 import { motion, useScroll, useTransform, AnimatePresence, useSpring } from 'framer-motion';
 import { useRef } from 'react';
-const InteractiveHeroButton = ({ text, href }: { text: string, href: string }) => {
+const InteractiveHeroButton = ({ text, href, color }: { text: string, href: string, color?: string }) => {
     const bgRef = useRef<HTMLDivElement>(null);
 
     const handleEnter = () => {
@@ -32,9 +33,17 @@ const InteractiveHeroButton = ({ text, href }: { text: string, href: string }) =
             rel="noopener noreferrer"
             onMouseEnter={handleEnter}
             onMouseLeave={handleLeave}
-            className="group relative px-10 py-4 bg-white text-health-primary rounded-full font-bold transition-all shadow-[0_10px_20px_-5px_rgba(0,0,0,0.2)] hover:shadow-[0_15px_25px_-5px_rgba(0,0,0,0.3)] flex items-center gap-2 text-lg overflow-hidden border border-transparent hover:border-white/20 inline-flex"
+            className={cn(
+                "group relative px-10 py-4 bg-white rounded-full font-bold transition-all flex items-center gap-2 text-lg overflow-hidden border-2 inline-flex",
+                color ? `shadow-[0_10px_20px_-5px_${color}4d] hover:shadow-[0_15px_25px_-5px_${color}66]` : "text-health-primary border-health-primary shadow-[0_10px_20px_-5px_rgba(0,174,239,0.3)] hover:shadow-[0_15px_25px_-5px_rgba(0,174,239,0.4)]"
+            )}
+            style={color ? { color: color, borderColor: color } : undefined}
         >
-            <div ref={bgRef} className="absolute bottom-0 left-0 w-full h-full bg-health-primary origin-bottom scale-y-0 z-0" />
+            <div
+                ref={bgRef}
+                className={cn("absolute bottom-0 left-0 w-full h-full origin-bottom scale-y-0 z-0", !color && "bg-health-primary")}
+                style={color ? { backgroundColor: color } : undefined}
+            />
             <span className="relative z-10 group-hover:text-white transition-colors duration-300 flex items-center gap-2">
                 {text} <ArrowRight className="w-5 h-5" />
             </span>
@@ -208,7 +217,7 @@ const DailyshotNedirPage = () => {
     ];
 
     // Image Editor State - Load from localStorage if available
-    const [editorOpen, setEditorOpen] = useState(false);
+    const [editorOpen, setEditorOpen] = useState(true);
     const [imgScale, setImgScale] = useState(() => {
         const saved = localStorage.getItem('dailyshot_imgScale');
         return saved ? Number(saved) : 100;
@@ -243,41 +252,50 @@ const DailyshotNedirPage = () => {
 
 
             {/* Hero Section */}
-            <section className="bg-gray-900 text-white flex flex-col">
-                {/* 1. Image Area (Top Hierarchy) */}
-                <div className="relative w-full h-[50vh] md:h-[60vh] overflow-hidden bg-black">
-                    <img
-                        src="/images/dailyshot_hero_bg.png"
-                        alt="Dailyshot Hero"
-                        className="w-full h-full object-cover"
-                        style={{
-                            objectPosition: `${imgX}% ${imgY}%`,
-                            transform: `scale(${imgScale / 100}) rotate(${imgRotate}deg)`
-                        }}
-                    />
+            <section className="relative min-h-[90vh] w-full flex items-center overflow-hidden bg-white">
+                {/* Background Pattern Layer */}
+                <div className="absolute inset-0 z-0 opacity-30 pointer-events-none">
+                    <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,_var(--tw-gradient-stops))] from-blue-100/40 via-transparent to-transparent"></div>
                 </div>
 
-                {/* 2. Text & CTA Area (Visually Underneath) */}
-                <div className="container mx-auto px-6 py-20 relative z-10 text-center">
-                    <AnimatedSection animation="fadeInUp">
-                        {/* Title "What is Dailyshot?" */}
-                        <h1 className="font-poppins font-bold text-4xl md:text-5xl lg:text-7xl leading-tight mb-6">
-                            {t('health.dailyshotNedir.heroTitle')}
-                        </h1>
+                <div className="container mx-auto px-6 relative z-10 grid lg:grid-cols-2 gap-12 items-center h-full py-20">
+                    {/* LEFT: Text Content */}
+                    <div className="max-w-xl mx-auto lg:mx-0 text-center lg:text-left">
+                        <AnimatedSection animation="fadeInLeft">
+                            {/* Main Headline */}
+                            <h1 className="text-5xl md:text-6xl lg:text-7xl font-black text-health-primary leading-[1.1] mb-6 font-poppins drop-shadow-sm">
+                                {t('health.dailyshotNedir.heroTitle')}
+                            </h1>
 
-                        {/* Description */}
-                        <p className="text-xl text-blue-100 max-w-3xl mx-auto leading-relaxed font-light mb-10">
-                            {t('health.dailyshotNedir.heroDesc')}
-                        </p>
+                            {/* Description */}
+                            <p className="text-xl text-gray-600 font-medium mb-8 leading-relaxed max-w-lg mx-auto lg:mx-0">
+                                {t('health.dailyshotNedir.heroDesc')}
+                            </p>
 
-                        {/* CTA Button */}
-                        <div className="flex justify-center mt-8">
-                            <InteractiveHeroButton
-                                text={t('health.dailyshotNedir.cta.button')}
-                                href="https://dailyshot.com.tr"
+                            {/* CTA Button */}
+                            <div className="flex justify-center lg:justify-start">
+                                <InteractiveHeroButton
+                                    text={t('health.dailyshotNedir.cta.button')}
+                                    href="https://dailyshot.com.tr"
+                                />
+                            </div>
+                        </AnimatedSection>
+                    </div>
+
+                    {/* RIGHT: Image Area */}
+                    <div className="relative flex items-center justify-center lg:justify-end w-full">
+                        <AnimatedSection animation="fadeInUp" delay={200} className="relative w-full aspect-[16/9] lg:aspect-[2/1] overflow-hidden rounded-3xl shadow-xl border border-gray-100 bg-gray-50/50 backdrop-blur-sm">
+                            <img
+                                src="/images/dailyshot_full_range.png"
+                                alt="Dailyshot Ürün Ailesi"
+                                className="w-full h-full object-contain p-8"
+                                style={{
+                                    objectPosition: `${imgX}% ${imgY}%`,
+                                    transform: `scale(${imgScale / 100}) rotate(${imgRotate}deg)`
+                                }}
                             />
-                        </div>
-                    </AnimatedSection>
+                        </AnimatedSection>
+                    </div>
                 </div>
             </section>
 
@@ -378,15 +396,13 @@ const DailyshotNedirPage = () => {
                                 {t('health.dailyshotNedir.cta.desc')}
                             </p>
 
-                            <Button
-                                asChild
-                                size="lg"
-                                className="bg-health-primary hover:bg-blue-600 text-white font-bold rounded-full px-10 py-7 text-lg shadow-lg shadow-blue-500/30"
-                            >
-                                <a href="https://dailyshot.com.tr" target="_blank" rel="noopener noreferrer">
-                                    {t('health.dailyshotNedir.cta.button')} <ArrowRight className="w-5 h-5 ml-3" />
-                                </a>
-                            </Button>
+                            <div className="flex justify-start">
+                                <InteractiveHeroButton
+                                    text={t('health.dailyshotNedir.cta.button')}
+                                    href="https://dailyshot.com.tr"
+                                    color="#751421"
+                                />
+                            </div>
                         </AnimatedSection>
 
                         <AnimatedSection animation="fadeInLeft" delay={200}>
@@ -405,7 +421,89 @@ const DailyshotNedirPage = () => {
                 </div>
             </section >
 
-        </div >
+            {/* Image Editor Controls - Top Left Fixed */}
+            <div className="fixed top-24 left-4 z-50 flex flex-col items-start gap-2">
+                {!editorOpen && (
+                    <Button
+                        onClick={() => setEditorOpen(true)}
+                        variant="outline"
+                        size="icon"
+                        className="bg-white/80 backdrop-blur shadow-lg hover:bg-white"
+                    >
+                        <Settings className="w-5 h-5 text-gray-700" />
+                    </Button>
+                )}
+
+                {editorOpen && (
+                    <div className="bg-white/90 backdrop-blur-md p-6 rounded-2xl shadow-2xl border border-gray-200 w-80 animate-in slide-in-from-left-2">
+                        <div className="flex justify-between items-center mb-4">
+                            <h3 className="font-bold text-gray-900">Image Settings</h3>
+                            <Button variant="ghost" size="sm" onClick={() => setEditorOpen(false)} className="h-6 w-6 p-0 rounded-full">
+                                <X className="w-4 h-4" />
+                            </Button>
+                        </div>
+
+                        <div className="space-y-4">
+                            <div className="space-y-2">
+                                <label className="text-xs font-medium text-gray-500 flex justify-between">
+                                    Scale <span>{imgScale}%</span>
+                                </label>
+                                <Slider
+                                    value={[imgScale]}
+                                    onValueChange={(v) => setImgScale(v[0])}
+                                    min={50}
+                                    max={200}
+                                    step={1}
+                                    className="cursor-pointer"
+                                />
+                            </div>
+
+                            <div className="space-y-2">
+                                <label className="text-xs font-medium text-gray-500 flex justify-between">
+                                    Position X <span>{imgX}%</span>
+                                </label>
+                                <Slider
+                                    value={[imgX]}
+                                    onValueChange={(v) => setImgX(v[0])}
+                                    min={0}
+                                    max={100}
+                                    step={1}
+                                />
+                            </div>
+
+                            <div className="space-y-2">
+                                <label className="text-xs font-medium text-gray-500 flex justify-between">
+                                    Position Y <span>{imgY}%</span>
+                                </label>
+                                <Slider
+                                    value={[imgY]}
+                                    onValueChange={(v) => setImgY(v[0])}
+                                    min={0}
+                                    max={100}
+                                    step={1}
+                                />
+                            </div>
+
+                            <div className="space-y-2">
+                                <label className="text-xs font-medium text-gray-500 flex justify-between">
+                                    Rotation <span>{imgRotate}°</span>
+                                </label>
+                                <Slider
+                                    value={[imgRotate]}
+                                    onValueChange={(v) => setImgRotate(v[0])}
+                                    min={-180}
+                                    max={180}
+                                    step={1}
+                                />
+                            </div>
+                            <div className="pt-2 text-xs text-center text-gray-400">
+                                Values saved automatically
+                            </div>
+                        </div>
+                    </div>
+                )}
+            </div>
+        </div>
     );
 };
 

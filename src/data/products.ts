@@ -9,6 +9,8 @@ import libido_img from '@/assets/products/libido-shot.jpg';
 import antiox_img from '@/assets/products/antiox-shot.jpg';
 import electrovit_orange_8 from '@/assets/products/electrovit-portakal-final.png';
 import electrovit_watermelon_8 from '@/assets/products/electrovit-karpuz-final.png';
+import wellaging_new_img from '@/assets/products/well-aging-shot.png';
+import antiox_new_img from '@/assets/products/anti-ox-shot-new.png';
 
 export interface Product {
   id: string;
@@ -183,7 +185,7 @@ export const products: Product[] = [
     shortDescriptionTr: 'HÜCRE KORUMASI, GENÇ KAL!',
     tagline: 'Anti-Aging',
     price: 899,
-    image: antiox_img,
+    image: wellaging_new_img,
     color: '#EB1C24',
     category: 'Anti-Aging',
     brand: 'dailyshot',
@@ -230,6 +232,24 @@ export const products: Product[] = [
     rating: 0,
     reviews: 0,
     customButtonColor: '#EF4444', // Watermelon red (Tailwind red-500)
+  },
+  {
+    id: '12',
+    name: 'Anti-Ox Shot',
+    slug: 'anti-ox-shot-yeni',
+    shortDescription: 'MAXIMUM PROTECTION',
+    shortDescriptionTr: 'MAKSİMUM KORUMA',
+    tagline: 'Antioksidan',
+    price: 899,
+    image: antiox_new_img,
+    color: '#E60012',
+    category: 'Antioksidan',
+    brand: 'dailyshot',
+    isNew: true,
+    features: ['Strong Antioxidant', 'Cell Protection', 'Immune Support'],
+    featuresTr: ['Güçlü Antioksidan', 'Hücre Koruması', 'Bağışıklık Desteği'],
+    rating: 0,
+    reviews: 0,
   },
 ];
 
