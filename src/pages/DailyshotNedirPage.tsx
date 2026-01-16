@@ -240,121 +240,37 @@ const DailyshotNedirPage = () => {
     return (
         <div data-brand="health" className="bg-gray-50 min-h-screen font-sans">
 
-            {/* TOGGLES FOR EDITORS */}
-            <div className="fixed top-24 left-4 z-50 flex flex-col gap-2">
-                <button onClick={() => setEditorOpen(!editorOpen)} className="bg-black/80 text-white text-xs px-3 py-2 rounded-full border border-gray-700 hover:bg-orange-500 transition-colors">
-                    🖼️ Hero Editor
-                </button>
-            </div>
 
-            {/* IN-PAGE IMAGE EDITOR (Existing) */}
-            {editorOpen && (
-                <div className="fixed top-24 left-80 z-50 bg-black/90 p-5 rounded-xl text-white border border-gray-700 shadow-2xl backdrop-blur-md w-72 font-mono text-xs">
-                    {/* ... (Existing Editor Content) ... */}
-
-                    {/* Mode Selection */}
-                    <div className="mb-4 space-y-2">
-                        <p className="text-gray-400 font-bold">1. Fit Mode</p>
-                        <div className="grid grid-cols-2 gap-2">
-                            {['cover', 'contain', 'fill', 'none'].map((mode) => (
-                                <button
-                                    key={mode}
-                                    onClick={() => setObjectFit(mode as any)}
-                                    className={`px-2 py-1 rounded border ${objectFit === mode ? 'bg-orange-500 border-orange-500 text-black' : 'bg-transparent border-gray-600 hover:bg-gray-800'}`}
-                                >
-                                    {mode}
-                                </button>
-                            ))}
-                        </div>
-                    </div>
-
-                    {/* Transforms */}
-                    <div className="space-y-4">
-                        <p className="text-gray-400 font-bold border-t border-gray-700 pt-2">2. Transform</p>
-
-                        <div>
-                            <div className="flex justify-between mb-1">
-                                <span>Scale</span>
-                                <span className="text-orange-400">{imgScale}%</span>
-                            </div>
-                            <input
-                                type="range" min="10" max="250" value={imgScale}
-                                onChange={(e) => setImgScale(Number(e.target.value))}
-                                className="w-full accent-orange-500"
-                            />
-                        </div>
-
-                        <div>
-                            <div className="flex justify-between mb-1">
-                                <span>Pos X (Left/Right)</span>
-                                <span className="text-blue-400">{imgX}%</span>
-                            </div>
-                            <input
-                                type="range" min="0" max="100" value={imgX}
-                                onChange={(e) => setImgX(Number(e.target.value))}
-                                className="w-full accent-blue-500"
-                            />
-                        </div>
-
-                        <div>
-                            <div className="flex justify-between mb-1">
-                                <span>Pos Y (Up/Down)</span>
-                                <span className="text-green-400">{imgY}%</span>
-                            </div>
-                            <input
-                                type="range" min="0" max="100" value={imgY}
-                                onChange={(e) => setImgY(Number(e.target.value))}
-                                className="w-full accent-green-500"
-                            />
-                        </div>
-
-                        <div>
-                            <div className="flex justify-between mb-1">
-                                <span>Rotation</span>
-                                <span className="text-purple-400">{imgRotate}°</span>
-                            </div>
-                            <input
-                                type="range" min="-180" max="180" value={imgRotate}
-                                onChange={(e) => setImgRotate(Number(e.target.value))}
-                                className="w-full accent-purple-500"
-                            />
-                        </div>
-                    </div>
-
-                    <div className="mt-4 pt-4 border-t border-gray-700 text-[10px] text-gray-500">
-                        * Set "Fit Mode" to 'none' or 'contain' to see full image before scaling.
-                    </div>
-                </div>
-            )}
 
             {/* Hero Section */}
-            <section className="relative pt-32 pb-20 overflow-hidden bg-gray-900 text-white">
-                <div className="absolute inset-0 z-0 flex items-center justify-center overflow-hidden">
+            <section className="bg-gray-900 text-white flex flex-col">
+                {/* 1. Image Area (Top Hierarchy) */}
+                <div className="relative w-full h-[50vh] md:h-[60vh] overflow-hidden bg-black">
                     <img
                         src="/images/dailyshot_hero_bg.png"
-                        alt="Dailyshot Ürünleri"
-                        className="transition-all duration-75 ease-linear pointer-events-none"
+                        alt="Dailyshot Hero"
+                        className="w-full h-full object-cover"
                         style={{
-                            width: '100%',
-                            height: '100%',
-                            objectFit: objectFit,
                             objectPosition: `${imgX}% ${imgY}%`,
                             transform: `scale(${imgScale / 100}) rotate(${imgRotate}deg)`
                         }}
                     />
-                    {/* Overlay removed as requested */}
                 </div>
 
-                <div className="container mx-auto px-6 relative z-10 text-center">
+                {/* 2. Text & CTA Area (Visually Underneath) */}
+                <div className="container mx-auto px-6 py-20 relative z-10 text-center">
                     <AnimatedSection animation="fadeInUp">
-                        {/* Label removed as requested */}
-                        <h1 className="font-poppins font-bold text-4xl md:text-5xl lg:text-7xl leading-tight mb-6 drop-shadow-[0_4px_4px_rgba(0,0,0,0.8)]">
+                        {/* Title "What is Dailyshot?" */}
+                        <h1 className="font-poppins font-bold text-4xl md:text-5xl lg:text-7xl leading-tight mb-6">
                             {t('health.dailyshotNedir.heroTitle')}
                         </h1>
-                        <p className="text-xl text-blue-100 max-w-3xl mx-auto leading-relaxed font-light mb-10 drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)]">
+
+                        {/* Description */}
+                        <p className="text-xl text-blue-100 max-w-3xl mx-auto leading-relaxed font-light mb-10">
                             {t('health.dailyshotNedir.heroDesc')}
                         </p>
 
+                        {/* CTA Button */}
                         <div className="flex justify-center mt-8">
                             <InteractiveHeroButton
                                 text={t('health.dailyshotNedir.cta.button')}

@@ -194,7 +194,7 @@ const resources = {
           cta: {
             title: 'Dailyshot Sizin İçin Mükemmel Seçim.',
             desc: 'Modern yaşamın hızına ayak uydururken sağlığınızdan ödün vermeyin. Dailyshot, vücudunuzun ihtiyaç duyduğu desteği en saf ve en hızlı haliyle sunar.',
-            button: 'Online Mağazaya Git',
+            button: 'Keşfet',
             viewProduct: 'İncele',
           },
         },
@@ -924,7 +924,7 @@ Telefon: +90 536 032 08 38`,
           cta: {
             title: 'Dailyshot is The Perfect Choice For You.',
             desc: 'Don\'t compromise your health while keeping up with the pace of modern life. Dailyshot offers the support your body needs in its purest and fastest form.',
-            button: 'Go to Online Store',
+            button: 'Start Discovery',
             viewProduct: 'View',
           },
         },

@@ -15,7 +15,7 @@ const featuredWorks = [
         id: '1',
         title: 'HoliFest İstanbul 2024',
         subtitle: 'Renk Festivali',
-        description: 'Hindistan\'ın geleneksel Holi festivalini İstanbul\'a taşıdık. 15,000+ katılımcıyla şehrin en renkli etkinliği.',
+        description: "Hindistan'ın geleneksel Holi festivalini İstanbul'a taşıdık. 15,000+ katılımcıyla şehrin en renkli etkinliği.",
         image: 'https://lh3.googleusercontent.com/aida-public/AB6AXuBfAYhIK-nGMz49c4JMrT1z0kXLI7fhR9CrKsYFAQdAjkRUkBeHWM986voT0DQliTSrXHdeydatBRnLyJrltL7-WRpdzIpFk-wHdKWyCancjBLvzeioGRjPgDh-2uhcOJfCjsNMDmSpjD-8BYDDSywzjKHY_FHOV-pG0eHkZLpfGApyh_Rk3HHipKiZc2m-xT3XrhdZPfRAN5c206NulzamjFK-DMRfB6UFhKoQP5wALDMMinrqSece_S6v0P8QfATkQVxchswtiA',
         date: 'Mart 2024',
         location: 'İstanbul, Küçükçiftlik Park',
@@ -25,6 +25,29 @@ const featuredWorks = [
     },
     {
         id: '2',
+        title: 'Imera & Niks Carnaval',
+        subtitle: 'Karnaval',
+        description: 'Müzik ve eğlencenin iç içe geçtiği benzersiz bir karnaval deneyimi. Görsel şölenler ve unutulmaz performanslar.',
+        image: '/images/mice/imera-carnival.png',
+        date: 'Yaz 2024',
+        location: 'Bodrum',
+        attendees: '5,000+',
+        category: 'Karnaval',
+        featured: true,
+    },
+    {
+        id: '3',
+        title: 'Yıldızlı Konser Akşamları',
+        subtitle: 'Konser Serisi',
+        description: "Türkiye'nin en sevilen sanatçılarıyla yıldızların altında unutulmaz konserler.",
+        image: '/images/mice/yildizli-konser.png',
+        date: 'Yaz 2024',
+        location: 'Çeşme Açıkhava',
+        attendees: '10,000+',
+        category: 'Konser',
+    },
+    {
+        id: '4',
         title: 'Christmas Market Istanbul',
         subtitle: 'Kış Pazarı',
         description: 'Avrupa tarzı yılbaşı pazarı deneyimi. Butik stantlar, canlı müzik ve sıcak içeceklerle büyülü bir atmosfer.',
@@ -33,51 +56,28 @@ const featuredWorks = [
         location: 'İstanbul, Maçka Parkı',
         attendees: '50,000+',
         category: 'Pazar',
-        featured: true,
-    },
-    {
-        id: '3',
-        title: 'TechGlobal Lansman',
-        subtitle: 'Kurumsal Etkinlik',
-        description: 'Türkiye\'nin en büyük teknoloji şirketinin yeni ürün lansmanı. VIP konuklar, holografik sunum ve gala yemeği.',
-        image: 'https://lh3.googleusercontent.com/aida-public/AB6AXuClNOVi_xSGO70QYVZy1oFE-T90pTqaP7bzczPGxJ31MsgzolhmrSp6RQ-YAuM_JlEQREoxFAHk1xCip0hLmJpWZGT_OlrkXclPg7tfMEm1Dkwozq0Z58jEHcwrZC8IhgR8ceseHC19xJTIvZ3HckFNUgJwZXMpE50Rl7FUqu-m1_KeEkeIx7-xEtjPYWSRsysL44zUBgQIJdwJyJt5R0MRBH2YtjrR2Fop_APqr9_T2htqqFiskEq4CSJTMSOf-QjkqjEHVdJTag',
-        date: 'Ekim 2023',
-        location: 'İstanbul, Zorlu PSM',
-        attendees: '2,500',
-        category: 'Lansman',
-    },
-    {
-        id: '4',
-        title: 'Coffee Festival',
-        subtitle: 'Gastronomi Festivali',
-        description: 'Kahve tutkunlarının buluşma noktası. 100+ barista, atölyeler ve tadım deneyimleri.',
-        image: 'https://lh3.googleusercontent.com/aida-public/AB6AXuDNCxQsMAXt1YugVjgtgIe8Pzxd4S_MAz_pFrwYujsXnneEHPHfriZd59wc4QdhKkHF8KVGAlJwtsuMyDpW_N0lgK1ueJsbkTjaBupsTpgiYla9YZ2Ek9uOEIPejz2Gn0W7HCMTPzftaLbvu0TsWDBHkr5uxtHOx0MNqCjhIU3jpWcXCHAwb0Pj2luN05AMySHg6Q3VUcduQP4_nXTaUFQ13Ka4CLLjxNYUtRqQl6h6MirUGVoT03gii04bs8g5J0EOBSZq_XRPpg',
-        date: 'Eylül 2023',
-        location: 'İstanbul, KüçükÇiftlik',
-        attendees: '25,000+',
-        category: 'Festival',
     },
     {
         id: '5',
-        title: 'Özel Gala Gecesi',
-        subtitle: 'VIP Etkinlik',
-        description: 'Seçkin davetliler için tasarlanmış şık ve unutulmaz gece. Michelin yıldızlı şef, canlı orkestra.',
-        image: 'https://lh3.googleusercontent.com/aida-public/AB6AXuCtzHcwz3t_Yf1CigEKQ6WO5LahhV2jXYnk50lOIHmlmHH61ZuXOOS8Ft-UsOvF9tzvXJh_L4cy_GHfznjJL6YQi9hurJryRXNrmzWgN_k-HC7cJ3YU2zyna37ZSd_Pl_akZxect71IrFmS7tvweVbJHtLaiM1lNU70t1AWPjgsEz7P1HEpmQDs9RZ-50J3Rd7rnVhWnrQiGBEBD49Boe5KnIG3Vqh_hpIWivezeBCZPG1OdBXbMb8nn8gUjDzoIfMTMbd9NTxZ5A',
-        date: 'Kasım 2023',
-        location: 'İstanbul, Four Seasons',
-        attendees: '350',
-        category: 'Gala',
+        title: 'Gusto Weekend',
+        subtitle: 'Gastronomi Festivali',
+        description: 'Gastronomi, lezzet ve yaşam tarzını kutlayan bir hafta sonu festivali. Şef tadımları ve atölyeler.',
+        image: '/images/mice/gusto-weekend.png',
+        date: 'Sonbahar 2024',
+        location: 'İstanbul',
+        attendees: '8,000+',
+        category: 'Festival',
     },
     {
         id: '6',
-        title: 'Team Building Kapadokya',
-        subtitle: 'Şirket Etkinliği',
-        description: 'Fortune 500 şirketi için tasarlanmış 3 günlük ekip deneyimi. Balon turu, ATV safari ve gala.',
-        image: 'https://lh3.googleusercontent.com/aida-public/AB6AXuAPy3yey5lMkiNfhoojJqF_u6ySRPRTC_bdciIlQ-cwqyc_hfAF1twz0sjuGIqMHeP8xf2OggslMXKIZkIMMnKKpw7yAJA3GqZi0qVd_HwfU4mx9HG4q540TXDAr4zP-4CWbhAhGdctdNeOeDafTw5BUZx2U7EUj5FgDxfwYpLukpxI16QKEtzCufF6g1bHsnMeh1NTSDSLOPqVRZJqp6Kx2o23P2yWNaQoakoPFmnDGU7E87fPAQ6yUOM1SzRgfMMDhsVVYhtYvA',
-        date: 'Mayıs 2023',
-        location: 'Kapadokya, Ürgüp',
-        attendees: '200',
-        category: 'Team Building',
+        title: 'Business Leisure',
+        subtitle: 'VIP Deneyim',
+        description: 'Profesyonel ağ kurma ile premium eğlenceyi birleştiren seçkin etkinlikler. Networking ve eğlence bir arada.',
+        image: '/images/mice/business-leisure.png',
+        date: 'Sürekli',
+        location: 'Çeşitli Lokasyonlar',
+        attendees: 'Özel Davetli',
+        category: 'Networking',
     },
 ];
 
@@ -158,10 +158,7 @@ const WorksPage = () => {
                                         </div>
                                     </div>
 
-                                    {/* Hover Arrow */}
-                                    <div className="absolute top-6 right-6 w-12 h-12 bg-white rounded-full flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity transform translate-x-2 group-hover:translate-x-0">
-                                        <ArrowUpRight className="w-6 h-6 text-black" />
-                                    </div>
+                                    {/* Hover Arrow Removed */}
                                 </article>
                             </AnimatedSection>
                         ))}

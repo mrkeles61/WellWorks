@@ -69,7 +69,6 @@ const BentoCard = ({ event, className }: BentoCardProps) => {
                 {/* View Details Button */}
                 <div className="inline-flex items-center gap-2 text-mice-primary text-sm font-medium opacity-0 transform translate-y-2 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-300">
                     {t('mice.bentoGrid.viewDetails')}
-                    <ExternalLink className="w-4 h-4" />
                 </div>
             </div>
         </Link>
