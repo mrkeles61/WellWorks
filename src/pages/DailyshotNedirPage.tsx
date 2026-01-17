@@ -100,10 +100,10 @@ const DailyshotProductCard = ({ product, t }: { product: any, t: any }) => {
             href={`https://dailyshot.com.tr/urun/${product.slug}`}
             target="_blank"
             rel="noopener noreferrer"
-            className="block bg-white rounded-[2rem] overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 group h-full hover:-translate-y-1"
+            className="flex flex-col bg-white rounded-[2rem] overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 group h-full hover:-translate-y-1"
         >
-            {/* Image Area */}
-            <div className="h-64 bg-gray-100 relative p-4 flex items-center justify-center overflow-hidden">
+            {/* Image Area - Fills remaining space */}
+            <div className="flex-1 bg-gray-100 relative p-4 flex items-center justify-center overflow-hidden min-h-[300px]">
                 <div className="absolute inset-0 opacity-10 transition-opacity group-hover:opacity-20" style={{ backgroundColor: product.color }}></div>
                 {!isLoaded && (
                     <Skeleton className="absolute inset-0 bg-gray-200" />
@@ -119,25 +119,10 @@ const DailyshotProductCard = ({ product, t }: { product: any, t: any }) => {
                 />
             </div>
 
-            {/* Content Area */}
-            <div className="p-8">
-                <div className="mb-4">
-                    <span className="inline-block px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wide text-white" style={{ backgroundColor: product.color }}>
-                        {t(`health.dailyshotNedir.productCards.categories.${catKey}`)}
-                    </span>
-                </div>
-                <h3
-                    className="font-poppins font-bold text-2xl mb-2 transition-colors"
-                    style={{ color: product.color }}
-                >
-                    {product.displayName}
-                </h3>
-                <p className="text-gray-600 text-sm mb-6 line-clamp-2">
-                    {i18n.language === 'tr' ? (product.shortDescriptionTr || product.shortDescription) : product.shortDescription}
-                </p>
-
+            {/* Content Area - Just Button */}
+            <div className="p-6 flex justify-center">
                 <div
-                    className="inline-flex items-center justify-center px-4 py-2 rounded-full font-bold text-sm text-white transition-all hover:scale-105 shadow-md"
+                    className="inline-flex items-center justify-center px-6 py-3 rounded-full font-bold text-sm text-white transition-all hover:scale-105 shadow-md w-full"
                     style={{ backgroundColor: product.color }}
                 >
                     {t('health.dailyshotNedir.cta.viewProduct')} <ArrowRight className="w-4 h-4 ml-2" />

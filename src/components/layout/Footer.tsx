@@ -7,7 +7,9 @@ import {
   MapPin,
   Phone,
   Mail,
+  Twitter,
 } from 'lucide-react';
+import { FaTiktok } from 'react-icons/fa';
 import { useBrand } from '@/hooks/useBrand';
 import { cn } from '@/lib/utils';
 
@@ -124,6 +126,28 @@ const Footer = () => {
                     >
                       <Linkedin className="w-5 h-5 text-[#0A66C2]" />
                       Well Works Health
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      href="https://x.com/dailyshottr"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex items-center gap-2 hover:text-black transition-colors"
+                    >
+                      <Twitter className="w-5 h-5 text-black" />
+                      Twitter / X
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      href="https://www.tiktok.com/@dailyshot.tr"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex items-center gap-2 hover:text-black transition-colors"
+                    >
+                      <FaTiktok className="w-5 h-5 text-black" />
+                      TikTok
                     </a>
                   </li>
                 </>

@@ -200,9 +200,9 @@ const resources = {
         },
         electrovitNedir: {
           heroLabel: '',
-          heroTitle: 'Su İhtiyacınızı Karşılamanın',
-          heroTitleHighlight: 'En Akıllı',
-          heroTitleHighlight2: 'Yolu',
+          heroTitle: 'Elektrovit ile',
+          heroTitleHighlight: 'SUSUZ kalma',
+          heroTitleHighlight2: '',
           heroSlogan: 'Su içemeyenler için tasarlandı.',
           heroDesc: '',
           introSection: {
