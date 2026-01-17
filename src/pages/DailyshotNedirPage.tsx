@@ -277,7 +277,7 @@ const DailyshotNedirPage = () => {
                     {/* RIGHT: Image Area */}
                     <div className="relative flex items-center justify-center lg:justify-end w-full">
                         <AnimatedSection animation="fadeInUp" delay={200} className="relative w-full aspect-[16/9] lg:aspect-[2/1] flex items-center justify-center">
-                            <div className="relative w-full h-full rounded-3xl border border-gray-100 overflow-hidden group hover:border-[#00AEEF]/30 transition-colors duration-500 bg-white shadow-xl flex items-center justify-center">
+                            <div className="relative w-full h-full rounded-3xl overflow-hidden group transition-colors duration-500 flex items-center justify-center">
                                 {/* Ambient Light */}
                                 <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-blue-50/0 to-blue-50/0 group-hover:from-blue-50/70 group-hover:to-transparent transition-all duration-500" />
 
