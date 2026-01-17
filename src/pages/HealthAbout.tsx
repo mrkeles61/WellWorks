@@ -61,7 +61,7 @@ const HealthAbout = () => {
               {t('health.aboutUs.reachUs.title')}
             </h2>
 
-            <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-4 max-w-7xl mx-auto">
+            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4 max-w-7xl mx-auto">
               {/* Instagram */}
               <a href="https://www.instagram.com/dailyshottr/" target="_blank" rel="noopener noreferrer" className="group bg-gray-50 rounded-3xl p-5 border border-gray-100 hover:shadow-xl hover:shadow-pink-500/10 hover:-translate-y-1 transition-all duration-300">
                 <div className="relative w-24 h-24 mx-auto mb-6">
@@ -113,16 +113,20 @@ const HealthAbout = () => {
               {/* X (Twitter) */}
               <a href="https://x.com/dailyshottr" target="_blank" rel="noopener noreferrer" className="group bg-gray-50 rounded-3xl p-5 border border-gray-100 hover:shadow-xl hover:shadow-gray-800/10 hover:-translate-y-1 transition-all duration-300">
                 <div className="relative w-24 h-24 mx-auto mb-6">
-                  <div className="w-full h-full rounded-full overflow-hidden border-4 border-white shadow-lg group-hover:scale-105 transition-transform duration-300">
-                    <img src="/images/social/dailyshot_insta.png" alt="DailyShot X" className="w-full h-full object-cover" />
+                  {/* Main Icon Circle - Using Black BG for X */}
+                  <div className="w-full h-full rounded-full overflow-hidden border-4 border-white shadow-lg bg-black flex items-center justify-center group-hover:scale-105 transition-transform duration-300">
+                    <svg className="w-12 h-12 text-white" viewBox="0 0 24 24" fill="currentColor">
+                      <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
+                    </svg>
                   </div>
+                  {/* Small badge */}
                   <div className="absolute -bottom-1 -right-1 w-10 h-10 rounded-full bg-black border-2 border-white flex items-center justify-center text-white shadow-md group-hover:scale-110 transition-transform duration-300">
                     <svg className="w-5 h-5" viewBox="0 0 24 24" fill="currentColor">
                       <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
                     </svg>
                   </div>
                 </div>
-                <h3 className="font-bold text-xl text-gray-900 mb-6 font-poppins">X (Twitter)</h3>
+                <h3 className="font-bold text-xl text-gray-900 mb-6 font-poppins">X</h3>
                 <span className="inline-block px-6 py-2 bg-gray-100 text-gray-800 rounded-full font-semibold text-sm group-hover:bg-black group-hover:text-white transition-colors">Takip Et</span>
               </a>
 
@@ -139,40 +143,63 @@ const HealthAbout = () => {
                   </div>
                 </div>
                 <h3 className="font-bold text-xl text-gray-900 mb-6 font-poppins">YouTube</h3>
-                <span className="inline-block px-6 py-2 bg-red-100 text-red-600 rounded-full font-semibold text-sm group-hover:bg-red-600 group-hover:text-white transition-colors">Abone Ol</span>
+                <span className="inline-block px-6 py-2 bg-red-100 text-red-600 rounded-full font-semibold text-sm group-hover:bg-[#FF0000] group-hover:text-white transition-colors">Abone Ol</span>
               </a>
-            </div>
-          </AnimatedSection>
+
+              {/* TikTok */}
+              <a href="https://www.tiktok.com/@dailyshot.tr" target="_blank" rel="noopener noreferrer" className="group bg-gray-50 rounded-3xl p-5 border border-gray-100 hover:shadow-xl hover:shadow-gray-800/10 hover:-translate-y-1 transition-all duration-300">
+                <div className="relative w-24 h-24 mx-auto mb-6">
+                  <div className="w-full h-full rounded-full overflow-hidden border-4 border-white shadow-lg group-hover:scale-105 transition-transform duration-300">
+                    <div className="w-full h-full bg-black flex items-center justify-center">
+                      <svg className="w-12 h-12 text-white" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5 20.1a6.34 6.34 0 0 0 10.86-4.43v-7a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1-.1z" />
+                      </svg>
+                    </div>
+                  </div>
+                  <div className="absolute -bottom-1 -right-1 w-10 h-10 rounded-full bg-black border-2 border-white flex items-center justify-center text-white shadow-md group-hover:scale-110 transition-transform duration-300">
+                    <svg className="w-5 h-5" viewBox="0 0 24 24" fill="currentColor">
+                      <path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5 20.1a6.34 6.34 0 0 0 10.86-4.43v-7a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1-.1z" />
+                    </svg>
+                  </div>
+                </div>
+                <h3 className="font-bold text-xl text-gray-900 mb-6 font-poppins">TikTok</h3>
+                <span className="inline-block px-6 py-2 bg-gray-100 text-gray-800 rounded-full font-semibold text-sm group-hover:bg-black group-hover:text-white transition-colors">Takip Et</span>
+              </a>
+              <h3 className="font-bold text-xl text-gray-900 mb-6 font-poppins">YouTube</h3>
+              <span className="inline-block px-6 py-2 bg-red-100 text-red-600 rounded-full font-semibold text-sm group-hover:bg-red-600 group-hover:text-white transition-colors">Abone Ol</span>
+            </a>
         </div>
-      </div>
-
-      {/* Quality Policy Section */}
-      <div className="bg-gray-50 py-20 relative overflow-hidden">
-        {/* Decorative Background Element */}
-        <div className="absolute top-0 right-0 w-96 h-96 bg-blue-100/50 rounded-full mix-blend-multiply filter blur-3xl opacity-70 translate-x-1/2 -translate-y-1/2" />
-
-        <div className="max-w-4xl mx-auto px-4 md:px-8 relative z-10 text-center">
-          <AnimatedSection animation="fadeInUp" delay={200}>
-            <h2 className="font-poppins font-bold text-3xl md:text-4xl text-gray-900 mb-8 inline-block relative">
-              {t('health.aboutUs.qualityPolicy.title')}
-              <div className="absolute -bottom-3 left-1/2 -translate-x-1/2 w-24 h-1 bg-blue-500 rounded-full" />
-            </h2>
-
-            <div className="bg-white p-8 md:p-12 rounded-3xl shadow-xl border border-gray-100">
-              <p className="text-lg md:text-xl text-gray-700 leading-relaxed font-medium">
-                "{t('health.aboutUs.qualityPolicy.content')}"
-              </p>
-            </div>
-
-            <div className="mt-12">
-              <p className="text-xl text-blue-800 font-serif italic">
-                {t('health.aboutUs.closing')}
-              </p>
-            </div>
-          </AnimatedSection>
-        </div>
-      </div>
+      </AnimatedSection>
     </div>
+      </div >
+
+  {/* Quality Policy Section */ }
+  < div className = "bg-gray-50 py-20 relative overflow-hidden" >
+    {/* Decorative Background Element */ }
+    < div className = "absolute top-0 right-0 w-96 h-96 bg-blue-100/50 rounded-full mix-blend-multiply filter blur-3xl opacity-70 translate-x-1/2 -translate-y-1/2" />
+
+      <div className="max-w-4xl mx-auto px-4 md:px-8 relative z-10 text-center">
+        <AnimatedSection animation="fadeInUp" delay={200}>
+          <h2 className="font-poppins font-bold text-3xl md:text-4xl text-gray-900 mb-8 inline-block relative">
+            {t('health.aboutUs.qualityPolicy.title')}
+            <div className="absolute -bottom-3 left-1/2 -translate-x-1/2 w-24 h-1 bg-blue-500 rounded-full" />
+          </h2>
+
+          <div className="bg-white p-8 md:p-12 rounded-3xl shadow-xl border border-gray-100">
+            <p className="text-lg md:text-xl text-gray-700 leading-relaxed font-medium">
+              "{t('health.aboutUs.qualityPolicy.content')}"
+            </p>
+          </div>
+
+          <div className="mt-12">
+            <p className="text-xl text-blue-800 font-serif italic">
+              {t('health.aboutUs.closing')}
+            </p>
+          </div>
+        </AnimatedSection>
+      </div>
+      </div >
+    </div >
   );
 };
 

@@ -136,7 +136,7 @@ const Footer = () => {
                       className="flex items-center gap-2 hover:text-black transition-colors"
                     >
                       <Twitter className="w-5 h-5 text-black" />
-                      Twitter / X
+                      X
                     </a>
                   </li>
                   <li>
