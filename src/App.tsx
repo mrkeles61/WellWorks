@@ -6,6 +6,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { BrandProvider } from "./context/BrandContext";
 import Layout from "./components/layout/Layout";
 import ErrorBoundary from "./components/shared/ErrorBoundary";
+import ScrollToTop from "./components/shared/ScrollToTop";
 import GatewayPage from "./pages/GatewayPage";
 import HealthHome from "./pages/HealthHome";
 import HealthAbout from "./pages/HealthAbout";
@@ -20,6 +21,7 @@ import TeamPage from "./pages/TeamPage";
 import ContactPage from "./pages/ContactPage";
 import LegalPage from "./pages/LegalPage";
 import NotFound from "./pages/NotFound";
+import FontDemoPage from "./pages/FontDemoPage";
 
 import "./lib/i18n";
 
@@ -33,6 +35,7 @@ const App = () => (
           <Toaster />
           <Sonner />
           <BrowserRouter>
+            <ScrollToTop />
             <Layout>
               <Routes>
                 <Route path="/" element={<GatewayPage />} />
@@ -52,6 +55,7 @@ const App = () => (
                 <Route path="/legal/:type" element={<LegalPage />} />
 
                 <Route path="/health/satis-noktalari" element={<StoreLocatorPage />} />
+                <Route path="/fonts" element={<FontDemoPage />} />
                 {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
                 <Route path="*" element={<NotFound />} />
               </Routes>

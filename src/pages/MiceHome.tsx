@@ -225,18 +225,9 @@ const MiceHome = () => {
                   {t('mice.home.capabilities.desc')}
                 </p>
 
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-y-4 gap-x-8">
-                  {capabilitiesList.map((item, idx) => (
-                    <div key={idx} className="flex items-center gap-3 text-[#D8DEE6]">
-                      <Check className="w-5 h-5 text-[#2DB34A] flex-shrink-0" />
-                      <span className="font-medium">{item}</span>
-                    </div>
-                  ))}
-                </div>
-
                 <div className="mt-12">
                   <Link
-                    to="/mice/iletisim"
+                    to="/mice/isler-gucler"
                     className="border border-white/20 text-white font-bold py-4 px-8 rounded-xl hover:bg-white hover:text-[#0B3A5B] transition-colors hover:shadow-lg inline-block"
                   >
                     {t('mice.home.capabilities.cta')}
@@ -319,12 +310,6 @@ const MiceHome = () => {
               >
                 {t('mice.home.cta.button')}
               </Link>
-              <a
-                href="tel:+905360320838"
-                className="bg-transparent border border-white/20 hover:bg-white/10 text-white text-lg font-bold py-4 px-10 rounded-xl transition-all"
-              >
-                {t('mice.home.cta.call')}
-              </a>
             </div>
           </AnimatedSection>
         </div>
