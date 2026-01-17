@@ -324,10 +324,12 @@ const DailyshotNedirPage = () => {
                         </h2>
                     </AnimatedSection>
 
-                    <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
+                    <div className="grid md:grid-cols-3 lg:grid-cols-5 gap-6 max-w-[1400px] mx-auto">
                         {displayProducts.map((product, index) => (
                             <AnimatedSection key={index} animation="fadeInUp" delay={index * 100}>
-                                <DailyshotProductCard product={product} t={t} />
+                                <div className="transform scale-90 origin-top">
+                                    <DailyshotProductCard product={product} t={t} />
+                                </div>
                             </AnimatedSection>
                         ))}
                     </div>
