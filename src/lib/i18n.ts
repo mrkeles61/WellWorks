@@ -203,7 +203,7 @@ const resources = {
           heroTitle: 'Su içemeyenler için',
           heroTitleHighlight: 'tasarlandı',
           heroTitleHighlight2: '',
-          heroSlogan: 'Elektrovit ile SUSUZ kalma.',
+          heroSlogan: 'Elektrovit ile Susuz Kalma!',
           heroDesc: '',
           introSection: {
             paragraph1: 'Unutkanlık, tüketim alışkanlığı ya da su kaybına sebep olacak dış faktörlerin varlığı nedeniyle günlük su ihtiyacını karşılayamayanlar için geliştirilmiş bir elektrolit takviyesidir.',

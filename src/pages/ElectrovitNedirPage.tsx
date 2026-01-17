@@ -106,14 +106,9 @@ const ElectrovitNedirPage = () => {
                     <div className="max-w-xl mx-auto lg:mx-0 text-center lg:text-left">
                         <AnimatedSection animation="fadeInLeft">
                             {/* Main Headline */}
-                            <h1 className="text-5xl md:text-6xl lg:text-7xl font-black text-white leading-[1.1] mb-6 font-poppins drop-shadow-sm">
-                                {t('health.electrovitNedir.heroTitle')} <br />
-                                {t('health.electrovitNedir.heroTitleHighlight')} <br />
-                                <span className="text-white italic relative inline-block">
-                                    {t('health.electrovitNedir.heroTitleHighlight2')}
-                                    <svg className="absolute w-full h-3 -bottom-1 left-0 text-white/40" viewBox="0 0 100 10" preserveAspectRatio="none">
-                                        <path d="M0 5 Q 50 10 100 5" stroke="currentColor" strokeWidth="3" fill="none" />
-                                    </svg>
+                            <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-white leading-tight mb-8 font-serif drop-shadow-lg tracking-tight">
+                                <span className="text-[#FFEA00] italic relative inline-block mt-2 filter drop-shadow-[0_4px_4px_rgba(0,0,0,0.2)]">
+                                    {t('health.electrovitNedir.heroSlogan')}
                                 </span>
                             </h1>
 
@@ -134,7 +129,7 @@ const ElectrovitNedirPage = () => {
 
                     {/* RIGHT: Product Image */}
                     <div className="relative flex items-center justify-center lg:justify-end">
-                        <AnimatedSection animation="fadeInUp" delay={200} className="relative w-full max-w-md lg:max-w-lg">
+                        <AnimatedSection animation="fadeInUp" delay={200} className="relative w-full max-w-md lg:max-w-xl">
                             <div className="relative transform hover:scale-[1.02] transition-transform duration-700">
                                 <img
                                     src="/images/electrovit_hero_bottle.png"
