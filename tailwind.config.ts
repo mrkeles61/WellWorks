@@ -85,6 +85,7 @@ export default {
         inter: ["Inter", "sans-serif"],
         oswald: ["Oswald", "sans-serif"],
         roboto: ["Roboto", "sans-serif"],
+        montserrat: ["Montserrat", "sans-serif"],
       },
       borderRadius: {
         lg: "var(--radius)",

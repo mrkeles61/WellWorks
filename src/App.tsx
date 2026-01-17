@@ -21,7 +21,6 @@ import TeamPage from "./pages/TeamPage";
 import ContactPage from "./pages/ContactPage";
 import LegalPage from "./pages/LegalPage";
 import NotFound from "./pages/NotFound";
-import FontDemoPage from "./pages/FontDemoPage";
 
 import "./lib/i18n";
 
@@ -55,7 +54,6 @@ const App = () => (
                 <Route path="/legal/:type" element={<LegalPage />} />
 
                 <Route path="/health/satis-noktalari" element={<StoreLocatorPage />} />
-                <Route path="/fonts" element={<FontDemoPage />} />
                 {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
                 <Route path="*" element={<NotFound />} />
               </Routes>

@@ -67,8 +67,8 @@ const GatewayPage = () => {
       {/* Global Header - Black */}
       <header className="fixed top-0 left-0 right-0 z-40 bg-black">
         <div className="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
-          <span className="font-oswald font-bold text-xl tracking-wider text-white">
-            WELLWORKS TURKEY
+          <span className="font-montserrat font-bold text-xl tracking-wider text-white">
+            WELL WORKS TURKEY
           </span>
           <div className="flex items-center gap-5">
             <span className="text-white/50 text-sm hidden sm:block">Bize Ulaşın</span>

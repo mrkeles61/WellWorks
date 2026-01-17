@@ -42,8 +42,6 @@ const Header = () => {
     { href: '/health/hakkimizda', label: t('health.aboutUs.pageTitle') },
     { href: '/dailyshot-nedir', label: t('nav.dailyshotNedir') },
     { href: '/health/electrovit-nedir', label: t('nav.electrovitNedir') },
-    { href: '/fonts', label: 'Fonts Demo' },
-
   ];
 
   const miceLinks: NavLinkItem[] = [
@@ -75,17 +73,17 @@ const Header = () => {
             <div
               className={cn(
                 'text-xl font-bold transition-colors',
-                brand === 'health' ? 'font-poppins text-health-primary' : 'font-poppins text-mice-primary'
+                brand === 'health' ? 'font-montserrat text-health-primary' : 'font-montserrat text-mice-primary'
               )}
             >
               {brand === 'health' ? (
                 <span className="flex gap-2">
-                  <span className="text-white">WellWorks</span>
+                  <span className="text-white">Well Works</span>
                   <span className="text-health-primary">Health</span>
                 </span>
               ) : (
                 <span className="flex gap-2">
-                  <span className="text-white">WellWorks</span>
+                  <span className="text-white">Well Works</span>
                   <span className="text-mice-primary">MICE</span>
                 </span>
               )}
