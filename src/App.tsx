@@ -20,7 +20,7 @@ import TeamPage from "./pages/TeamPage";
 import ContactPage from "./pages/ContactPage";
 import LegalPage from "./pages/LegalPage";
 import NotFound from "./pages/NotFound";
-import StylesPage from "./pages/StylesPage";
+
 import "./lib/i18n";
 
 const queryClient = new QueryClient();
@@ -50,7 +50,7 @@ const App = () => (
                 <Route path="/ekip" element={<TeamPage />} />
                 <Route path="/familyamiz" element={<TeamPage />} />
                 <Route path="/legal/:type" element={<LegalPage />} />
-                <Route path="/health/styles" element={<StylesPage />} />
+
                 <Route path="/health/satis-noktalari" element={<StoreLocatorPage />} />
                 {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
                 <Route path="*" element={<NotFound />} />

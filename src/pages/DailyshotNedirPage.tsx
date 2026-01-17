@@ -277,27 +277,26 @@ const DailyshotNedirPage = () => {
                     {/* RIGHT: Image Area */}
                     <div className="relative flex items-center justify-center lg:justify-end w-full">
                         <AnimatedSection animation="fadeInUp" delay={200} className="relative w-full aspect-[16/9] lg:aspect-[2/1] flex items-center justify-center">
-                            <motion.div
-                                className="relative w-full h-full rounded-3xl p-[3px] group transition-all duration-300"
-                                whileHover={{ y: -8, boxShadow: "0 20px 40px -15px rgba(0,0,0,0.1)" }}
-                                transition={{ type: "spring", stiffness: 300, damping: 20 }}
-                            >
-                                {/* Gradient Border Background */}
-                                <div className="absolute inset-0 rounded-3xl bg-gradient-to-r from-blue-400 via-purple-500 to-blue-400 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
+                            <div className="relative w-full h-full rounded-3xl border border-gray-100 overflow-hidden group hover:border-[#00AEEF]/30 transition-colors duration-500 bg-white shadow-xl flex items-center justify-center">
+                                {/* Ambient Light */}
+                                <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-blue-50/0 to-blue-50/0 group-hover:from-blue-50/70 group-hover:to-transparent transition-all duration-500" />
 
-                                {/* Inner Content */}
-                                <div className="relative w-full h-full rounded-[21px] flex items-center justify-center overflow-hidden">
+                                <motion.div
+                                    className="relative w-[90%] h-[90%]"
+                                    whileHover={{ scale: 1.05, y: -8 }}
+                                    transition={{ type: "spring", stiffness: 200, damping: 20 }}
+                                >
                                     <img
                                         src="/images/dailyshot_full_range.png"
                                         alt="Dailyshot Ürün Ailesi"
-                                        className="w-[90%] h-[90%] object-contain z-10 relative"
+                                        className="w-full h-full object-contain z-10 relative drop-shadow-lg group-hover:drop-shadow-[0_25px_35px_-5px_rgba(0,0,0,0.2)] transition-all duration-300"
                                         style={{
                                             objectPosition: `${imgX}% ${imgY}%`,
                                             transform: `scale(${imgScale / 100}) rotate(${imgRotate}deg)`
                                         }}
                                     />
-                                </div>
-                            </motion.div>
+                                </motion.div>
+                            </div>
                         </AnimatedSection>
                     </div>
                 </div>
