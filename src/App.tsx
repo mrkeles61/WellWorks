@@ -20,6 +20,8 @@ import WorksPage from "./pages/WorksPage";
 import TeamPage from "./pages/TeamPage";
 import ContactPage from "./pages/ContactPage";
 import LegalPage from "./pages/LegalPage";
+import SpinWheelPage from "./pages/SpinWheelPage";
+import DailyshotQuizPage from "./pages/DailyshotQuizPage";
 import NotFound from "./pages/NotFound";
 
 import "./lib/i18n";
@@ -54,6 +56,8 @@ const App = () => (
                 <Route path="/legal/:type" element={<LegalPage />} />
 
                 <Route path="/health/satis-noktalari" element={<StoreLocatorPage />} />
+                <Route path="/health/hediye-cark" element={<SpinWheelPage />} />
+                <Route path="/health/quiz" element={<DailyshotQuizPage />} />
                 {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
                 <Route path="*" element={<NotFound />} />
               </Routes>
