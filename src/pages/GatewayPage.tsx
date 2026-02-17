@@ -178,7 +178,7 @@ const GatewayPage = () => {
               <span className="text-black">WELL</span>
               <span className="text-[#00A3E0]"> WORKS</span>
             </h1>
-            <h2 className="font-poppins italic text-2xl text-black mb-4">Health</h2>
+            <h2 className="font-oswald font-bold uppercase tracking-[0.2em] text-3xl text-black mb-4">Health</h2>
             <p className="text-gray-600 text-center mb-6 max-w-xs">
               Sağlıklı yaşam için geliştirilmiş likit gıda takviyeleri
             </p>
@@ -201,7 +201,7 @@ const GatewayPage = () => {
               <span className="text-black">WELL</span>
               <span className="text-[#39B54A]"> WORKS</span>
             </h1>
-            <h2 className="font-poppins italic text-2xl text-black mb-4">M.I.C.E</h2>
+            <h2 className="font-oswald font-bold uppercase tracking-[0.2em] text-3xl text-black mb-4">M.I.C.E</h2>
             <p className="text-gray-600 text-center mb-6 max-w-xs">
               Unutulmaz etkinlikler ve profesyonel organizasyon hizmetleri
             </p>
