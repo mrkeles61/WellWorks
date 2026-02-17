@@ -78,7 +78,7 @@ const ContactPage = () => {
                 <span className="material-symbols-outlined text-3xl">location_on</span>
               </div>
               <h3 className="text-lg font-bold text-gray-900 mb-2">{t('contact.address.title')}</h3>
-              <p className="text-gray-500 text-sm leading-relaxed">
+              <p className="text-gray-600 text-base leading-relaxed">
                 {t('contact.address.content')}
               </p>
             </div>
@@ -88,12 +88,7 @@ const ContactPage = () => {
                 <span className="material-symbols-outlined text-3xl">phone_in_talk</span>
               </div>
               <h3 className="text-lg font-bold text-gray-900 mb-2">{t('contact.phone.title')}</h3>
-              <div className="text-gray-500 text-sm space-y-1">
-                <p className="hover:text-[var(--accent)] transition-colors cursor-pointer">{t('contact.phone.content')}</p>
-                <p className="flex items-center justify-center gap-1.5 text-green-600 font-medium mt-2">
-                  WhatsApp
-                </p>
-              </div>
+              <p className="text-gray-600 text-base">{t('contact.phone.content')}</p>
             </div>
             {/* Email Card */}
             <div className="bg-white rounded-2xl shadow-lg shadow-gray-200/50 p-8 flex flex-col items-center text-center transition-transform hover:-translate-y-1 duration-300 border border-gray-100">
@@ -101,10 +96,7 @@ const ContactPage = () => {
                 <span className="material-symbols-outlined text-3xl">mail</span>
               </div>
               <h3 className="text-lg font-bold text-gray-900 mb-2">{t('contact.email.title')}</h3>
-              <p className="text-gray-500 text-sm leading-relaxed mb-4">
-                {t('contact.email.content')}
-              </p>
-              <a className="font-semibold hover:underline" style={{ color: accent }} href={`mailto:${t('contact.email.content')}`}>{t('contact.email.content')}</a>
+              <a className="text-base font-medium hover:underline" style={{ color: accent }} href={`mailto:${t('contact.email.content')}`}>{t('contact.email.content')}</a>
             </div>
           </div>
         </AnimatedSection>

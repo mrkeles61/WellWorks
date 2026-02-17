@@ -171,10 +171,6 @@ const Header = () => {
               >
                 mice
               </button>
-              {/* Tooltip hint */}
-              <span className="absolute -bottom-5 left-1/2 -translate-x-1/2 text-[10px] text-gray-500 opacity-0 group-hover/toggle:opacity-100 transition-opacity whitespace-nowrap pointer-events-none select-none">
-                {brand === 'health' ? '← MICE tarafına geç' : 'Health tarafına geç →'}
-              </span>
             </div>
           </div>
 
