@@ -39,13 +39,15 @@ const otherPages = [
 
 const LegalPage = () => {
   const { t } = useTranslation();
-  const { setBrand } = useBrand();
+  const { brand } = useBrand();
   const { type } = useParams<{ type: string }>();
   const [activeSection, setActiveSection] = useState<string>('');
 
-  useEffect(() => {
-    setBrand('health');
-  }, [setBrand]);
+  const accentColor = brand === 'mice' ? '#9333ea' : '#00A3E0';
+  const accentBg = brand === 'mice' ? 'bg-mice-primary/10' : 'bg-[#00A3E0]/10';
+  const accentText = brand === 'mice' ? 'text-mice-primary' : 'text-[#00A3E0]';
+  const homePath = brand === 'mice' ? '/mice' : '/health';
+
 
   useEffect(() => {
     const sections = legalSections[type || ''] || [];
@@ -84,7 +86,7 @@ const LegalPage = () => {
       <div className="pt-24 pb-4 px-4 bg-white border-b border-gray-100">
         <div className="container max-w-5xl mx-auto">
           <nav className="flex items-center gap-1.5 text-sm text-gray-400">
-            <Link to="/health" className="hover:text-[#00A3E0] transition-colors">
+            <Link to={homePath} className={`hover:${accentText} transition-colors`}>
               {t('nav.home')}
             </Link>
             <ChevronRight className="w-3.5 h-3.5" />
@@ -97,8 +99,8 @@ const LegalPage = () => {
       <section className="pt-12 pb-8 px-4 bg-white">
         <div className="container max-w-5xl mx-auto text-center">
           <AnimatedSection>
-            <div className="inline-flex items-center justify-center w-14 h-14 rounded-2xl bg-[#00A3E0]/10 mb-5">
-              <FileText className="w-7 h-7 text-[#00A3E0]" />
+            <div className={`inline-flex items-center justify-center w-14 h-14 rounded-2xl ${accentBg} mb-5`}>
+              <FileText className={`w-7 h-7 ${accentText}`} />
             </div>
             <h1 className="text-3xl md:text-4xl font-bold font-poppins text-slate-900 mb-3">
               {t(getTitleKey())}
@@ -127,8 +129,8 @@ const LegalPage = () => {
                         key={s.id}
                         onClick={() => scrollToSection(s.id)}
                         className={`w-full text-left px-3 py-2 rounded-lg text-sm transition-colors ${activeSection === s.id
-                            ? 'bg-[#00A3E0]/10 text-[#00A3E0] font-medium'
-                            : 'text-gray-600 hover:bg-gray-50 hover:text-gray-900'
+                          ? `${accentBg} ${accentText} font-medium`
+                          : 'text-gray-600 hover:bg-gray-50 hover:text-gray-900'
                           }`}
                       >
                         {idx + 1}. {t(s.titleKey)}
@@ -145,7 +147,7 @@ const LegalPage = () => {
                     <AnimatedSection key={s.id}>
                       <div id={s.id} className="scroll-mt-32">
                         <h2 className="text-lg font-bold text-slate-900 mb-4 flex items-baseline gap-3">
-                          <span className="inline-flex items-center justify-center w-7 h-7 rounded-full bg-[#00A3E0]/10 text-[#00A3E0] text-sm font-bold flex-shrink-0">
+                          <span className={`inline-flex items-center justify-center w-7 h-7 rounded-full ${accentBg} ${accentText} text-sm font-bold flex-shrink-0`}>
                             {idx + 1}
                           </span>
                           {t(s.titleKey)}
@@ -180,7 +182,7 @@ const LegalPage = () => {
                 <Link
                   key={p.type}
                   to={p.path}
-                  className="px-5 py-2.5 rounded-xl border border-gray-200 bg-white text-sm font-medium text-gray-700 hover:border-[#00A3E0]/30 hover:text-[#00A3E0] transition-all hover:shadow-sm"
+                  className={`px-5 py-2.5 rounded-xl border border-gray-200 bg-white text-sm font-medium text-gray-700 hover:border-current hover:${accentText} transition-all hover:shadow-sm`}
                 >
                   {t(p.labelKey)}
                 </Link>
