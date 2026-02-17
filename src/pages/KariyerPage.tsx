@@ -193,27 +193,10 @@ const KariyerPage = () => {
                                         </div>
                                     </div>
 
-                                    {/* Phone & Department */}
-                                    <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                                        <div className="space-y-2">
-                                            <label className="text-sm font-medium text-slate-700" htmlFor="phone">{t('career.form.phone')}</label>
-                                            <input className={inputClasses} id="phone" name="phone" placeholder={t('career.form.phonePlaceholder')} type="tel" />
-                                        </div>
-                                        <div className="space-y-2">
-                                            <label className="text-sm font-medium text-slate-700" htmlFor="department">{t('career.form.area')}</label>
-                                            <div className="relative">
-                                                <select className={`${inputClasses} appearance-none`} id="department" name="area">
-                                                    <option value="">{t('career.form.areaPlaceholder')}</option>
-                                                    <option value="health">{t('career.form.areaHealth')}</option>
-                                                    <option value="mice">{t('career.form.areaMice')}</option>
-                                                    <option value="marketing">{t('career.form.areaMarketing')}</option>
-                                                    <option value="other">{t('career.form.areaOther')}</option>
-                                                </select>
-                                                <div className="absolute inset-y-0 right-0 flex items-center pr-3 pointer-events-none text-slate-500">
-                                                    <span className="material-symbols-outlined">expand_more</span>
-                                                </div>
-                                            </div>
-                                        </div>
+                                    {/* Phone */}
+                                    <div className="space-y-2">
+                                        <label className="text-sm font-medium text-slate-700" htmlFor="phone">{t('career.form.phone')}</label>
+                                        <input className={inputClasses} id="phone" name="phone" placeholder={t('career.form.phonePlaceholder')} type="tel" />
                                     </div>
 
                                     {/* File Upload — from Stitch */}

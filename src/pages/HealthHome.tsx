@@ -116,7 +116,7 @@ const HealthHome = () => {
           <div className="grid lg:grid-cols-2 gap-12 items-center w-full">
             {/* Left Content - About Us */}
             <div className="flex flex-col items-start space-y-6">
-              <span className="inline-block text-health-primary text-sm font-semibold uppercase tracking-widest">
+              <span className="inline-block text-health-primary text-2xl font-semibold tracking-widest" style={{ fontFamily: "'Holiday', cursive", textTransform: 'none' }}>
                 {t('health.hero2.label')}
               </span>
               <h1 className="font-poppins font-bold text-4xl sm:text-5xl lg:text-6xl leading-tight tracking-tight text-gray-900">
@@ -161,78 +161,6 @@ const HealthHome = () => {
           </div>
         </div>
       </section>
-
-      {/* ===== WELLWORKS HEALTH INTRO SECTION (Dark Blue Background) ===== */}
-      <section
-        className="py-20 lg:py-32 relative overflow-hidden bg-[#0f2942]"
-      >
-        {/* Subtle decorative elements */}
-        <div className="absolute top-0 right-0 w-96 h-96 bg-white/5 rounded-full blur-3xl transform-gpu will-change-transform" />
-        <div className="absolute bottom-0 left-0 w-72 h-72 bg-health-primary/10 rounded-full blur-3xl transform-gpu will-change-transform" />
-
-        <div className="mx-auto px-6 relative z-10" style={{ maxWidth: '80%' }}>
-          <div className="grid lg:grid-cols-2 gap-16 items-center">
-            {/* Text Content */}
-            <AnimatedSection animation="fadeInUp" className="space-y-6">
-              <span className="text-health-primary text-sm font-semibold uppercase tracking-widest">
-                {t('health.wellworksIntro.label')}
-              </span>
-              <h2 className="font-poppins font-bold text-3xl md:text-4xl lg:text-5xl leading-tight text-white">
-                <Trans i18nKey="health.wellworksIntro.title" components={[<span className="text-health-primary" />]} />
-              </h2>
-              <p className="text-lg text-white/80 leading-relaxed">
-                {t('health.wellworksIntro.desc')}
-              </p>
-              <ul className="space-y-3">
-                <li className="flex items-center gap-3 text-white/90">
-                  <Zap className="w-5 h-5 text-health-primary" />
-                  <span><Trans i18nKey="health.wellworksIntro.feature1" components={[<strong />]} /></span>
-                </li>
-
-                <li className="flex items-center gap-3 text-white/90">
-                  <Droplets className="w-5 h-5 text-health-primary" />
-                  <span>{t('health.wellworksIntro.feature3')}</span>
-                </li>
-              </ul>
-              <Button
-                asChild
-                size="lg"
-                className="bg-health-primary text-white hover:bg-health-primary/90 rounded-full px-8 mt-4"
-              >
-                <a href="https://dailyshot.com.tr" target="_blank" rel="noopener noreferrer">
-                  {t('health.wellworksIntro.cta')} <ArrowRight className="w-4 h-4 ml-2" />
-                </a>
-              </Button>
-            </AnimatedSection>
-
-            {/* Image in glassmorphism card */}
-            <AnimatedSection
-              animation="scaleIn"
-              delay={200}
-              className="relative group flex justify-center"
-            >
-              <a
-                href="https://dailyshot.com.tr"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <div className="relative w-full max-w-3xl rounded-3xl overflow-hidden shadow-2xl hover:shadow-3xl transition-all duration-500 hover:scale-105">
-                  <img
-                    src={liquidAdvantagesImage}
-                    alt="Dailyshot - A Bottle of Health"
-                    className="w-full h-auto object-contain drop-shadow-xl"
-                    loading="lazy"
-                  />
-                </div>
-              </a>
-            </AnimatedSection>
-          </div>
-        </div>
-      </section>
-
-      {/* Gradient transition: WellWorks intro -> Carousel */}
-      {/* Spacer (removed gradient) */}
-      <div className="h-12 bg-white" />
 
       {/* ===== OUR PRODUCTS SECTION ===== */}
       <section className="py-20 lg:py-28 bg-gradient-to-br from-gray-50 to-white relative overflow-hidden">
@@ -302,6 +230,77 @@ const HealthHome = () => {
                   onClick={() => document.getElementById('electrovit-products')?.scrollIntoView({ behavior: 'smooth' })}
                 />
               </div>
+            </AnimatedSection>
+          </div>
+        </div>
+      </section>
+
+      {/* Spacer */}
+      <div className="h-12 bg-white" />
+
+      {/* ===== WELLWORKS HEALTH INTRO SECTION (Dark Blue Background) ===== */}
+      <section
+        className="py-20 lg:py-32 relative overflow-hidden bg-[#0f2942]"
+      >
+        {/* Subtle decorative elements */}
+        <div className="absolute top-0 right-0 w-96 h-96 bg-white/5 rounded-full blur-3xl transform-gpu will-change-transform" />
+        <div className="absolute bottom-0 left-0 w-72 h-72 bg-health-primary/10 rounded-full blur-3xl transform-gpu will-change-transform" />
+
+        <div className="mx-auto px-6 relative z-10" style={{ maxWidth: '80%' }}>
+          <div className="grid lg:grid-cols-2 gap-16 items-center">
+            {/* Text Content */}
+            <AnimatedSection animation="fadeInUp" className="space-y-6">
+              <span className="text-health-primary text-2xl font-semibold tracking-widest" style={{ fontFamily: "'Holiday', cursive", textTransform: 'none' }}>
+                {t('health.wellworksIntro.label')}
+              </span>
+              <h2 className="font-poppins font-bold text-3xl md:text-4xl lg:text-5xl leading-tight text-white">
+                <Trans i18nKey="health.wellworksIntro.title" components={[<span className="text-health-primary" />]} />
+              </h2>
+              <p className="text-lg text-white/80 leading-relaxed">
+                {t('health.wellworksIntro.desc')}
+              </p>
+              <ul className="space-y-3">
+                <li className="flex items-center gap-3 text-white/90">
+                  <Zap className="w-5 h-5 text-health-primary" />
+                  <span><Trans i18nKey="health.wellworksIntro.feature1" components={[<strong />]} /></span>
+                </li>
+
+                <li className="flex items-center gap-3 text-white/90">
+                  <Droplets className="w-5 h-5 text-health-primary" />
+                  <span>{t('health.wellworksIntro.feature3')}</span>
+                </li>
+              </ul>
+              <Button
+                asChild
+                size="lg"
+                className="bg-health-primary text-white hover:bg-health-primary/90 rounded-full px-8 mt-4"
+              >
+                <a href="https://dailyshot.com.tr" target="_blank" rel="noopener noreferrer">
+                  {t('health.wellworksIntro.cta')} <ArrowRight className="w-4 h-4 ml-2" />
+                </a>
+              </Button>
+            </AnimatedSection>
+
+            {/* Image in glassmorphism card */}
+            <AnimatedSection
+              animation="scaleIn"
+              delay={200}
+              className="relative group flex justify-center"
+            >
+              <a
+                href="https://dailyshot.com.tr"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <div className="relative w-full max-w-3xl rounded-3xl overflow-hidden shadow-2xl hover:shadow-3xl transition-all duration-500 hover:scale-105">
+                  <img
+                    src={liquidAdvantagesImage}
+                    alt="Dailyshot - A Bottle of Health"
+                    className="w-full h-auto object-contain drop-shadow-xl"
+                    loading="lazy"
+                  />
+                </div>
+              </a>
             </AnimatedSection>
           </div>
         </div>

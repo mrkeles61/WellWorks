@@ -22,6 +22,8 @@ import TeamPage from "./pages/TeamPage";
 import ContactPage from "./pages/ContactPage";
 import LegalPage from "./pages/LegalPage";
 import QualityPage from "./pages/QualityPage";
+import QualityPageV1 from "./pages/QualityPageV1";
+import QualityPageV2 from "./pages/QualityPageV2";
 import SatisNoktalariPage from "./pages/SatisNoktalariPage";
 
 import NotFound from "./pages/NotFound";
@@ -61,6 +63,8 @@ const App = () => (
                 <Route path="/health/satis-noktalari" element={<SatisNoktalariPage />} />
                 <Route path="/kariyer" element={<KariyerPage />} />
                 <Route path="/kalite" element={<QualityPage />} />
+                <Route path="/kalite-v1" element={<QualityPageV1 />} />
+                <Route path="/kalite-v2" element={<QualityPageV2 />} />
 
                 {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
                 <Route path="*" element={<NotFound />} />

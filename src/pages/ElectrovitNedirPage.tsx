@@ -107,7 +107,7 @@ const ElectrovitNedirPage = () => {
                         <AnimatedSection animation="fadeInLeft">
                             {/* Main Headline */}
                             <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-white leading-tight mb-8 font-serif drop-shadow-lg tracking-tight">
-                                <span className="text-[#FFEA00] italic relative inline-block mt-2 filter drop-shadow-[0_4px_4px_rgba(0,0,0,0.2)]">
+                                <span className="text-white italic relative inline-block mt-2" style={{ WebkitTextStroke: '0.5px rgba(0,0,0,0.3)' }}>
                                     {t('health.electrovitNedir.heroSlogan')}
                                 </span>
                             </h1>

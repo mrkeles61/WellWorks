@@ -75,7 +75,7 @@ const HealthAbout = () => {
                   </div>
                 </div>
                 <h3 className="font-bold text-xl text-gray-900 mb-6 font-poppins">Instagram</h3>
-                <span className="inline-block px-6 py-2 bg-pink-100 text-pink-600 rounded-full font-semibold text-sm group-hover:bg-gradient-to-r group-hover:from-yellow-400 group-hover:via-red-500 group-hover:to-purple-500 group-hover:text-white transition-colors">Takip Et</span>
+                <span className="inline-block px-6 py-2 bg-pink-100 text-pink-600 rounded-full font-semibold text-sm group-hover:bg-gradient-to-r group-hover:from-yellow-400 group-hover:via-red-500 group-hover:to-purple-500 group-hover:text-white transition-colors">{t('social.follow')}</span>
               </a>
 
               {/* LinkedIn */}
@@ -91,7 +91,7 @@ const HealthAbout = () => {
                   </div>
                 </div>
                 <h3 className="font-bold text-xl text-gray-900 mb-6 font-poppins">LinkedIn</h3>
-                <span className="inline-block px-6 py-2 bg-[#0A4D80]/10 text-[#0A4D80] rounded-full font-semibold text-sm group-hover:bg-[#0A4D80] group-hover:text-white transition-colors">Takip Et</span>
+                <span className="inline-block px-6 py-2 bg-[#0A4D80]/10 text-[#0A4D80] rounded-full font-semibold text-sm group-hover:bg-[#0A4D80] group-hover:text-white transition-colors">{t('social.follow')}</span>
               </a>
 
               {/* WhatsApp */}
@@ -107,7 +107,7 @@ const HealthAbout = () => {
                   </div>
                 </div>
                 <h3 className="font-bold text-xl text-gray-900 mb-6 font-poppins">WhatsApp</h3>
-                <span className="inline-block px-6 py-2 bg-green-100 text-green-600 rounded-full font-semibold text-sm group-hover:bg-green-500 group-hover:text-white transition-colors">Mesaj Gönder</span>
+                <span className="inline-block px-6 py-2 bg-green-100 text-green-600 rounded-full font-semibold text-sm group-hover:bg-green-500 group-hover:text-white transition-colors">{t('social.sendMessage')}</span>
               </a>
 
               {/* X (Twitter) */}
@@ -125,7 +125,7 @@ const HealthAbout = () => {
                   </div>
                 </div>
                 <h3 className="font-bold text-xl text-gray-900 mb-6 font-poppins">X</h3>
-                <span className="inline-block px-6 py-2 bg-gray-100 text-gray-800 rounded-full font-semibold text-sm group-hover:bg-black group-hover:text-white transition-colors">Takip Et</span>
+                <span className="inline-block px-6 py-2 bg-gray-100 text-gray-800 rounded-full font-semibold text-sm group-hover:bg-black group-hover:text-white transition-colors">{t('social.follow')}</span>
               </a>
 
               {/* YouTube */}
@@ -141,7 +141,7 @@ const HealthAbout = () => {
                   </div>
                 </div>
                 <h3 className="font-bold text-xl text-gray-900 mb-6 font-poppins">YouTube</h3>
-                <span className="inline-block px-6 py-2 bg-red-100 text-red-600 rounded-full font-semibold text-sm group-hover:bg-[#FF0000] group-hover:text-white transition-colors">Abone Ol</span>
+                <span className="inline-block px-6 py-2 bg-red-100 text-red-600 rounded-full font-semibold text-sm group-hover:bg-[#FF0000] group-hover:text-white transition-colors">{t('social.subscribe')}</span>
               </a>
 
               {/* TikTok */}
@@ -157,7 +157,7 @@ const HealthAbout = () => {
                   </div>
                 </div>
                 <h3 className="font-bold text-xl text-gray-900 mb-6 font-poppins">TikTok</h3>
-                <span className="inline-block px-6 py-2 bg-gray-100 text-gray-800 rounded-full font-semibold text-sm group-hover:bg-black group-hover:text-white transition-colors">Takip Et</span>
+                <span className="inline-block px-6 py-2 bg-gray-100 text-gray-800 rounded-full font-semibold text-sm group-hover:bg-black group-hover:text-white transition-colors">{t('social.follow')}</span>
               </a>
 
             </div>

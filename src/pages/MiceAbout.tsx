@@ -75,7 +75,7 @@ const MiceAbout = () => {
                                     <h3 className="text-xl font-bold text-white mb-6 font-poppins">Instagram</h3>
 
                                     <div className="px-6 py-2 rounded-full bg-[#2DB34A]/10 text-[#2DB34A] font-semibold text-sm group-hover:bg-[#2DB34A] group-hover:text-white transition-all duration-300">
-                                        Takip Et
+                                        {t('social.follow')}
                                     </div>
                                 </div>
                             </a>
@@ -108,7 +108,7 @@ const MiceAbout = () => {
                                     <h3 className="text-xl font-bold text-white mb-6 font-poppins">WhatsApp</h3>
 
                                     <div className="px-6 py-2 rounded-full bg-[#25D366]/10 text-[#25D366] font-semibold text-sm group-hover:bg-[#25D366] group-hover:text-white transition-all duration-300">
-                                        Mesaj Gönder
+                                        {t('social.sendMessage')}
                                     </div>
                                 </div>
                             </a>

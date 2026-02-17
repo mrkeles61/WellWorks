@@ -52,9 +52,9 @@ const Header = () => {
   ];
 
   const brandsDropdownItems: NavLinkItem[] = [
-    { href: '/health/electrovit-nedir', label: 'Electrovit' },
-    { href: '/dailyshot-nedir', label: 'Dailyshot' },
-    { href: '/health/exoshine', label: 'Exoshine' },
+    { href: '/dailyshot-nedir', label: 'DAILYSHOT' },
+    { href: '/health/electrovit-nedir', label: 'ELECTROVIT' },
+    { href: '/health/exoshine', label: 'EXOSHINE' },
   ];
 
   const miceLinks: NavLinkItem[] = [
