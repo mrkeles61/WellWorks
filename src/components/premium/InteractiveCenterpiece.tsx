@@ -41,16 +41,16 @@ const FLAVORS = {
     }
 };
 
-const HOTSPOTS = [
-    { id: 1, x: 35, y: 30, label: 'Potasyum (K+)', icon: Zap, desc: 'Kas fonksiyonlarını düzenler.' },
-    { id: 2, x: 65, y: 50, label: 'Magnezyum (Mg++)', icon: Activity, desc: 'Yorgunluğu azaltır.' },
-    { id: 3, x: 40, y: 70, label: 'Sodyum (Na+)', icon: Droplets, desc: 'Sıvı dengesini korur.' },
-];
-
 const InteractiveCenterpiece = ({ onFlavorChange }: InteractiveCenterpieceProps) => {
     const [activeFlavor, setActiveFlavor] = useState<Flavor>('orange');
     const [activeHotspot, setActiveHotspot] = useState<number | null>(null);
     const { t } = useTranslation();
+
+    const HOTSPOTS = [
+        { id: 1, x: 35, y: 30, label: t('electrovitHotspots.potassiumLabel'), icon: Zap, desc: t('electrovitHotspots.potassiumDesc') },
+        { id: 2, x: 65, y: 50, label: t('electrovitHotspots.magnesiumLabel'), icon: Activity, desc: t('electrovitHotspots.magnesiumDesc') },
+        { id: 3, x: 40, y: 70, label: t('electrovitHotspots.sodiumLabel'), icon: Droplets, desc: t('electrovitHotspots.sodiumDesc') },
+    ];
 
     const handleFlavorChange = (flavor: Flavor) => {
         setActiveFlavor(flavor);

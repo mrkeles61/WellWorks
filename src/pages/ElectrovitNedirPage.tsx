@@ -70,7 +70,7 @@ const ProductCard = ({ product, t }: { product: any, t: any }) => {
 
             {/* Content Area */}
             <div className="p-6 flex flex-col items-center gap-3">
-                <h3 className="text-lg font-bold text-slate-900">
+                <h3 className="text-lg font-bold" style={{ color: product.color }}>
                     {product.slug.includes('portakal') ? t('electrovitFlavors.orange') : t('electrovitFlavors.watermelon')}
                 </h3>
                 <div

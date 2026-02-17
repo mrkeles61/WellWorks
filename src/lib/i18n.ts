@@ -30,6 +30,14 @@ const resources = {
         orangeShort: 'Portakal',
         watermelonShort: 'Karpuz',
       },
+      electrovitHotspots: {
+        potassiumLabel: 'Potasyum (K+)',
+        potassiumDesc: 'Kas fonksiyonlarını düzenler.',
+        magnesiumLabel: 'Magnezyum (Mg++)',
+        magnesiumDesc: 'Yorgunluğu azaltır.',
+        sodiumLabel: 'Sodyum (Na+)',
+        sodiumDesc: 'Sıvı dengesini korur.',
+      },
       gateway: {
         health: {
           headline: 'YENİ NESİL LİKİT ÜRÜNLER',
@@ -1020,6 +1028,14 @@ Telefon: +90 536 032 08 38`,
         watermelonFlavor: 'Watermelon Flavor',
         orangeShort: 'Orange',
         watermelonShort: 'Watermelon',
+      },
+      electrovitHotspots: {
+        potassiumLabel: 'Potassium (K+)',
+        potassiumDesc: 'Regulates muscle function.',
+        magnesiumLabel: 'Magnesium (Mg++)',
+        magnesiumDesc: 'Reduces fatigue.',
+        sodiumLabel: 'Sodium (Na+)',
+        sodiumDesc: 'Maintains fluid balance.',
       },
       gateway: {
         health: {
