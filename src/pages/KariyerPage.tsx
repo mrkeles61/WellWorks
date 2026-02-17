@@ -1,7 +1,7 @@
 import { useTranslation } from 'react-i18next';
 import { useEffect, useState, useRef } from 'react';
 import { useBrand } from '@/hooks/useBrand';
-import { Heart, Lightbulb, Users, Briefcase, Upload, X, FileText, Loader2 } from 'lucide-react';
+import { Heart, Lightbulb, Users, Briefcase, Upload, X, FileText, Loader2, Sparkles, ArrowRight, CheckCircle2 } from 'lucide-react';
 import AnimatedSection from '@/components/shared/AnimatedSection';
 import emailjs from '@emailjs/browser';
 
@@ -17,22 +17,28 @@ const KariyerPage = () => {
     const [isDragging, setIsDragging] = useState(false);
     const [isSubmitting, setIsSubmitting] = useState(false);
     const [isSuccess, setIsSuccess] = useState(false);
+    const [kvkkAccepted, setKvkkAccepted] = useState(false);
 
     useEffect(() => {
         setBrand('health');
     }, [setBrand]);
 
     const values = [
-        { icon: Heart, titleKey: 'career.value1Title', descKey: 'career.value1Desc', accent: '#ef4444' },
+        { icon: Heart, titleKey: 'career.value1Title', descKey: 'career.value1Desc', accent: '#00A3E0' },
         { icon: Lightbulb, titleKey: 'career.value2Title', descKey: 'career.value2Desc', accent: '#f59e0b' },
-        { icon: Users, titleKey: 'career.value3Title', descKey: 'career.value3Desc', accent: '#00A3E0' },
+    ];
+
+    const stats = [
+        { valueKey: 'career.stat1Value', labelKey: 'career.stat1Label' },
+        { valueKey: 'career.stat2Value', labelKey: 'career.stat2Label' },
+        { valueKey: 'career.stat3Value', labelKey: 'career.stat3Label' },
     ];
 
     const steps = [
-        { num: 1, titleKey: 'career.step1', descKey: 'career.step1Desc' },
-        { num: 2, titleKey: 'career.step2', descKey: 'career.step2Desc' },
-        { num: 3, titleKey: 'career.step3', descKey: 'career.step3Desc' },
-        { num: 4, titleKey: 'career.step4', descKey: 'career.step4Desc' },
+        { num: 1, titleKey: 'career.step1', descKey: 'career.step1Desc', icon: '📋' },
+        { num: 2, titleKey: 'career.step2', descKey: 'career.step2Desc', icon: '🤝' },
+        { num: 3, titleKey: 'career.step3', descKey: 'career.step3Desc', icon: '🎯' },
+        { num: 4, titleKey: 'career.step4', descKey: 'career.step4Desc', icon: '🏆' },
     ];
 
     const handleDrop = (e: React.DragEvent) => {
@@ -49,7 +55,7 @@ const KariyerPage = () => {
 
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
-        if (!formRef.current) return;
+        if (!formRef.current || !kvkkAccepted) return;
         const honeypot = (formRef.current.querySelector('[name="website"]') as HTMLInputElement)?.value;
         if (honeypot) return;
         setIsSubmitting(true);
@@ -58,6 +64,7 @@ const KariyerPage = () => {
             setIsSuccess(true);
             formRef.current.reset();
             setFile(null);
+            setKvkkAccepted(false);
             setTimeout(() => setIsSuccess(false), 4000);
         } catch {
             // silent
@@ -68,53 +75,215 @@ const KariyerPage = () => {
 
     return (
         <div className="min-h-screen bg-white text-slate-900">
-            {/* Hero */}
-            <section className="pt-32 pb-20 px-4">
-                <div className="container max-w-4xl mx-auto text-center">
+            {/* ═══════════════════════════════════════════
+                SECTION 1: HERO BANNER
+            ═══════════════════════════════════════════ */}
+            <section className="relative pt-28 pb-24 md:pt-36 md:pb-32 px-4 overflow-hidden">
+                {/* Gradient Background */}
+                <div className="absolute inset-0 bg-gradient-to-br from-[#00A3E0]/5 via-white to-[#00A3E0]/10" />
+                {/* Decorative Elements */}
+                <div className="absolute top-20 right-10 w-72 h-72 bg-[#00A3E0]/5 rounded-full blur-3xl" />
+                <div className="absolute bottom-10 left-10 w-48 h-48 bg-[#00A3E0]/8 rounded-full blur-2xl" />
+
+                <div className="container max-w-5xl mx-auto text-center relative z-10">
                     <AnimatedSection>
                         <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-[#00A3E0]/20 bg-[#00A3E0]/5 text-[#00A3E0] text-sm font-medium mb-6">
                             <Briefcase className="w-4 h-4" />
                             {t('career.pageTitle')}
                         </div>
-                        <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold font-poppins text-slate-900 mb-5">
-                            {t('career.pageTitle')}
+                        <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold font-poppins text-slate-900 mb-4 leading-tight">
+                            {t('career.heroTitle')}<br />
+                            <span className="text-[#00A3E0]">{t('career.heroTitleAccent')}</span>
                         </h1>
                         <p className="text-lg text-gray-500 max-w-xl mx-auto mb-8">
                             {t('career.heroDesc')}
                         </p>
                         <a
-                            href="#cv-form"
-                            className="inline-flex items-center gap-2 px-8 py-3 bg-[#00A3E0] text-white rounded-full font-semibold hover:bg-[#0090c7] transition-colors"
+                            href="#application-form"
+                            className="inline-flex items-center gap-2 px-8 py-3.5 bg-[#00A3E0] text-white rounded-full font-semibold hover:bg-[#0090c7] transition-all hover:shadow-lg hover:shadow-[#00A3E0]/25 hover:-translate-y-0.5"
                         >
-                            {t('career.sendCv')}
+                            {t('career.heroButton')}
+                            <ArrowRight className="w-4 h-4" />
                         </a>
                     </AnimatedSection>
                 </div>
             </section>
 
-            {/* Culture Values */}
-            <section className="py-20 px-4 bg-gray-50">
+            {/* ═══════════════════════════════════════════
+                SECTION 2: INTRO
+            ═══════════════════════════════════════════ */}
+            <section className="py-16 px-4">
+                <div className="container max-w-4xl mx-auto">
+                    <AnimatedSection>
+                        <div className="flex flex-col md:flex-row items-center gap-8">
+                            <div className="flex-shrink-0">
+                                <div className="w-16 h-16 rounded-2xl bg-[#00A3E0]/10 flex items-center justify-center">
+                                    <Sparkles className="w-8 h-8 text-[#00A3E0]" />
+                                </div>
+                            </div>
+                            <div>
+                                <h2 className="text-2xl md:text-3xl font-bold font-poppins text-slate-900 mb-3">
+                                    {t('career.introTitle')}
+                                </h2>
+                                <p className="text-gray-500 leading-relaxed">
+                                    {t('career.introText')}
+                                </p>
+                            </div>
+                        </div>
+                    </AnimatedSection>
+                </div>
+            </section>
+
+            {/* ═══════════════════════════════════════════
+                SECTION 3: CTA + VISUAL (side-by-side)
+            ═══════════════════════════════════════════ */}
+            <section className="py-16 px-4 bg-gray-50">
                 <div className="container max-w-5xl mx-auto">
                     <AnimatedSection>
-                        <h2 className="text-2xl md:text-3xl font-bold font-poppins text-slate-900 text-center mb-12">
-                            Kültür & Değerlerimiz
+                        <div className="grid md:grid-cols-2 gap-12 items-center">
+                            {/* Text side */}
+                            <div>
+                                <h2 className="text-2xl md:text-3xl font-bold font-poppins text-slate-900 mb-4">
+                                    {t('career.ctaTitle')}
+                                </h2>
+                                <p className="text-gray-500 mb-6 leading-relaxed">
+                                    {t('career.ctaText')}
+                                </p>
+                                <a
+                                    href="#application-form"
+                                    className="inline-flex items-center gap-2 px-6 py-3 bg-[#00A3E0] text-white rounded-xl font-semibold hover:bg-[#0090c7] transition-all hover:shadow-lg"
+                                >
+                                    {t('career.ctaButton')}
+                                    <ArrowRight className="w-4 h-4" />
+                                </a>
+                            </div>
+                            {/* Visual side — geometric pattern */}
+                            <div className="relative aspect-[4/3] rounded-2xl overflow-hidden bg-gradient-to-br from-[#00A3E0] to-[#0077b6]">
+                                <div className="absolute inset-0 opacity-20">
+                                    <div className="absolute top-8 left-8 w-24 h-24 border-2 border-white/40 rounded-2xl rotate-12" />
+                                    <div className="absolute bottom-12 right-12 w-32 h-32 border-2 border-white/30 rounded-full" />
+                                    <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-16 h-16 bg-white/10 rounded-xl rotate-45" />
+                                </div>
+                                <div className="absolute inset-0 flex items-center justify-center">
+                                    <div className="text-center text-white">
+                                        <Users className="w-16 h-16 mx-auto mb-4 opacity-80" />
+                                        <p className="text-xl font-bold font-poppins">WellWorks Turkey</p>
+                                        <p className="text-sm opacity-70 mt-1">{t('career.pageTitle')}</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </AnimatedSection>
+                </div>
+            </section>
+
+            {/* ═══════════════════════════════════════════
+                SECTION 4: VALUES (zigzag layout)
+            ═══════════════════════════════════════════ */}
+            <section className="py-20 px-4">
+                <div className="container max-w-5xl mx-auto space-y-20">
+                    {values.map((v, idx) => {
+                        const Icon = v.icon;
+                        const isReversed = idx % 2 !== 0;
+                        return (
+                            <AnimatedSection key={v.titleKey}>
+                                <div className={`grid md:grid-cols-2 gap-12 items-center ${isReversed ? 'direction-rtl' : ''}`}>
+                                    {/* Visual Block */}
+                                    <div className={`relative aspect-[4/3] rounded-2xl overflow-hidden ${isReversed ? 'md:order-2' : ''}`}
+                                        style={{ background: `linear-gradient(135deg, ${v.accent}15, ${v.accent}30)` }}
+                                    >
+                                        <div className="absolute inset-0 flex items-center justify-center">
+                                            <div className="w-24 h-24 rounded-3xl flex items-center justify-center"
+                                                style={{ backgroundColor: `${v.accent}20` }}>
+                                                <Icon className="w-12 h-12" style={{ color: v.accent }} />
+                                            </div>
+                                        </div>
+                                        {/* Decorative circles */}
+                                        <div className="absolute top-6 right-6 w-20 h-20 rounded-full opacity-20"
+                                            style={{ backgroundColor: v.accent }} />
+                                        <div className="absolute bottom-8 left-8 w-12 h-12 rounded-full opacity-15"
+                                            style={{ backgroundColor: v.accent }} />
+                                    </div>
+                                    {/* Text Block */}
+                                    <div className={isReversed ? 'md:order-1' : ''}>
+                                        <h3 className="text-2xl md:text-3xl font-bold font-poppins text-slate-900 mb-4">
+                                            {t(v.titleKey)}
+                                        </h3>
+                                        <p className="text-gray-500 leading-relaxed text-lg">
+                                            {t(v.descKey)}
+                                        </p>
+                                    </div>
+                                </div>
+                            </AnimatedSection>
+                        );
+                    })}
+                </div>
+            </section>
+
+            {/* ═══════════════════════════════════════════
+                SECTION 5: STATS ("Ekibimiz, Gücümüz")
+            ═══════════════════════════════════════════ */}
+            <section className="py-20 px-4 bg-gradient-to-br from-slate-900 to-slate-800 text-white">
+                <div className="container max-w-5xl mx-auto text-center">
+                    <AnimatedSection>
+                        <h2 className="text-2xl md:text-3xl font-bold font-poppins mb-12">
+                            {t('career.statsTitle')}
+                        </h2>
+                        <div className="grid grid-cols-3 gap-6 md:gap-12">
+                            {stats.map((s) => (
+                                <div key={s.labelKey} className="text-center">
+                                    <p className="text-4xl md:text-5xl font-bold text-[#00A3E0] mb-2">
+                                        {t(s.valueKey)}
+                                    </p>
+                                    <p className="text-sm md:text-base text-gray-400 font-medium">
+                                        {t(s.labelKey)}
+                                    </p>
+                                </div>
+                            ))}
+                        </div>
+                    </AnimatedSection>
+                </div>
+            </section>
+
+            {/* ═══════════════════════════════════════════
+                SECTION 6: RECRUITMENT PROCESS (timeline)
+            ═══════════════════════════════════════════ */}
+            <section className="py-20 px-4">
+                <div className="container max-w-4xl mx-auto">
+                    <AnimatedSection>
+                        <h2 className="text-2xl md:text-3xl font-bold font-poppins text-slate-900 text-center mb-14">
+                            {t('career.processTitle')}
                         </h2>
                     </AnimatedSection>
-                    <div className="grid md:grid-cols-3 gap-8">
-                        {values.map((v) => {
-                            const Icon = v.icon;
+
+                    <div className="space-y-12">
+                        {steps.map((step, idx) => {
+                            const isReversed = idx % 2 !== 0;
                             return (
-                                <AnimatedSection key={v.titleKey}>
-                                    <div className="bg-white border border-gray-200 rounded-2xl p-8 text-center h-full hover:shadow-lg hover:border-transparent transition-all duration-300">
-                                        <div
-                                            className="w-14 h-14 rounded-2xl flex items-center justify-center mx-auto mb-5"
-                                            style={{ backgroundColor: `${v.accent}10` }}
-                                        >
-                                            <Icon className="w-7 h-7" style={{ color: v.accent }} />
+                                <AnimatedSection key={step.num}>
+                                    <div className={`flex flex-col md:flex-row items-center gap-8 ${isReversed ? 'md:flex-row-reverse' : ''}`}>
+                                        {/* Step visual */}
+                                        <div className="flex-shrink-0 w-20 h-20 rounded-2xl bg-[#00A3E0]/10 flex items-center justify-center text-3xl relative">
+                                            {step.icon}
+                                            <div className="absolute -top-2 -right-2 w-7 h-7 bg-[#00A3E0] text-white rounded-full flex items-center justify-center text-xs font-bold">
+                                                {step.num}
+                                            </div>
                                         </div>
-                                        <h3 className="text-lg font-bold font-poppins text-slate-900 mb-3">{t(v.titleKey)}</h3>
-                                        <p className="text-gray-500 text-sm leading-relaxed">{t(v.descKey)}</p>
+                                        {/* Step text */}
+                                        <div className={`flex-1 ${isReversed ? 'md:text-right' : ''}`}>
+                                            <h3 className="text-lg font-bold font-poppins text-slate-900 mb-1">
+                                                {t(step.titleKey)}
+                                            </h3>
+                                            <p className="text-gray-500 text-sm">
+                                                {t(step.descKey)}
+                                            </p>
+                                        </div>
                                     </div>
+                                    {idx < steps.length - 1 && (
+                                        <div className="hidden md:flex justify-center my-4">
+                                            <div className="w-px h-8 bg-gray-200" />
+                                        </div>
+                                    )}
                                 </AnimatedSection>
                             );
                         })}
@@ -122,70 +291,18 @@ const KariyerPage = () => {
                 </div>
             </section>
 
-            {/* Hiring Timeline */}
-            <section className="py-20 px-4">
-                <div className="container max-w-4xl mx-auto">
-                    <AnimatedSection>
-                        <h2 className="text-2xl md:text-3xl font-bold font-poppins text-slate-900 text-center mb-12">
-                            İşe Alım Sürecimiz
-                        </h2>
-                    </AnimatedSection>
-
-                    {/* Desktop Timeline */}
-                    <div className="hidden md:flex items-start justify-between relative">
-                        <div className="absolute top-6 left-0 right-0 h-0.5 bg-gray-200" />
-                        {steps.map((step) => (
-                            <AnimatedSection key={step.num}>
-                                <div className="relative flex flex-col items-center text-center w-40">
-                                    <div className="w-12 h-12 rounded-full bg-[#00A3E0] text-white flex items-center justify-center font-bold text-lg relative z-10">
-                                        {step.num}
-                                    </div>
-                                    <h3 className="font-bold text-slate-900 mt-4 mb-1 text-sm">{t(step.titleKey)}</h3>
-                                    <p className="text-gray-500 text-xs">{t(step.descKey)}</p>
-                                </div>
-                            </AnimatedSection>
-                        ))}
-                    </div>
-
-                    {/* Mobile Timeline */}
-                    <div className="md:hidden space-y-6">
-                        {steps.map((step) => (
-                            <AnimatedSection key={step.num}>
-                                <div className="flex items-start gap-4">
-                                    <div className="w-10 h-10 rounded-full bg-[#00A3E0] text-white flex items-center justify-center font-bold text-sm flex-shrink-0">
-                                        {step.num}
-                                    </div>
-                                    <div>
-                                        <h3 className="font-bold text-slate-900 mb-1">{t(step.titleKey)}</h3>
-                                        <p className="text-gray-500 text-sm">{t(step.descKey)}</p>
-                                    </div>
-                                </div>
-                            </AnimatedSection>
-                        ))}
-                    </div>
-                </div>
-            </section>
-
-            {/* Open Positions */}
-            <section className="py-16 px-4 bg-gray-50">
-                <div className="container max-w-3xl mx-auto text-center">
-                    <AnimatedSection>
-                        <h2 className="text-2xl font-bold font-poppins text-slate-900 mb-6">{t('career.openPositions')}</h2>
-                        <div className="bg-white border border-gray-200 rounded-2xl p-10">
-                            <Briefcase className="w-12 h-12 mx-auto mb-4 text-gray-300" />
-                            <p className="text-gray-500 font-medium mb-1">{t('career.noPositions')}</p>
-                            <p className="text-gray-400 text-sm">{t('career.noPositionsDesc')}</p>
-                        </div>
-                    </AnimatedSection>
-                </div>
-            </section>
-
-            {/* CV Form */}
-            <section id="cv-form" className="py-20 px-4">
+            {/* ═══════════════════════════════════════════
+                SECTION 7: APPLICATION FORM
+            ═══════════════════════════════════════════ */}
+            <section id="application-form" className="py-20 px-4 bg-gray-50">
                 <div className="container max-w-2xl mx-auto">
                     <AnimatedSection>
-                        <h2 className="text-2xl font-bold font-poppins text-slate-900 text-center mb-3">{t('career.sendCv')}</h2>
-                        <p className="text-gray-500 text-center mb-10 max-w-lg mx-auto">{t('career.sendCvDesc')}</p>
+                        <h2 className="text-2xl md:text-3xl font-bold font-poppins text-slate-900 text-center mb-2">
+                            {t('career.formTitle')}
+                        </h2>
+                        <p className="text-gray-500 text-center mb-10 max-w-lg mx-auto">
+                            {t('career.formDesc')}
+                        </p>
 
                         <form ref={formRef} onSubmit={handleSubmit} className="bg-white border border-gray-200 rounded-2xl p-8 shadow-sm space-y-5">
                             {/* Honeypot */}
@@ -226,6 +343,21 @@ const KariyerPage = () => {
                                 />
                             </div>
 
+                            {/* Area of Interest */}
+                            <div>
+                                <label className="block text-sm font-medium text-slate-700 mb-1.5">{t('career.form.area')}</label>
+                                <select
+                                    name="area"
+                                    className="w-full px-4 py-3 rounded-xl border border-gray-300 bg-white text-slate-900 focus:outline-none focus:ring-2 focus:ring-[#00A3E0]/40 focus:border-[#00A3E0] transition"
+                                >
+                                    <option value="">{t('career.form.areaPlaceholder')}</option>
+                                    <option value="health">{t('career.form.areaHealth')}</option>
+                                    <option value="mice">{t('career.form.areaMice')}</option>
+                                    <option value="marketing">{t('career.form.areaMarketing')}</option>
+                                    <option value="other">{t('career.form.areaOther')}</option>
+                                </select>
+                            </div>
+
                             {/* Message */}
                             <div>
                                 <label className="block text-sm font-medium text-slate-700 mb-1.5">{t('career.form.message')}</label>
@@ -239,7 +371,7 @@ const KariyerPage = () => {
 
                             {/* File Upload */}
                             <div>
-                                <label className="block text-sm font-medium text-slate-700 mb-1.5">CV (PDF, max 5MB)</label>
+                                <label className="block text-sm font-medium text-slate-700 mb-1.5">{t('career.form.cv')}</label>
                                 <div
                                     onDragOver={(e) => { e.preventDefault(); setIsDragging(true); }}
                                     onDragLeave={() => setIsDragging(false)}
@@ -270,22 +402,39 @@ const KariyerPage = () => {
                                     ) : (
                                         <div className="text-gray-400">
                                             <Upload className="w-8 h-8 mx-auto mb-2" />
-                                            <p className="text-sm">PDF dosyanızı sürükleyin veya tıklayın</p>
+                                            <p className="text-sm">{t('career.form.cvDrag')}</p>
                                         </div>
                                     )}
                                 </div>
                             </div>
 
+                            {/* KVKK Checkbox */}
+                            <div className="flex items-start gap-3">
+                                <input
+                                    type="checkbox"
+                                    id="kvkk"
+                                    checked={kvkkAccepted}
+                                    onChange={(e) => setKvkkAccepted(e.target.checked)}
+                                    className="mt-1 w-4 h-4 rounded border-gray-300 text-[#00A3E0] focus:ring-[#00A3E0]/40"
+                                />
+                                <label htmlFor="kvkk" className="text-sm text-gray-500 cursor-pointer">
+                                    {t('career.form.kvkk')}
+                                </label>
+                            </div>
+
                             {/* Submit */}
                             <button
                                 type="submit"
-                                disabled={isSubmitting}
-                                className="w-full py-3.5 bg-[#00A3E0] text-white font-semibold rounded-xl hover:bg-[#0090c7] disabled:opacity-60 transition-colors flex items-center justify-center gap-2"
+                                disabled={isSubmitting || !kvkkAccepted}
+                                className="w-full py-3.5 bg-[#00A3E0] text-white font-semibold rounded-xl hover:bg-[#0090c7] disabled:opacity-60 disabled:cursor-not-allowed transition-colors flex items-center justify-center gap-2"
                             >
                                 {isSubmitting ? (
                                     <Loader2 className="w-5 h-5 animate-spin" />
                                 ) : (
-                                    t('career.form.submit')
+                                    <>
+                                        <CheckCircle2 className="w-5 h-5" />
+                                        {t('career.form.submit')}
+                                    </>
                                 )}
                             </button>
 

@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom';
 import { useEffect, useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import { useBrand } from '@/hooks/useBrand';
 import { ArrowUpRight, Calendar, MapPin, Users, ExternalLink, X } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
@@ -10,85 +11,36 @@ import AnimatedSection from '@/components/shared/AnimatedSection';
  * Large showcase cards for MICE events and projects
  */
 
-// Featured works/projects data
-const featuredWorks = [
-    {
-        id: '1',
-        title: 'HoliFest İstanbul 2024',
-        subtitle: 'Renk Festivali',
-        description: "Hindistan'ın geleneksel Holi festivalini İstanbul'a taşıdık. 15,000+ katılımcıyla şehrin en renkli etkinliği.",
-        image: 'https://lh3.googleusercontent.com/aida-public/AB6AXuBfAYhIK-nGMz49c4JMrT1z0kXLI7fhR9CrKsYFAQdAjkRUkBeHWM986voT0DQliTSrXHdeydatBRnLyJrltL7-WRpdzIpFk-wHdKWyCancjBLvzeioGRjPgDh-2uhcOJfCjsNMDmSpjD-8BYDDSywzjKHY_FHOV-pG0eHkZLpfGApyh_Rk3HHipKiZc2m-xT3XrhdZPfRAN5c206NulzamjFK-DMRfB6UFhKoQP5wALDMMinrqSece_S6v0P8QfATkQVxchswtiA',
-        date: 'Mart 2024',
-        location: 'İstanbul, Küçükçiftlik Park',
-        attendees: '15,000+',
-        category: 'Festival',
-        featured: true,
-    },
-    {
-        id: '2',
-        title: 'Imera & Niks Carnaval',
-        subtitle: 'Karnaval',
-        description: 'Müzik ve eğlencenin iç içe geçtiği benzersiz bir karnaval deneyimi. Görsel şölenler ve unutulmaz performanslar.',
-        image: '/images/mice/imera-carnival.png',
-        date: 'Yaz 2024',
-        location: 'Bodrum',
-        attendees: '5,000+',
-        category: 'Karnaval',
-        featured: true,
-    },
-    {
-        id: '3',
-        title: 'Yıldızlı Konser Akşamları',
-        subtitle: 'Konser Serisi',
-        description: "Türkiye'nin en sevilen sanatçılarıyla yıldızların altında unutulmaz konserler.",
-        image: '/images/mice/yildizli-konser.png',
-        date: 'Yaz 2024',
-        location: 'Çeşme Açıkhava',
-        attendees: '10,000+',
-        category: 'Konser',
-    },
-    {
-        id: '4',
-        title: 'Christmas Market Istanbul',
-        subtitle: 'Kış Pazarı',
-        description: 'Avrupa tarzı yılbaşı pazarı deneyimi. Butik stantlar, canlı müzik ve sıcak içeceklerle büyülü bir atmosfer.',
-        image: 'https://lh3.googleusercontent.com/aida-public/AB6AXuCB4ncuXlL5kbcoY3syjBZySjH-voCBmDjOIFNpel4dclT_ilZiZgUBVrFmXaYyDKpdMM1uVzsFsBFBjCqDC4Z33IEtGdOXCnxHgi_D35C3IJ8QDyR1YH-meF5P0OXToF9EciSKfLjaua2LLTumOVAcFTI7JzJtBoa4H-8AhaemHNzlD74sJxDestfqPFFUsdfdj8FgsuSELg1S0M2SGwn5xwru5VSNOtfda9h1-bDEnzda7AuMq0HpQOddbof3hcGvm7H1kHJrig',
-        date: 'Aralık 2023',
-        location: 'İstanbul, Maçka Parkı',
-        attendees: '50,000+',
-        category: 'Pazar',
-    },
-    {
-        id: '5',
-        title: 'Gusto Weekend',
-        subtitle: 'Gastronomi Festivali',
-        description: 'Gastronomi, lezzet ve yaşam tarzını kutlayan bir hafta sonu festivali. Şef tadımları ve atölyeler.',
-        image: '/images/mice/gusto-weekend.png',
-        date: 'Sonbahar 2024',
-        location: 'İstanbul',
-        attendees: '8,000+',
-        category: 'Festival',
-    },
-    {
-        id: '6',
-        title: 'Business Leisure',
-        subtitle: 'VIP Deneyim',
-        description: 'Profesyonel ağ kurma ile premium eğlenceyi birleştiren seçkin etkinlikler. Networking ve eğlence bir arada.',
-        image: '/images/mice/business-leisure.png',
-        date: 'Sürekli',
-        location: 'Çeşitli Lokasyonlar',
-        attendees: 'Özel Davetli',
-        category: 'Networking',
-    },
+const eventImages = [
+    'https://lh3.googleusercontent.com/aida-public/AB6AXuBfAYhIK-nGMz49c4JMrT1z0kXLI7fhR9CrKsYFAQdAjkRUkBeHWM986voT0DQliTSrXHdeydatBRnLyJrltL7-WRpdzIpFk-wHdKWyCancjBLvzeioGRjPgDh-2uhcOJfCjsNMDmSpjD-8BYDDSywzjKHY_FHOV-pG0eHkZLpfGApyh_Rk3HHipKiZc2m-xT3XrhdZPfRAN5c206NulzamjFK-DMRfB6UFhKoQP5wALDMMinrqSece_S6v0P8QfATkQVxchswtiA',
+    '/images/mice/imera-carnival.png',
+    '/images/mice/yildizli-konser.png',
+    'https://lh3.googleusercontent.com/aida-public/AB6AXuCB4ncuXlL5kbcoY3syjBZySjH-voCBmDjOIFNpel4dclT_ilZiZgUBVrFmXaYyDKpdMM1uVzsFsBFBjCqDC4Z33IEtGdOXCnxHgi_D35C3IJ8QDyR1YH-meF5P0OXToF9EciSKfLjaua2LLTumOVAcFTI7JzJtBoa4H-8AhaemHNzlD74sJxDestfqPFFUsdfdj8FgsuSELg1S0M2SGwn5xwru5VSNOtfda9h1-bDEnzda7AuMq0HpQOddbof3hcGvm7H1kHJrig',
+    '/images/mice/gusto-weekend.png',
+    '/images/mice/business-leisure.png',
 ];
 
 const WorksPage = () => {
     const { setBrand } = useBrand();
+    const { t } = useTranslation();
     const [selectedId, setSelectedId] = useState<string | null>(null);
 
     useEffect(() => {
         setBrand('mice');
     }, [setBrand]);
+
+    const featuredWorks = [1, 2, 3, 4, 5, 6].map((i) => ({
+        id: String(i),
+        title: t(`works.event${i}.title`),
+        subtitle: t(`works.event${i}.subtitle`),
+        description: t(`works.event${i}.description`),
+        image: eventImages[i - 1],
+        date: t(`works.event${i}.date`),
+        location: t(`works.event${i}.location`),
+        attendees: t(`works.event${i}.attendees`),
+        category: t(`works.event${i}.category`),
+        featured: i <= 2,
+    }));
 
     const selectedWork = featuredWorks.find(w => w.id === selectedId);
 
@@ -105,11 +57,11 @@ const WorksPage = () => {
                 <div className="container mx-auto max-w-7xl relative z-10">
                     <AnimatedSection animation="fadeInUp">
                         <h1 className="font-oswald text-5xl md:text-7xl lg:text-8xl font-bold text-white leading-none mb-6">
-                            İşler<br />
-                            <span className="text-mice-primary">Güçler</span>
+                            {t('works.heroTitle')}<br />
+                            <span className="text-mice-primary">{t('works.heroTitleAccent')}</span>
                         </h1>
                         <p className="text-xl text-gray-200 max-w-2xl font-light">
-                            12 yılda 100+ başarılı etkinlik. Her biri bir hikaye, her biri bir deneyim.
+                            {t('works.heroSubtitle')}
                         </p>
                     </AnimatedSection>
                 </div>
@@ -226,21 +178,20 @@ const WorksPage = () => {
 
             {/* CTA Section */}
             <section className="py-24 px-4 border-t border-white/10">
-                {/* ... (Kept as is) ... */}
                 <div className="container mx-auto max-w-4xl text-center">
                     <AnimatedSection animation="fadeInUp">
                         <h2 className="font-oswald text-4xl md:text-5xl font-bold text-white mb-6">
-                            Bir Sonraki <span className="text-mice-primary">Başyapıt</span> Sizin Olsun
+                            {t('works.ctaTitle')} <span className="text-mice-primary">{t('works.ctaTitleAccent')}</span> {t('works.ctaTitleSuffix')}
                         </h2>
                         <p className="text-gray-400 text-lg mb-10 max-w-2xl mx-auto">
-                            Markanız için unutulmaz bir etkinlik deneyimi yaratmak mı istiyorsunuz? Hemen iletişime geçin.
+                            {t('works.ctaSubtitle')}
                         </p>
                         <div className="flex flex-col sm:flex-row gap-4 justify-center">
                             <Link
                                 to="/mice/iletisim"
                                 className="px-8 py-4 bg-mice-primary hover:bg-mice-primary-hover text-white font-bold rounded-xl transition-colors"
                             >
-                                Teklif Alın
+                                {t('works.ctaButton')}
                             </Link>
                             <a
                                 href="https://wa.me/905327218678"
@@ -261,7 +212,7 @@ const WorksPage = () => {
                                 >
                                     <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z" />
                                 </svg>
-                                Hemen İletişime Geçin
+                                {t('works.ctaWhatsapp')}
                             </a>
                         </div>
                     </AnimatedSection>
@@ -326,7 +277,7 @@ const WorksPage = () => {
                                         to="/mice/iletisim"
                                         className="inline-flex items-center justify-center gap-2 bg-[#2DB34A] hover:bg-[#249A3D] text-white font-bold py-3 px-6 rounded-xl transition-colors w-full text-sm"
                                     >
-                                        Teklif İste
+                                        {t('works.modalRequestQuote')}
                                         <ExternalLink className="w-4 h-4" />
                                     </Link>
                                 </div>
