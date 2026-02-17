@@ -54,10 +54,7 @@ const SatisNoktalariPage = () => {
             <section className="pt-32 pb-20 px-4">
                 <div className="container max-w-4xl mx-auto text-center">
                     <AnimatedSection>
-                        <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-[#00A3E0]/20 bg-[#00A3E0]/5 text-[#00A3E0] text-sm font-medium mb-6">
-                            <ShoppingBag className="w-4 h-4" />
-                            {t('nav.salesPoints')}
-                        </div>
+
                         <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold font-poppins text-slate-900 mb-5">
                             {t('salesPoints.title')}
                         </h1>
@@ -131,22 +128,6 @@ const SatisNoktalariPage = () => {
                 </div>
             </section>
 
-            {/* Bottom Info */}
-            <section className="pb-16 px-4">
-                <div className="container max-w-3xl mx-auto text-center">
-                    <AnimatedSection>
-                        <div className="bg-gray-50 border border-gray-200 rounded-2xl p-8">
-                            <p className="text-gray-500 text-sm">
-                                Ürünlerimiz hakkında detaylı bilgi almak veya toptan sipariş vermek için{' '}
-                                <a href="mailto:pazarlama@wellworksturkey.com" className="text-[#00A3E0] hover:underline">
-                                    pazarlama@wellworksturkey.com
-                                </a>
-                                {' '}adresinden bize ulaşabilirsiniz.
-                            </p>
-                        </div>
-                    </AnimatedSection>
-                </div>
-            </section>
         </div>
     );
 };

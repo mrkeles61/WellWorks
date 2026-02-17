@@ -106,7 +106,7 @@ const GatewayPage = () => {
               </h1>
             </div>
 
-            <h2 className="animate-item font-oswald font-bold uppercase tracking-[0.2em] text-4xl md:text-5xl text-black transition-colors duration-500 mb-8" style={{ opacity: 0 }}>
+            <h2 className="animate-item font-dancing text-5xl md:text-6xl text-[#00A3E0] group-hover:text-white transition-colors duration-500 mb-8" style={{ opacity: 0 }}>
               Health
             </h2>
 
@@ -145,8 +145,8 @@ const GatewayPage = () => {
               </h1>
             </div>
 
-            <h2 className="animate-item font-oswald font-bold uppercase tracking-[0.2em] text-4xl md:text-5xl text-black transition-colors duration-500 mb-8" style={{ opacity: 0 }}>
-              M.I.C.E
+            <h2 className="animate-item font-dancing text-5xl md:text-6xl text-[#39B54A] group-hover:text-white transition-colors duration-500 mb-8" style={{ opacity: 0 }}>
+              mice
             </h2>
 
             <p className="animate-item text-gray-600 group-hover:text-white/80 mb-8 max-w-sm mx-auto transition-colors duration-500" style={{ opacity: 0 }}>
@@ -178,7 +178,7 @@ const GatewayPage = () => {
               <span className="text-black">WELL</span>
               <span className="text-[#00A3E0]"> WORKS</span>
             </h1>
-            <h2 className="font-oswald font-bold uppercase tracking-[0.2em] text-3xl text-black mb-4">Health</h2>
+            <h2 className="font-dancing text-4xl text-[#00A3E0] mb-4">Health</h2>
             <p className="text-gray-600 text-center mb-6 max-w-xs">
               Sağlıklı yaşam için geliştirilmiş likit gıda takviyeleri
             </p>
@@ -201,7 +201,7 @@ const GatewayPage = () => {
               <span className="text-black">WELL</span>
               <span className="text-[#39B54A]"> WORKS</span>
             </h1>
-            <h2 className="font-oswald font-bold uppercase tracking-[0.2em] text-3xl text-black mb-4">M.I.C.E</h2>
+            <h2 className="font-dancing text-4xl text-[#39B54A] mb-4">mice</h2>
             <p className="text-gray-600 text-center mb-6 max-w-xs">
               Unutulmaz etkinlikler ve profesyonel organizasyon hizmetleri
             </p>

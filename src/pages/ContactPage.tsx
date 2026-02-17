@@ -190,7 +190,7 @@ const ContactPage = () => {
     <div
       className={cn(
         'min-h-screen pt-24 pb-16',
-        brand === 'health' ? 'bg-background text-foreground' : 'bg-mice-bg text-mice-text'
+        brand === 'health' ? 'bg-white text-slate-900' : 'bg-mice-bg text-mice-text'
       )}
     >
       <div className="container">
