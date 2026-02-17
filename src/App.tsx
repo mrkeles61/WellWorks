@@ -11,7 +11,7 @@ import GatewayPage from "./pages/GatewayPage";
 import HealthHome from "./pages/HealthHome";
 import HealthAbout from "./pages/HealthAbout";
 import DailyshotNedirPage from "./pages/DailyshotNedirPage";
-import HealthContactPage from "./pages/HealthContactPage";
+import KariyerPage from "./pages/KariyerPage";
 import ElectrovitNedirPage from "./pages/ElectrovitNedirPage";
 import MiceHome from "./pages/MiceHome";
 import MiceAbout from "./pages/MiceAbout";
@@ -20,8 +20,8 @@ import WorksPage from "./pages/WorksPage";
 import TeamPage from "./pages/TeamPage";
 import ContactPage from "./pages/ContactPage";
 import LegalPage from "./pages/LegalPage";
-import SpinWheelPage from "./pages/SpinWheelPage";
-import DailyshotQuizPage from "./pages/DailyshotQuizPage";
+import QualityPage from "./pages/QualityPage";
+
 import NotFound from "./pages/NotFound";
 
 import "./lib/i18n";
@@ -43,7 +43,7 @@ const App = () => (
                 <Route path="/health" element={<HealthHome />} />
                 <Route path="/health/hakkimizda" element={<HealthAbout />} />
                 <Route path="/dailyshot-nedir" element={<DailyshotNedirPage />} />
-                <Route path="/health/iletisim" element={<HealthContactPage />} />
+                <Route path="/health/iletisim" element={<ContactPage />} />
                 <Route path="/health/electrovit-nedir" element={<ElectrovitNedirPage />} />
                 <Route path="/mice" element={<MiceHome />} />
                 <Route path="/mice/hakkimizda" element={<MiceAbout />} />
@@ -56,8 +56,9 @@ const App = () => (
                 <Route path="/legal/:type" element={<LegalPage />} />
 
                 <Route path="/health/satis-noktalari" element={<StoreLocatorPage />} />
-                <Route path="/health/hediye-cark" element={<SpinWheelPage />} />
-                <Route path="/health/quiz" element={<DailyshotQuizPage />} />
+                <Route path="/kariyer" element={<KariyerPage />} />
+                <Route path="/kalite" element={<QualityPage />} />
+
                 {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
                 <Route path="*" element={<NotFound />} />
               </Routes>

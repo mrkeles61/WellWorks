@@ -214,6 +214,18 @@ const Footer = () => {
           </div>
         </div>
 
+        {/* Certificates Section */}
+        <div className="flex flex-col items-center pt-6 border-t border-gray-300 mb-6">
+          <h4 className="font-bold text-gray-900 mb-3">{t('footer.certificates')}</h4>
+          <Link to="/kalite">
+            <img
+              src="/icons/cert-badges.png"
+              alt={t('footer.certificates')}
+              className="max-h-16 object-contain opacity-80 hover:opacity-100 transition-opacity"
+            />
+          </Link>
+        </div>
+
         {/* Bottom Bar */}
         <div className="flex flex-col md:flex-row items-center justify-between pt-6 border-t border-gray-300 text-sm text-gray-500">
           <p>© {new Date().getFullYear()} Well Works Turkey. {t('footer.rights')}</p>

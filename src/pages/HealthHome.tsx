@@ -5,7 +5,7 @@ import { products } from '@/data/products';
 import ProductCard from '@/components/health/ProductCard';
 import AnimatedSection from '@/components/shared/AnimatedSection';
 
-import bottleOfHealth from '@/assets/bottle-of-health.png';
+import heroImage from '@/assets/shot_electrovit.png';
 import certificationsTransparentImg from '@/assets/certifications_transparent.png';
 import { useEffect, useRef, useState } from 'react';
 import { useBrand } from '@/hooks/useBrand';
@@ -147,7 +147,7 @@ const HealthHome = () => {
               className="relative flex justify-center lg:justify-end mt-10 lg:mt-0 group cursor-pointer"
             >
               <motion.img
-                src={bottleOfHealth}
+                src={heroImage}
                 alt="Dailyshot - A Bottle of Health"
                 className="w-full max-w-3xl mx-auto drop-shadow-xl"
                 loading="eager"

@@ -86,6 +86,7 @@ export default {
         oswald: ["Oswald", "sans-serif"],
         roboto: ["Roboto", "sans-serif"],
         montserrat: ["Montserrat", "sans-serif"],
+        dancing: ["Dancing Script", "cursive"],
       },
       borderRadius: {
         lg: "var(--radius)",
