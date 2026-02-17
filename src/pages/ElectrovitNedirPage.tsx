@@ -68,8 +68,11 @@ const ProductCard = ({ product, t }: { product: any, t: any }) => {
                 />
             </div>
 
-            {/* Content Area - Just Button */}
-            <div className="p-6 flex justify-center">
+            {/* Content Area */}
+            <div className="p-6 flex flex-col items-center gap-3">
+                <h3 className="text-lg font-bold text-slate-900">
+                    {product.slug.includes('portakal') ? t('electrovitFlavors.orange') : t('electrovitFlavors.watermelon')}
+                </h3>
                 <div
                     className="inline-flex items-center justify-center px-6 py-3 rounded-full font-bold text-sm text-white transition-all hover:scale-105 shadow-md w-full"
                     style={{ backgroundColor: product.color }}

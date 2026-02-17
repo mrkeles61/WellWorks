@@ -2,12 +2,13 @@ import { useState, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Activity, Droplets, Zap } from 'lucide-react';
 import { cn } from '@/lib/utils';
+import { useTranslation } from 'react-i18next';
 
 // Import Assets
 import electrovitHeroBottle from '/images/electrovit_hero_bottle.png';
 // Import side product images (using the ones from products.ts for accuracy)
-import watermelonImg from '@/assets/products/elct2.jpg';
-import orangeImg from '@/assets/products/prtk5.jpg';
+import watermelonImg from '@/assets/products/electrovit-karpuz-new.png';
+import orangeImg from '@/assets/products/electrovit-portakal-new.png';
 
 interface InteractiveCenterpieceProps {
     onFlavorChange?: (flavor: 'orange' | 'watermelon') => void;
@@ -49,6 +50,7 @@ const HOTSPOTS = [
 const InteractiveCenterpiece = ({ onFlavorChange }: InteractiveCenterpieceProps) => {
     const [activeFlavor, setActiveFlavor] = useState<Flavor>('orange');
     const [activeHotspot, setActiveHotspot] = useState<number | null>(null);
+    const { t } = useTranslation();
 
     const handleFlavorChange = (flavor: Flavor) => {
         setActiveFlavor(flavor);
@@ -74,9 +76,9 @@ const InteractiveCenterpiece = ({ onFlavorChange }: InteractiveCenterpieceProps)
                     <img src={FLAVORS.watermelon.sideImage} alt="Watermelon" className="w-full h-full object-cover rounded-2xl" />
                 </div>
                 <div className="text-center">
-                    <h3 className="text-white font-bold text-lg">Electrovit Karpuz</h3>
+                    <h3 className="text-white font-bold text-lg">{t('electrovitFlavors.watermelon')}</h3>
                     <span className={cn("text-xs font-medium px-3 py-1 rounded-full bg-white/10 text-white group-hover:bg-red-500 transition-colors", activeFlavor === 'watermelon' ? "bg-red-500" : "")}>
-                        Karpuz Aromalı
+                        {t('electrovitFlavors.watermelonFlavor')}
                     </span>
                 </div>
             </motion.div>
@@ -155,17 +157,17 @@ const InteractiveCenterpiece = ({ onFlavorChange }: InteractiveCenterpieceProps)
                     <img src={FLAVORS.orange.sideImage} alt="Orange" className="w-full h-full object-cover rounded-2xl" />
                 </div>
                 <div className="text-center">
-                    <h3 className="text-white font-bold text-lg">Electrovit Portakal</h3>
+                    <h3 className="text-white font-bold text-lg">{t('electrovitFlavors.orange')}</h3>
                     <span className={cn("text-xs font-medium px-3 py-1 rounded-full bg-white/10 text-white group-hover:bg-orange-500 transition-colors", activeFlavor === 'orange' ? "bg-orange-500" : "")}>
-                        Portakal Aromalı
+                        {t('electrovitFlavors.orangeFlavor')}
                     </span>
                 </div>
             </motion.div>
 
             {/* Mobile Selector (If Layout Collapses) */}
             <div className="lg:hidden absolute bottom-0 left-0 right-0 flex justify-center gap-4 py-6">
-                <button onClick={() => handleFlavorChange('watermelon')} className={cn("px-4 py-2 rounded-full text-xs font-bold", activeFlavor === 'watermelon' ? "bg-red-500 text-white" : "bg-white/10 text-white")}>Karpuz</button>
-                <button onClick={() => handleFlavorChange('orange')} className={cn("px-4 py-2 rounded-full text-xs font-bold", activeFlavor === 'orange' ? "bg-orange-500 text-white" : "bg-white/10 text-white")}>Portakal</button>
+                <button onClick={() => handleFlavorChange('watermelon')} className={cn("px-4 py-2 rounded-full text-xs font-bold", activeFlavor === 'watermelon' ? "bg-red-500 text-white" : "bg-white/10 text-white")}>{t('electrovitFlavors.watermelonShort')}</button>
+                <button onClick={() => handleFlavorChange('orange')} className={cn("px-4 py-2 rounded-full text-xs font-bold", activeFlavor === 'orange' ? "bg-orange-500 text-white" : "bg-white/10 text-white")}>{t('electrovitFlavors.orangeShort')}</button>
             </div>
 
         </div>

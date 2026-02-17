@@ -20,6 +20,15 @@ const resources = {
         salesPoints: 'Satış Noktaları',
         career: 'Kariyer',
         quality: 'Kalite Politikalarımız',
+        language: 'Dil',
+      },
+      electrovitFlavors: {
+        orange: 'Electrovit Portakal',
+        watermelon: 'Electrovit Karpuz',
+        orangeFlavor: 'Portakal Aromalı',
+        watermelonFlavor: 'Karpuz Aromalı',
+        orangeShort: 'Portakal',
+        watermelonShort: 'Karpuz',
       },
       gateway: {
         health: {
@@ -1002,6 +1011,15 @@ Telefon: +90 536 032 08 38`,
         salesPoints: 'Sales Points',
         career: 'Career',
         quality: 'Quality Policies',
+        language: 'Language',
+      },
+      electrovitFlavors: {
+        orange: 'Electrovit Orange',
+        watermelon: 'Electrovit Watermelon',
+        orangeFlavor: 'Orange Flavor',
+        watermelonFlavor: 'Watermelon Flavor',
+        orangeShort: 'Orange',
+        watermelonShort: 'Watermelon',
       },
       gateway: {
         health: {

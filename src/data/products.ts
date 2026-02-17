@@ -7,8 +7,8 @@ import detox_img from '@/assets/products/detox-shot.jpg';
 import lax_img from '@/assets/products/lax-shot.jpg';
 import libido_img from '@/assets/products/libido-shot.jpg';
 import antiox_img from '@/assets/products/antiox-shot.jpg';
-import electrovit_orange_8 from '@/assets/products/electrovit-portakal-final.png';
-import electrovit_watermelon_8 from '@/assets/products/electrovit-karpuz-final.png';
+import electrovit_orange_8 from '@/assets/products/electrovit-portakal-new.png';
+import electrovit_watermelon_8 from '@/assets/products/electrovit-karpuz-new.png';
 import wellaging_new_img from '@/assets/products/well-aging-shot.png';
 import antiox_new_img from '@/assets/products/anti-ox-shot-new.png';
 

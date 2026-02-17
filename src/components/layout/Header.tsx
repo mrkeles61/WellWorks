@@ -334,9 +334,8 @@ const Header = () => {
 
             <div className="mt-8 space-y-6">
               <div className="flex flex-col gap-4">
-                <p className="text-sm text-gray-400 font-medium">Ayarlar</p>
                 <div className="flex items-center justify-between">
-                  <span>Dil</span>
+                  <span>{t('nav.language')}</span>
                   <LanguageToggle />
                 </div>
               </div>
