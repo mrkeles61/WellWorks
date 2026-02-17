@@ -195,9 +195,6 @@ const ElectrovitNedirPage = () => {
             <section className="py-20 lg:py-28 bg-white relative z-10">
                 <div className="container mx-auto px-6">
                     <AnimatedSection animation="fadeInUp" className="text-center mb-16">
-                        <span className="text-[#00AEEF] text-sm font-semibold uppercase tracking-widest mb-4 block">
-                            {t('health.electrovitNedir.products.title')}
-                        </span>
                         <h2 className="font-poppins font-bold text-3xl md:text-4xl text-gray-900">
                             {t('health.electrovitNedir.products.family')}
                         </h2>

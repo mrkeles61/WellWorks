@@ -316,9 +316,6 @@ const DailyshotNedirPage = () => {
             < section className="py-20 lg:py-28 bg-gray-50" >
                 <div className="container mx-auto px-6">
                     <AnimatedSection animation="fadeInUp" className="text-center mb-16">
-                        <span className="text-health-primary text-sm font-semibold uppercase tracking-widest mb-4 block">
-                            {t('health.dailyshotNedir.productFamily.label')}
-                        </span>
                         <h2 className="font-poppins font-bold text-3xl md:text-4xl text-gray-900">
                             {t('health.dailyshotNedir.productFamily.title')}
                         </h2>

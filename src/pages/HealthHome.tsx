@@ -116,8 +116,10 @@ const HealthHome = () => {
           <div className="grid lg:grid-cols-2 gap-12 items-center w-full">
             {/* Left Content - About Us */}
             <div className="flex flex-col items-start space-y-6">
-              <span className="inline-block text-health-primary text-2xl font-semibold tracking-widest" style={{ fontFamily: "'Holiday', cursive", textTransform: 'none' }}>
-                {t('health.hero2.label')}
+              <span className="inline-block text-2xl font-semibold tracking-wide mb-2">
+                <span className="font-poppins font-bold"><span className="text-health-primary">Well</span><span className="text-gray-900">-Works Health</span></span>
+                {' '}
+                <span className="text-health-primary" style={{ fontFamily: "'Holiday', cursive" }}>{t('health.hero2.label')}</span>
               </span>
               <h1 className="font-poppins font-bold text-4xl sm:text-5xl lg:text-6xl leading-tight tracking-tight text-gray-900">
                 <Trans i18nKey="health.hero2.title" components={[<span className="text-health-primary" />]} />
@@ -250,7 +252,7 @@ const HealthHome = () => {
           <div className="grid lg:grid-cols-2 gap-16 items-center">
             {/* Text Content */}
             <AnimatedSection animation="fadeInUp" className="space-y-6">
-              <span className="text-health-primary text-2xl font-semibold tracking-widest" style={{ fontFamily: "'Holiday', cursive", textTransform: 'none' }}>
+              <span className="text-health-primary text-sm font-poppins font-bold uppercase tracking-[0.2em]">
                 {t('health.wellworksIntro.label')}
               </span>
               <h2 className="font-poppins font-bold text-3xl md:text-4xl lg:text-5xl leading-tight text-white">
@@ -311,9 +313,6 @@ const HealthHome = () => {
         <div className="container mx-auto px-6">
           <AnimatedSection animation="fadeInUp" className="flex items-center justify-between mb-10">
             <div>
-              <span className="text-health-primary text-sm font-semibold uppercase tracking-widest mb-2 block">
-                {t('health.sections.dailyshot.label')}
-              </span>
               <h2 className="text-3xl md:text-4xl font-bold font-poppins text-gray-900">
                 {t('health.sections.dailyshot.title')}
               </h2>
@@ -436,9 +435,6 @@ const HealthHome = () => {
         <div className="container mx-auto px-6">
           <AnimatedSection animation="fadeInUp" className="flex items-center justify-between mb-10">
             <div>
-              <span className="text-[#38BDF8] text-sm font-semibold uppercase tracking-widest mb-2 block">
-                {t('health.sections.electrovit.label')}
-              </span>
               <h2 className="text-3xl md:text-4xl font-bold font-poppins text-gray-900">
                 {t('health.sections.electrovit.title')}
               </h2>
