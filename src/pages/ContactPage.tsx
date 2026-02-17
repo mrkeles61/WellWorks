@@ -1,488 +1,233 @@
 import { useTranslation } from 'react-i18next';
 import { useEffect, useState, useRef } from 'react';
 import { useBrand } from '@/hooks/useBrand';
-import { MapPin, Phone, Mail, Send, Loader2, CheckCircle } from 'lucide-react';
-import { cn } from '@/lib/utils';
 import AnimatedSection from '@/components/shared/AnimatedSection';
 import emailjs from '@emailjs/browser';
+import { Loader2 } from 'lucide-react';
 
-// EmailJS Configuration
-const EMAILJS_SERVICE_ID = 'service_u7o0qbs';
-const EMAILJS_TEMPLATE_ID = 'template_2c609lm';
-const EMAILJS_PUBLIC_KEY = '0dp1lH8wFweRYDlq1';
-
-// Rate limiting - prevent spam
-const RATE_LIMIT_KEY = 'emailjs_last_submit';
-const RATE_LIMIT_MS = 60000; // 1 minute between submissions
+const EMAILJS_SERVICE_ID = 'service_f2y3p0i';
+const EMAILJS_TEMPLATE_ID = 'template_vb2gzts';
+const EMAILJS_PUBLIC_KEY = '8hR_14ZoUWEHPY5wp';
 
 const ContactPage = () => {
   const { t } = useTranslation();
   const { brand, setBrand } = useBrand();
   const formRef = useRef<HTMLFormElement>(null);
-  const [isLoading, setIsLoading] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSuccess, setIsSuccess] = useState(false);
-  const [errorMessage, setErrorMessage] = useState('');
-  const [honeypot, setHoneypot] = useState(''); // Honeypot for bot detection
-  const [formData, setFormData] = useState({
-    fullName: '',
-    email: '',
-    phone: '',
-    company: '',
-    subject: 'general',
-    message: '',
-  });
+  const [lastSubmit, setLastSubmit] = useState(0);
 
-  // Determine brand from URL path
   useEffect(() => {
     const path = window.location.pathname;
-    if (path.includes('/mice')) {
-      setBrand('mice');
-    } else {
-      setBrand('health');
-    }
+    if (path.includes('/mice')) setBrand('mice');
+    else setBrand('health');
   }, [setBrand]);
 
-  // Email validation
-  const isValidEmail = (email: string) => {
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    return emailRegex.test(email);
-  };
-
-  // Phone validation (basic - allows various formats)
-  const isValidPhone = (phone: string) => {
-    const phoneRegex = /^[\d\s\-\+\(\)]{7,20}$/;
-    return phone === '' || phoneRegex.test(phone);
-  };
-
-  // Rate limit check
-  const isRateLimited = () => {
-    const lastSubmit = localStorage.getItem(RATE_LIMIT_KEY);
-    if (lastSubmit) {
-      const timeSince = Date.now() - parseInt(lastSubmit, 10);
-      return timeSince < RATE_LIMIT_MS;
-    }
-    return false;
-  };
+  const accent = brand === 'mice' ? '#10b981' : '#00a5e0';
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    setErrorMessage('');
-
-    // Honeypot check - if filled, it's a bot
-    if (honeypot) {
-      console.log('Bot detected');
-      setIsSuccess(true); // Fake success to confuse bots
-      return;
-    }
-
-    // Rate limit check
-    if (isRateLimited()) {
-      setErrorMessage('Lütfen bir dakika bekleyip tekrar deneyin.');
-      return;
-    }
-
-    // Validate required fields
-    if (!formData.fullName.trim() || formData.fullName.length < 2) {
-      setErrorMessage('Lütfen geçerli bir isim girin.');
-      return;
-    }
-
-    if (!isValidEmail(formData.email)) {
-      setErrorMessage('Lütfen geçerli bir e-posta adresi girin.');
-      return;
-    }
-
-    if (!isValidPhone(formData.phone)) {
-      setErrorMessage('Lütfen geçerli bir telefon numarası girin.');
-      return;
-    }
-
-    if (!formData.message.trim() || formData.message.length < 10) {
-      setErrorMessage('Mesajınız en az 10 karakter olmalıdır.');
-      return;
-    }
-
-    setIsLoading(true);
-
+    if (!formRef.current) return;
+    const honeypot = (formRef.current.querySelector('[name="website"]') as HTMLInputElement)?.value;
+    if (honeypot) return;
+    if (Date.now() - lastSubmit < 60000) return;
+    setIsSubmitting(true);
     try {
-      // Send email via EmailJS
-      await emailjs.send(
-        EMAILJS_SERVICE_ID,
-        EMAILJS_TEMPLATE_ID,
-        {
-          from_name: formData.fullName.trim(),
-          from_email: formData.email.trim(),
-          phone: formData.phone.trim() || 'Belirtilmedi',
-          company: formData.company.trim() || 'Belirtilmedi',
-          subject: formData.subject,
-          message: formData.message.trim(),
-          to_email: 'pazarlama@wellworksturkey.com',
-        },
-        EMAILJS_PUBLIC_KEY
-      );
-
-      // Set rate limit
-      localStorage.setItem(RATE_LIMIT_KEY, Date.now().toString());
-
+      await emailjs.sendForm(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, formRef.current, EMAILJS_PUBLIC_KEY);
       setIsSuccess(true);
-      setFormData({
-        fullName: '',
-        email: '',
-        phone: '',
-        company: '',
-        subject: 'general',
-        message: '',
-      });
-
-      // Reset success state after 5 seconds
-      setTimeout(() => setIsSuccess(false), 5000);
-    } catch (error) {
-      console.error('EmailJS Error:', error);
-      setErrorMessage('Mesaj gönderilemedi. Lütfen tekrar deneyin.');
+      formRef.current.reset();
+      setLastSubmit(Date.now());
+      setTimeout(() => setIsSuccess(false), 4000);
+    } catch {
+      // silent
     } finally {
-      setIsLoading(false);
+      setIsSubmitting(false);
     }
   };
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value,
-    });
-  };
-
-  const contactInfo = [
-    {
-      icon: <MapPin className="w-5 h-5" />,
-      title: t('contact.address.title'),
-      content: t('contact.address.content'),
-    },
-    {
-      icon: <Phone className="w-5 h-5" />,
-      title: t('contact.phone.title'),
-      content: t('contact.phone.content'),
-    },
-    {
-      icon: <Mail className="w-5 h-5" />,
-      title: t('contact.email.title'),
-      content: t('contact.email.content'),
-    },
-
-  ];
-
-  const faqKey = brand === 'mice' ? 'mice.faq' : 'contact.faq';
-  const faqs = [
-    {
-      question: t(`${faqKey}.question1`),
-      answer: t(`${faqKey}.answer1`),
-    },
-    {
-      question: t(`${faqKey}.question2`),
-      answer: t(`${faqKey}.answer2`),
-    },
-    {
-      question: t(`${faqKey}.question3`),
-      answer: t(`${faqKey}.answer3`),
-    },
-  ];
+  const inputClasses = 'block w-full pl-4 rounded-lg border-gray-200 bg-gray-50 text-gray-900 focus:border-[var(--accent)] focus:ring-[var(--accent)] sm:text-sm py-3';
 
   return (
-    <div
-      className={cn(
-        'min-h-screen pt-24 pb-16',
-        brand === 'health' ? 'bg-white text-slate-900' : 'bg-mice-bg text-mice-text'
-      )}
-    >
-      <div className="container">
-        {/* Header */}
-        <AnimatedSection animation="fadeInUp" className="text-center mb-16">
-          <h1
-            className={cn(
-              'text-4xl md:text-5xl font-black mb-4',
-              brand === 'health' ? 'font-poppins text-health-primary' : 'font-oswald text-mice-primary'
-            )}
-          >
-            {t('contact.title')}
-          </h1>
-          <p
-            className={cn(
-              'text-lg max-w-2xl mx-auto',
-              brand === 'health' ? 'text-muted-foreground' : 'text-gray-400'
-            )}
-          >
-            {t('contact.subtitle')}
-          </p>
+    <div className="bg-[#f8fafb] text-[#0c181d] antialiased min-h-screen flex flex-col" style={{ '--accent': accent } as React.CSSProperties}>
+      {/* Hero Section — from Stitch */}
+      <section className="relative py-20 px-4 text-center sm:py-24 lg:py-28 overflow-hidden"
+        style={{ background: `linear-gradient(to bottom right, ${brand === 'mice' ? '#064e3b' : '#003366'}, ${accent})` }}
+      >
+        {/* Decorative background pattern */}
+        <div className="absolute inset-0 opacity-10" style={{ backgroundImage: 'radial-gradient(#ffffff 1px, transparent 1px)', backgroundSize: '32px 32px' }} />
+        <div className="relative z-10 max-w-4xl mx-auto space-y-4">
+          <AnimatedSection>
+            <h1 className="text-4xl font-black tracking-tight text-white sm:text-5xl lg:text-6xl drop-shadow-sm">
+              {t('contact.title')}
+            </h1>
+            <p className="text-lg text-blue-100 font-medium sm:text-xl max-w-2xl mx-auto mt-4">
+              {t('contact.subtitle')}
+            </p>
+          </AnimatedSection>
+        </div>
+      </section>
+
+      {/* Content Container */}
+      <div className="max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-8 py-16 -mt-10 relative z-20">
+        {/* Info Cards Grid — from Stitch */}
+        <AnimatedSection>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
+            {/* Address Card */}
+            <div className="bg-white rounded-2xl shadow-lg shadow-gray-200/50 p-8 flex flex-col items-center text-center transition-transform hover:-translate-y-1 duration-300 border border-gray-100">
+              <div className="size-14 rounded-full bg-blue-50 flex items-center justify-center mb-5" style={{ color: accent }}>
+                <span className="material-symbols-outlined text-3xl">location_on</span>
+              </div>
+              <h3 className="text-lg font-bold text-gray-900 mb-2">{t('contact.address.title')}</h3>
+              <p className="text-gray-500 text-sm leading-relaxed">
+                {t('contact.address.content')}
+              </p>
+            </div>
+            {/* Phone Card */}
+            <div className="bg-white rounded-2xl shadow-lg shadow-gray-200/50 p-8 flex flex-col items-center text-center transition-transform hover:-translate-y-1 duration-300 border border-gray-100">
+              <div className="size-14 rounded-full bg-blue-50 flex items-center justify-center mb-5" style={{ color: accent }}>
+                <span className="material-symbols-outlined text-3xl">phone_in_talk</span>
+              </div>
+              <h3 className="text-lg font-bold text-gray-900 mb-2">{t('contact.phone.title')}</h3>
+              <div className="text-gray-500 text-sm space-y-1">
+                <p className="hover:text-[var(--accent)] transition-colors cursor-pointer">{t('contact.phone.content')}</p>
+                <p className="flex items-center justify-center gap-1.5 text-green-600 font-medium mt-2">
+                  WhatsApp
+                </p>
+              </div>
+            </div>
+            {/* Email Card */}
+            <div className="bg-white rounded-2xl shadow-lg shadow-gray-200/50 p-8 flex flex-col items-center text-center transition-transform hover:-translate-y-1 duration-300 border border-gray-100">
+              <div className="size-14 rounded-full bg-blue-50 flex items-center justify-center mb-5" style={{ color: accent }}>
+                <span className="material-symbols-outlined text-3xl">mail</span>
+              </div>
+              <h3 className="text-lg font-bold text-gray-900 mb-2">{t('contact.email.title')}</h3>
+              <p className="text-gray-500 text-sm leading-relaxed mb-4">
+                {t('contact.email.content')}
+              </p>
+              <a className="font-semibold hover:underline" style={{ color: accent }} href={`mailto:${t('contact.email.content')}`}>{t('contact.email.content')}</a>
+            </div>
+          </div>
         </AnimatedSection>
 
-        {/* Main Content Grid */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 mb-16">
-          {/* Contact Form */}
-          <AnimatedSection animation="fadeInLeft" className="lg:col-span-7">
-            <div
-              className={cn(
-                'p-6 sm:p-8 rounded-2xl shadow-lg border',
-                brand === 'health'
-                  ? 'bg-white border-border'
-                  : 'bg-gray-800 border-gray-700'
-              )}
-            >
-              <form onSubmit={handleSubmit} className="flex flex-col gap-6">
-                {/* Honeypot field - hidden from humans, bots will fill it */}
-                <input
-                  type="text"
-                  name="website"
-                  value={honeypot}
-                  onChange={(e) => setHoneypot(e.target.value)}
-                  className="absolute -left-[9999px] opacity-0 pointer-events-none"
-                  tabIndex={-1}
-                  autoComplete="off"
-                  aria-hidden="true"
-                />
+        {/* Main Layout: Map & Form — from Stitch */}
+        <AnimatedSection>
+          <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-start">
+            {/* Map Section */}
+            <div className="w-full h-full min-h-[400px] lg:min-h-[600px] rounded-2xl overflow-hidden shadow-md relative group">
+              <div className="absolute inset-0 bg-gray-200 animate-pulse" />
+              <iframe
+                src="https://www.google.com/maps/embed/v1/place?key=AIzaSyBFw0Qbyq9zTFTd-tUY6dZWTgaQzuU17R8&q=Emniyetevler+Mahallesi+Kale+Sokak+2%2FA+Ka%C4%9F%C4%B1thane+%C4%B0stanbul&zoom=16"
+                width="100%"
+                height="100%"
+                style={{ border: 0 }}
+                allowFullScreen
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+                className="absolute inset-0 w-full h-full"
+                title={t('contact.map.view')}
+              />
+            </div>
 
-                {/* Name and Email */}
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
-                  <label className="flex flex-col">
-                    <span className="text-sm font-semibold mb-2">
-                      {t('contact.form.fullName')}
-                    </span>
-                    <input
-                      type="text"
-                      name="fullName"
-                      value={formData.fullName}
-                      onChange={handleChange}
-                      className={cn(
-                        'px-4 py-3 rounded-xl border focus:outline-none focus:ring-2 transition-all',
-                        brand === 'health'
-                          ? 'bg-background border-border focus:ring-health-primary'
-                          : 'bg-gray-900 border-gray-600 text-white focus:ring-mice-primary'
-                      )}
-                      placeholder={t('contact.form.fullNamePlaceholder')}
-                      required
-                    />
-                  </label>
-                  <label className="flex flex-col">
-                    <span className="text-sm font-semibold mb-2">
-                      {t('contact.form.email')}
-                    </span>
-                    <input
-                      type="email"
-                      name="email"
-                      value={formData.email}
-                      onChange={handleChange}
-                      className={cn(
-                        'px-4 py-3 rounded-xl border focus:outline-none focus:ring-2 transition-all',
-                        brand === 'health'
-                          ? 'bg-background border-border focus:ring-health-primary'
-                          : 'bg-gray-900 border-gray-600 text-white focus:ring-mice-primary'
-                      )}
-                      placeholder={t('contact.form.emailPlaceholder')}
-                      required
-                    />
-                  </label>
+            {/* Contact Form Section — from Stitch */}
+            <div className="bg-white rounded-2xl shadow-xl shadow-gray-200/50 p-8 sm:p-10 border border-gray-100">
+              <div className="mb-8">
+                <h2 className="text-2xl font-bold text-gray-900 mb-2">{t('contact.formTitle')}</h2>
+                <p className="text-gray-500">{t('contact.subtitle')}</p>
+              </div>
+              <form ref={formRef} onSubmit={handleSubmit} className="space-y-6">
+                {/* Honeypot */}
+                <input type="text" name="website" className="hidden" tabIndex={-1} autoComplete="off" />
+
+                {/* Full Name */}
+                <div>
+                  <label className="block text-sm font-semibold text-gray-700 mb-2" htmlFor="full-name">{t('contact.form.fullName')}</label>
+                  <div className="relative">
+                    <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none text-gray-400">
+                      <span className="material-symbols-outlined text-[20px]">person</span>
+                    </div>
+                    <input className="block w-full pl-10 rounded-lg border-gray-200 bg-gray-50 text-gray-900 focus:border-[var(--accent)] focus:ring-[var(--accent)] sm:text-sm py-3" id="full-name" name="from_name" placeholder={t('contact.form.fullNamePlaceholder')} type="text" required />
+                  </div>
                 </div>
 
-                {/* Phone and Subject */}
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
-                  <label className="flex flex-col">
-                    <span className="text-sm font-semibold mb-2">
-                      {t('contact.form.phone')}
-                    </span>
-                    <input
-                      type="tel"
-                      name="phone"
-                      value={formData.phone}
-                      onChange={handleChange}
-                      className={cn(
-                        'px-4 py-3 rounded-xl border focus:outline-none focus:ring-2 transition-all',
-                        brand === 'health'
-                          ? 'bg-background border-border focus:ring-health-primary'
-                          : 'bg-gray-900 border-gray-600 text-white focus:ring-mice-primary'
-                      )}
-                      placeholder={t('contact.form.phonePlaceholder')}
-                    />
-                  </label>
-                  <label className="flex flex-col">
-                    <span className="text-sm font-semibold mb-2">
-                      {t('contact.form.company')}
-                    </span>
-                    <input
-                      type="text"
-                      name="company"
-                      value={formData.company}
-                      onChange={handleChange}
-                      className={cn(
-                        'px-4 py-3 rounded-xl border focus:outline-none focus:ring-2 transition-all',
-                        brand === 'health'
-                          ? 'bg-background border-border focus:ring-health-primary'
-                          : 'bg-gray-900 border-gray-600 text-white focus:ring-mice-primary'
-                      )}
-                      placeholder={t('contact.form.companyPlaceholder')}
-                    />
-                  </label>
+                {/* Email & Phone Grid */}
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                  <div>
+                    <label className="block text-sm font-semibold text-gray-700 mb-2" htmlFor="email">{t('contact.form.email')}</label>
+                    <div className="relative">
+                      <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none text-gray-400">
+                        <span className="material-symbols-outlined text-[20px]">mail</span>
+                      </div>
+                      <input className="block w-full pl-10 rounded-lg border-gray-200 bg-gray-50 text-gray-900 focus:border-[var(--accent)] focus:ring-[var(--accent)] sm:text-sm py-3" id="email" name="from_email" placeholder={t('contact.form.emailPlaceholder')} type="email" required />
+                    </div>
+                  </div>
+                  <div>
+                    <label className="block text-sm font-semibold text-gray-700 mb-2" htmlFor="phone">{t('contact.form.phone')}</label>
+                    <div className="relative">
+                      <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none text-gray-400">
+                        <span className="material-symbols-outlined text-[20px]">call</span>
+                      </div>
+                      <input className="block w-full pl-10 rounded-lg border-gray-200 bg-gray-50 text-gray-900 focus:border-[var(--accent)] focus:ring-[var(--accent)] sm:text-sm py-3" id="phone" name="phone" placeholder={t('contact.form.phonePlaceholder')} type="tel" />
+                    </div>
+                  </div>
                 </div>
 
-                {/* Subject */}
-                <label className="flex flex-col">
-                  <span className="text-sm font-semibold mb-2">
-                    {t('contact.form.subject')}
-                  </span>
-                  <select
-                    name="subject"
-                    value={formData.subject}
-                    onChange={handleChange}
-                    className={cn(
-                      'px-4 py-3 rounded-xl border focus:outline-none focus:ring-2 transition-all cursor-pointer',
-                      brand === 'health'
-                        ? 'bg-background border-border focus:ring-health-primary'
-                        : 'bg-gray-900 border-gray-600 text-white focus:ring-mice-primary'
-                    )}
-                  >
-                    <option value="general">{t('contact.form.subjectGeneral')}</option>
-                    <option value="product">{t('contact.form.subjectProduct')}</option>
-                    <option value="event">{t('contact.form.subjectEvent')}</option>
-                    <option value="partnership">{t('contact.form.subjectPartnership')}</option>
-                  </select>
-                </label>
+                {/* Company & Subject Grid */}
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                  <div>
+                    <label className="block text-sm font-semibold text-gray-700 mb-2" htmlFor="company">{t('contact.form.company')}</label>
+                    <div className="relative">
+                      <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none text-gray-400">
+                        <span className="material-symbols-outlined text-[20px]">business</span>
+                      </div>
+                      <input className="block w-full pl-10 rounded-lg border-gray-200 bg-gray-50 text-gray-900 focus:border-[var(--accent)] focus:ring-[var(--accent)] sm:text-sm py-3" id="company" name="company" placeholder={t('contact.form.companyPlaceholder')} type="text" />
+                    </div>
+                  </div>
+                  <div>
+                    <label className="block text-sm font-semibold text-gray-700 mb-2" htmlFor="subject">{t('contact.form.subject')}</label>
+                    <div className="relative">
+                      <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none text-gray-400">
+                        <span className="material-symbols-outlined text-[20px]">topic</span>
+                      </div>
+                      <select className="block w-full pl-10 rounded-lg border-gray-200 bg-gray-50 text-gray-900 focus:border-[var(--accent)] focus:ring-[var(--accent)] sm:text-sm py-3" id="subject" name="subject">
+                        <option disabled value="">{t('contact.form.subjectPlaceholder')}</option>
+                        <option value="genel">{t('contact.form.subjectGeneral')}</option>
+                        <option value="satis">{t('contact.form.subjectProduct')}</option>
+                        <option value="isbirligi">{t('contact.form.subjectPartnership')}</option>
+                        <option value="diger">{t('contact.form.subjectOther')}</option>
+                      </select>
+                    </div>
+                  </div>
+                </div>
 
                 {/* Message */}
-                <label className="flex flex-col">
-                  <span className="text-sm font-semibold mb-2">
-                    {t('contact.form.message')}
-                  </span>
-                  <textarea
-                    name="message"
-                    value={formData.message}
-                    onChange={handleChange}
-                    rows={6}
-                    className={cn(
-                      'px-4 py-3 rounded-xl border focus:outline-none focus:ring-2 transition-all resize-none',
-                      brand === 'health'
-                        ? 'bg-background border-border focus:ring-health-primary'
-                        : 'bg-gray-900 border-gray-600 text-white focus:ring-mice-primary'
-                    )}
-                    placeholder={t('contact.form.messagePlaceholder')}
-                    required
-                  />
-                </label>
-
-                {/* Error Message */}
-                {errorMessage && (
-                  <div className="p-4 bg-red-100 border border-red-300 text-red-700 rounded-xl text-sm">
-                    {errorMessage}
-                  </div>
-                )}
-
-                {/* Success Message */}
-                {isSuccess && (
-                  <div className="p-4 bg-green-100 border border-green-300 text-green-700 rounded-xl text-sm flex items-center gap-2">
-                    <CheckCircle className="w-5 h-5" />
-                    Mesajınız başarıyla gönderildi!
-                  </div>
-                )}
+                <div>
+                  <label className="block text-sm font-semibold text-gray-700 mb-2" htmlFor="message">{t('contact.form.message')}</label>
+                  <textarea className={`${inputClasses} !pl-4 resize-none`} id="message" name="message" placeholder={t('contact.form.messagePlaceholder')} rows={5} />
+                </div>
 
                 {/* Submit Button */}
                 <button
+                  className="w-full flex justify-center items-center gap-2 py-4 px-4 border border-transparent rounded-xl shadow-sm text-sm font-bold text-white transition-all duration-200 transform active:scale-[0.99] disabled:opacity-60 disabled:cursor-not-allowed"
+                  style={{ backgroundColor: accent }}
                   type="submit"
-                  disabled={isLoading}
-                  className={cn(
-                    'flex items-center justify-center gap-2 py-3 px-6 rounded-xl font-semibold transition-all shadow-md hover:shadow-lg disabled:opacity-70 disabled:cursor-not-allowed',
-                    brand === 'health'
-                      ? 'bg-health-primary text-white hover:bg-health-primary-hover'
-                      : 'bg-mice-primary text-white hover:bg-mice-primary-hover'
-                  )}
+                  disabled={isSubmitting}
                 >
-                  {isLoading ? (
-                    <>
-                      <Loader2 className="w-5 h-5 animate-spin" />
-                      Gönderiliyor...
-                    </>
-                  ) : (
-                    <>
-                      <Send className="w-5 h-5" />
-                      {t('contact.form.submit')}
-                    </>
-                  )}
+                  {isSubmitting ? <Loader2 className="w-5 h-5 animate-spin" /> : t('contact.form.submit')}
                 </button>
+
+                {isSuccess && (
+                  <div className="p-4 bg-green-50 border border-green-200 text-green-700 rounded-xl text-sm font-medium text-center">
+                    ✓ {t('contact.successTitle')} {t('contact.successDesc')}
+                  </div>
+                )}
               </form>
             </div>
-          </AnimatedSection>
-
-          {/* Contact Info Sidebar */}
-          <AnimatedSection animation="fadeInRight" delay={100} className="lg:col-span-5 flex flex-col gap-6">
-            {/* Contact Information Card */}
-            <div
-              className={cn(
-                'p-6 sm:p-8 rounded-2xl shadow-lg border',
-                brand === 'health'
-                  ? 'bg-white border-border'
-                  : 'bg-gray-800 border-gray-700'
-              )}
-            >
-              <h3 className="text-xl font-bold mb-6">{t('contact.info.title')}</h3>
-              <div className="flex flex-col gap-5">
-                {contactInfo.map((item, index) => (
-                  <div key={index} className="flex items-start gap-4">
-                    <div
-                      className={cn(
-                        'p-2.5 rounded-full border',
-                        brand === 'health'
-                          ? 'bg-health-primary/10 text-health-primary border-health-primary/20'
-                          : 'bg-mice-primary/10 text-mice-primary border-mice-primary/20'
-                      )}
-                    >
-                      {item.icon}
-                    </div>
-                    <div>
-                      <h4 className="text-sm font-bold mb-1">{item.title}</h4>
-                      <p
-                        className={cn(
-                          'text-sm whitespace-pre-line',
-                          brand === 'health' ? 'text-muted-foreground' : 'text-gray-400'
-                        )}
-                      >
-                        {item.content}
-                      </p>
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </div>
-
-
-          </AnimatedSection>
-        </div>
-
-        {/* FAQ Section */}
-        <AnimatedSection animation="fadeInUp" delay={200}>
-          <h3 className="text-2xl font-bold mb-6 text-center lg:text-left">
-            {t('contact.faq.title')}
-          </h3>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            {faqs.map((faq, index) => (
-              <div
-                key={index}
-                className={cn(
-                  'p-6 rounded-2xl border shadow-lg transition-all hover:shadow-xl',
-                  brand === 'health'
-                    ? 'bg-white border-border hover:border-health-primary/50'
-                    : 'bg-gray-800 border-gray-700 hover:border-mice-primary/50'
-                )}
-              >
-                <h4 className="font-bold text-base mb-3">{faq.question}</h4>
-                <p
-                  className={cn(
-                    'text-sm leading-relaxed',
-                    brand === 'health' ? 'text-muted-foreground' : 'text-gray-400'
-                  )}
-                >
-                  {faq.answer}
-                </p>
-              </div>
-            ))}
           </div>
         </AnimatedSection>
-      </div >
-    </div >
+      </div>
+
+
+    </div>
   );
 };
 

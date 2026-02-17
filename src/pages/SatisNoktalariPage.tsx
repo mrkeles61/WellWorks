@@ -59,7 +59,7 @@ const SatisNoktalariPage = () => {
                             {t('salesPoints.title')}
                         </h1>
                         <p className="text-lg text-gray-500 max-w-xl mx-auto">
-                            Ürünlerimizi satın alabileceğiniz online ve fiziksel mağazalarımız
+                            {t('salesPoints.heroDesc')}
                         </p>
                     </AnimatedSection>
                 </div>

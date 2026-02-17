@@ -52,6 +52,26 @@ const Footer = () => {
                     </Link>
                   </li>
                   <li>
+                    <Link to="/health/electrovit-nedir" className={cn('transition-colors', brandHover)}>
+                      {t('nav.electrovitNedir')}
+                    </Link>
+                  </li>
+                  <li>
+                    <Link to="/health/satis-noktalari" className={cn('transition-colors', brandHover)}>
+                      {t('nav.salesPoints')}
+                    </Link>
+                  </li>
+                  <li>
+                    <Link to="/kalite" className={cn('transition-colors', brandHover)}>
+                      {t('nav.quality')}
+                    </Link>
+                  </li>
+                  <li>
+                    <Link to="/kariyer" className={cn('transition-colors', brandHover)}>
+                      {t('nav.career')}
+                    </Link>
+                  </li>
+                  <li>
                     <Link to="/health/iletisim" className={cn('transition-colors', brandHover)}>
                       {t('footer.contactLink')}
                     </Link>
@@ -72,6 +92,16 @@ const Footer = () => {
                   <li>
                     <Link to="/mice/isler-gucler" className={cn('transition-colors', brandHover)}>
                       {t('nav.events')}
+                    </Link>
+                  </li>
+                  <li>
+                    <Link to="/kalite" className={cn('transition-colors', brandHover)}>
+                      {t('nav.quality')}
+                    </Link>
+                  </li>
+                  <li>
+                    <Link to="/kariyer" className={cn('transition-colors', brandHover)}>
+                      {t('nav.career')}
                     </Link>
                   </li>
                   <li>
@@ -215,13 +245,14 @@ const Footer = () => {
         </div>
 
         {/* Certificates Section */}
-        <div className="flex flex-col items-center pt-6 border-t border-gray-300 mb-6">
-          <h4 className="font-bold text-gray-900 mb-3">{t('footer.certificates')}</h4>
-          <Link to="/kalite">
+        <div className="flex flex-col items-center py-6 border-t border-gray-300">
+          <h4 className="font-bold text-gray-900 mb-4">{t('footer.certificates')}</h4>
+          <Link to="/kalite" className="w-full flex justify-center">
             <img
               src="/icons/cert-badges.png"
               alt={t('footer.certificates')}
-              className="max-h-16 object-contain opacity-80 hover:opacity-100 transition-opacity"
+              className="object-contain opacity-80 hover:opacity-100 transition-opacity"
+              style={{ maxWidth: '700px', width: '100%', height: 'auto' }}
             />
           </Link>
         </div>

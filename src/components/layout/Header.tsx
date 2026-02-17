@@ -1,9 +1,8 @@
-import { Link, useLocation } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { Menu, X, ChevronDown } from 'lucide-react';
 import { useState, useEffect } from 'react';
 import { useBrand } from '@/hooks/useBrand';
-import BrandToggle from '@/components/shared/BrandToggle';
 import LanguageToggle from '@/components/shared/LanguageToggle';
 import SearchModal from '@/components/shared/SearchModal';
 
@@ -11,7 +10,8 @@ import { cn } from '@/lib/utils';
 
 const Header = () => {
   const { t } = useTranslation();
-  const { brand } = useBrand();
+  const { brand, setBrand } = useBrand();
+  const navigate = useNavigate();
   const location = useLocation();
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -46,6 +46,7 @@ const Header = () => {
   ];
 
   const healthTrailingLinks: NavLinkItem[] = [
+    { href: '/kalite', label: t('nav.quality') },
     { href: '/kariyer', label: t('nav.career') },
     { href: '/health/iletisim', label: t('nav.contact') },
   ];
@@ -53,6 +54,7 @@ const Header = () => {
   const brandsDropdownItems: NavLinkItem[] = [
     { href: '/health/electrovit-nedir', label: 'Electrovit' },
     { href: '/dailyshot-nedir', label: 'Dailyshot' },
+    { href: '/health/exoshine', label: 'Exoshine' },
   ];
 
   const miceLinks: NavLinkItem[] = [
@@ -141,22 +143,40 @@ const Header = () => {
         )}
       >
         <div className="container h-full flex items-center justify-between">
-          {/* Logo */}
-          <Link to={brand === 'health' ? '/health' : '/mice'} className="flex items-center gap-1">
-            <div className="text-xl font-bold font-montserrat">
-              {brand === 'health' ? (
-                <span className="flex items-baseline gap-1.5">
-                  <span className="text-white uppercase tracking-wide font-extrabold">Well Works</span>
-                  <span className="font-dancing text-health-primary text-2xl font-semibold">Health</span>
-                </span>
-              ) : (
-                <span className="flex items-baseline gap-1.5">
-                  <span className="text-white uppercase tracking-wide font-extrabold">Well Works</span>
-                  <span className="font-dancing text-mice-primary text-2xl font-semibold lowercase">mice</span>
-                </span>
-              )}
+          {/* Logo + Brand Switcher */}
+          <div className="flex items-center gap-1">
+            <Link to={brand === 'health' ? '/health' : '/mice'} className="text-xl font-bold font-montserrat">
+              <span className="text-white uppercase tracking-wide font-extrabold">Well Works</span>
+            </Link>
+            <div className="flex items-baseline gap-1 ml-1.5 relative group/toggle">
+              <div className="absolute -inset-x-2 -inset-y-1 rounded-full bg-white/[0.06] border border-white/[0.08]" />
+              <button
+                onClick={() => { if (brand !== 'health') { setBrand('health'); navigate('/health'); } }}
+                className={cn(
+                  'relative text-2xl font-semibold transition-all duration-300 cursor-pointer',
+                  brand === 'health' ? 'opacity-100 text-health-primary' : 'opacity-35 text-gray-400 hover:opacity-60'
+                )}
+                style={{ fontFamily: "'Holiday', cursive", textTransform: 'none' }}
+              >
+                Health
+              </button>
+              <span className="relative text-gray-500 text-lg font-light mx-0.5 select-none">/</span>
+              <button
+                onClick={() => { if (brand !== 'mice') { setBrand('mice'); navigate('/mice'); } }}
+                className={cn(
+                  'relative text-2xl font-semibold transition-all duration-300 cursor-pointer',
+                  brand === 'mice' ? 'opacity-100 text-mice-primary' : 'opacity-35 text-gray-400 hover:opacity-60'
+                )}
+                style={{ fontFamily: "'MilkyMatcha', cursive", textTransform: 'none' }}
+              >
+                mice
+              </button>
+              {/* Tooltip hint */}
+              <span className="absolute -bottom-5 left-1/2 -translate-x-1/2 text-[10px] text-gray-500 opacity-0 group-hover/toggle:opacity-100 transition-opacity whitespace-nowrap pointer-events-none select-none">
+                {brand === 'health' ? '← MICE tarafına geç' : 'Health tarafına geç →'}
+              </span>
             </div>
-          </Link>
+          </div>
 
           {/* Desktop Navigation */}
           <nav className="hidden lg:flex items-center gap-6">
@@ -216,7 +236,6 @@ const Header = () => {
           {/* Right Side Actions */}
           <div className="flex items-center gap-3">
             <div className="hidden lg:flex items-center gap-3">
-              <BrandToggle />
               <LanguageToggle />
             </div>
 
@@ -323,10 +342,6 @@ const Header = () => {
                 <div className="flex items-center justify-between">
                   <span>Dil</span>
                   <LanguageToggle />
-                </div>
-                <div className="flex items-center justify-between">
-                  <span>Mod Değiştir</span>
-                  <BrandToggle />
                 </div>
               </div>
             </div>

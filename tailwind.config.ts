@@ -87,6 +87,8 @@ export default {
         roboto: ["Roboto", "sans-serif"],
         montserrat: ["Montserrat", "sans-serif"],
         dancing: ["Dancing Script", "cursive"],
+        holiday: ["Holiday", "cursive"],
+        milkymatcha: ["MilkyMatcha", "cursive"],
       },
       borderRadius: {
         lg: "var(--radius)",

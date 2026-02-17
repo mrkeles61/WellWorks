@@ -13,6 +13,7 @@ import HealthAbout from "./pages/HealthAbout";
 import DailyshotNedirPage from "./pages/DailyshotNedirPage";
 import KariyerPage from "./pages/KariyerPage";
 import ElectrovitNedirPage from "./pages/ElectrovitNedirPage";
+import ExoshinePage from "./pages/ExoshinePage";
 import MiceHome from "./pages/MiceHome";
 import MiceAbout from "./pages/MiceAbout";
 import StoreLocatorPage from "./pages/StoreLocatorPage";
@@ -46,6 +47,7 @@ const App = () => (
                 <Route path="/dailyshot-nedir" element={<DailyshotNedirPage />} />
                 <Route path="/health/iletisim" element={<ContactPage />} />
                 <Route path="/health/electrovit-nedir" element={<ElectrovitNedirPage />} />
+                <Route path="/health/exoshine" element={<ExoshinePage />} />
                 <Route path="/mice" element={<MiceHome />} />
                 <Route path="/mice/hakkimizda" element={<MiceAbout />} />
                 <Route path="/mice/isler-gucler" element={<WorksPage />} />

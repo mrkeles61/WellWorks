@@ -106,12 +106,15 @@ const GatewayPage = () => {
               </h1>
             </div>
 
-            <h2 className="animate-item font-dancing text-5xl md:text-6xl text-[#00A3E0] group-hover:text-white transition-colors duration-500 mb-8" style={{ opacity: 0 }}>
-              Health
-            </h2>
+            <div className="animate-item flex items-center justify-center gap-4 mb-8" style={{ opacity: 0 }}>
+              <div className="w-24 md:w-40 h-[3px] bg-[#00A3E0] group-hover:bg-white transition-colors duration-500" />
+              <h2 className="text-5xl md:text-6xl text-black" style={{ fontFamily: "'Holiday', cursive", textTransform: 'none' }}>
+                Health
+              </h2>
+            </div>
 
-            <p className="animate-item text-gray-600 group-hover:text-white/80 mb-8 max-w-sm mx-auto transition-colors duration-500" style={{ opacity: 0 }}>
-              Sağlıklı yaşam için geliştirilmiş likit gıda takviyeleri
+            <p className="animate-item text-lg font-semibold text-gray-600 group-hover:text-white/80 mb-8 max-w-sm mx-auto transition-colors duration-500" style={{ opacity: 0, fontFamily: "'Montserrat', sans-serif" }}>
+              Sağlıklı yaşam için geliştirilmiş gıda takviyeleri
             </p>
 
             <Button
@@ -145,11 +148,14 @@ const GatewayPage = () => {
               </h1>
             </div>
 
-            <h2 className="animate-item font-dancing text-5xl md:text-6xl text-[#39B54A] group-hover:text-white transition-colors duration-500 mb-8" style={{ opacity: 0 }}>
-              mice
-            </h2>
+            <div className="animate-item flex items-center justify-center gap-4 mb-8" style={{ opacity: 0 }}>
+              <div className="w-24 md:w-40 h-[3px] bg-[#39B54A] group-hover:bg-white transition-colors duration-500" />
+              <h2 className="text-5xl md:text-6xl text-black" style={{ fontFamily: "'MilkyMatcha', cursive", textTransform: 'none' }}>
+                mice
+              </h2>
+            </div>
 
-            <p className="animate-item text-gray-600 group-hover:text-white/80 mb-8 max-w-sm mx-auto transition-colors duration-500" style={{ opacity: 0 }}>
+            <p className="animate-item text-lg font-semibold text-gray-600 group-hover:text-white/80 mb-8 max-w-sm mx-auto transition-colors duration-500" style={{ opacity: 0, fontFamily: "'Montserrat', sans-serif" }}>
               Unutulmaz etkinlikler ve profesyonel organizasyon hizmetleri
             </p>
 
@@ -178,9 +184,9 @@ const GatewayPage = () => {
               <span className="text-black">WELL</span>
               <span className="text-[#00A3E0]"> WORKS</span>
             </h1>
-            <h2 className="font-dancing text-4xl text-[#00A3E0] mb-4">Health</h2>
-            <p className="text-gray-600 text-center mb-6 max-w-xs">
-              Sağlıklı yaşam için geliştirilmiş likit gıda takviyeleri
+            <h2 className="text-4xl text-black mb-4" style={{ fontFamily: "'Holiday', cursive", textTransform: 'none' }}>Health</h2>
+            <p className="text-lg font-semibold text-gray-600 text-center mb-6 max-w-xs" style={{ fontFamily: "'Montserrat', sans-serif" }}>
+              Sağlıklı yaşam için geliştirilmiş gıda takviyeleri
             </p>
             <button className="inline-flex items-center gap-2 px-6 py-3 bg-[#00A3E0] text-white font-bold rounded-full">
               Keşfet <ArrowRight className="w-5 h-5" />
@@ -201,8 +207,8 @@ const GatewayPage = () => {
               <span className="text-black">WELL</span>
               <span className="text-[#39B54A]"> WORKS</span>
             </h1>
-            <h2 className="font-dancing text-4xl text-[#39B54A] mb-4">mice</h2>
-            <p className="text-gray-600 text-center mb-6 max-w-xs">
+            <h2 className="text-4xl text-black mb-4" style={{ fontFamily: "'MilkyMatcha', cursive", textTransform: 'none' }}>mice</h2>
+            <p className="text-lg font-semibold text-gray-600 text-center mb-6 max-w-xs" style={{ fontFamily: "'Montserrat', sans-serif" }}>
               Unutulmaz etkinlikler ve profesyonel organizasyon hizmetleri
             </p>
             <button className="inline-flex items-center gap-2 px-6 py-3 bg-[#39B54A] text-white font-bold rounded-full">
