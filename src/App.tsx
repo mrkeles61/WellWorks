@@ -21,6 +21,7 @@ import TeamPage from "./pages/TeamPage";
 import ContactPage from "./pages/ContactPage";
 import LegalPage from "./pages/LegalPage";
 import QualityPage from "./pages/QualityPage";
+import SatisNoktalariPage from "./pages/SatisNoktalariPage";
 
 import NotFound from "./pages/NotFound";
 
@@ -55,7 +56,7 @@ const App = () => (
                 <Route path="/familyamiz" element={<TeamPage />} />
                 <Route path="/legal/:type" element={<LegalPage />} />
 
-                <Route path="/health/satis-noktalari" element={<StoreLocatorPage />} />
+                <Route path="/health/satis-noktalari" element={<SatisNoktalariPage />} />
                 <Route path="/kariyer" element={<KariyerPage />} />
                 <Route path="/kalite" element={<QualityPage />} />
 

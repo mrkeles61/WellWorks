@@ -6,7 +6,7 @@ import { useBrand } from '@/hooks/useBrand';
 import BrandToggle from '@/components/shared/BrandToggle';
 import LanguageToggle from '@/components/shared/LanguageToggle';
 import SearchModal from '@/components/shared/SearchModal';
-import SalesPointsModal from '@/components/shared/SalesPointsModal';
+
 import { cn } from '@/lib/utils';
 
 const Header = () => {
@@ -16,7 +16,7 @@ const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isSearchOpen, setIsSearchOpen] = useState(false);
-  const [salesModalOpen, setSalesModalOpen] = useState(false);
+
   const [mobileBrandsOpen, setMobileBrandsOpen] = useState(false);
 
   // Check if we're on gateway page
@@ -196,12 +196,15 @@ const Header = () => {
                 </div>
 
                 {/* Satış Noktaları */}
-                <button
-                  onClick={() => setSalesModalOpen(true)}
-                  className="text-sm font-medium transition-colors hover:text-primary text-foreground"
+                <Link
+                  to="/health/satis-noktalari"
+                  className={cn(
+                    'text-sm font-medium transition-colors hover:text-primary',
+                    location.pathname === '/health/satis-noktalari' ? 'text-primary' : 'text-foreground'
+                  )}
                 >
                   {t('nav.salesPoints')}
-                </button>
+                </Link>
 
                 {healthTrailingLinks.map(renderNavLink)}
               </>
@@ -232,8 +235,7 @@ const Header = () => {
       {/* Search Modal */}
       <SearchModal isOpen={isSearchOpen} onClose={() => setIsSearchOpen(false)} />
 
-      {/* Sales Points Modal */}
-      <SalesPointsModal open={salesModalOpen} onOpenChange={setSalesModalOpen} />
+
 
       {/* Mobile Menu */}
       <div
@@ -300,15 +302,13 @@ const Header = () => {
                   </div>
 
                   {/* Satış Noktaları */}
-                  <button
-                    onClick={() => {
-                      setIsMobileMenuOpen(false);
-                      setSalesModalOpen(true);
-                    }}
+                  <Link
+                    to="/health/satis-noktalari"
+                    onClick={() => setIsMobileMenuOpen(false)}
                     className="block w-full text-left py-3 text-lg font-medium border-b border-border"
                   >
                     {t('nav.salesPoints')}
-                  </button>
+                  </Link>
 
                   {healthTrailingLinks.map(renderMobileLink)}
                 </>
