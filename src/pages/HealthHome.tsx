@@ -116,10 +116,12 @@ const HealthHome = () => {
           <div className="grid lg:grid-cols-2 gap-12 items-center w-full">
             {/* Left Content - About Us */}
             <div className="flex flex-col items-start space-y-6">
-              <span className="inline-block text-2xl font-semibold tracking-wide mb-2">
-                <span className="font-poppins font-bold"><span className="text-health-primary">Well</span><span className="text-gray-900">-Works Health</span></span>
+              <span className="inline-block text-3xl sm:text-4xl font-semibold tracking-wide mb-2">
+                <span className="font-poppins font-bold text-gray-900">Well</span><span className="font-poppins font-bold text-gray-900">Works</span>
                 {' '}
-                <span className="text-health-primary" style={{ fontFamily: "'Holiday', cursive" }}>{t('health.hero2.label')}</span>
+                <span className="text-health-primary" style={{ fontFamily: "'Holiday', cursive" }}>Health</span>
+                {' '}
+                <span className="font-poppins font-bold text-gray-900">{t('health.hero2.label')}</span>
               </span>
               <h1 className="font-poppins font-bold text-4xl sm:text-5xl lg:text-6xl leading-tight tracking-tight text-gray-900">
                 <Trans i18nKey="health.hero2.title" components={[<span className="text-health-primary" />]} />
@@ -252,7 +254,7 @@ const HealthHome = () => {
           <div className="grid lg:grid-cols-2 gap-16 items-center">
             {/* Text Content */}
             <AnimatedSection animation="fadeInUp" className="space-y-6">
-              <span className="text-health-primary text-sm font-poppins font-bold uppercase tracking-[0.2em]">
+              <span className="text-4xl sm:text-5xl font-poppins font-black text-white block mb-2" style={{ WebkitTextStroke: '1.5px rgba(0,0,0,0.3)' }}>
                 {t('health.wellworksIntro.label')}
               </span>
               <h2 className="font-poppins font-bold text-3xl md:text-4xl lg:text-5xl leading-tight text-white">

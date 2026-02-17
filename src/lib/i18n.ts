@@ -290,7 +290,7 @@ const resources = {
           },
         },
         wellworksIntro: {
-          label: 'DailyShot',
+          label: 'Dailyshot Hakkında',
           title: 'Likit Takviyenin <0>Gücünü</0> Keşfedin',
           desc: 'WellWorks Health, içerisinde likit formda ürünler bulunduran bitkisel bir gıda takviyesi markasıdır. Likit yapısı sayesinde kana hızlıca karışır ve etkinin hızlı gözlemlenmesine olanak sağlar.',
           feature1: '<0>%90\'a varan</0> biyoyararlanım oranı',
@@ -1289,7 +1289,7 @@ Telefon: +90 536 032 08 38`,
           },
         },
         wellworksIntro: {
-          label: 'DailyShot',
+          label: 'About Dailyshot',
           title: 'Discover the <0>Power</0> of Liquid Supplements',
           desc: 'WellWorks Health is a herbal supplement brand with liquid form products. Thanks to its liquid structure, it quickly mixes into the blood and enables fast observation of the effect.',
           feature1: '<0>Up to 90%</0> bioavailability rate',
