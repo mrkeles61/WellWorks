@@ -61,6 +61,7 @@ const Header = () => {
     { href: '/mice', label: t('nav.home') },
     { href: '/mice/hakkimizda', label: t('mice.aboutUs.pageTitle') },
     { href: '/mice/isler-gucler', label: t('nav.events') },
+    { href: '/mice/partnerlerimiz', label: t('mice.aboutUs.partners.pageTitle') },
     { href: '/mice/iletisim', label: t('nav.contact') },
   ];
 

@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useBrand } from '@/hooks/useBrand';
-import { ArrowUpRight, Calendar, MapPin, Users, ExternalLink, X } from 'lucide-react';
+import { ArrowUpRight, Calendar, MapPin, Users, ExternalLink, X, ChevronLeft, ChevronRight } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import AnimatedSection from '@/components/shared/AnimatedSection';
 
@@ -11,25 +11,55 @@ import AnimatedSection from '@/components/shared/AnimatedSection';
  * Large showcase cards for MICE events and projects
  */
 
-const eventImages = [
-    'https://lh3.googleusercontent.com/aida-public/AB6AXuBfAYhIK-nGMz49c4JMrT1z0kXLI7fhR9CrKsYFAQdAjkRUkBeHWM986voT0DQliTSrXHdeydatBRnLyJrltL7-WRpdzIpFk-wHdKWyCancjBLvzeioGRjPgDh-2uhcOJfCjsNMDmSpjD-8BYDDSywzjKHY_FHOV-pG0eHkZLpfGApyh_Rk3HHipKiZc2m-xT3XrhdZPfRAN5c206NulzamjFK-DMRfB6UFhKoQP5wALDMMinrqSece_S6v0P8QfATkQVxchswtiA',
-    '/images/mice/imera-carnival.png',
-    '/images/mice/yildizli-konser.png',
-    'https://lh3.googleusercontent.com/aida-public/AB6AXuCB4ncuXlL5kbcoY3syjBZySjH-voCBmDjOIFNpel4dclT_ilZiZgUBVrFmXaYyDKpdMM1uVzsFsBFBjCqDC4Z33IEtGdOXCnxHgi_D35C3IJ8QDyR1YH-meF5P0OXToF9EciSKfLjaua2LLTumOVAcFTI7JzJtBoa4H-8AhaemHNzlD74sJxDestfqPFFUsdfdj8FgsuSELg1S0M2SGwn5xwru5VSNOtfda9h1-bDEnzda7AuMq0HpQOddbof3hcGvm7H1kHJrig',
-    '/images/mice/gusto-weekend.png',
-    '/images/mice/business-leisure.png',
+const projectFolders = [
+    'christmas-market',
+    'holifest',
+    'imera-carnival',
+    'gusto-weekend',
+    'yildizli-konser',
+    'balo-odul',
+    'baby-on-the-fest',
+    'incia-toplanti',
+    'mining-express',
+    'noroloji-toplanti',
+    'campalle',
+    'hyundai-aile-gunu',
 ];
+
+const projectImageCounts: Record<string, number> = {
+    'christmas-market': 7,
+    'holifest': 5,
+    'imera-carnival': 5,
+    'gusto-weekend': 5,
+    'yildizli-konser': 6,
+    'balo-odul': 5,
+    'baby-on-the-fest': 5,
+    'incia-toplanti': 4,
+    'mining-express': 5,
+    'noroloji-toplanti': 5,
+    'campalle': 5,
+    'hyundai-aile-gunu': 5,
+};
+
+const getGalleryImages = (folder: string) => {
+    const count = projectImageCounts[folder] || 1;
+    const ext = folder === 'imera-carnival' ? ['.jpeg', '.jpeg', '.jpeg', '.jpeg', '.png'] : Array(count).fill('.jpeg');
+    return Array.from({ length: count }, (_, i) => `/images/mice/projects/${folder}/${i + 1}${ext[i]}`);
+};
+
+const eventImages = projectFolders.map(f => `/images/mice/projects/${f}/1.jpeg`);
 
 const WorksPage = () => {
     const { setBrand } = useBrand();
     const { t } = useTranslation();
     const [selectedId, setSelectedId] = useState<string | null>(null);
+    const [galleryIndex, setGalleryIndex] = useState(0);
 
     useEffect(() => {
         setBrand('mice');
     }, [setBrand]);
 
-    const featuredWorks = [1, 2, 3, 4, 5, 6].map((i) => ({
+    const featuredWorks = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12].map((i) => ({
         id: String(i),
         title: t(`works.event${i}.title`),
         subtitle: t(`works.event${i}.subtitle`),
@@ -39,33 +69,13 @@ const WorksPage = () => {
         location: t(`works.event${i}.location`),
         attendees: t(`works.event${i}.attendees`),
         category: t(`works.event${i}.category`),
-        featured: i <= 2,
+        featured: i <= 4,
     }));
 
     const selectedWork = featuredWorks.find(w => w.id === selectedId);
 
     return (
         <div data-brand="mice" className="bg-[#0a0a0a] text-white min-h-screen">
-            {/* Hero Section with NEW Background Image */}
-            <section
-                className="relative py-24 md:py-32 px-4 border-b border-white/10 bg-cover bg-center overflow-hidden"
-                style={{ backgroundImage: 'url(/images/mice/hero-bg.png)' }}
-            >
-                {/* Overlay for readability over the generated background */}
-                <div className="absolute inset-0 bg-black/60 backdrop-blur-[2px]" />
-
-                <div className="container mx-auto max-w-7xl relative z-10">
-                    <AnimatedSection animation="fadeInUp">
-                        <h1 className="font-oswald text-5xl md:text-7xl lg:text-8xl font-bold text-white leading-none mb-6">
-                            {t('works.heroTitle')}<br />
-                            <span className="text-mice-primary">{t('works.heroTitleAccent')}</span>
-                        </h1>
-                        <p className="text-xl text-gray-200 max-w-2xl font-light">
-                            {t('works.heroSubtitle')}
-                        </p>
-                    </AnimatedSection>
-                </div>
-            </section>
 
             {/* Featured Works - Large Showcase */}
             <section className="py-16 md:py-24">
@@ -76,45 +86,37 @@ const WorksPage = () => {
                             <AnimatedSection key={work.id} animation="fadeInUp" delay={index * 100}>
                                 <motion.article
                                     layoutId={`card-${work.id}`}
-                                    onClick={() => setSelectedId(work.id)}
-                                    className="group relative overflow-hidden rounded-3xl aspect-[4/3] cursor-pointer"
+                                    onClick={() => { setGalleryIndex(0); setSelectedId(work.id); }}
+                                    className="group cursor-pointer bg-[#16181b] rounded-3xl overflow-hidden hover:bg-[#1E2125] transition-colors"
                                 >
-                                    {/* Background Image */}
-                                    <motion.img
-                                        layoutId={`img-${work.id}`}
-                                        src={work.image}
-                                        alt={work.title}
-                                        className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
-                                    />
-
-                                    {/* Overlay */}
-                                    <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent" />
-
-                                    {/* Category Badge */}
-                                    <div className="absolute top-6 left-6">
-                                        <span className="px-4 py-2 bg-mice-primary text-white text-sm font-bold rounded-full">
-                                            {work.category}
-                                        </span>
+                                    {/* Image */}
+                                    <div className="relative overflow-hidden aspect-[16/10]">
+                                        <motion.img
+                                            layoutId={`img-${work.id}`}
+                                            src={work.image}
+                                            alt={work.title}
+                                            className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                                        />
+                                        <div className="absolute inset-0 bg-black/10 group-hover:bg-black/20 transition-colors" />
                                     </div>
 
-                                    {/* Content */}
-                                    <div className="absolute bottom-0 left-0 right-0 p-8">
-                                        <span className="text-mice-primary text-sm font-medium mb-2 block">{work.subtitle}</span>
-                                        <motion.h2 layoutId={`title-${work.id}`} className="font-oswald text-3xl md:text-4xl font-bold text-white mb-4 group-hover:text-mice-primary transition-colors">
+                                    {/* Content below image */}
+                                    <div className="p-8">
+                                        <motion.h2 layoutId={`title-${work.id}`} className="font-oswald text-3xl md:text-4xl font-bold text-white mb-3 group-hover:text-mice-primary transition-colors">
                                             {work.title}
                                         </motion.h2>
-                                        <p className="text-gray-300 mb-6 line-clamp-2">{work.description}</p>
+                                        <p className="text-gray-300 mb-6 line-clamp-3">{work.description}</p>
 
                                         {/* Meta */}
                                         <div className="flex flex-wrap gap-4 text-sm text-gray-400">
                                             <span className="flex items-center gap-1.5">
-                                                <Calendar className="w-4 h-4" /> {work.date}
+                                                <Calendar className="w-4 h-4 text-[#2DB34A]" /> {work.date}
                                             </span>
                                             <span className="flex items-center gap-1.5">
-                                                <MapPin className="w-4 h-4" /> {work.location}
+                                                <MapPin className="w-4 h-4 text-[#2DB34A]" /> {work.location}
                                             </span>
                                             <span className="flex items-center gap-1.5">
-                                                <Users className="w-4 h-4" /> {work.attendees}
+                                                <Users className="w-4 h-4 text-[#2DB34A]" /> {work.attendees}
                                             </span>
                                         </div>
                                     </div>
@@ -129,11 +131,11 @@ const WorksPage = () => {
                             <AnimatedSection key={work.id} animation="fadeInUp" delay={index * 100}>
                                 <motion.article
                                     layoutId={`card-${work.id}`}
-                                    onClick={() => setSelectedId(work.id)}
+                                    onClick={() => { setGalleryIndex(0); setSelectedId(work.id); }}
                                     className="group cursor-pointer bg-[#16181b] rounded-2xl overflow-hidden hover:bg-[#1E2125] transition-colors"
                                 >
                                     {/* Image */}
-                                    <div className="relative overflow-hidden aspect-[4/3] mb-0">
+                                    <div className="relative overflow-hidden aspect-[16/10]">
                                         <motion.img
                                             layoutId={`img-${work.id}`}
                                             src={work.image}
@@ -141,20 +143,12 @@ const WorksPage = () => {
                                             loading="lazy"
                                             className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                                         />
-                                        <div className="absolute inset-0 bg-black/20 group-hover:bg-black/40 transition-colors" />
-
-                                        {/* Category Badge */}
-                                        <div className="absolute top-4 left-4">
-                                            <span className="px-3 py-1 bg-white/10 text-white text-xs font-bold rounded-full border border-white/20">
-                                                {work.category}
-                                            </span>
-                                        </div>
+                                        <div className="absolute inset-0 bg-black/10 group-hover:bg-black/20 transition-colors" />
                                     </div>
 
+                                    {/* Content below image */}
                                     <div className="p-6">
-                                        {/* Content */}
-                                        <span className="text-mice-primary text-xs font-medium uppercase tracking-wider">{work.subtitle}</span>
-                                        <motion.h3 layoutId={`title-${work.id}`} className="font-oswald text-2xl font-bold text-white mt-2 mb-3 group-hover:text-mice-primary transition-colors">
+                                        <motion.h3 layoutId={`title-${work.id}`} className="font-oswald text-2xl font-bold text-white mt-1 mb-3 group-hover:text-mice-primary transition-colors">
                                             {work.title}
                                         </motion.h3>
                                         <p className="text-gray-400 text-sm mb-4 line-clamp-2">{work.description}</p>
@@ -162,10 +156,13 @@ const WorksPage = () => {
                                         {/* Meta */}
                                         <div className="flex flex-wrap gap-3 text-xs text-gray-500">
                                             <span className="flex items-center gap-1">
-                                                <Calendar className="w-3 h-3" /> {work.date}
+                                                <Calendar className="w-3 h-3 text-[#2DB34A]" /> {work.date}
                                             </span>
                                             <span className="flex items-center gap-1">
-                                                <Users className="w-3 h-3" /> {work.attendees}
+                                                <MapPin className="w-3 h-3 text-[#2DB34A]" /> {work.location}
+                                            </span>
+                                            <span className="flex items-center gap-1">
+                                                <Users className="w-3 h-3 text-[#2DB34A]" /> {work.attendees}
                                             </span>
                                         </div>
                                     </div>
@@ -193,98 +190,130 @@ const WorksPage = () => {
                             >
                                 {t('works.ctaButton')}
                             </Link>
-                            <a
-                                href="https://wa.me/905327218678"
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                className="px-8 py-4 bg-[#25D366] hover:bg-[#128C7E] text-white font-bold rounded-xl transition-colors flex items-center justify-center gap-2 shadow-lg hover:shadow-xl transform hover:-translate-y-1"
-                            >
-                                <svg
-                                    viewBox="0 0 24 24"
-                                    width="24"
-                                    height="24"
-                                    stroke="currentColor"
-                                    strokeWidth="2"
-                                    fill="none"
-                                    strokeLinecap="round"
-                                    strokeLinejoin="round"
-                                    className="w-5 h-5"
-                                >
-                                    <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z" />
-                                </svg>
-                                {t('works.ctaWhatsapp')}
-                            </a>
                         </div>
                     </AnimatedSection>
                 </div>
             </section>
 
-            {/* EXPANDABLE CARD MODAL */}
+            {/* GALLERY MODAL */}
             <AnimatePresence>
-                {selectedId && selectedWork && (
-                    <motion.div
-                        initial={{ opacity: 0 }}
-                        animate={{ opacity: 1 }}
-                        exit={{ opacity: 0 }}
-                        className="fixed inset-0 z-50 flex items-center justify-center px-4 bg-black/80 backdrop-blur-md"
-                        onClick={() => setSelectedId(null)}
-                    >
+                {selectedId && selectedWork && (() => {
+                    const folderIndex = parseInt(selectedId) - 1;
+                    const folder = projectFolders[folderIndex];
+                    const gallery = getGalleryImages(folder);
+                    return (
                         <motion.div
-                            layoutId={`card-${selectedId}`}
-                            className="bg-[#16181b] w-full max-w-3xl max-h-[90vh] overflow-y-auto rounded-3xl overflow-hidden relative shadow-2xl border border-white/10"
-                            onClick={(e) => e.stopPropagation()}
+                            initial={{ opacity: 0 }}
+                            animate={{ opacity: 1 }}
+                            exit={{ opacity: 0 }}
+                            className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/90 backdrop-blur-md"
+                            onClick={() => setSelectedId(null)}
                         >
-                            <button
-                                onClick={() => setSelectedId(null)}
-                                className="absolute top-4 right-4 z-50 p-2 bg-black/50 hover:bg-black/80 rounded-full text-white transition-colors"
+                            <motion.div
+                                layoutId={`card-${selectedId}`}
+                                className="bg-[#16181b] w-full max-w-5xl max-h-[92vh] overflow-y-auto rounded-3xl overflow-hidden relative shadow-2xl border border-white/10"
+                                onClick={(e) => e.stopPropagation()}
                             >
-                                <X className="w-6 h-6" />
-                            </button>
+                                {/* Close button */}
+                                <button
+                                    onClick={() => setSelectedId(null)}
+                                    className="absolute top-4 right-4 z-50 p-2 bg-black/60 hover:bg-black/80 rounded-full text-white transition-colors"
+                                >
+                                    <X className="w-6 h-6" />
+                                </button>
 
-                            <div className="grid grid-cols-1 md:grid-cols-2">
-                                <div className="h-64 md:h-full relative">
+                                {/* Main image viewer */}
+                                <div className="relative aspect-video bg-black">
                                     <motion.img
-                                        layoutId={`img-${selectedId}`}
-                                        src={selectedWork.image}
-                                        alt={selectedWork.title}
-                                        className="w-full h-full object-cover"
+                                        key={galleryIndex}
+                                        initial={{ opacity: 0 }}
+                                        animate={{ opacity: 1 }}
+                                        transition={{ duration: 0.3 }}
+                                        src={gallery[galleryIndex]}
+                                        alt={`${selectedWork.title} - ${galleryIndex + 1}`}
+                                        className="w-full h-full object-contain"
                                     />
-                                    <div className="absolute inset-0 bg-gradient-to-t from-[#16181b] via-transparent to-transparent md:bg-gradient-to-r" />
-                                </div>
 
-                                <div className="p-8 flex flex-col justify-center">
-                                    <span className="text-mice-primary text-sm font-bold uppercase tracking-wider mb-2">
-                                        {selectedWork.category}
-                                    </span>
-                                    <motion.h2 layoutId={`title-${selectedId}`} className="font-oswald text-2xl font-bold text-white mb-4">
-                                        {selectedWork.title}
-                                    </motion.h2>
+                                    {/* Prev/Next buttons */}
+                                    {gallery.length > 1 && (
+                                        <>
+                                            <button
+                                                onClick={(e) => { e.stopPropagation(); setGalleryIndex(prev => prev > 0 ? prev - 1 : gallery.length - 1); }}
+                                                className="absolute left-3 top-1/2 -translate-y-1/2 p-2 bg-black/60 hover:bg-black/80 rounded-full text-white transition-colors"
+                                            >
+                                                <ChevronLeft className="w-6 h-6" />
+                                            </button>
+                                            <button
+                                                onClick={(e) => { e.stopPropagation(); setGalleryIndex(prev => prev < gallery.length - 1 ? prev + 1 : 0); }}
+                                                className="absolute right-3 top-1/2 -translate-y-1/2 p-2 bg-black/60 hover:bg-black/80 rounded-full text-white transition-colors"
+                                            >
+                                                <ChevronRight className="w-6 h-6" />
+                                            </button>
+                                        </>
+                                    )}
 
-                                    <motion.p layoutId={`desc-${selectedId}`} className="text-gray-300 text-sm mb-6 leading-relaxed line-clamp-4">
-                                        {selectedWork.description}
-                                    </motion.p>
-
-                                    <div className="flex flex-wrap gap-3 text-xs text-gray-400 mb-6">
-                                        <span className="flex items-center gap-1.5 bg-white/5 px-2.5 py-1 rounded-lg border border-white/10">
-                                            <Calendar className="w-3.5 h-3.5 text-[#2DB34A]" /> {selectedWork.date}
-                                        </span>
-                                        <span className="flex items-center gap-1.5 bg-white/5 px-2.5 py-1 rounded-lg border border-white/10">
-                                            <MapPin className="w-3.5 h-3.5 text-[#2DB34A]" /> {selectedWork.location}
-                                        </span>
+                                    {/* Image counter */}
+                                    <div className="absolute bottom-3 right-3 px-3 py-1 bg-black/60 rounded-full text-white text-xs font-medium">
+                                        {galleryIndex + 1} / {gallery.length}
                                     </div>
-
-                                    <Link
-                                        to="/mice/iletisim"
-                                        className="inline-flex items-center justify-center gap-2 bg-[#2DB34A] hover:bg-[#249A3D] text-white font-bold py-3 px-6 rounded-xl transition-colors w-full text-sm"
-                                    >
-                                        {t('works.modalRequestQuote')}
-                                        <ExternalLink className="w-4 h-4" />
-                                    </Link>
                                 </div>
-                            </div>
+
+                                {/* Thumbnail strip */}
+                                {gallery.length > 1 && (
+                                    <div className="flex gap-2 p-3 overflow-x-auto bg-[#111315]">
+                                        {gallery.map((img, idx) => (
+                                            <button
+                                                key={idx}
+                                                onClick={() => setGalleryIndex(idx)}
+                                                className={`flex-shrink-0 w-16 h-12 rounded-lg overflow-hidden border-2 transition-all ${idx === galleryIndex ? 'border-[#2DB34A] opacity-100' : 'border-transparent opacity-50 hover:opacity-80'
+                                                    }`}
+                                            >
+                                                <img src={img} alt="" className="w-full h-full object-cover" />
+                                            </button>
+                                        ))}
+                                    </div>
+                                )}
+
+                                {/* Project info */}
+                                <div className="p-6 md:p-8">
+                                    <div className="flex flex-col md:flex-row md:items-start md:gap-8">
+                                        <div className="flex-1">
+                                            <span className="text-mice-primary text-sm font-bold uppercase tracking-wider mb-1 block">
+                                                {selectedWork.category}
+                                            </span>
+                                            <h2 className="font-oswald text-2xl md:text-3xl font-bold text-white mb-3">
+                                                {selectedWork.title}
+                                            </h2>
+                                            <p className="text-gray-300 text-sm leading-relaxed mb-5">
+                                                {selectedWork.description}
+                                            </p>
+
+                                            <div className="flex flex-wrap gap-3 text-xs text-gray-400 mb-6">
+                                                <span className="flex items-center gap-1.5 bg-white/5 px-2.5 py-1 rounded-lg border border-white/10">
+                                                    <Calendar className="w-3.5 h-3.5 text-[#2DB34A]" /> {selectedWork.date}
+                                                </span>
+                                                <span className="flex items-center gap-1.5 bg-white/5 px-2.5 py-1 rounded-lg border border-white/10">
+                                                    <MapPin className="w-3.5 h-3.5 text-[#2DB34A]" /> {selectedWork.location}
+                                                </span>
+                                                <span className="flex items-center gap-1.5 bg-white/5 px-2.5 py-1 rounded-lg border border-white/10">
+                                                    <Users className="w-3.5 h-3.5 text-[#2DB34A]" /> {selectedWork.attendees}
+                                                </span>
+                                            </div>
+                                        </div>
+
+                                        <Link
+                                            to="/mice/iletisim"
+                                            className="inline-flex items-center justify-center gap-2 bg-[#2DB34A] hover:bg-[#249A3D] text-white font-bold py-3 px-6 rounded-xl transition-colors text-sm shrink-0"
+                                        >
+                                            {t('works.modalRequestQuote')}
+                                            <ExternalLink className="w-4 h-4" />
+                                        </Link>
+                                    </div>
+                                </div>
+                            </motion.div>
                         </motion.div>
-                    </motion.div>
-                )}
+                    );
+                })()}
             </AnimatePresence>
         </div>
     );

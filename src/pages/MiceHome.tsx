@@ -1,9 +1,8 @@
 import { useTranslation, Trans } from 'react-i18next';
 import { Link } from 'react-router-dom';
-import { useEffect, useState, useRef } from 'react';
+import { useEffect } from 'react';
 import { useBrand } from '@/hooks/useBrand';
-import { Calendar, Star, Diamond, CalendarDays, Users, ArrowRight, Play, MapPin, Phone, Mail, Clock, Quote, Check, Sparkles, Layers, Medal } from 'lucide-react';
-import { cn } from '@/lib/utils';
+import { Calendar, Star, Users, ArrowRight, MapPin, Layers, Medal, Hotel, Briefcase, Palette, Megaphone, FileBarChart } from 'lucide-react';
 import AnimatedSection from '@/components/shared/AnimatedSection';
 import StaggeredList from '@/components/shared/StaggeredList';
 import AnimatedCounter from '@/components/shared/AnimatedCounter';
@@ -12,112 +11,117 @@ import BentoGrid from '@/components/mice/BentoGrid';
 const MiceHome = () => {
   const { t } = useTranslation();
   const { setBrand } = useBrand();
-  const [parallaxY, setParallaxY] = useState(0);
-  const heroRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     setBrand('mice');
   }, [setBrand]);
 
-  // Parallax scroll effect for hero
-  useEffect(() => {
-    const handleScroll = () => {
-      if (heroRef.current) {
-        const rect = heroRef.current.getBoundingClientRect();
-        if (rect.bottom > 0) {
-          setParallaxY(window.scrollY * 0.3);
-        }
-      }
-    };
-    window.addEventListener('scroll', handleScroll, { passive: true });
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
-
-  /* Process / Differentiators - "Nasıl Fark Yaratıyoruz?" content */
-  const processSteps = [
+  /* 5 Service / Differentiator cards */
+  const serviceCards = [
     {
-      icon: <Users className="w-8 h-8" />,
+      icon: <Users className="w-7 h-7" />,
       title: t('mice.home.differentiators.meetings.title'),
       description: t('mice.home.differentiators.meetings.desc'),
     },
     {
-      icon: <Star className="w-8 h-8" />,
+      icon: <Star className="w-7 h-7" />,
       title: t('mice.home.differentiators.incentives.title'),
       description: t('mice.home.differentiators.incentives.desc'),
     },
     {
-      icon: <Layers className="w-8 h-8" />,
+      icon: <Layers className="w-7 h-7" />,
       title: t('mice.home.differentiators.conferences.title'),
       description: t('mice.home.differentiators.conferences.desc'),
     },
     {
-      icon: <Medal className="w-8 h-8" />,
+      icon: <Medal className="w-7 h-7" />,
       title: t('mice.home.differentiators.exhibitions.title'),
       description: t('mice.home.differentiators.exhibitions.desc'),
     },
+    {
+      icon: <Hotel className="w-7 h-7" />,
+      title: t('mice.home.differentiators.accommodation.title'),
+      description: t('mice.home.differentiators.accommodation.desc'),
+    },
   ];
 
-  /* Capabilities List */
-  const capabilitiesList = t('mice.home.capabilities.items', { returnObjects: true }) as string[];
-
+  /* 7 Stats from MD */
   const stats = [
-    { icon: <Diamond className="w-12 h-12" />, value: '12+', label: t('mice.stats.experience') },
-    { icon: <CalendarDays className="w-12 h-12" />, value: '100+', label: t('mice.stats.events') },
-    { icon: <Users className="w-12 h-12" />, value: '500K+', label: t('mice.stats.attendees') },
+    { value: 1, suffix: 'M+', label: t('mice.home.stats.participants') },
+    { value: 283, suffix: '', label: t('mice.home.stats.brands') },
+    { value: 5, suffix: '', label: t('mice.home.stats.festivals') },
+    { value: 135, suffix: 'K m²', label: t('mice.home.stats.area') },
+    { value: 52, suffix: '', label: t('mice.home.stats.cities') },
+    { value: 178, suffix: '', label: t('mice.home.stats.concerts') },
+    { value: 500, suffix: '+', label: t('mice.home.stats.influencers') },
   ];
 
-  /* Services Data */
+  /* 5-step operational process */
+  const processSteps = t('mice.home.operationalProcess.steps', { returnObjects: true }) as {
+    title: string;
+    items: string[];
+  }[];
+
+  const processIcons = [
+    <Palette className="w-6 h-6" />,
+    <Briefcase className="w-6 h-6" />,
+    <Megaphone className="w-6 h-6" />,
+    <Users className="w-6 h-6" />,
+    <FileBarChart className="w-6 h-6" />,
+  ];
+
+  /* BentoGrid services data */
   const services = t('mice.home.services.items', { returnObjects: true }) as {
     name: string;
     description: string;
     image: string;
   }[];
 
-  /* Testimonials Data */
-  const testimonials = t('mice.home.testimonials.items', { returnObjects: true }) as {
-    quote: string;
-    author: string;
-    role: string;
-  }[];
-
-
-
   return (
     <div data-brand="mice" className="bg-[#1A1C20] text-[#F7F4EF] min-h-screen">
-      {/* Hero Section with Parallax */}
-      <section ref={heroRef} className="relative min-h-[85vh] flex items-center justify-center overflow-hidden bg-[#0B3A5B]">
-        <div className="absolute inset-0 z-0">
-          <div className="absolute inset-0 bg-gradient-to-r from-[#1A1C20]/90 via-[#0B3A5B]/80 to-transparent z-10" />
-          <img
-            alt="Crowd cheering at a large outdoor concert event in Istanbul at night with stage lights"
-            className="w-full h-full object-cover opacity-80 transition-transform duration-100"
-            style={{ transform: `translateY(${parallaxY}px) scale(1.1)` }}
-            src="https://lh3.googleusercontent.com/aida-public/AB6AXuCi4gsfCAzRdPxBGif47y5vpGpqbZMCeDKuHbf_tSmcTo-zTAZn2z39gCYmeIETJfRUYvWSW4Aj8r7i24G0fTEra5cyzNR7d6_OIDHGmgr2c1_Vvs8ogSpgz48BaFsCWTaLtv1_X02v75ArDj5BH0LyzJoi5Pu4h5SnBLQUNTgXSMbALd6vbjZ6ih0JfTdW201hlA8ocJ5MtJYpUfnA3IjwXOIlf-jighliS9-R5hWYADnkJ6y-o96L5lbIIi9ynkld4SFAx70UQg"
-          />
-        </div>
-        <div className="container relative z-20 px-4 mx-auto sm:px-6 lg:px-8 text-center md:text-left">
-          <div className="max-w-3xl">
 
+      {/* 1. VIDEO HERO — foreground player with controls */}
+      <section className="bg-[#0f1114] pt-8 pb-16">
+        <div className="container mx-auto max-w-6xl px-4">
+          {/* Video Player */}
+          <div className="relative rounded-2xl overflow-hidden shadow-2xl shadow-black/50 border border-white/5">
+            <video
+              controls
+              playsInline
+              className="w-full aspect-video bg-black"
+              preload="metadata"
+              src="/images/mice/mice_video.mp4"
+            />
+          </div>
+
+          {/* Title + CTA below video */}
+          <div className="mt-10 text-center">
             <AnimatedSection animation="fadeInUp" delay={100}>
-              <h1 className="font-oswald text-5xl md:text-7xl font-extrabold text-white leading-tight tracking-tight mb-6 drop-shadow-lg">
-                {t('mice.home.hero.title1')} <span className="text-[#2DB34A]">{t('mice.home.hero.titleHighlight')}</span>
-                <br />
-                {t('mice.home.hero.title2')}
+              <h1 className="font-oswald text-5xl md:text-7xl font-extrabold text-white leading-tight tracking-tight mb-4">
+                {t('mice.home.hero.title1')}{' '}
+                <span className="text-[#2DB34A]">{t('mice.home.hero.titleHighlight')}</span>
               </h1>
             </AnimatedSection>
             <AnimatedSection animation="fadeInUp" delay={200}>
-              <p className="text-lg md:text-xl text-[#D8DEE6] mb-10 leading-relaxed max-w-2xl opacity-90 drop-shadow-md">
+              <p className="text-lg md:text-xl text-[#D8DEE6] mb-8 max-w-2xl mx-auto opacity-90">
                 {t('mice.home.hero.desc')}
               </p>
             </AnimatedSection>
             <AnimatedSection animation="fadeInUp" delay={300}>
-              <div className="flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
+              <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <Link
                   to="/mice/iletisim"
                   className="bg-[#2DB34A] hover:bg-[#249A3D] text-white text-lg font-bold py-4 px-8 rounded-xl shadow-xl shadow-[#2DB34A]/20 hover:shadow-2xl hover:-translate-y-1 transition-all duration-300 flex items-center justify-center gap-2"
                 >
-                  <span>{t('mice.home.hero.ctaPlan')}</span>
                   <Calendar className="w-5 h-5" />
+                  <span>{t('mice.home.hero.ctaPlan')}</span>
+                </Link>
+                <Link
+                  to="/mice/isler-gucler"
+                  className="border border-white/20 text-white text-lg font-bold py-4 px-8 rounded-xl hover:bg-white hover:text-[#0B3A5B] transition-all duration-300 flex items-center justify-center gap-2"
+                >
+                  <span>{t('mice.home.hero.ctaProjects')}</span>
+                  <ArrowRight className="w-5 h-5" />
                 </Link>
               </div>
             </AnimatedSection>
@@ -125,172 +129,136 @@ const MiceHome = () => {
         </div>
       </section>
 
-      {/* Stats Section */}
-      <section className="relative z-30 -mt-16 md:-mt-20 px-4 mb-20">
-        <div className="container mx-auto">
-          <div className="bg-[#23262B] rounded-xl shadow-2xl p-8 md:p-12 border border-white/5">
-            <StaggeredList className="grid grid-cols-1 md:grid-cols-3 gap-8" staggerDelay={100} animation="fadeInUp">
-              {/* Animated Counter Stats */}
-              <div className="flex flex-col items-center text-center p-4">
-                <div className="text-[#2DB34A] mb-4"><Diamond className="w-12 h-12" /></div>
-                <span className="font-oswald text-5xl font-bold text-white mb-2">
-                  <AnimatedCounter end={12} suffix="+" duration={2000} />
-                </span>
-                <span className="text-[#D8DEE6] font-medium">{t('mice.stats.experience')}</span>
-              </div>
-              <div className="flex flex-col items-center text-center p-4">
-                <div className="text-[#2DB34A] mb-4"><CalendarDays className="w-12 h-12" /></div>
-                <span className="font-oswald text-5xl font-bold text-white mb-2">
-                  <AnimatedCounter end={100} suffix="+" duration={2500} />
-                </span>
-                <span className="text-[#D8DEE6] font-medium">{t('mice.stats.events')}</span>
-              </div>
-              <div className="flex flex-col items-center text-center p-4">
-                <div className="text-[#2DB34A] mb-4"><Users className="w-12 h-12" /></div>
-                <span className="font-oswald text-5xl font-bold text-white mb-2">
-                  <AnimatedCounter end={500} suffix="K+" duration={3000} />
-                </span>
-                <span className="text-[#D8DEE6] font-medium">{t('mice.stats.attendees')}</span>
-              </div>
-            </StaggeredList>
-          </div>
-        </div>
-      </section>
-
-      {/* NEW: Welcome / Mission Section (Centered, Editorial) */}
+      {/* 2. HAKKIMIZDA (About) */}
       <section className="py-24 px-4 bg-[#1A1C20] border-b border-white/5">
-        <div className="container mx-auto max-w-4xl text-center">
+        <div className="container mx-auto max-w-4xl">
           <AnimatedSection animation="fadeInUp">
-            <span className="text-[#2DB34A] font-serif italic text-xl mb-6 block">{t('mice.home.mission.philosophy')}</span>
-            <h2 className="font-oswald text-4xl md:text-5xl lg:text-6xl text-white font-medium leading-tight mb-8">
-              <Trans i18nKey="mice.home.mission.title" components={[<span className="text-[#2DB34A] italic font-serif" />]} />
-            </h2>
-            <p className="text-[#D8DEE6] text-lg md:text-xl leading-relaxed opacity-80 max-w-2xl mx-auto font-light">
-              {t('mice.home.mission.desc')}
+            <div className="text-center mb-8">
+              <span className="text-[#2DB34A] text-sm font-medium uppercase tracking-widest mb-3 block">
+                {t('mice.home.about.label')}
+              </span>
+            </div>
+            <p className="text-[#D8DEE6] text-lg md:text-xl leading-relaxed opacity-80 max-w-3xl mx-auto text-center mb-10">
+              {t('mice.home.about.text')}
             </p>
+            <div className="border-l-4 border-[#2DB34A] pl-6 max-w-2xl mx-auto">
+              <p className="text-[#D8DEE6] text-xl italic font-serif leading-relaxed">
+                "{t('mice.home.about.quote')}"
+              </p>
+            </div>
           </AnimatedSection>
         </div>
       </section>
 
-      {/* NASIL FARK YARATIYORUZ? Section */}
-      <section className="py-20 px-4 bg-[#16181b]">
-        <div className="container mx-auto max-w-7xl">
-          <AnimatedSection animation="fadeInUp" className="text-center mb-16">
-            <span className="text-[#2DB34A] text-sm font-medium uppercase tracking-widest mb-3 block">{t('mice.home.differentiators.label')}</span>
-            <h2 className="font-oswald text-4xl md:text-5xl text-white font-bold">{t('mice.home.differentiators.title')}</h2>
+      {/* 3. STATS BAR — 7 metrics as green circles */}
+      <section className="py-20 px-4 bg-[#111315]">
+        <div className="container mx-auto max-w-6xl">
+          <AnimatedSection animation="fadeInUp">
+            <h2 className="font-oswald text-3xl md:text-5xl text-white font-bold mb-16">
+              12 yılı aşkın deneyimle;
+            </h2>
           </AnimatedSection>
-          <StaggeredList className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8" staggerDelay={150}>
-            {processSteps.map((step, index) => (
-              <div key={index} className="flex flex-col items-center text-center group bg-[#2DB34A] rounded-2xl p-6 hover:bg-[#249A3D] transition-all duration-500">
-                <div className="w-14 h-14 rounded-full bg-white/20 flex items-center justify-center text-white mb-5">
-                  {step.icon}
+          <StaggeredList className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-x-8 gap-y-10 items-start" staggerDelay={80} animation="fadeInUp">
+            {stats.map((stat, i) => (
+              <div key={i} className="flex flex-col items-center text-center">
+                <div className="w-28 h-28 md:w-32 md:h-32 rounded-full bg-[#2DB34A] flex flex-col items-center justify-center mb-3 shadow-lg shadow-[#2DB34A]/20">
+                  <span className="font-oswald text-3xl md:text-4xl font-extrabold text-white leading-none">
+                    <AnimatedCounter end={stat.value} suffix={stat.suffix} duration={2000 + i * 200} />
+                  </span>
                 </div>
-                <p className="text-white leading-relaxed text-sm">
-                  {step.description}
-                </p>
+                <span className="text-white text-xs md:text-sm font-bold uppercase tracking-wider leading-tight max-w-[120px]">{stat.label}</span>
               </div>
             ))}
           </StaggeredList>
         </div>
       </section>
 
-      {/* MICE Past Work / Services - BENTO GRID UPGRADE */}
+      {/* 4. HİZMET ALANLARIMIZ — 5 service cards */}
+      <section className="py-20 px-4 bg-[#1A1C20]">
+        <div className="container mx-auto max-w-7xl">
+          <AnimatedSection animation="fadeInUp" className="text-center mb-16">
+            <span className="text-[#2DB34A] text-sm font-medium uppercase tracking-widest mb-3 block">
+              {t('mice.home.differentiators.label')}
+            </span>
+            <h2 className="font-oswald text-4xl md:text-5xl text-white font-bold">
+              {t('mice.home.differentiators.title')}
+            </h2>
+          </AnimatedSection>
+          <StaggeredList className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-6" staggerDelay={100}>
+            {serviceCards.map((card, index) => (
+              <div key={index} className="flex flex-col items-center text-center group bg-[#16181b] rounded-2xl p-6 border border-white/5 hover:border-[#2DB34A]/40 transition-all duration-300">
+                <div className="w-14 h-14 rounded-full bg-[#2DB34A]/10 flex items-center justify-center text-[#2DB34A] mb-5 group-hover:bg-[#2DB34A]/20 transition-colors">
+                  {card.icon}
+                </div>
+                <h3 className="font-oswald text-lg font-bold text-white mb-3">{card.title}</h3>
+                <p className="text-[#8B9199] leading-relaxed text-sm">{card.description}</p>
+              </div>
+            ))}
+          </StaggeredList>
+        </div>
+      </section>
+
+      {/* 5. OPERASYONEL YAKLASIMIMIZ — 5-step process timeline */}
+      <section className="py-20 px-4 bg-[#16181b] border-t border-white/5">
+        <div className="container mx-auto max-w-6xl">
+          <AnimatedSection animation="fadeInUp" className="text-center mb-16">
+            <span className="text-[#2DB34A] text-sm font-medium uppercase tracking-widest mb-3 block">
+              {t('mice.home.operationalProcess.label')}
+            </span>
+            <h2 className="font-oswald text-4xl md:text-5xl text-white font-bold mb-4">
+              {t('mice.home.operationalProcess.title')}
+            </h2>
+            <p className="text-[#8B9199] text-lg max-w-3xl mx-auto">
+              {t('mice.home.operationalProcess.desc')}
+            </p>
+          </AnimatedSection>
+
+          {/* Horizontal timeline */}
+          <div className="relative">
+            {/* Connecting line */}
+            <div className="hidden lg:block absolute top-8 left-[10%] right-[10%] h-0.5 bg-[#2DB34A]/30" />
+
+            <StaggeredList className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-6" staggerDelay={120}>
+              {processSteps.map((step, i) => (
+                <div key={i} className="relative flex flex-col items-center text-center">
+                  {/* Number badge */}
+                  <div className="w-16 h-16 rounded-full bg-[#2DB34A] flex items-center justify-center text-white font-oswald text-xl font-bold mb-6 relative z-10 shadow-lg shadow-[#2DB34A]/20">
+                    {i + 1}
+                  </div>
+
+                  {/* Card */}
+                  <div className="bg-[#1E2125] rounded-xl p-5 border border-white/5 w-full">
+                    <div className="text-[#2DB34A] mb-3 flex justify-center">{processIcons[i]}</div>
+                    <h3 className="font-oswald text-lg font-bold text-white mb-3">{step.title}</h3>
+                    <ul className="space-y-1.5">
+                      {step.items.map((item, j) => (
+                        <li key={j} className="text-[#8B9199] text-xs flex items-start gap-1.5">
+                          <span className="text-[#2DB34A] mt-0.5">•</span>
+                          <span>{item}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                </div>
+              ))}
+            </StaggeredList>
+          </div>
+        </div>
+      </section>
+
+      {/* 6. BENTO GRID — project showcase */}
       <BentoGrid
         items={services.map((s, i) => ({
           id: `service-${i}`,
           title: s.name,
           subtitle: s.description,
           image: s.image,
-          // Optional/Mock metadata for visual flair if specific data isn't in i18n yet
           date: i === 0 ? '2025' : undefined,
           location: i === 0 ? 'İstanbul' : undefined
         }))}
       />
 
-
-
-      {/* MODIFIED: Capabilities Section (Was About) */}
-      <section className="py-24 px-4 md:px-6 bg-[#131518] relative overflow-hidden">
-        <div className="absolute inset-0 opacity-5 pointer-events-none" style={{ backgroundImage: 'radial-gradient(#ffffff 1px, transparent 1px)', backgroundSize: '20px 20px' }} />
-        <div className="container mx-auto max-w-7xl relative z-10">
-          <div className="flex flex-col lg:flex-row gap-20 items-center">
-            <div className="lg:w-1/2 order-2 lg:order-1">
-              <AnimatedSection animation="fadeInRight">
-                <div className="flex items-center gap-2 mb-6">
-                  <div className="h-px w-12 bg-[#2DB34A]" />
-                  <span className="text-[#2DB34A] font-bold uppercase tracking-wider text-sm">{t('mice.home.capabilities.label')}</span>
-                </div>
-                <h2 className="font-oswald text-4xl font-bold text-white mb-8">{t('mice.home.capabilities.title')}</h2>
-                <p className="text-[#D8DEE6] text-lg mb-10 leading-relaxed">
-                  {t('mice.home.capabilities.desc')}
-                </p>
-
-                <div className="mt-12">
-                  <Link
-                    to="/mice/isler-gucler"
-                    className="border border-white/20 text-white font-bold py-4 px-8 rounded-xl hover:bg-white hover:text-[#0B3A5B] transition-colors hover:shadow-lg inline-block"
-                  >
-                    {t('mice.home.capabilities.cta')}
-                  </Link>
-                </div>
-              </AnimatedSection>
-            </div>
-
-            <div className="lg:w-1/2 order-1 lg:order-2">
-              <div className="relative">
-                <div className="grid grid-cols-2 gap-4">
-                  <img
-                    alt="Group of people toasting with drinks at a sunny outdoor event"
-                    className="rounded-xl object-cover h-80 w-full shadow-lg transform translate-y-12 brightness-90 hover:brightness-100 transition-all duration-500"
-                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuCv6Tsog9T0tNgPDROvFUG1affI1fvpQoZRf2p2auR-vODkErmvVSFXcLsUko9qFK1f4KZ6C6RFOOXWqFRbHUJuydcrBuQTuvNnPUOna_LVbry3dsmQ_UUM0qqPGaqiqClSIro0ei77tkYlY7ivt0Mq53TFdMDhHVU768Yd1M8kEJhxiyQRbP7kdqmjLdETqEemHXoRQdJl0-hj7ukDqCD-MAm-rD_fNEUnKR4D_PQ4jbkIlQCooM_iFSyTvpiiU6EOEllnUoZ91A"
-                    loading="lazy"
-                  />
-                  <img
-                    alt="Modern event venue interior with architectural details and lighting"
-                    className="rounded-xl object-cover h-80 w-full shadow-lg brightness-90 hover:brightness-100 transition-all duration-500"
-                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuCeQrYZZ33if6SA-vyDmpJNfbi7DtM72h1ClX4OTuKm8zLmz42_gDFrhtqaxHJGD5FD25XYD3Wrbk5YYCPxBpW92zzUDRCdRpbk9jixGBXf0gWbSiI019Efjhbusiyblu7kivUJLtHhwUzX8CS9UjlE3Dmgtmk1R8N9BMWCMlJJTPNu-OCHhmQmHMR_TSfEh0ZMpy1iRC47_1Y4WxOUJBmH_9UVPYGpKMwtjfM57ZkiriQ497JX1sjQFVrHDUp-C5UiprucjqT3qw"
-                    loading="lazy"
-                  />
-                </div>
-                <div className="absolute -z-10 -bottom-8 -left-8 w-48 h-48 bg-[#2DB34A]/20 rounded-full blur-3xl" />
-                <div className="absolute -z-10 top-8 -right-8 w-48 h-48 bg-[#0B3A5B]/30 rounded-full blur-3xl" />
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* NEW: Editorial Testimonials */}
-      <section className="py-24 px-4 bg-[#1A1C20] border-t border-white/5">
-        <div className="container mx-auto max-w-6xl">
-          <div className="text-center mb-16">
-            <span className="text-[#2DB34A] font-bold uppercase tracking-wider text-sm">{t('mice.home.testimonials.label')}</span>
-            <h2 className="font-oswald text-4xl text-white mt-2">{t('mice.home.testimonials.title')}</h2>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
-            {testimonials.map((t, i) => (
-              <div key={i} className="bg-[#16181b] p-10 rounded-2xl relative border border-white/5 hover:border-[#2DB34A]/30 transition-colors">
-                <Quote className="absolute top-8 left-8 w-10 h-10 text-[#2DB34A]/20" />
-                <p className="text-[#D8DEE6] text-xl font-serif italic mb-8 relative z-10 leading-relaxed">
-                  "{t.quote}"
-                </p>
-                <div className="flex items-center gap-4">
-                  <div className="w-12 h-12 rounded-full bg-[#2DB34A] flex items-center justify-center text-white font-bold text-lg">
-                    {t.author.charAt(0)}
-                  </div>
-                  <div>
-                    <h4 className="text-white font-bold text-lg">{t.author}</h4>
-                    <span className="text-[#8B9199] text-sm">{t.role}</span>
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* CTA Section */}
+      {/* 7. CTA Section */}
       <section className="py-24 px-4 bg-[#0B3A5B] text-white relative overflow-hidden">
         <div className="absolute inset-0 opacity-10" style={{ backgroundImage: 'radial-gradient(#2DB34A 1px, transparent 1px)', backgroundSize: '30px 30px' }} />
         <div className="absolute top-0 right-0 w-96 h-96 bg-[#2DB34A] rounded-full blur-[100px] opacity-20 -translate-y-1/2 translate-x-1/3" />

@@ -16,6 +16,7 @@ import ElectrovitNedirPage from "./pages/ElectrovitNedirPage";
 import ExoshinePage from "./pages/ExoshinePage";
 import MiceHome from "./pages/MiceHome";
 import MiceAbout from "./pages/MiceAbout";
+import MicePartners from "./pages/MicePartners";
 import StoreLocatorPage from "./pages/StoreLocatorPage";
 import WorksPage from "./pages/WorksPage";
 import TeamPage from "./pages/TeamPage";
@@ -53,6 +54,7 @@ const App = () => (
                 <Route path="/mice" element={<MiceHome />} />
                 <Route path="/mice/hakkimizda" element={<MiceAbout />} />
                 <Route path="/mice/isler-gucler" element={<WorksPage />} />
+                <Route path="/mice/partnerlerimiz" element={<MicePartners />} />
                 <Route path="/mice/etkinlikler" element={<MiceHome />} />
                 <Route path="/mice/iletisim" element={<ContactPage />} />
                 <Route path="/iletisim" element={<ContactPage />} />

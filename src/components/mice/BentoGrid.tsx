@@ -8,6 +8,7 @@ interface BentoEvent {
     id?: string;
     title: string;
     subtitle: string;
+    description?: string;
     date?: string;
     location?: string;
     image: string;
@@ -137,7 +138,7 @@ const BentoGrid = ({ items }: BentoGridProps) => {
                                     </motion.h2>
 
                                     <motion.p layoutId={`desc-${selectedId}`} className="text-gray-300 mb-8 leading-relaxed">
-                                        {selectedEvent.subtitle} {selectedEvent.subtitle} {/* Duplicating for mock length as description might be short */}
+                                        {selectedEvent.description || selectedEvent.subtitle}
                                     </motion.p>
 
                                     <div className="flex flex-wrap gap-4 text-sm text-gray-400 mb-8">

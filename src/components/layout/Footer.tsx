@@ -95,6 +95,11 @@ const Footer = () => {
                     </Link>
                   </li>
                   <li>
+                    <Link to="/mice/partnerlerimiz" className={cn('transition-colors', brandHover)}>
+                      {t('mice.aboutUs.partners.pageTitle')}
+                    </Link>
+                  </li>
+                  <li>
                     <Link to="/mice/iletisim" className={cn('transition-colors', brandHover)}>
                       {t('footer.contactLink')}
                     </Link>
@@ -216,18 +221,18 @@ const Footer = () => {
             <ul className="space-y-3 text-sm">
               <li className="flex items-start gap-2">
                 <MapPin className={cn('w-4 h-4 mt-0.5 flex-shrink-0', brandColor)} />
-                <span>Emniyetevler Mahallesi Kale Sokak 2/A Kağıthane/İSTANBUL</span>
+                <span>{brand === 'mice' ? 'Fulya, Ortaklar Cd. No.14 K.3 D.5, 34360 Şişli/İstanbul' : 'Emniyetevler Mahallesi Kale Sokak 2/A Kağıthane/İSTANBUL'}</span>
               </li>
               <li className="flex items-center gap-2">
                 <Phone className={cn('w-4 h-4 flex-shrink-0', brandColor)} />
-                <a href="tel:+905360320838" className={cn('transition-colors', brandHover)}>
-                  +90 536 032 08 38
+                <a href={brand === 'mice' ? 'tel:+902122164752' : 'tel:+905360320838'} className={cn('transition-colors', brandHover)}>
+                  {brand === 'mice' ? '+90 212 216 47 52' : '+90 536 032 08 38'}
                 </a>
               </li>
               <li className="flex items-center gap-2">
                 <Mail className={cn('w-4 h-4 flex-shrink-0', brandColor)} />
-                <a href="mailto:info@wellworksturkey.com" className={cn('transition-colors', brandHover)}>
-                  info@wellworksturkey.com
+                <a href={brand === 'mice' ? 'mailto:info@wellworksturkey.com' : 'mailto:info@wellworksturkey.com'} className={cn('transition-colors', brandHover)}>
+                  {brand === 'mice' ? 'info@wellworksturkey.com' : 'info@wellworksturkey.com'}
                 </a>
               </li>
             </ul>

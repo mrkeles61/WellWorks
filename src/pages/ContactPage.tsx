@@ -24,6 +24,9 @@ const ContactPage = () => {
   }, [setBrand]);
 
   const accent = brand === 'mice' ? '#10b981' : '#00a5e0';
+  const contactPhone = brand === 'mice' ? t('mice.contact.phone') : t('contact.phone.content');
+  const contactEmail = brand === 'mice' ? t('mice.contact.email') : t('contact.email.content');
+  const contactAddress = brand === 'mice' ? t('mice.contact.address') : t('contact.address.content');
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -79,7 +82,7 @@ const ContactPage = () => {
               </div>
               <h3 className="text-lg font-bold text-gray-900 mb-2">{t('contact.address.title')}</h3>
               <p className="text-gray-600 text-base leading-relaxed">
-                {t('contact.address.content')}
+                {contactAddress}
               </p>
             </div>
             {/* Phone Card */}
@@ -88,7 +91,7 @@ const ContactPage = () => {
                 <span className="material-symbols-outlined text-3xl">phone_in_talk</span>
               </div>
               <h3 className="text-lg font-bold text-gray-900 mb-2">{t('contact.phone.title')}</h3>
-              <p className="text-gray-600 text-base">{t('contact.phone.content')}</p>
+              <p className="text-gray-600 text-base">{contactPhone}</p>
             </div>
             {/* Email Card */}
             <div className="bg-white rounded-2xl shadow-lg shadow-gray-200/50 p-8 flex flex-col items-center text-center transition-transform hover:-translate-y-1 duration-300 border border-gray-100">
@@ -96,7 +99,7 @@ const ContactPage = () => {
                 <span className="material-symbols-outlined text-3xl">mail</span>
               </div>
               <h3 className="text-lg font-bold text-gray-900 mb-2">{t('contact.email.title')}</h3>
-              <a className="text-base font-medium hover:underline" style={{ color: accent }} href={`mailto:${t('contact.email.content')}`}>{t('contact.email.content')}</a>
+              <a className="text-base font-medium hover:underline" style={{ color: accent }} href={`mailto:${contactEmail}`}>{contactEmail}</a>
             </div>
           </div>
         </AnimatedSection>
@@ -108,7 +111,10 @@ const ContactPage = () => {
             <div className="w-full h-full min-h-[400px] lg:min-h-[600px] rounded-2xl overflow-hidden shadow-md relative group">
               <div className="absolute inset-0 bg-gray-200 animate-pulse" />
               <iframe
-                src="https://www.google.com/maps/embed/v1/place?key=AIzaSyBFw0Qbyq9zTFTd-tUY6dZWTgaQzuU17R8&q=Emniyetevler+Mahallesi+Kale+Sokak+2%2FA+Ka%C4%9F%C4%B1thane+%C4%B0stanbul&zoom=16"
+                src={brand === 'mice'
+                  ? 'https://www.google.com/maps/embed/v1/place?key=AIzaSyBFw0Qbyq9zTFTd-tUY6dZWTgaQzuU17R8&q=Fulya+Ortaklar+Cd.+No.14+%C5%9Ei%C5%9Fli+%C4%B0stanbul&zoom=16'
+                  : 'https://www.google.com/maps/embed/v1/place?key=AIzaSyBFw0Qbyq9zTFTd-tUY6dZWTgaQzuU17R8&q=Emniyetevler+Mahallesi+Kale+Sokak+2%2FA+Ka%C4%9F%C4%B1thane+%C4%B0stanbul&zoom=16'
+                }
                 width="100%"
                 height="100%"
                 style={{ border: 0 }}
@@ -163,31 +169,14 @@ const ContactPage = () => {
                   </div>
                 </div>
 
-                {/* Company & Subject Grid */}
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-                  <div>
-                    <label className="block text-sm font-semibold text-gray-700 mb-2" htmlFor="company">{t('contact.form.company')}</label>
-                    <div className="relative">
-                      <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none text-gray-400">
-                        <span className="material-symbols-outlined text-[20px]">business</span>
-                      </div>
-                      <input className="block w-full pl-10 rounded-lg border-gray-200 bg-gray-50 text-gray-900 focus:border-[var(--accent)] focus:ring-[var(--accent)] sm:text-sm py-3" id="company" name="company" placeholder={t('contact.form.companyPlaceholder')} type="text" />
+                {/* Company */}
+                <div>
+                  <label className="block text-sm font-semibold text-gray-700 mb-2" htmlFor="company">{t('contact.form.company')}</label>
+                  <div className="relative">
+                    <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none text-gray-400">
+                      <span className="material-symbols-outlined text-[20px]">business</span>
                     </div>
-                  </div>
-                  <div>
-                    <label className="block text-sm font-semibold text-gray-700 mb-2" htmlFor="subject">{t('contact.form.subject')}</label>
-                    <div className="relative">
-                      <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none text-gray-400">
-                        <span className="material-symbols-outlined text-[20px]">topic</span>
-                      </div>
-                      <select className="block w-full pl-10 rounded-lg border-gray-200 bg-gray-50 text-gray-900 focus:border-[var(--accent)] focus:ring-[var(--accent)] sm:text-sm py-3" id="subject" name="subject">
-                        <option disabled value="">{t('contact.form.subjectPlaceholder')}</option>
-                        <option value="genel">{t('contact.form.subjectGeneral')}</option>
-                        <option value="satis">{t('contact.form.subjectProduct')}</option>
-                        <option value="isbirligi">{t('contact.form.subjectPartnership')}</option>
-                        <option value="diger">{t('contact.form.subjectOther')}</option>
-                      </select>
-                    </div>
+                    <input className="block w-full pl-10 rounded-lg border-gray-200 bg-gray-50 text-gray-900 focus:border-[var(--accent)] focus:ring-[var(--accent)] sm:text-sm py-3" id="company" name="company" placeholder={t('contact.form.companyPlaceholder')} type="text" />
                   </div>
                 </div>
 
