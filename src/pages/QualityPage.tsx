@@ -1,14 +1,13 @@
 import { useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useBrand } from '@/hooks/useBrand';
-import { ShieldCheck, FlaskConical, HeartPulse, Factory, Leaf } from 'lucide-react';
+import { ShieldCheck, FlaskConical, Factory, Leaf } from 'lucide-react';
 import AnimatedSection from '@/components/shared/AnimatedSection';
 
 const certs = [
     { key: 'iso9001', subKey: 'iso9001Sub', icon: ShieldCheck },
     { key: 'iso22000', subKey: 'iso22000Sub', icon: ShieldCheck },
     { key: 'gmp', subKey: 'gmpSub', icon: FlaskConical },
-    { key: 'iso13485', subKey: 'iso13485Sub', icon: HeartPulse },
 ];
 
 const QualityPage = () => {
@@ -43,7 +42,7 @@ const QualityPage = () => {
                             <h3 className="text-2xl font-bold">{t('quality.certsTitle')}</h3>
                             <div className="h-px flex-1 bg-gradient-to-r from-[#00bbe0]/20 to-transparent ml-8" />
                         </div>
-                        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
                             {certs.map((cert) => {
                                 const Icon = cert.icon;
                                 return (

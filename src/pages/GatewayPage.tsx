@@ -6,7 +6,6 @@ import { cn } from '@/lib/utils';
 import { useState, useEffect, useRef } from 'react';
 import { animate, stagger } from 'animejs';
 import { Button } from '@/components/ui/button';
-import { FaWhatsapp } from 'react-icons/fa';
 
 /**
  * GatewayPage - 50/50 Split with Header & Footer
@@ -48,7 +47,6 @@ const GatewayPage = () => {
   };
 
   const socialLinks = [
-    { icon: FaWhatsapp, href: 'https://wa.me/905360320838?text=Merhaba,%20bilgi%20almak%20istiyorum', label: 'WhatsApp' },
     { icon: Mail, href: 'mailto:pazarlama@wellworksturkey.com', label: 'Email' },
   ];
 
