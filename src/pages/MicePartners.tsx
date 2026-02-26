@@ -25,6 +25,10 @@ const partners = [
     { name: 'Bubilet', logo: '/images/mice/partners/bubilet.png' },
     { name: 'Power Türk', logo: '/images/mice/partners/powerturk.png' },
     { name: 'Akbank', logo: '/images/mice/partners/akbank.png' },
+    { name: 'Hilltown İstanbul', logo: '/images/mice/partners/hilltown.png' },
+    { name: 'Hilltown İzmir', logo: '/images/mice/partners/hilltown.png' },
+    { name: 'Maltepe Park', logo: '/images/mice/partners/maltepe_park.png' },
+    { name: 'Rönesans Holding', logo: '/images/mice/partners/ronesans.png' },
 ];
 
 const MicePartners = () => {

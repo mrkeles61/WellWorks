@@ -112,8 +112,8 @@ const ContactPage = () => {
               <div className="absolute inset-0 bg-gray-200 animate-pulse" />
               <iframe
                 src={brand === 'mice'
-                  ? 'https://www.google.com/maps/embed/v1/place?key=AIzaSyBFw0Qbyq9zTFTd-tUY6dZWTgaQzuU17R8&q=Fulya+Ortaklar+Cd.+No.14+%C5%9Ei%C5%9Fli+%C4%B0stanbul&zoom=16'
-                  : 'https://www.google.com/maps/embed/v1/place?key=AIzaSyBFw0Qbyq9zTFTd-tUY6dZWTgaQzuU17R8&q=Emniyetevler+Mahallesi+Kale+Sokak+2%2FA+Ka%C4%9F%C4%B1thane+%C4%B0stanbul&zoom=16'
+                  ? 'https://www.google.com/maps/embed/v1/place?key=AIzaSyBFw0Qbyq9zTFTd-tUY6dZWTgaQzuU17R8&q=Yahya+Kemal+Mahallesi+Talat+Pa%C5%9Fa+Caddesi+No:441+A+Ka%C4%9F%C4%B1thane+%C4%B0stanbul&zoom=16'
+                  : 'https://www.google.com/maps/embed/v1/place?key=AIzaSyBFw0Qbyq9zTFTd-tUY6dZWTgaQzuU17R8&q=Emniyet+Evler+Mahallesi+Akarsu+Caddesi+Kale+Sokak+No:2%2FA+Ka%C4%9F%C4%B1thane+%C4%B0stanbul&zoom=16'
                 }
                 width="100%"
                 height="100%"

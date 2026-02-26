@@ -272,8 +272,8 @@ export const aboutContent = {
 
 // Contact information
 export const contactInfo = {
-  address: 'Emniyetevler Mahallesi Kale Sokak 2/A Kağıthane/ISTANBUL',
-  phone: '+90 536 032 08 38',
+  address: 'Emniyet Evler Mahallesi Akarsu Caddesi Kale Sokak No:2/A 34260 Kağıthane/İstanbul',
+  phone: '+90 542 426 46 30',
   email: 'info@wellworksturkey.com',
   social: {
     instagram: 'https://www.instagram.com/dailyshottr/',

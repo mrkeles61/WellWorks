@@ -221,12 +221,12 @@ const Footer = () => {
             <ul className="space-y-3 text-sm">
               <li className="flex items-start gap-2">
                 <MapPin className={cn('w-4 h-4 mt-0.5 flex-shrink-0', brandColor)} />
-                <span>{brand === 'mice' ? 'Fulya, Ortaklar Cd. No.14 K.3 D.5, 34360 Şişli/İstanbul' : 'Emniyetevler Mahallesi Kale Sokak 2/A Kağıthane/İSTANBUL'}</span>
+                <span>{brand === 'mice' ? 'Yahya Kemal Mahallesi Talat Paşa Caddesi No:441 A Kağıthane/İstanbul' : 'Emniyet Evler Mahallesi Akarsu Caddesi Kale Sokak No:2/A 34260 Kağıthane/İstanbul'}</span>
               </li>
               <li className="flex items-center gap-2">
                 <Phone className={cn('w-4 h-4 flex-shrink-0', brandColor)} />
-                <a href={brand === 'mice' ? 'tel:+902122164752' : 'tel:+905360320838'} className={cn('transition-colors', brandHover)}>
-                  {brand === 'mice' ? '+90 212 216 47 52' : '+90 536 032 08 38'}
+                <a href='tel:+905424264630' className={cn('transition-colors', brandHover)}>
+                  +90 542 426 46 30
                 </a>
               </li>
               <li className="flex items-center gap-2">

@@ -369,8 +369,8 @@ const resources = {
       },
       mice: {
         contact: {
-          address: 'Fulya, Ortaklar Cd. No.14 K.3 D.5, 34360 Şişli/İstanbul',
-          phone: '+90 212 216 47 52',
+          address: 'Yahya Kemal Mahallesi Talat Paşa Caddesi No:441 A Kağıthane/İstanbul',
+          phone: '+90 542 426 46 30',
           email: 'info@wellworksturkey.com',
         },
         hero: {
@@ -601,7 +601,7 @@ const resources = {
             title: 'Bir Sonraki Etkinliğiniz <0>Efsane</0> Olsun',
             desc: 'Hayalinizdeki organizasyonu gerçeğe dönüştürmek için bizimle iletişime geçin. Sizin için mükemmeli tasarlayalım.',
             button: 'Hemen Teklif Al',
-            call: 'Bizi Arayın: 0 (212) 216 47 52',
+            call: 'Bizi Arayın: 0 (542) 426 46 30',
           },
         },
         faq: {
@@ -720,11 +720,11 @@ const resources = {
         },
         address: {
           title: 'Adres',
-          content: 'Emniyetevler Mahallesi Kale Sokak 2/A Kağıthane/İSTANBUL',
+          content: 'Emniyet Evler Mahallesi Akarsu Caddesi Kale Sokak No:2/A 34260 Kağıthane/İstanbul',
         },
         phone: {
           title: 'Telefon',
-          content: '0 536 032 08 38',
+          content: '0 542 426 46 30',
         },
         email: {
           title: 'E-posta',
@@ -833,12 +833,12 @@ KVKK'nun 4. maddesi uyarınca Firmamızın kişisel verilerinizi doğru ve günc
 • İşlenen verilerin münhasıran otomatik sistemler vasıtasıyla analiz edilmesi suretiyle kişinin kendisi aleyhine bir sonucun ortaya çıkmasına itiraz etme,
 • Kişisel verilerin kanuna aykırı olarak işlenmesi sebebiyle zarara uğraması hâlinde zararın giderilmesini talep etme.
 
-İstanbul Ticaret Odası'nın 422501-5 sicil sayısında kayıtlı, 0801158805500001 MERSİS numarasına sahip, Fulya mahallesi Ortaklar caddesi No:14/5 Şişli/İstanbul adresinde bulunan Well Works Turkey Health İlaç Gıda ve Sağlık Ürünleri Sanayi Ticaret Limited Şirketi, KVKK kapsamında Veri Sorumlusu'dur.
+İstanbul Ticaret Odası'nın 422501-5 sicil sayısında kayıtlı, 0801158805500001 MERSİS numarasına sahip, Emniyet Evler Mahallesi Akarsu Caddesi Kale Sokak No:2/A 34260 Kağıthane/İstanbul adresinde bulunan Well Works Turkey Health İlaç Gıda ve Sağlık Ürünleri Sanayi Ticaret Limited Şirketi, KVKK kapsamında Veri Sorumlusu'dur.
 
 Kişisel Veri Sahipleri, sorularını, görüşlerini veya taleplerini aşağıdaki iletişim kanallarından herhangi birisine yöneltebilir:
 
 E-posta: info@wellworksturkey.com
-Telefon: +90 536 032 08 38`,
+Telefon: +90 542 426 46 30`,
           s1Title: 'Veri Sorumlusu',
           s1Content: 'Well Works Health İlaç Gıda Ve Sağlık Ürünleri Sanayi Tic. Ltd. Şti., 6698 Sayılı Kişisel Verilerin Korunması Kanunu (KVKK) kapsamında Veri Sorumlusu sıfatıyla kişisel verilerinizi işlemektedir.',
           s2Title: 'Kişisel Verilerin İşlenmesi',
@@ -848,7 +848,7 @@ Telefon: +90 536 032 08 38`,
           s4Title: 'Haklarınız',
           s4Content: 'KVKK\'nun 11. maddesi uyarınca aşağıdaki haklara sahipsiniz:\n\n• Kişisel veri işlenip işlenmediğini öğrenme\n• Kişisel verileri işlenmişse buna ilişkin bilgi talep etme\n• Kişisel verilerin işlenme amacını öğrenme\n• Yurt içinde veya yurt dışında aktarıldığı üçüncü kişileri bilme\n• Eksik veya yanlış işlenmiş verilerin düzeltilmesini isteme\n• Verilerin silinmesini veya yok edilmesini isteme',
           s5Title: 'İletişim',
-          s5Content: 'Kişisel verilerinizle ilgili sorularınız veya talepleriniz için bizimle iletişime geçebilirsiniz:\n\nE-posta: info@wellworksturkey.com\nTelefon: +90 536 032 08 38',
+          s5Content: 'Kişisel verilerinizle ilgili sorularınız veya talepleriniz için bizimle iletişime geçebilirsiniz:\n\nE-posta: info@wellworksturkey.com\nTelefon: +90 542 426 46 30',
         },
         cookies: {
           title: 'Çerez Politikası',
@@ -1459,8 +1459,8 @@ Telefon: +90 536 032 08 38`,
       },
       mice: {
         contact: {
-          address: 'Fulya, Ortaklar Cd. No.14 K.3 D.5, 34360 Şişli/İstanbul',
-          phone: '+90 212 216 47 52',
+          address: 'Yahya Kemal Mahallesi Talat Paşa Caddesi No:441 A Kağıthane/İstanbul',
+          phone: '+90 542 426 46 30',
           email: 'info@wellworksturkey.com',
         },
         hero: {
@@ -1810,11 +1810,11 @@ Telefon: +90 536 032 08 38`,
         },
         address: {
           title: 'Address',
-          content: 'Emniyetevler Mah. Kale Sok. 2/A, Kağıthane, Istanbul, Turkey',
+          content: 'Emniyet Evler Mah. Akarsu Cad. Kale Sok. No:2/A, 34260 Kağıthane, Istanbul, Turkey',
         },
         phone: {
           title: 'Phone',
-          content: '+90 536 032 08 38',
+          content: '+90 542 426 46 30',
         },
         email: {
           title: 'Email',
@@ -1859,7 +1859,7 @@ Telefon: +90 536 032 08 38`,
           s4Title: 'Your Rights',
           s4Content: 'Under Article 11 of KVKK, you have the following rights:\n\n• Learn whether your personal data is being processed\n• Request information about data processing\n• Learn the purpose of data processing\n• Know the third parties to whom data is transferred\n• Request correction of incomplete or inaccurate data\n• Request deletion or destruction of data',
           s5Title: 'Contact',
-          s5Content: 'For questions or requests regarding your personal data, please contact us:\n\nEmail: info@wellworksturkey.com\nPhone: +90 536 032 08 38',
+          s5Content: 'For questions or requests regarding your personal data, please contact us:\n\nEmail: info@wellworksturkey.com\nPhone: +90 542 426 46 30',
         },
         cookies: {
           title: 'Cookie Policy',
