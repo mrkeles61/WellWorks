@@ -113,7 +113,7 @@ const ContactPage = () => {
               <iframe
                 src={brand === 'mice'
                   ? 'https://www.google.com/maps/embed/v1/place?key=AIzaSyBFw0Qbyq9zTFTd-tUY6dZWTgaQzuU17R8&q=Yahya+Kemal+Mahallesi+Talat+Pa%C5%9Fa+Caddesi+No:441+A+Ka%C4%9F%C4%B1thane+%C4%B0stanbul&zoom=16'
-                  : 'https://www.google.com/maps/embed/v1/place?key=AIzaSyBFw0Qbyq9zTFTd-tUY6dZWTgaQzuU17R8&q=Emniyet+Evler+Mahallesi+Akarsu+Caddesi+Kale+Sokak+No:2%2FA+Ka%C4%9F%C4%B1thane+%C4%B0stanbul&zoom=16'
+                  : 'https://www.google.com/maps/embed/v1/place?key=AIzaSyBFw0Qbyq9zTFTd-tUY6dZWTgaQzuU17R8&q=41.086597,29.003080&zoom=16'
                 }
                 width="100%"
                 height="100%"
